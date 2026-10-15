@@ -26,18 +26,64 @@
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@type": "ProfessionalService",
-    "name": "홍스랩",
-    "alternateName": "HONGS LAB",
-    "description": "사업에 꼭 맞는 앱과 홈페이지를 제작하는 맞춤형 웹·앱 제작 스튜디오",
-    "url": "https://hongslab.kr/",
-    "logo": "https://hongslab.kr/logo.png",
-    "image": "https://hongslab.kr/og.jpg",
-    "telephone": "+82-10-8603-9867",
-    "email": "hongslab1@naver.com",
-    "founder": { "@type": "Person", "name": "홍순경" },
-    "areaServed": "KR",
-    "sameAs": ["https://pf.kakao.com/_KxojrX"]
+    "@graph": [
+      {
+        "@type": "ProfessionalService",
+        "@id": "https://hongslab.kr/#business",
+        "name": "홍스랩",
+        "alternateName": "HONGS LAB",
+        "description": "소상공인·지역 업체·기업을 위한 맞춤형 홈페이지와 웹앱 제작 스튜디오. 무료 상담 후 자료 접수 3영업일부터 제작하며, 실속형 199,000원부터(부가세 별도) 시작합니다.",
+        "url": "https://hongslab.kr/",
+        "logo": "https://hongslab.kr/logo.png",
+        "image": "https://hongslab.kr/og.jpg",
+        "telephone": "+82-10-8603-9867",
+        "email": "hongslab1@naver.com",
+        "founder": { "@type": "Person", "name": "홍순경" },
+        "taxID": "176-43-01356",
+        "areaServed": { "@type": "Country", "name": "대한민국" },
+        "priceRange": "₩199,000~",
+        "knowsAbout": ["홈페이지 제작", "반응형 웹사이트", "웹앱 개발", "랜딩페이지", "소상공인 홈페이지", "검색엔진 등록"],
+        "sameAs": ["https://pf.kakao.com/_KxojrX"],
+        "hasOfferCatalog": {
+          "@type": "OfferCatalog",
+          "name": "홈페이지 제작 요금제",
+          "itemListElement": [
+            {
+              "@type": "Offer",
+              "name": "실속형",
+              "description": "개인 영업자·소규모 업체용. 한 페이지(최대 5개 구역), 준비된 디자인 중 선택, PC·모바일 대응, 전화·카카오톡·지도 링크, 외부 문의 링크, 검색 기본 설정, 배포 후 1개월간 수정 무제한. 제작 기간 3~5영업일.",
+              "price": "199000",
+              "priceCurrency": "KRW",
+              "priceSpecification": { "@type": "PriceSpecification", "minPrice": "199000", "priceCurrency": "KRW", "valueAddedTaxIncluded": false }
+            },
+            {
+              "@type": "Offer",
+              "name": "기본형",
+              "description": "지역 업체·소상공인용. 최대 3페이지(최대 12개 구역), 색상·배치 조정, PC·모바일 대응, 전화·카카오톡·지도 연결, 기본 문의폼 1개, 검색도구 등록 지원, 배포 후 1개월간 수정 무제한. 제작 기간 5~10영업일.",
+              "price": "299000",
+              "priceCurrency": "KRW",
+              "priceSpecification": { "@type": "PriceSpecification", "minPrice": "299000", "priceCurrency": "KRW", "valueAddedTaxIncluded": false }
+            },
+            {
+              "@type": "Offer",
+              "name": "확장형",
+              "description": "소개할 서비스와 콘텐츠가 많은 기업용. 최대 5페이지(최대 20개 구역), 사전 협의 맞춤 구성, PC·모바일 대응, 전화·카카오톡·지도 연결, 기본 문의폼 1개, 페이지별 검색 설정, 배포 후 1개월간 수정 무제한. 제작 기간 10~15영업일.",
+              "price": "599000",
+              "priceCurrency": "KRW",
+              "priceSpecification": { "@type": "PriceSpecification", "minPrice": "599000", "priceCurrency": "KRW", "valueAddedTaxIncluded": false }
+            }
+          ]
+        }
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://hongslab.kr/#website",
+        "url": "https://hongslab.kr/",
+        "name": "홍스랩",
+        "inLanguage": "ko-KR",
+        "publisher": { "@id": "https://hongslab.kr/#business" }
+      }
+    ]
   }
   </script>
   <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
@@ -456,10 +502,10 @@
         <h2 class="reveal">좋은 홈페이지는 결국<br><span class="hl">HONGS LAB</span>처럼<br>사업을 이해하는 사람이 만듭니다.</h2>
         <p class="desc reveal">화려한 효과보다 고객이 전화하고 문의하게 만드는 구조를 먼저 설계합니다.<br>업종, 동선, 연락 방법을 하나하나 맞춰 오래 쓸수록 편한 홈페이지와 웹앱을 만듭니다.</p>
         <ul class="stats reveal">
-          <li><div class="num"><span class="count" data-to="15">0</span>+</div><div class="lab">Projects</div></li>
-          <li><div class="num"><span class="count" data-to="3">0</span><small>영업일</small></div><div class="lab">Fastest</div></li>
-          <li><div class="num"><span class="count" data-to="19.9" data-dec="1">0</span><small>만원~</small></div><div class="lab">From</div></li>
-          <li><div class="num"><span class="count" data-to="100">0</span>%</div><div class="lab">Responsive</div></li>
+          <li><div class="num"><span class="count" data-to="15">15</span>+</div><div class="lab">Projects</div></li>
+          <li><div class="num"><span class="count" data-to="3">3</span><small>영업일</small></div><div class="lab">Fastest</div></li>
+          <li><div class="num"><span class="count" data-to="19.9" data-dec="1">19.9</span><small>만원~</small></div><div class="lab">From</div></li>
+          <li><div class="num"><span class="count" data-to="100">100</span>%</div><div class="lab">Responsive</div></li>
         </ul>
         <div class="reveal"><button type="button" class="btn js-open-inquiry">Free Consulting <span class="ar">→</span></button></div>
       </div>
