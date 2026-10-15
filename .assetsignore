@@ -1,2 +1,4 @@
 .git
 .wrangler
+wrangler.jsonc
+.assetsignore
