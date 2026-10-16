@@ -1,5 +1,6 @@
 /* 홍스랩 제작사례 목록 — index.html, portfolio.html 이 함께 사용 */
 const PORTFOLIO=[
+ ['http://soksiwon-air.com/','속시원 에어컨 견적 웹앱','웹앱·서비스 업체'],
  ['https://www.woojunggift.com/','우정티켓 홈페이지','서비스 업체'],
  ['https://www.doorguard24.com/','도어가드24 홈페이지','서비스 업체'],
  ['https://gingmoji00.mycafe24.com/','깅모지 쇼핑몰','쇼핑몰'],
@@ -16,7 +17,6 @@ const PORTFOLIO=[
  ['https://nbh0000.github.io/phoneshop-web/','폰다이렉트 홈페이지','판매·유통'],
  ['https://nbh0000.github.io/renderfit-preview/','렌더핏 웹앱','웹앱'],
  ['https://gunaminc.kr/','(주)구남종합인력 홈페이지','서비스 업체'],
- ['https://cheheompick.kr/','체험픽 웹앱','웹앱·플랫폼'],
- ['http://soksiwon-air.com/','속시원 에어컨 견적 웹앱','웹앱·서비스 업체']
+ ['https://cheheompick.kr/','체험픽 웹앱','웹앱·플랫폼']
 ];
 const shot=(url,w)=>`https://s.wordpress.com/mshots/v1/${encodeURIComponent(url)}?w=${w}`;
