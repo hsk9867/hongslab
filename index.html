@@ -294,36 +294,34 @@
     @keyframes loaderBar{to{transform:scaleX(1)}}
     body.loading{overflow:hidden}
 
-    /* ===== Hero (hypedesign 스타일 자동재생 영상 배경) ===== */
-    #hero{position:relative;height:100vh;height:100dvh;min-height:640px;background:var(--black);color:#fff;overflow:hidden}
-    #hero .bgimg{position:absolute;inset:-3%;background:url('hero-bg.jpg') center/cover no-repeat;opacity:.32;filter:grayscale(.3) contrast(1.05);animation:drift 50s ease-in-out infinite}
-    @keyframes drift{0%,100%{transform:scale(1.02) translate(0,0)}50%{transform:scale(1.06) translate(-1%,-.8%)}}
-    #hero .bgvid{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity 1.4s ease;pointer-events:none}
-    #hero .bgvid.ready{opacity:.55}
-    #hero .shade{position:absolute;inset:0;background:radial-gradient(60% 70% at 25% 60%,rgba(10,10,10,.1),rgba(10,10,10,.75) 100%),linear-gradient(to bottom,rgba(10,10,10,.5),rgba(10,10,10,0) 30%,rgba(10,10,10,.7) 100%)}
-    #hero .grain{position:absolute;inset:0;background:repeating-linear-gradient(0deg,rgba(255,255,255,.025) 0 1px,transparent 1px 3px);mix-blend-mode:overlay;pointer-events:none}
+    /* ===== Hero (Particle Drift 배경 + 메시지 슬라이더) ===== */
+    #hero{position:relative;height:100vh;height:100dvh;min-height:680px;background:var(--black);color:#fff;overflow:hidden}
+    #hero .particles{position:absolute;inset:0;width:100%;height:100%;display:block;pointer-events:none}
+    #hero .shade{position:absolute;inset:0;background:radial-gradient(70% 80% at 30% 55%,rgba(10,10,10,0),rgba(10,10,10,.55) 100%),linear-gradient(to bottom,rgba(10,10,10,.55),rgba(10,10,10,0) 28%,rgba(10,10,10,.85) 100%);pointer-events:none}
     #hero .inner{height:100%;display:flex;flex-direction:column;justify-content:center;padding-top:var(--header-h)}
-    #hero .side{position:absolute;left:-112px;top:50%;transform:translateY(-50%) rotate(-90deg);transform-origin:center;display:flex;align-items:center;gap:14px;font-family:var(--en);font-size:10px;font-weight:600;letter-spacing:.3em;text-transform:uppercase;color:rgba(255,255,255,.6);white-space:nowrap}
+    #hero .side{position:absolute;left:-150px;top:50%;transform:translateY(-50%) rotate(-90deg);transform-origin:center;display:flex;align-items:center;gap:14px;font-family:var(--en);font-size:10px;font-weight:600;letter-spacing:.3em;text-transform:uppercase;color:rgba(255,255,255,.6);white-space:nowrap}
     #hero .side:after{content:"";width:40px;height:1px;background:var(--red)}
     #hero .corner{position:absolute;right:0;top:calc(var(--header-h) + 36px);display:flex;align-items:center;gap:14px;font-family:var(--en);font-size:10px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,.7)}
     #hero .corner:before{content:"";width:40px;height:1px;background:rgba(255,255,255,.5)}
-    #hero .eyebrow{color:var(--red);margin-bottom:28px}
-    #hero .eyebrow:before{display:none}
-    #hero h1{font-family:var(--en);font-weight:800;font-size:clamp(64px,11.5vw,160px);line-height:.92;letter-spacing:-.04em;color:#fff}
-    #hero h1 .l2{display:flex;align-items:center;gap:.22em}
-    #hero h1 .l2 i{display:inline-block;width:.16em;height:.16em;border-radius:50%;background:var(--red);flex-shrink:0;margin-top:.04em}
-    #hero .tag{display:flex;align-items:center;gap:22px;margin-top:40px;font-size:clamp(17px,1.7vw,24px);font-weight:500;color:rgba(255,255,255,.92);flex-wrap:wrap}
-    #hero .tag:before{content:"";width:56px;height:2px;background:var(--red);flex-shrink:0}
-    #hero .tag .swap{display:inline-flex;align-items:center;font-family:var(--en);font-weight:700;color:var(--red);letter-spacing:-.02em}
-    #hero .tag .swap .br{font-weight:400;color:var(--red);opacity:.9}
-    #hero .tag .swap .w{display:inline-block;min-width:4.2em;text-align:center;font-family:var(--ko);font-weight:700;color:#fff;padding:0 .15em;transition:opacity .4s ease,transform .4s cubic-bezier(.16,1,.3,1)}
-    #hero .tag .swap .w.out{opacity:0;transform:translateY(-.5em)}
-    #hero .tag .swap .w.in{opacity:0;transform:translateY(.5em);transition:none}
+    #hero .slides{position:relative;min-height:clamp(300px,42vh,460px)}
+    #hero .slide{position:absolute;left:0;right:0;top:0;opacity:0;visibility:hidden;transform:translateY(-12px);transition:opacity .4s ease,transform .4s ease,visibility 0s .4s}
+    #hero .slide.on{opacity:1;visibility:visible;transform:none;transition:opacity .8s ease .35s,transform .9s cubic-bezier(.16,1,.3,1) .35s,visibility 0s}
+    #hero .slide .eyebrow{color:var(--red);margin-bottom:26px}
+    #hero .slide .eyebrow:before{display:none}
+    #hero .slide .eyebrow:after{content:"";width:40px;height:1px;background:var(--red)}
+    #hero .h{font-family:var(--ko);font-weight:800;font-size:clamp(38px,6.4vw,92px);line-height:1.08;letter-spacing:-.04em;color:#fff;max-width:14em}
+    #hero .h .hl{color:var(--red)}
+    #hero .sub{margin-top:28px;font-size:clamp(15px,1.4vw,19px);line-height:1.8;color:rgba(255,255,255,.78);max-width:600px}
+    #hero .acts{display:flex;gap:12px;margin-top:38px;flex-wrap:wrap}
     #hero .bottom{position:absolute;left:0;right:0;bottom:0}
     #hero .bottom .inner{height:auto;padding:0 0 36px;display:flex;align-items:flex-end;justify-content:space-between}
-    #hero .ticker{display:flex;gap:32px;font-family:var(--en);font-size:11px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,.55)}
-    #hero .ticker b{color:#fff;font-weight:700}
-    #hero .ticker b:after{content:"";display:inline-block;width:5px;height:5px;border-radius:50%;background:var(--red);margin-left:10px;vertical-align:middle}
+    #hero .dots{display:flex;gap:6px;align-items:flex-end}
+    #hero .dots button{display:flex;flex-direction:column;align-items:flex-start;gap:10px;padding:8px 10px 0 0;font-family:var(--en);font-size:11px;font-weight:600;letter-spacing:.2em;color:rgba(255,255,255,.45);transition:color var(--t)}
+    #hero .dots button i{display:block;width:44px;height:2px;background:rgba(255,255,255,.2);position:relative;overflow:hidden}
+    #hero .dots button i:after{content:"";position:absolute;inset:0;background:var(--red);transform:scaleX(0);transform-origin:left}
+    #hero .dots button.on{color:#fff}
+    #hero .dots button.on i:after{animation:dotFill var(--hero-dur,6.5s) linear forwards}
+    @keyframes dotFill{to{transform:scaleX(1)}}
     #hero .scroll{display:flex;flex-direction:column;align-items:center;gap:12px;font-family:var(--en);font-size:10px;letter-spacing:.3em;color:rgba(255,255,255,.6)}
     #hero .scroll:after{content:"";width:1px;height:48px;background:linear-gradient(to bottom,var(--red),transparent);animation:scrollLine 1.8s ease-in-out infinite}
     @keyframes scrollLine{0%{transform:scaleY(0);transform-origin:top}50%{transform:scaleY(1);transform-origin:top}51%{transform-origin:bottom}100%{transform:scaleY(0);transform-origin:bottom}}
@@ -527,6 +525,7 @@
 
     /* ===== Responsive ===== */
     @media (max-width:1480px){#hero .side{display:none}}
+    @media (max-width:1340px){#hero .side{display:none}}
     @media (max-width:1024px){
       #header .gnb{display:none}
       #header .cta{display:none}
@@ -543,13 +542,14 @@
       :root{--header-h:72px}
       .inner{max-width:calc(100% - 40px)}
       #hero .side{display:none}
-      #hero .corner{top:calc(var(--header-h) + 18px);font-size:9px}
+      #hero .corner{display:none}
+      #hero{min-height:620px}
+      #hero .slides{min-height:clamp(320px,52vh,480px)}
+      #hero .h{font-size:clamp(34px,9.6vw,52px)}
+      #hero .acts{margin-top:28px}
+      #hero .acts .btn{padding:14px 20px}
+      #hero .dots button i{width:28px}
       #loader .word{font-size:12.5vw}
-      #hero h1{font-size:clamp(58px,17vw,96px)}
-      #hero .tag{margin-top:30px;gap:14px}
-      #hero .tag:before{width:32px}
-      #hero .ticker{display:none}
-      #hero .tag .swap .w{min-width:3.6em}
       #hero .bottom .inner{padding-bottom:24px}
       #intro{padding:110px 0 100px}
       #intro .stats{flex-wrap:wrap;gap:30px 36px;margin:56px 0 44px}
@@ -580,7 +580,7 @@
       .tm-actions{flex-direction:column}
       .tm-close{color:var(--black);mix-blend-mode:normal}
     }
-    @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.rise,.reveal{opacity:1;transform:none}#loader{display:none}#hero .bgvid{display:none}}
+    @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.rise,.reveal{opacity:1;transform:none}#loader{display:none}#hero .particles{display:none}}
   </style>
 </head>
 <body class="loading">
@@ -621,17 +621,33 @@
     <!-- ===== Hero ===== -->
     <section id="hero">
       <a id="top"></a>
-      <div class="bgimg"></div>
-      <video class="bgvid" id="heroVideo" autoplay muted loop playsinline preload="auto" poster="hero-bg.jpg" aria-hidden="true"><source src="hero.mp4" type="video/mp4"></video>
-      <div class="shade"></div><div class="grain"></div>
+      <canvas class="particles" id="particles" aria-hidden="true"></canvas>
+      <div class="shade"></div>
       <div class="inner">
         <div class="side">Web · App Studio · 01</div>
         <div class="corner">Hongs Lab · Custom Web &amp; App</div>
-        <div class="eyebrow red rise" style="transition-delay:.1s">Hongs Lab — Web &amp; App Studio</div>
-        <h1 class="rise" style="transition-delay:.25s"><span class="sr">홍스랩 홈페이지·앱 제작 스튜디오 </span><span class="l1" aria-hidden="true">HONGS</span><span class="l2" aria-hidden="true"><i></i>LAB</span></h1>
-        <p class="tag rise" style="transition-delay:.45s"><span>고객을 부르는 <span class="swap"><span class="br">[</span><span class="w" id="swapWord">홈페이지</span><span class="br">]</span></span>, 홍스랩이 직접 만듭니다.</span></p>
+        <div class="slides" id="heroSlides">
+          <div class="slide on" data-i="0">
+            <span class="eyebrow rise" style="transition-delay:.1s">Custom Web &amp; App</span>
+            <h1 class="h rise" style="transition-delay:.25s"><span class="sr">홍스랩 홈페이지·앱 제작 스튜디오 — </span>기업의 가치를<br><span class="hl">더하는</span> 홈페이지</h1>
+            <p class="sub rise" style="transition-delay:.4s">업종과 고객을 먼저 이해하고, 보기 좋은 화면을 넘어 전화와 문의로 이어지는 구조를 설계합니다. 지역 업체 홈페이지부터 웹앱까지, 홍스랩이 직접 만듭니다.</p>
+            <div class="acts rise" style="transition-delay:.55s"><a class="btn red" href="#works"><span class="ko">제작사례 보기</span><span class="ar">→</span></a><button type="button" class="btn light js-open-inquiry"><span class="ko">무료 상담 신청</span><span class="ar">→</span></button></div>
+          </div>
+          <div class="slide" data-i="1">
+            <span class="eyebrow">SEO · AEO · GEO</span>
+            <p class="h">우리 홈페이지가<br><span class="hl">더 잘 노출</span>되게</p>
+            <p class="sub">네이버·구글 검색부터 ChatGPT 같은 AI의 답변까지. 찾는 사람 앞에 먼저 보이도록 검색엔진과 AI가 읽기 쉬운 구조로 만들고, 지금 내 홈페이지 상태는 무료로 점검해 드립니다.</p>
+            <div class="acts"><a class="btn red" href="/seo-checker"><span class="ko">무료 SEO 점검하기</span><span class="ar">→</span></a><button type="button" class="btn light js-open-inquiry"><span class="ko">무료 상담 신청</span><span class="ar">→</span></button></div>
+          </div>
+          <div class="slide" data-i="2">
+            <span class="eyebrow">Result-driven Design</span>
+            <p class="h">성과를 만드는<br><span class="hl">필연적</span> 설계</p>
+            <p class="sub">화려한 효과보다 고객이 연락하게 만드는 동선이 먼저입니다. 자료 접수 3영업일부터 제작, 배포 후 1개월 수정 무제한. 실속형 199,000원부터 필요한 범위만 견적합니다.</p>
+            <div class="acts"><a class="btn red" href="#pricing"><span class="ko">제작 요금 보기</span><span class="ar">→</span></a><button type="button" class="btn light js-open-inquiry"><span class="ko">무료 상담 신청</span><span class="ar">→</span></button></div>
+          </div>
+        </div>
       </div>
-      <div class="bottom"><div class="inner"><div class="ticker"><b>Web</b><b>App</b><b>Landing</b><b>Branding</b></div><div class="scroll">SCROLL</div></div></div>
+      <div class="bottom"><div class="inner"><div class="dots" id="heroDots" role="tablist" aria-label="메인 메시지"><button type="button" class="on" aria-label="1번 메시지">01<i></i></button><button type="button" aria-label="2번 메시지">02<i></i></button><button type="button" aria-label="3번 메시지">03<i></i></button></div><div class="scroll">SCROLL</div></div></div>
     </section>
 
     <!-- ===== Intro ===== -->
@@ -877,6 +893,8 @@
 <script>
 /* ===== 데이터 ===== */
 const PORTFOLIO=[
+ ['https://www.doorguard24.com/','도어가드24 홈페이지','서비스 업체'],
+ ['https://gingmoji00.mycafe24.com/','깅모지 쇼핑몰','쇼핑몰'],
  ['https://nbh0000.github.io/gds-site/','(주)지디에스 홈페이지','기업 홈페이지'],
  ['https://www.yeongyeolochangkmc.co.kr/','연결한의원 청주오창 홈페이지','병원·의원'],
  ['https://elecmanagepartners.com/','전기관리파트너스 홈페이지','서비스 업체'],
@@ -960,26 +978,67 @@ else{
   setTimeout(()=>{loader.classList.add('out');document.body.classList.remove('loading');setTimeout(showHero,350);setTimeout(()=>loader.classList.add('gone'),1000)},1650);
 }
 
-/* ===== 히어로 영상 자동재생 (hypedesign 스타일) ===== */
-const heroVideo=document.getElementById('heroVideo');
-if(heroVideo&&!reduced){
-  const ready=()=>heroVideo.classList.add('ready');
-  heroVideo.addEventListener('playing',ready,{once:true});
-  const tryPlay=()=>{const p=heroVideo.play();if(p&&p.catch)p.catch(()=>{})};
-  tryPlay();
-  document.addEventListener('visibilitychange',()=>{if(document.visibilityState==='visible')tryPlay();else heroVideo.pause()});
-  ['touchstart','click'].forEach(ev=>document.addEventListener(ev,()=>{if(heroVideo.paused)tryPlay()},{once:true,passive:true}));
-}
+/* ===== 히어로 배경: Particle Drift (Originkit particle-drift 사양을 캔버스로 구현) ===== */
+(()=>{
+  const cv=document.getElementById('particles');if(!cv||reduced)return;
+  const ctx=cv.getContext('2d');
+  const CFG={density:300,dotSize:5,direction:0,speed:40,linkDistance:170,linkThickness:1,hover:200,base:[255,255,255],accent:[230,48,39],hoverRadius:180};
+  let W=0,H=0,dpr=1,pts=[],mouse={x:-1e4,y:-1e4},last=performance.now(),running=true;
+  const count=()=>Math.round(CFG.density*Math.min(1,(W*H)/(1600*900)))||60;
+  const resize=()=>{
+    const r=cv.getBoundingClientRect();const nw=r.width,nh=r.height;
+    dpr=Math.min(2,window.devicePixelRatio||1);cv.width=nw*dpr;cv.height=nh*dpr;
+    if(W&&H){const sx=nw/W,sy=nh/H;pts.forEach(p=>{p.x*=sx;p.y*=sy})}
+    W=nw;H=nh;const n=count();
+    while(pts.length<n)pts.push({x:Math.random()*W,y:Math.random()*H,s:.6+Math.random()*.8,j:Math.random()*Math.PI*2});
+    pts.length=n;
+  };
+  const rad=CFG.direction*Math.PI/180,dx=Math.sin(rad),dy=Math.cos(rad);
+  const step=t=>{
+    if(!running){last=t;return}
+    const dt=Math.min(.05,(t-last)/1000);last=t;
+    ctx.setTransform(dpr,0,0,dpr,0,0);ctx.clearRect(0,0,W,H);
+    const ld=CFG.linkDistance,ld2=ld*ld,hr=CFG.hoverRadius,hr2=hr*hr;
+    for(const p of pts){
+      p.j+=dt*.6;
+      p.x+=(dx*CFG.speed*p.s+Math.cos(p.j)*6)*dt;p.y+=(dy*CFG.speed*p.s+Math.sin(p.j*.8)*6)*dt;
+      if(p.y>H+ld){p.y=-ld*.5;p.x=Math.random()*W}else if(p.y<-ld){p.y=H+ld*.5;p.x=Math.random()*W}
+      if(p.x>W+ld){p.x=-ld*.5;p.y=Math.random()*H}else if(p.x<-ld){p.x=W+ld*.5;p.y=Math.random()*H}
+    }
+    ctx.lineWidth=CFG.linkThickness;
+    const [br,bg,bb]=CFG.base;
+    for(let i=0;i<pts.length;i++){const a=pts[i];
+      for(let k=i+1;k<pts.length;k++){const b=pts[k];const ddx=a.x-b.x;if(ddx>ld||ddx<-ld)continue;const ddy=a.y-b.y;if(ddy>ld||ddy<-ld)continue;const d2=ddx*ddx+ddy*ddy;if(d2>ld2)continue;
+        const al=(1-Math.sqrt(d2)/ld)*.16;ctx.strokeStyle='rgba('+br+','+bg+','+bb+','+al.toFixed(3)+')';ctx.beginPath();ctx.moveTo(a.x,a.y);ctx.lineTo(b.x,b.y);ctx.stroke()}
+    }
+    const [ar,ag,ab]=CFG.accent;
+    for(const p of pts){
+      const mx=p.x-mouse.x,my=p.y-mouse.y,md2=mx*mx+my*my;const near=md2<hr2;
+      if(near&&CFG.hover){const al=(1-Math.sqrt(md2)/hr)*Math.min(1,CFG.hover/200);ctx.strokeStyle='rgba('+ar+','+ag+','+ab+','+(al*.8).toFixed(3)+')';ctx.beginPath();ctx.moveTo(p.x,p.y);ctx.lineTo(mouse.x,mouse.y);ctx.stroke()}
+      ctx.fillStyle=near?'rgba('+ar+','+ag+','+ab+',.95)':'rgba('+br+','+bg+','+bb+',.55)';
+      ctx.beginPath();ctx.arc(p.x,p.y,CFG.dotSize/2*(near?1.3:p.s),0,Math.PI*2);ctx.fill();
+    }
+    requestAnimationFrame(step);
+  };
+  const hero=document.getElementById('hero');
+  hero.addEventListener('pointermove',e=>{const r=cv.getBoundingClientRect();mouse.x=e.clientX-r.left;mouse.y=e.clientY-r.top},{passive:true});
+  hero.addEventListener('pointerleave',()=>{mouse.x=-1e4;mouse.y=-1e4});
+  new IntersectionObserver(en=>{const vis=en[0].isIntersecting;if(vis&&!running){running=true;last=performance.now();requestAnimationFrame(step)}running=vis}).observe(hero);
+  window.addEventListener('resize',resize,{passive:true});resize();requestAnimationFrame(step);
+})();
 
-/* ===== 히어로 키워드 자동 교체 ===== */
-const swapWord=document.getElementById('swapWord');
-if(swapWord&&!reduced){
-  const words=['홈페이지','웹앱','랜딩페이지','브랜드 사이트','쇼핑몰'];let wi=0;
-  setInterval(()=>{
-    swapWord.classList.add('out');
-    setTimeout(()=>{wi=(wi+1)%words.length;swapWord.textContent=words[wi];swapWord.classList.remove('out');swapWord.classList.add('in');requestAnimationFrame(()=>requestAnimationFrame(()=>swapWord.classList.remove('in')))},420);
-  },2600);
-}
+/* ===== 히어로 메시지 슬라이더 ===== */
+(()=>{
+  const slides=[...document.querySelectorAll('#heroSlides .slide')],dots=[...document.querySelectorAll('#heroDots button')];
+  if(!slides.length)return;
+  const DUR=6500;let cur=0,timer=null;
+  document.documentElement.style.setProperty('--hero-dur',DUR+'ms');
+  const go=i=>{cur=(i+slides.length)%slides.length;slides.forEach((s,k)=>s.classList.toggle('on',k===cur));dots.forEach((d,k)=>{d.classList.toggle('on',k===cur);d.setAttribute('aria-selected',k===cur)})};
+  const start=()=>{if(reduced)return;clearInterval(timer);timer=setInterval(()=>go(cur+1),DUR)};
+  dots.forEach((d,i)=>d.addEventListener('click',()=>{go(i);start()}));
+  document.addEventListener('visibilitychange',()=>{if(document.hidden)clearInterval(timer);else start()});
+  start();
+})();
 
 /* ===== 스크롤 리빌 + 카운터 ===== */
 const runCount=el=>{
