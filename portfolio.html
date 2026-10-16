@@ -337,7 +337,7 @@
   const esc=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
   const render=()=>{
     const list=PORTFOLIO.map((p,i)=>[p,i]).filter(([p])=>cur==='전체'||p[2]===cur);
-    grid.innerHTML=list.map(([p,i])=>`<article class="pcard"><a class="shot" href="${esc(p[0])}" target="_blank" rel="noopener" aria-label="${esc(p[1])} 사이트 열기"><span class="no">${String(i+1).padStart(2,'0')}</span><img loading="lazy" src="${shot(p[0],900)}" alt="${esc(p[1])} 미리보기"></a><div class="body"><span class="cat">${esc(p[2])}</span><h2>${esc(p[1])}</h2><span class="url">${esc(p[0].replace(/^https?:\/\//,'').replace(/\/$/,''))}</span><div class="acts"><a class="btn fill" href="${esc(p[0])}" target="_blank" rel="noopener"><span class="ko">사이트 방문</span><span class="ar">→</span></a><a class="btn" href="/seo-checker?url=${encodeURIComponent(p[0])}"><span class="ko">SEO 점검 보기</span></a></div></div></article>`).join('');
+    grid.innerHTML=list.map(([p,i])=>`<article class="pcard"><a class="shot" href="${esc(p[0])}" target="_blank" rel="noopener" aria-label="${esc(p[1])} 사이트 열기"><span class="no">${String(i+1).padStart(2,'0')}</span><img loading="lazy" src="${shot(p[0],900)}" alt="${esc(p[1])} 미리보기"></a><div class="body"><span class="cat">${esc(p[2])}</span><h2>${esc(p[1])}</h2><span class="url">${esc(p[0].replace(/^https?:\/\//,'').replace(/\/$/,''))}</span><div class="acts"><a class="btn fill" href="${esc(p[0])}" target="_blank" rel="noopener"><span class="ko">사이트 방문</span><span class="ar">→</span></a></div></div></article>`).join('');
     document.getElementById('pfCount').textContent=list.length;
     filters.querySelectorAll('button').forEach(b=>b.classList.toggle('on',b.dataset.c===cur));
   };
