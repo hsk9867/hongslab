@@ -259,6 +259,7 @@
     #why .cards{display:grid;grid-template-columns:repeat(5,1fr);gap:14px;margin-top:64px;text-align:center}
     #why .card{background:#fff;color:var(--black);display:flex;flex-direction:column;overflow:hidden;transition:transform var(--t),box-shadow var(--t)}
     #why .card:hover{transform:translateY(-6px);box-shadow:0 30px 60px rgba(0,0,0,.35)}
+    #why .swipe-hint{display:none;margin-top:28px;font-size:12px;color:rgba(255,255,255,.45);letter-spacing:.04em}
     #why .body{padding:34px 26px 36px;display:flex;flex-direction:column;gap:12px;flex:1;text-align:left;border-top:3px solid var(--red)}
     #why .body .no{font-family:var(--en);font-size:11px;font-weight:700;letter-spacing:.2em;color:var(--red);margin-bottom:6px}
     #why h3{font-size:20px;font-weight:700;letter-spacing:-.02em}
@@ -453,11 +454,15 @@
     }
     @media (max-width:768px){
       #why{padding:90px 0 80px}
-      #why .cards{grid-template-columns:1fr 1fr;gap:10px;margin-top:40px}
+      #why .cards{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;gap:10px;margin:28px -20px 0;padding:0 20px 8px;scrollbar-width:none;-webkit-overflow-scrolling:touch}
+      #why .cards::-webkit-scrollbar{display:none}
+      #why .card{flex:0 0 72vw;max-width:320px;scroll-snap-align:start}
+      #why .swipe-hint{display:block}
       #why .body{padding:22px 18px 24px;gap:8px}
       #why h3{font-size:17px}
       #why .body p{font-size:12.5px;line-height:1.7}
-      #why .desc{font-size:14px;text-align:left}
+      #why .desc{font-size:14px}
+      #why .desc br{display:none}
       :root{--header-h:72px}
       .inner{max-width:calc(100% - 40px)}
       #hero .side{display:none}
@@ -572,7 +577,8 @@
       <div class="inner">
         <span class="mark"></span>
         <h2 class="reveal">믿고 맡길 수 있는 제작 파트너,<br><span class="hl">홍스랩</span></h2>
-        <p class="desc reveal">홍스랩은 업종과 고객의 특성을 먼저 이해하고, 사업의 핵심 메시지가 고객에게 정확히 전달되도록 구조와 동선을 설계합니다. 기획부터 디자인, 개발, 검색·AI 노출, 오픈 이후 운영까지 전 과정을 직접 진행하며, 고객과의 긴밀한 소통을 바탕으로 방향과 목적이 분명한 홈페이지를 완성합니다.</p>
+        <p class="desc reveal">업종과 고객을 먼저 이해하고, 전화와 문의로 이어지는 구조를 설계합니다. <br>기획부터 디자인·개발·검색·AI 노출·운영까지, 전 과정을 홍스랩이 직접 진행합니다.</p>
+        <p class="swipe-hint" aria-hidden="true">옆으로 넘겨서 보세요 →</p>
         <div class="cards">
           <article class="card reveal" style="transition-delay:0.0s">
             <div class="body"><span class="no">01</span><h3>기술력</h3><p>최신 웹 기술과 안정적인 개발 환경으로, 확장과 유지관리에 강한 홈페이지를 만듭니다.</p></div>
