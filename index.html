@@ -225,8 +225,8 @@
     #hero .corner{position:absolute;right:0;top:calc(var(--header-h) + 36px);display:flex;align-items:center;gap:14px;font-family:var(--en);font-size:10px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,.7)}
     #hero .corner:before{content:"";width:40px;height:1px;background:rgba(255,255,255,.5)}
     #hero .slides{display:grid}
-    #hero .slide{grid-area:1/1;opacity:0;visibility:hidden;transform:translateY(-12px);transition:opacity .4s ease,transform .4s ease,visibility 0s .4s}
-    #hero .slide.on{opacity:1;visibility:visible;transform:none;transition:opacity .8s ease .35s,transform .9s cubic-bezier(.16,1,.3,1) .35s,visibility 0s}
+    #hero .slide{grid-area:1/1;opacity:0;visibility:hidden;transform:translateY(-12px);transition:opacity .25s ease,transform .25s ease,visibility 0s .25s}
+    #hero .slide.on{opacity:1;visibility:visible;transform:none;transition:opacity .55s ease .25s,transform .65s cubic-bezier(.16,1,.3,1) .25s,visibility 0s}
     #hero .slide .eyebrow{color:var(--red);margin-bottom:26px}
     #hero .slide .eyebrow:before{display:none}
     #hero .slide .eyebrow:after{content:"";width:40px;height:1px;background:var(--red)}
@@ -765,7 +765,7 @@ document.querySelector('#works .next').addEventListener('click',()=>{track.scrol
 
 /* ===== 포트폴리오 자동 슬라이드 ===== */
 const worksProgress=document.getElementById('worksProgress');
-let worksHold=false,worksVisible=false,worksStart=0,worksHoldTimer=null;const WORKS_DELAY=4200;
+let worksHold=false,worksVisible=false,worksStart=0,worksHoldTimer=null;const WORKS_DELAY=2800;
 const worksStep=()=>{
   const max=track.scrollWidth-track.clientWidth;
   if(track.scrollLeft>=max-4)track.scrollTo({left:0,behavior:'smooth'});
@@ -873,7 +873,7 @@ else{
 (()=>{
   const slides=[...document.querySelectorAll('#heroSlides .slide')],dots=[...document.querySelectorAll('#heroDots button')];
   if(!slides.length)return;
-  const DUR=6500;let cur=0,timer=null;
+  const DUR=4000;let cur=0,timer=null;
   document.documentElement.style.setProperty('--hero-dur',DUR+'ms');
   const go=i=>{cur=(i+slides.length)%slides.length;slides.forEach((s,k)=>s.classList.toggle('on',k===cur));dots.forEach((d,k)=>{d.classList.toggle('on',k===cur);d.setAttribute('aria-selected',k===cur)})};
   const start=()=>{if(reduced)return;clearInterval(timer);timer=setInterval(()=>go(cur+1),DUR)};
