@@ -187,6 +187,16 @@
     #why h3{font-size:20px;font-weight:700;letter-spacing:-.02em}
     #why .body p{font-size:13.5px;line-height:1.8;color:#444;word-break:keep-all}
 
+    #why .seo{margin-top:20px;border:1px solid rgba(255,255,255,.18);display:grid;grid-template-columns:1fr 300px;text-align:left}
+    #why .terms{display:grid;grid-template-columns:repeat(3,1fr)}
+    #why .terms>div{padding:30px 26px 32px;border-right:1px solid rgba(255,255,255,.18)}
+    #why .terms b{display:block;font-family:var(--en);font-size:22px;font-weight:800;letter-spacing:-.02em;color:var(--red)}
+    #why .terms strong{display:block;margin-top:6px;font-size:15px;font-weight:700;color:#fff}
+    #why .terms p{margin-top:12px;font-size:13px;line-height:1.75;color:rgba(255,255,255,.65)}
+    #why .act{padding:30px 28px;display:flex;flex-direction:column;justify-content:center;gap:18px;background:rgba(255,255,255,.04)}
+    #why .act p{font-size:14px;line-height:1.75;color:rgba(255,255,255,.8)}
+    #why .act .btn{width:100%}
+
     /* ===== Hero (Particle Drift 배경 + 메시지 슬라이더) ===== */
     #hero{position:relative;height:100vh;height:100dvh;min-height:680px;background:var(--black);color:#fff;overflow:hidden}
     #hero .particles{position:absolute;inset:0;width:100%;height:100%;display:block;pointer-events:none}
@@ -349,6 +359,8 @@
     @media (max-width:1340px){#hero .side{display:none}}
     @media (max-width:1024px){
       #why .cards{grid-template-columns:repeat(3,1fr)}
+      #why .seo{grid-template-columns:1fr}
+      #why .act{border-top:1px solid rgba(255,255,255,.18)}
       #why .cards .card:nth-child(4),#why .cards .card:nth-child(5){grid-column:span 1}
       #header .gnb{display:none}
       #header .cta{display:none}
@@ -423,6 +435,14 @@
       #why h3{font-size:17px;line-height:1.35}
       #why .body p{font-size:13px;line-height:1.7}
       #why .swipe-hint{margin-top:20px;font-size:11px}
+      #why .seo{margin-top:24px}
+      #why .terms{grid-template-columns:1fr}
+      #why .terms>div{border-right:0;border-bottom:1px solid rgba(255,255,255,.18);padding:22px 20px}
+      #why .terms b{font-size:18px}
+      #why .terms strong{font-size:14px}
+      #why .terms p{font-size:13px;line-height:1.7}
+      #why .act{padding:22px 20px 24px;gap:14px;border-top:0}
+      #why .act p{font-size:13px}
       #works{padding:80px 0}
       #works h2{font-size:34px;line-height:1.1;margin-top:18px}
       #works .head{margin-bottom:28px;gap:14px}
@@ -539,6 +559,17 @@
           <article class="card reveal" style="transition-delay:0.4s">
             <div class="body"><span class="no">05</span><h3>고품질</h3><p>디자인 완성도, 사용자 경험, 속도까지 모두 고려한 완성도 높은 웹사이트를 제공합니다.</p></div>
           </article>
+        </div>
+        <div class="seo reveal">
+          <div class="terms">
+            <div><b>SEO</b><strong>검색엔진 최적화</strong><p>네이버·구글 검색 결과에 내 홈페이지가 잘 나오도록 제목, 설명, 구조, 사이트맵을 정리합니다.</p></div>
+            <div><b>AEO</b><strong>답변엔진 최적화</strong><p>"근처 ○○ 어디가 좋아?" 같은 질문에 검색엔진이 내 정보를 바로 답으로 보여주도록 업체 정보와 FAQ를 기계가 읽는 형식으로 넣습니다.</p></div>
+            <div><b>GEO</b><strong>생성형 AI 최적화</strong><p>ChatGPT·Perplexity 같은 AI가 답변할 때 내 홈페이지를 읽고 인용하도록 AI 크롤러 허용, llms.txt, 본문 구조를 갖춥니다.</p></div>
+          </div>
+          <div class="act">
+            <p>지금 내 홈페이지는 어느 정도일까요?<br>주소만 넣으면 4개 축 60여 개 항목을 무료로 점검해 드립니다.</p>
+            <a class="btn red" href="/seo-checker"><span class="ko">무료 SEO 점검하기</span><span class="ar">→</span></a>
+          </div>
         </div>
       </div>
     </section>
