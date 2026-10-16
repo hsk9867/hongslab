@@ -187,7 +187,10 @@
     #why h3{font-size:20px;font-weight:700;letter-spacing:-.02em}
     #why .body p{font-size:13.5px;line-height:1.8;color:#444;word-break:keep-all}
 
-    #why .seo{margin-top:20px;border:1px solid rgba(255,255,255,.18);display:grid;grid-template-columns:1fr 300px;text-align:left}
+    #why .seohead{margin-top:110px}
+    #why .seohead h2{font-size:clamp(26px,3.4vw,46px)}
+    #why .seohead p{max-width:760px;margin:22px auto 0;font-size:15px;line-height:1.9;color:rgba(255,255,255,.72)}
+    #why .seo{margin-top:40px;border:1px solid rgba(255,255,255,.18);display:grid;grid-template-columns:1fr 300px;text-align:left}
     #why .terms{display:grid;grid-template-columns:repeat(3,1fr)}
     #why .terms>div{padding:30px 26px 32px;border-right:1px solid rgba(255,255,255,.18)}
     #why .terms b{display:block;font-family:var(--en);font-size:22px;font-weight:800;letter-spacing:-.02em;color:var(--red)}
@@ -435,6 +438,11 @@
       #why h3{font-size:17px;line-height:1.35}
       #why .body p{font-size:13px;line-height:1.7}
       #why .swipe-hint{margin-top:20px;font-size:11px}
+      #why .seohead{margin-top:70px}
+      #why .seohead .mark{margin-bottom:24px}
+      #why .seohead h2{font-size:24px;line-height:1.3}
+      #why .seohead p{font-size:14px;line-height:1.75;margin-top:14px}
+      #why .seohead p br{display:none}
       #why .seo{margin-top:24px}
       #why .terms{grid-template-columns:1fr}
       #why .terms>div{border-right:0;border-bottom:1px solid rgba(255,255,255,.18);padding:22px 20px}
@@ -540,8 +548,8 @@
     <section id="why">
       <div class="inner">
         <span class="mark"></span>
-        <h2 class="reveal">홈페이지의 <span class="hl">제작 기준</span>이<br>달라졌습니다.</h2>
-        <p class="desc reveal">홍스랩은 기획·디자인·개발뿐 아니라 SEO·AEO·GEO를 고려한 구조와 <br>AI 검색 환경까지 고려하여 설계합니다.</p>
+        <h2 class="reveal">믿고 맡길 수 있는 제작 파트너,<br><span class="hl">홍스랩</span></h2>
+        <p class="desc reveal">업종과 고객을 먼저 이해하고, 전화와 문의로 이어지는 구조를 설계합니다. <br>기획부터 디자인·개발·검색·AI 노출·운영까지, 전 과정을 홍스랩이 직접 진행합니다.</p>
         <p class="swipe-hint" aria-hidden="true">옆으로 넘겨서 보세요 →</p>
         <div class="cards">
           <article class="card reveal" style="transition-delay:0.0s">
@@ -559,6 +567,11 @@
           <article class="card reveal" style="transition-delay:0.4s">
             <div class="body"><span class="no">05</span><h3>고품질</h3><p>디자인 완성도, 사용자 경험, 속도까지 모두 고려한 완성도 높은 웹사이트를 제공합니다.</p></div>
           </article>
+        </div>
+        <div class="seohead reveal">
+          <span class="mark"></span>
+          <h2>홈페이지의 <span class="hl">제작 기준</span>이 달라졌습니다.</h2>
+          <p>홍스랩은 기획·디자인·개발뿐 아니라 SEO·AEO·GEO를 고려한 구조와 <br>AI 검색 환경까지 고려하여 설계합니다.</p>
         </div>
         <div class="seo reveal">
           <div class="terms">
