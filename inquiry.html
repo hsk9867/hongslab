@@ -1,0 +1,448 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="format-detection" content="telephone=no" />
+  <meta name="description" content="홈페이지·웹앱 제작 견적 문의서. 회사명, 이름/직책, 전화번호, 예산만 남기면 홍스랩이 직접 연락해 상품과 예상 견적을 안내해 드립니다. 상담 무료." />
+  <link rel="canonical" href="https://hongslab.kr/inquiry" />
+  <meta property="og:title" content="견적 문의 | 홍스랩" />
+  <meta property="og:description" content="홈페이지·웹앱 제작 견적 문의서. 회사명, 이름/직책, 전화번호, 예산만 남기면 홍스랩이 직접 연락해 상품과 예상 견적을 안내해 드립니다. 상담 무료." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://hongslab.kr/inquiry" />
+  <meta property="og:site_name" content="홍스랩" />
+  <meta property="og:locale" content="ko_KR" />
+  <meta property="og:image" content="https://hongslab.kr/og.jpg" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="견적 문의 | 홍스랩" />
+  <meta name="twitter:description" content="홈페이지·웹앱 제작 견적 문의서. 회사명, 이름/직책, 전화번호, 예산만 남기면 홍스랩이 직접 연락해 상품과 예상 견적을 안내해 드립니다. 상담 무료." />
+  <meta name="twitter:image" content="https://hongslab.kr/og.jpg" />
+  <link rel="icon" type="image/png" href="favicon.png" />
+  <link rel="apple-touch-icon" href="favicon.png" />
+  <title>견적 문의 | 홍스랩</title>
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"ContactPage","@id":"https://hongslab.kr/inquiry#page","name":"홍스랩 견적 문의","url":"https://hongslab.kr/inquiry","description":"홈페이지·웹앱 제작 견적 문의서. 회사명, 이름/직책, 전화번호, 예산을 남기면 홍스랩이 직접 연락해 상품과 예상 견적을 안내합니다.","isPartOf":{"@id":"https://hongslab.kr/#website"},"about":{"@id":"https://hongslab.kr/#business"},"inLanguage":"ko-KR"}
+  </script>
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap">
+  <style>
+    .sr{position:absolute;width:1px;height:1px;margin:-1px;padding:0;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0}
+    :root{
+      --black:#0a0a0a;--ink:#141414;--white:#fff;--soft:#f3f3f3;--cream:#f7f5f1;
+      --text:#0a0a0a;--muted:#6b6b6b;--line:#e5e5e5;
+      --red:#e63027;--red-dark:#b81f18;
+      --green:#1f8a4c;--amber:#d98a0a;
+      --kakao:#FEE500;--kakao-ink:#391B1B;
+      --header-h:88px;--inner:1240px;--t:.35s;
+      --en:'Inter','Pretendard',sans-serif;
+      --ko:'Pretendard',system-ui,-apple-system,'Segoe UI',sans-serif;
+    }
+    *{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth;scrollbar-gutter:stable}
+    body{background:var(--white);color:var(--text);font-family:var(--ko);word-break:keep-all;-webkit-font-smoothing:antialiased;line-height:1.6;letter-spacing:-.01em}
+    a{text-decoration:none;color:inherit}
+    ul,ol{list-style:none}
+    button,input,select,textarea{font:inherit;color:inherit}
+    button{border:0;background:none;cursor:pointer}
+    img,svg{display:block;max-width:100%}
+    .inner{width:var(--inner);max-width:calc(100% - 48px);margin:0 auto;position:relative}
+    .en{font-family:var(--en)}
+    .eyebrow{display:inline-flex;align-items:center;gap:14px;font-family:var(--en);font-size:12px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--muted)}
+    .eyebrow:before{content:"";width:40px;height:1px;background:var(--red)}
+    .eyebrow.light{color:rgba(255,255,255,.7)}
+    .btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;font-family:var(--en);font-size:12px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;padding:16px 28px;border:1px solid var(--black);color:var(--black);background:transparent;transition:background var(--t),color var(--t),border-color var(--t)}
+    .btn:hover{background:var(--black);color:#fff}
+    .btn.fill{background:var(--black);color:#fff}
+    .btn.fill:hover{background:var(--red);border-color:var(--red)}
+    .btn.red{background:var(--red);border-color:var(--red);color:#fff}
+    .btn.red:hover{background:var(--red-dark);border-color:var(--red-dark)}
+    .btn.light{border-color:rgba(255,255,255,.6);color:#fff}
+    .btn.light:hover{background:#fff;color:var(--black);border-color:#fff}
+    .btn .ko{font-family:var(--ko);letter-spacing:-.01em;font-size:14px;font-weight:600;text-transform:none}
+    .btn .ar{transition:transform var(--t)}
+    .btn:hover .ar{transform:translateX(4px)}
+
+    .logo{display:inline-flex;flex-direction:column;line-height:1;color:var(--black)}
+    .logo .wm{font-family:var(--en);font-weight:800;font-size:22px;letter-spacing:-.04em;display:inline-flex;align-items:baseline;gap:.22em}
+    .logo .wm i{font-style:normal;width:.3em;height:.3em;border-radius:50%;background:var(--red);align-self:center;margin-top:.1em}
+    .logo .sub{display:flex;align-items:center;gap:10px;margin-top:6px;font-family:var(--en);font-size:9px;font-weight:600;letter-spacing:.36em;text-transform:uppercase;color:var(--muted)}
+    .logo .sub:before{content:"";width:28px;height:2px;background:var(--red)}
+    .logo.white{color:#fff}.logo.white .sub{color:rgba(255,255,255,.6)}
+
+    /* Header (메인과 동일, 어두운 히어로 위에 올라감) */
+    #header{position:fixed;top:0;left:0;right:0;z-index:999;height:var(--header-h);transition:background var(--t),box-shadow var(--t),height var(--t)}
+    #header .inner{height:100%;display:flex;align-items:center;justify-content:space-between}
+    #header .gnb{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);display:flex;gap:40px}
+    #header .gnb a{font-family:var(--en);font-size:14px;font-weight:600;letter-spacing:-.02em;color:#fff;padding:8px 0;position:relative;transition:color var(--t)}
+    #header .gnb a:after{content:"";position:absolute;left:0;right:0;bottom:2px;height:2px;background:var(--red);transform:scaleX(0);transform-origin:left;transition:transform var(--t)}
+    #header .gnb a:hover:after,#header .gnb a.active:after{transform:scaleX(1)}
+    #header .right{display:flex;align-items:center;gap:18px}
+    #header .cta{font-family:var(--ko);font-size:13px;font-weight:700;letter-spacing:-.01em;padding:12px 20px;border:1px solid rgba(255,255,255,.6);color:#fff;display:inline-flex;align-items:center;gap:8px;transition:background var(--t),color var(--t),border-color var(--t)}
+    #header .cta b{font-family:var(--en);font-size:10px;letter-spacing:.2em;color:var(--red);font-weight:700}
+    #header .cta:hover{background:#fff;color:var(--black);border-color:#fff}
+    #header .logo{color:#fff}#header .logo .sub{color:rgba(255,255,255,.6)}
+    #header.on{background:rgba(255,255,255,.96);box-shadow:0 1px 0 var(--line);height:76px;backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px)}
+    #header.on .logo{color:var(--black)}#header.on .logo .sub{color:var(--muted)}
+    #header.on .gnb a{color:var(--black)}
+    #header.on .cta{border-color:var(--black);color:var(--black)}
+    #header.on .cta:hover{background:var(--black);color:#fff}
+    .menuToggle{display:none;position:relative;z-index:1001;width:24px;height:16px;flex-direction:column;justify-content:space-between}
+    .menuToggle span{display:block;width:100%;height:2px;background:#fff;transition:transform var(--t),opacity var(--t),background var(--t)}
+    #header.on .menuToggle span,.menuToggle.on span{background:var(--black)}
+    .menuToggle.on span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+    .menuToggle.on span:nth-child(2){opacity:0}
+    .menuToggle.on span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+    .m_gnb{position:fixed;inset:0;background:#fff;z-index:1000;display:flex;flex-direction:column;justify-content:center;padding:0 32px;opacity:0;visibility:hidden;transition:opacity var(--t),visibility var(--t)}
+    .m_gnb.on{opacity:1;visibility:visible}
+    .m_gnb li{border-bottom:1px solid var(--line)}
+    .m_gnb li a{display:flex;align-items:center;gap:18px;padding:22px 0;font-size:26px;font-weight:700;color:var(--black)}
+    .m_gnb li a .num{font-family:var(--en);font-size:11px;letter-spacing:.2em;color:var(--red);font-weight:600}
+    .m_gnb li a .en{font-size:11px;letter-spacing:.2em;color:var(--muted);font-weight:600;margin-left:auto}
+    .m_gnb .foot{margin-top:40px;display:flex;flex-direction:column;gap:12px}
+
+    /* 견적 문의 */
+    #band{background:var(--black);color:#fff;padding:calc(var(--header-h) + 80px) 0 70px;position:relative;overflow:hidden}
+    #band:before{content:"";position:absolute;inset:0;background:radial-gradient(60% 80% at 80% 20%,rgba(230,48,39,.18),transparent 60%);pointer-events:none}
+    #band .inner{position:relative}
+    #band h1{font-size:clamp(38px,6vw,84px);font-weight:800;line-height:1.05;letter-spacing:-.04em;margin-top:24px}
+    #band h1 .hl{color:var(--red)}
+    #band p{margin-top:22px;font-size:16px;line-height:1.85;color:rgba(255,255,255,.7);max-width:640px}
+    #band .quickcall{margin-top:32px;display:inline-flex;align-items:center;gap:16px;border:1px solid rgba(255,255,255,.3);padding:14px 20px;font-size:14px;color:rgba(255,255,255,.8)}
+    #band .quickcall a{font-family:var(--en);font-size:20px;font-weight:800;letter-spacing:-.02em;color:#fff}
+    #band .quickcall a:hover{color:var(--red)}
+    #form{padding:80px 0 110px;background:#fff}
+    #form .inner{display:grid;grid-template-columns:1.15fr .85fr;gap:60px;align-items:start}
+    .step{margin-bottom:44px}
+    .step .st{display:flex;align-items:center;gap:14px;margin-bottom:22px;padding-bottom:14px;border-bottom:1px solid var(--black)}
+    .step .st b{font-family:var(--en);font-size:11px;font-weight:700;letter-spacing:.2em;color:#fff;background:var(--red);padding:6px 10px}
+    .step .st h2{font-size:18px;font-weight:700;letter-spacing:-.02em}
+    .step .st p{font-size:13px;color:var(--muted);margin-left:auto}
+    .tm-row{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+    .tm-group{margin-bottom:16px}
+    .tm-label{display:block;font-size:12px;font-weight:600;color:var(--muted);margin-bottom:8px;letter-spacing:.02em}
+    .tm-label .req{color:var(--red)}
+    .tm-input,.tm-select,.tm-textarea{width:100%;border:1px solid var(--line);background:#fff;padding:14px 15px;font-size:15px;outline:none;transition:border-color var(--t);border-radius:0;-webkit-appearance:none;appearance:none}
+    .tm-input:focus,.tm-select:focus,.tm-textarea:focus{border-color:var(--black)}
+    .tm-select{background:#fff url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%230a0a0a' stroke-width='2'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E") no-repeat right 14px center;padding-right:36px}
+    .tm-textarea{min-height:150px;resize:vertical}
+    .budget{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+    .budget label{border:1px solid var(--line);padding:13px 10px;text-align:center;font-size:13px;font-weight:600;cursor:pointer;transition:all var(--t);display:block}
+    .budget label:hover{border-color:var(--black)}
+    .budget input{position:absolute;opacity:0;pointer-events:none}
+    .budget input:checked+label{background:var(--black);border-color:var(--black);color:#fff}
+    .tm-check{display:flex;gap:10px;align-items:flex-start;font-size:13px;color:#333;cursor:pointer;line-height:1.6}
+    .tm-check input{margin-top:3px;accent-color:var(--black)}
+    .privacy-note{margin-top:10px;font-size:12px;color:var(--muted);line-height:1.7}
+    .tm-actions{display:flex;gap:8px;margin-top:22px;flex-wrap:wrap}
+    .tm-actions .btn_kakao{flex:1 1 260px;background:var(--kakao);color:var(--kakao-ink);font-weight:700;font-size:15px;padding:17px 20px;display:inline-flex;align-items:center;justify-content:center;gap:8px}
+    .tm-actions .btn_kakao:hover{background:#f5db00}
+    .tm-actions .ghost{flex:0 0 auto;border:1px solid var(--black);padding:17px 20px;font-size:14px;font-weight:600;display:inline-flex;align-items:center}
+    .tm-actions .ghost:hover{background:var(--black);color:#fff}
+    .tm-result{margin-top:14px;font-size:13px;color:var(--red);min-height:1.4em}
+    .tm-copybox{margin-top:12px;display:flex;flex-direction:column;gap:10px}
+    .tm-copybox textarea{width:100%;min-height:140px;border:1px solid var(--line);padding:12px;font-size:13px}
+    .tm-copybox .btn_kakao{background:var(--kakao);color:var(--kakao-ink);font-weight:700;font-size:14px;padding:14px;text-align:center}
+    aside .box{border:1px solid var(--line);padding:30px 30px 32px;margin-bottom:16px}
+    aside .box.dark{background:var(--black);color:#fff;border-color:var(--black)}
+    aside h3{font-size:12px;font-weight:600;letter-spacing:.14em;color:var(--muted);margin-bottom:18px}
+    aside .dark h3{color:rgba(255,255,255,.5)}
+    aside .tel{display:flex;flex-direction:column;gap:14px}
+    aside .tel a{display:flex;justify-content:space-between;align-items:center;gap:16px;font-size:14px;padding-bottom:14px;border-bottom:1px solid rgba(255,255,255,.12)}
+    aside .tel a:last-child{border:0;padding-bottom:0}
+    aside .tel a b{font-family:var(--en);font-size:18px;font-weight:800;letter-spacing:-.02em}
+    aside .tel a:hover b{color:var(--red)}
+    aside dl{display:grid;grid-template-columns:72px 1fr;row-gap:12px;font-size:14px}
+    aside dt{color:var(--muted)}
+    aside ul.links li{border-bottom:1px solid var(--line)}
+    aside ul.links a{display:flex;justify-content:space-between;padding:14px 0;font-size:14px;font-weight:600}
+    aside ul.links a:hover{color:var(--red)}
+    aside .box p.note{font-size:13px;line-height:1.8;color:var(--muted)}
+    @media (max-width:1024px){#form .inner{grid-template-columns:1fr;gap:40px}}
+    @media (max-width:768px){
+      #band{padding:calc(var(--header-h) + 50px) 0 50px}
+      #form{padding:56px 0 80px}
+      .tm-row{grid-template-columns:1fr}
+      .budget{grid-template-columns:repeat(2,1fr)}
+      .step .st{flex-wrap:wrap}
+      .step .st p{margin-left:0;width:100%}
+      aside .box{padding:24px 22px}
+    }
+    /* Floating + Footer */
+    #quick{position:fixed;right:24px;bottom:28px;z-index:900;display:flex;flex-direction:column;gap:6px}
+    #quick a{width:76px;height:76px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;font-size:11px;font-weight:600;letter-spacing:-.01em;box-shadow:0 10px 30px rgba(0,0,0,.15);transition:transform var(--t)}
+    #quick a:hover{transform:translateY(-3px)}
+    #quick svg{width:20px;height:20px}
+    #quick .tel{background:#fff;color:var(--black);border:1px solid var(--black)}
+    #quick .kakao{background:var(--black);color:#fff;border:1px solid var(--black)}
+    #quick .inq{background:var(--red);color:#fff;border:1px solid var(--red)}
+    #footer{background:var(--black);color:#fff;padding:80px 0 0}
+    #footer .top{display:grid;grid-template-columns:1.3fr .7fr 1fr;gap:50px;padding-bottom:60px}
+    #footer .brand p{margin-top:28px;font-size:14px;line-height:1.85;color:rgba(255,255,255,.6);max-width:360px}
+    #footer h4{font-family:var(--en);font-size:10px;font-weight:600;letter-spacing:.24em;text-transform:uppercase;color:rgba(255,255,255,.45);margin-bottom:22px}
+    #footer .sitemap li{margin-bottom:12px}
+    #footer .sitemap a{font-family:var(--en);font-size:15px;font-weight:600;letter-spacing:-.01em;transition:color var(--t)}
+    #footer .sitemap a:hover{color:var(--red)}
+    #footer .info{display:grid;grid-template-columns:56px 1fr;row-gap:12px;font-size:14px}
+    #footer .info dt{color:rgba(255,255,255,.45)}
+    #footer .info dd{color:#fff}
+    #footer .bottom{border-top:1px solid rgba(255,255,255,.12);padding:22px 0;display:flex;justify-content:space-between;align-items:center;font-family:var(--en);font-size:11px;letter-spacing:.06em;color:rgba(255,255,255,.45)}
+    #footer .bottom .made{display:flex;align-items:center;gap:8px}
+    #footer .bottom .made i{width:6px;height:6px;border-radius:50%;background:var(--red)}
+
+    @media (max-width:1024px){
+      #header .gnb{display:none}
+      #header .cta{display:none}
+      .menuToggle{display:flex}
+      .scores{grid-template-columns:repeat(2,1fr)}
+      .scores .tot{grid-column:1/-1}
+      #about .grid{grid-template-columns:repeat(2,1fr)}
+      #fix ol{grid-template-columns:1fr}
+      #fix .cta{grid-template-columns:1fr;padding:40px 32px}
+      #footer .top{grid-template-columns:1fr 1fr}
+      #footer .brand{grid-column:1/-1}
+    }
+    @media (max-width:768px){
+      :root{--header-h:72px}
+      .inner{max-width:calc(100% - 40px)}
+      #hero{padding:calc(var(--header-h) + 56px) 0 64px}
+      #hero form{flex-direction:column}
+      #hero input{padding:18px 20px;font-size:16px}
+      #hero form .btn{border-left:0;border-top:1px solid rgba(255,255,255,.35);padding:18px}
+      #hero .axes{grid-template-columns:1fr 1fr;margin-top:40px}
+      #result{padding:64px 0 40px}
+      .rhead .meta{text-align:left}
+      .scores>div{padding:24px 20px}
+      .items{grid-template-columns:1fr}
+      .tabs button{padding:14px 14px}
+      #fix,#about{padding:70px 0}
+      #about .grid{grid-template-columns:1fr;gap:32px}
+      #about details p{padding-left:0}
+      #quick{right:14px;bottom:14px}
+      #quick a{width:60px;height:60px;font-size:10px;gap:4px}
+      #quick svg{width:18px;height:18px}
+      #footer{padding-top:60px}
+      #footer .top{grid-template-columns:1fr;gap:36px;padding-bottom:40px}
+      #footer .bottom{flex-direction:column;align-items:flex-start;gap:8px;padding-bottom:110px}
+    }
+    @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+  </style>
+</head>
+<body>
+<div id="wrap">
+
+  <div id="header">
+    <div class="inner">
+      <a class="logo" href="/" aria-label="홍스랩 홈"><span class="wm">HONGS<i></i>LAB</span><span class="sub">웹 · 앱 제작 스튜디오</span></a>
+      <nav class="gnb" aria-label="주 메뉴">
+        <a href="/portfolio">제작사례</a>
+        <a href="/#pricing">제작 요금</a>
+        <a href="/seo-checker">SEO 점검</a>
+        <a href="/#faq">자주 묻는 질문</a>
+        <a href="/#contact">상담하기</a>
+      </nav>
+      <div class="right">
+        <a class="cta" href="/inquiry"><b>무료</b> 견적 문의</a>
+        <button type="button" class="menuToggle" id="menuToggle" aria-label="모바일 메뉴 열기"><span></span><span></span><span></span></button>
+      </div>
+    </div>
+  </div>
+  <div class="m_gnb" id="mGnb">
+    <ul>
+      <li><a href="/portfolio"><span class="num">01</span>제작사례<span class="en">포트폴리오</span></a></li>
+      <li><a href="/#pricing"><span class="num">02</span>제작 요금<span class="en">요금 안내</span></a></li>
+      <li><a href="/seo-checker"><span class="num">03</span>SEO 점검<span class="en">무료 점검</span></a></li>
+      <li><a href="/#faq"><span class="num">04</span>자주 묻는 질문<span class="en">궁금한 점</span></a></li>
+      <li><a href="/#contact"><span class="num">05</span>상담하기<span class="en">무료 상담</span></a></li>
+      <li><a href="/inquiry"><span class="num">06</span>견적 문의<span class="en">문의서 작성</span></a></li>
+    </ul>
+    <div class="foot">
+      <a class="btn fill" href="/inquiry"><span class="ko">견적 문의하기</span><span class="ar">→</span></a>
+    </div>
+  </div>
+
+  <main>
+    <section id="band">
+      <div class="inner">
+        <span class="eyebrow light">견적 문의</span>
+        <h1>10초면 충분합니다,<br><span class="hl">맞춤 견적</span> 신청</h1>
+        <p>회사명과 연락처만 남겨주셔도 됩니다. 내용을 확인하고 홍스랩이 직접 연락드려 상품과 예상 견적을 안내해 드립니다. 상담은 무료입니다.</p>
+        <div class="quickcall">빠른 상담은 전화 주세요 <a href="tel:01086039867">010 · 8603 · 9867</a></div>
+      </div>
+    </section>
+    <section id="form">
+      <div class="inner">
+        <form id="inqForm" autocomplete="on" novalidate>
+          <div class="step">
+            <div class="st"><b>1단계</b><h2>고객 정보를 입력해 주세요</h2><p>회사명과 전화번호는 꼭 필요합니다</p></div>
+            <div class="tm-row">
+              <div class="tm-group"><label class="tm-label" for="company">회사명 <span class="req">*</span></label><input class="tm-input" id="company" name="company" type="text" placeholder="예: 홍스상회" required></div>
+              <div class="tm-group"><label class="tm-label" for="person">이름 / 직책</label><input class="tm-input" id="person" name="person" type="text" placeholder="예: 홍길동 / 대표"></div>
+            </div>
+            <div class="tm-row">
+              <div class="tm-group"><label class="tm-label" for="phone">전화번호 <span class="req">*</span></label><input class="tm-input" id="phone" name="phone" type="tel" inputmode="tel" placeholder="010-0000-0000" required></div>
+              <div class="tm-group"><label class="tm-label" for="email">이메일</label><input class="tm-input" id="email" name="email" type="email" placeholder="답변 받을 이메일 (선택)"></div>
+            </div>
+            <div class="tm-group">
+              <span class="tm-label">예산 <span class="req">*</span></span>
+              <div class="budget" role="radiogroup" aria-label="예산">
+                <span><input type="radio" name="budget" id="b1" value="30만원 이하"><label for="b1">30만원 이하</label></span>
+                <span><input type="radio" name="budget" id="b2" value="30~60만원"><label for="b2">30~60만원</label></span>
+                <span><input type="radio" name="budget" id="b3" value="60~100만원"><label for="b3">60~100만원</label></span>
+                <span><input type="radio" name="budget" id="b4" value="100~300만원"><label for="b4">100~300만원</label></span>
+                <span><input type="radio" name="budget" id="b5" value="300만원 이상"><label for="b5">300만원 이상</label></span>
+                <span><input type="radio" name="budget" id="b6" value="상담 후 결정"><label for="b6">상담 후 결정</label></span>
+              </div>
+            </div>
+          </div>
+          <div class="step">
+            <div class="st"><b>2단계</b><h2>조금 더 자세히 남겨 주세요</h2><p>적어 주실수록 견적이 정확해집니다 (선택)</p></div>
+            <div class="tm-row">
+              <div class="tm-group"><label class="tm-label" for="interest">관심 상품</label><select class="tm-select" id="interest" name="interest"><option value="">상담 후 선택</option><option>실속형 (199,000원~)</option><option>기본형 (299,000원~)</option><option>확장형 (599,000원~)</option><option>앱·웹앱 제작</option><option>기존 홈페이지 개선·SEO</option></select></div>
+              <div class="tm-group"><label class="tm-label" for="site">현재 홈페이지 주소</label><input class="tm-input" id="site" name="site" type="text" inputmode="url" placeholder="있다면 입력 (예: hongslab.kr)"></div>
+            </div>
+            <div class="tm-group"><label class="tm-label" for="message">문의 내용</label><textarea class="tm-textarea" id="message" name="message" maxlength="1500" placeholder="업종, 필요한 페이지나 기능, 원하시는 공개 시점, 참고 사이트 등을 적어 주세요."></textarea></div>
+          </div>
+          <div class="tm-group">
+            <label class="tm-check"><input type="checkbox" id="privacy"> 개인정보 수집 및 이용에 동의합니다. <span class="req" style="color:var(--red)">*</span></label>
+            <p class="privacy-note">홍스랩은 입력하신 정보를 상담과 견적 안내 목적으로만 사용하며, 상담 종료 후 요청 시 즉시 삭제합니다.</p>
+          </div>
+          <div class="tm-actions">
+            <button type="submit" class="btn_kakao" id="kakaoSend">카카오톡으로 견적 문의 보내기</button>
+            <a class="ghost" id="mailSend" href="#">이메일로 보내기</a>
+            <button type="button" class="ghost" id="copyOnly">내용만 복사</button>
+          </div>
+          <div class="tm-result" id="formResult" aria-live="polite"></div>
+          <div class="tm-copybox" id="copyBox" hidden><textarea id="copyText" readonly aria-label="복사할 문의 내용"></textarea><a class="btn_kakao" id="kakaoOpen" href="https://pf.kakao.com/_KxojrX" target="_blank" rel="noopener">복사했어요, 카카오톡 열기</a></div>
+        </form>
+        <aside>
+          <div class="box dark">
+            <h3>전화 · 메신저 상담</h3>
+            <div class="tel">
+              <a href="tel:01086039867"><span>제작 · 견적 상담</span><b>010 · 8603 · 9867</b></a>
+              <a href="http://pf.kakao.com/_KxojrX" target="_blank" rel="noopener"><span>카카오톡 채널</span><b>@홍스랩</b></a>
+              <a href="mailto:hongslab1@naver.com"><span>이메일</span><b>hongslab1@naver.com</b></a>
+            </div>
+          </div>
+          <div class="box">
+            <h3>상담 안내</h3>
+            <dl><dt>상담 시간</dt><dd>평일 10:00 ~ 19:00 · 카카오톡은 24시간 접수</dd><dt>답변</dt><dd>접수 확인 후 순차 답변, 보통 당일 안에 연락드립니다</dd><dt>비용</dt><dd>상담·견적 안내는 무료, 모든 요금은 부가세 별도</dd></dl>
+          </div>
+          <div class="box">
+            <h3>회사 정보</h3>
+            <dl><dt>상호</dt><dd>홍스랩</dd><dt>대표</dt><dd>홍순경</dd><dt>사업자</dt><dd>176-43-01356</dd></dl>
+          </div>
+          <div class="box">
+            <h3>바로가기</h3>
+            <ul class="links">
+              <li><a href="/seo-checker">내 홈페이지 무료 SEO 점검 <span>→</span></a></li>
+              <li><a href="/portfolio">제작사례 전체 보기 <span>→</span></a></li>
+              <li><a href="/#pricing">제작 요금 안내 <span>→</span></a></li>
+              <li><a href="/#faq">자주 묻는 질문 <span>→</span></a></li>
+            </ul>
+          </div>
+        </aside>
+      </div>
+    </section>
+  </main>
+
+  <div id="quick">
+    <a class="tel" href="tel:01086039867"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.8 19.8 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>전화하기</a>
+    <a class="kakao" href="http://pf.kakao.com/_KxojrX" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 3C6.48 3 2 6.58 2 11c0 2.55 1.5 4.83 3.84 6.3-.12.86-.46 2.24-1.34 3.7 0 0 2.02-.34 4.1-1.7A11.6 11.6 0 0 0 12 19c5.52 0 10-3.58 10-8s-4.48-8-10-8z"/></svg>카톡문의</a>
+    <a class="inq" href="/#contact"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16v12H7l-3 3z"/><path d="M8 9h8M8 12h5"/></svg>빠른문의</a>
+  </div>
+
+  <footer id="footer">
+    <div class="inner">
+      <div class="top">
+        <div class="brand">
+          <div class="logo white"><span class="wm">HONGS<i></i>LAB</span><span class="sub">웹 · 앱 제작 스튜디오</span></div>
+          <p>고객을 부르는 홈페이지를 만드는 맞춤형 웹·앱 제작 스튜디오. 지역 업체 홈페이지부터 웹앱까지, 사업에 꼭 맞게 제작합니다.</p>
+        </div>
+        <div>
+          <h4>사이트맵</h4>
+          <ul class="sitemap">
+            <li><a href="/">홈</a></li>
+            <li><a href="/portfolio">제작사례</a></li>
+            <li><a href="/#pricing">제작 요금</a></li>
+            <li><a href="/seo-checker">SEO 점검</a></li>
+            <li><a href="/#faq">자주 묻는 질문</a></li>
+            <li><a href="/inquiry">견적 문의</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>연락처</h4>
+          <dl class="info">
+            <dt>대표</dt><dd>홍순경</dd>
+            <dt>전화</dt><dd><a href="tel:01086039867">010 · 8603 · 9867</a></dd>
+            <dt>메일</dt><dd><a href="mailto:hongslab1@naver.com">hongslab1@naver.com</a></dd>
+            <dt>사업자</dt><dd>176-43-01356</dd>
+            <dt>상담</dt><dd>카카오톡 채널 · 확인 후 순차 답변</dd>
+          </dl>
+        </div>
+      </div>
+      <div class="bottom">
+        <div>© 2026 홍스랩. 모든 권리 보유.</div>
+        <div class="made"><i></i>홍스랩 제작</div>
+      </div>
+    </div>
+  </footer>
+</div>
+
+<script>
+(function(){
+  const header=document.getElementById('header');
+  const onScroll=()=>header.classList.toggle('on',window.scrollY>40);
+  window.addEventListener('scroll',onScroll,{passive:true});onScroll();
+  const menuToggle=document.getElementById('menuToggle'),mGnb=document.getElementById('mGnb');
+  const setMenu=open=>{menuToggle.classList.toggle('on',open);mGnb.classList.toggle('on',open);document.body.style.overflow=open?'hidden':''};
+  menuToggle.addEventListener('click',()=>setMenu(!mGnb.classList.contains('on')));
+  mGnb.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>setMenu(false)));
+})();
+
+(function(){
+  const KAKAO='https://pf.kakao.com/_KxojrX',MAIL='hongslab1@naver.com';
+  const $=id=>document.getElementById(id);
+  const formResult=$('formResult'),copyBox=$('copyBox'),copyText=$('copyText');
+  const val=id=>$(id).value.trim();
+  const build=()=>{
+    const co=val('company'),ph=val('phone'),budget=(document.querySelector('input[name=budget]:checked')||{}).value||'';
+    if(!co||!ph||!budget||!$('privacy').checked){formResult.textContent='회사명, 전화번호, 예산, 개인정보 동의는 필수입니다.';return null}
+    if(!/^[0-9\-\s+().]{9,20}$/.test(ph)){formResult.textContent='전화번호 형식을 확인해 주세요.';$('phone').focus();return null}
+    const lines=['[홍스랩 견적 문의]','회사명: '+co,'이름/직책: '+(val('person')||'미입력'),'전화번호: '+ph];
+    if(val('email'))lines.push('이메일: '+val('email'));
+    lines.push('예산: '+budget);
+    if(val('interest'))lines.push('관심 상품: '+val('interest'));
+    if(val('site'))lines.push('현재 홈페이지: '+val('site'));
+    if(val('message'))lines.push('문의 내용:\n'+val('message'));
+    return lines.join('\n');
+  };
+  const copy=async text=>{
+    if(navigator.clipboard&&window.isSecureContext){try{await navigator.clipboard.writeText(text);return true}catch(e){}}
+    try{const ta=document.createElement('textarea');ta.value=text;ta.setAttribute('readonly','');ta.style.cssText='position:fixed;top:0;left:0;width:1px;height:1px;opacity:0';document.body.appendChild(ta);ta.focus();ta.select();const ok=document.execCommand('copy');document.body.removeChild(ta);return ok}catch(e){return false}
+  };
+  const showBox=text=>{copyText.value=text;copyBox.hidden=false;copyText.focus();copyText.select()};
+  $('inqForm').addEventListener('submit',async e=>{
+    e.preventDefault();const text=build();if(!text)return;
+    const ok=await copy(text);
+    if(ok){copyBox.hidden=true;formResult.textContent='문의 내용이 복사되었습니다. 열리는 카카오톡 채팅창에 붙여넣어 보내주세요.';const w=window.open(KAKAO,'_blank');if(w){try{w.opener=null}catch(e){}}if(!w){showBox(text);formResult.textContent='내용이 복사되었습니다. 아래 버튼으로 카카오톡을 열고 붙여넣어 주세요.'}}
+    else{showBox(text);formResult.textContent='이 브라우저에서는 자동 복사가 되지 않습니다. 아래 내용을 길게 눌러 복사한 뒤 카카오톡을 열어 주세요.'}
+  });
+  $('mailSend').addEventListener('click',e=>{
+    e.preventDefault();const text=build();if(!text)return;
+    location.href='mailto:'+MAIL+'?subject='+encodeURIComponent('[홍스랩 견적 문의] '+val('company'))+'&body='+encodeURIComponent(text);
+    formResult.textContent='메일 앱이 열립니다. 열리지 않으면 "내용만 복사" 후 '+MAIL+' 로 보내주세요.';
+  });
+  $('copyOnly').addEventListener('click',async()=>{
+    const text=build();if(!text)return;const ok=await copy(text);
+    if(ok){copyBox.hidden=true;formResult.textContent='내용이 복사되었습니다. 카카오톡·문자·이메일 어디에나 붙여넣어 보내주세요.'}else{showBox(text);formResult.textContent='자동 복사가 되지 않아 아래에 내용을 표시했습니다.'}
+  });
+  const q=new URLSearchParams(location.search).get('plan');if(q){const sel=$('interest');[...sel.options].forEach(o=>{if(o.text.startsWith(q))sel.value=o.text})}
+})();
+</script>
+</body>
+</html>
