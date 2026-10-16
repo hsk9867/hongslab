@@ -3,6 +3,14 @@
 const UA = 'Mozilla/5.0 (compatible; HongslabSEOChecker/1.0; +https://hongslab.kr/seo-checker)';
 const MAX_HTML = 3 * 1024 * 1024;
 const CACHE_TTL = 600;
+// 자기 자신(hongslab.kr)을 외부 fetch 로 부르면 522 가 나므로 정적 자산 바인딩으로 직접 읽는다
+const SELF_HOSTS = new Set(['hongslab.kr', 'www.hongslab.kr', 'hongslab.hsk9867.workers.dev']);
+let assets = null;
+function doFetch(url, init) {
+  const host = new URL(url).hostname.toLowerCase();
+  if (assets && SELF_HOSTS.has(host)) return assets.fetch(new Request(url, init));
+  return fetch(url, init);
+}
 
 export default {
   async fetch(request, env, ctx) {
@@ -21,6 +29,7 @@ function json(data, status = 200, extra = {}) {
 
 async function handleCheck(request, env, ctx) {
   if (request.method !== 'GET') return json({ error: 'GET만 지원합니다.' }, 405);
+  assets = env.ASSETS;
   const input = (new URL(request.url).searchParams.get('url') || '').trim();
   const target = normalizeTarget(input);
   if (!target) return json({ error: '올바른 사이트 주소를 입력해 주세요. 예: hongslab.kr' }, 400);
@@ -67,7 +76,7 @@ function normalizeTarget(input) {
 
 async function get(url, { method = 'GET', timeout = 10000 } = {}) {
   const started = Date.now();
-  const res = await fetch(url, {
+  const res = await doFetch(url, {
     method,
     redirect: 'follow',
     headers: { 'user-agent': UA, accept: 'text/html,application/xhtml+xml,text/plain,*/*;q=0.8', 'accept-language': 'ko-KR,ko;q=0.9' },
