@@ -1,0 +1,537 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="format-detection" content="telephone=no" />
+  <meta name="description" content="내 홈페이지가 네이버·구글 검색과 ChatGPT 같은 AI 검색에 얼마나 잘 노출되는지 무료로 점검합니다. 네이버 SEO·구글 SEO·AEO·GEO 4개 축 60여 개 항목을 공개 HTML 기준으로 분석합니다." />
+  <link rel="canonical" href="https://hongslab.kr/seo-checker" />
+  <meta property="og:title" content="무료 SEO·AI 검색 노출 점검 | 홍스랩" />
+  <meta property="og:description" content="홈페이지 주소만 넣으면 네이버·구글·AI 검색 노출 상태를 점수로 보여드립니다." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://hongslab.kr/seo-checker" />
+  <meta property="og:site_name" content="홍스랩" />
+  <meta property="og:locale" content="ko_KR" />
+  <meta property="og:image" content="https://hongslab.kr/og.jpg" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="무료 SEO·AI 검색 노출 점검 | 홍스랩" />
+  <meta name="twitter:description" content="홈페이지 주소만 넣으면 네이버·구글·AI 검색 노출 상태를 점수로 보여드립니다." />
+  <meta name="twitter:image" content="https://hongslab.kr/og.jpg" />
+  <link rel="icon" type="image/png" href="favicon.png" />
+  <link rel="apple-touch-icon" href="favicon.png" />
+  <title>무료 SEO·AI 검색 노출 점검 | 홍스랩</title>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebApplication",
+        "@id": "https://hongslab.kr/seo-checker#app",
+        "name": "홍스랩 SEO 체커",
+        "url": "https://hongslab.kr/seo-checker",
+        "applicationCategory": "BusinessApplication",
+        "operatingSystem": "Web",
+        "offers": { "@type": "Offer", "price": "0", "priceCurrency": "KRW" },
+        "description": "네이버 SEO, 구글 SEO, AEO(답변 엔진), GEO(생성형 AI 엔진) 4개 축으로 홈페이지의 검색 노출 상태를 무료로 점검하는 도구",
+        "provider": { "@id": "https://hongslab.kr/#business" },
+        "inLanguage": "ko-KR"
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "홍스랩", "item": "https://hongslab.kr/" },
+          { "@type": "ListItem", "position": 2, "name": "SEO 체커", "item": "https://hongslab.kr/seo-checker" }
+        ]
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "SEO 체커는 무엇을 점검하나요?",
+            "acceptedAnswer": { "@type": "Answer", "text": "입력한 홈페이지의 공개 HTML과 robots.txt, sitemap.xml, llms.txt를 읽어 네이버 SEO, 구글 SEO, AEO(답변 엔진 최적화), GEO(생성형 AI 엔진 최적화) 4개 축 60여 개 항목을 확인하고 축별 점수와 종합 점수를 계산합니다." }
+          },
+          {
+            "@type": "Question",
+            "name": "AEO와 GEO는 무엇인가요?",
+            "acceptedAnswer": { "@type": "Answer", "text": "AEO(Answer Engine Optimization)는 음성 검색이나 검색 결과의 바로 답변에 내 정보가 뽑히도록 구조화 데이터와 질문-답변 형식을 갖추는 것이고, GEO(Generative Engine Optimization)는 ChatGPT, Perplexity, Gemini 같은 생성형 AI가 답변할 때 내 사이트를 읽고 인용하도록 AI 크롤러 허용, llms.txt, 서버 렌더링 본문을 갖추는 것입니다." }
+          },
+          {
+            "@type": "Question",
+            "name": "점검 결과 점수가 낮으면 어떻게 하나요?",
+            "acceptedAnswer": { "@type": "Answer", "text": "결과 화면의 항목별 설명을 보고 직접 고칠 수 있고, 홍스랩에 무료 상담을 신청하면 현재 홈페이지에 맞는 개선 방법이나 검색 최적화가 반영된 새 홈페이지 제작을 안내해 드립니다." }
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap">
+  <style>
+    .sr{position:absolute;width:1px;height:1px;margin:-1px;padding:0;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0}
+    :root{
+      --black:#0a0a0a;--ink:#141414;--white:#fff;--soft:#f3f3f3;--cream:#f7f5f1;
+      --text:#0a0a0a;--muted:#6b6b6b;--line:#e5e5e5;
+      --red:#e63027;--red-dark:#b81f18;
+      --green:#1f8a4c;--amber:#d98a0a;
+      --kakao:#FEE500;--kakao-ink:#391B1B;
+      --header-h:88px;--inner:1240px;--t:.35s;
+      --en:'Inter','Pretendard',sans-serif;
+      --ko:'Pretendard',system-ui,-apple-system,'Segoe UI',sans-serif;
+    }
+    *{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth;scrollbar-gutter:stable}
+    body{background:var(--white);color:var(--text);font-family:var(--ko);word-break:keep-all;-webkit-font-smoothing:antialiased;line-height:1.6;letter-spacing:-.01em}
+    a{text-decoration:none;color:inherit}
+    ul,ol{list-style:none}
+    button,input,select,textarea{font:inherit;color:inherit}
+    button{border:0;background:none;cursor:pointer}
+    img,svg{display:block;max-width:100%}
+    .inner{width:var(--inner);max-width:calc(100% - 48px);margin:0 auto;position:relative}
+    .en{font-family:var(--en)}
+    .eyebrow{display:inline-flex;align-items:center;gap:14px;font-family:var(--en);font-size:12px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--muted)}
+    .eyebrow:before{content:"";width:40px;height:1px;background:var(--red)}
+    .eyebrow.light{color:rgba(255,255,255,.7)}
+    .btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;font-family:var(--en);font-size:12px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;padding:16px 28px;border:1px solid var(--black);color:var(--black);background:transparent;transition:background var(--t),color var(--t),border-color var(--t)}
+    .btn:hover{background:var(--black);color:#fff}
+    .btn.fill{background:var(--black);color:#fff}
+    .btn.fill:hover{background:var(--red);border-color:var(--red)}
+    .btn.red{background:var(--red);border-color:var(--red);color:#fff}
+    .btn.red:hover{background:var(--red-dark);border-color:var(--red-dark)}
+    .btn.light{border-color:rgba(255,255,255,.6);color:#fff}
+    .btn.light:hover{background:#fff;color:var(--black);border-color:#fff}
+    .btn .ko{font-family:var(--ko);letter-spacing:-.01em;font-size:14px;font-weight:600;text-transform:none}
+    .btn .ar{transition:transform var(--t)}
+    .btn:hover .ar{transform:translateX(4px)}
+
+    .logo{display:inline-flex;flex-direction:column;line-height:1;color:var(--black)}
+    .logo .wm{font-family:var(--en);font-weight:800;font-size:22px;letter-spacing:-.04em;display:inline-flex;align-items:baseline;gap:.22em}
+    .logo .wm i{font-style:normal;width:.3em;height:.3em;border-radius:50%;background:var(--red);align-self:center;margin-top:.1em}
+    .logo .sub{display:flex;align-items:center;gap:10px;margin-top:6px;font-family:var(--en);font-size:9px;font-weight:600;letter-spacing:.36em;text-transform:uppercase;color:var(--muted)}
+    .logo .sub:before{content:"";width:28px;height:2px;background:var(--red)}
+    .logo.white{color:#fff}.logo.white .sub{color:rgba(255,255,255,.6)}
+
+    /* Header (메인과 동일, 어두운 히어로 위에 올라감) */
+    #header{position:fixed;top:0;left:0;right:0;z-index:999;height:var(--header-h);transition:background var(--t),box-shadow var(--t),height var(--t)}
+    #header .inner{height:100%;display:flex;align-items:center;justify-content:space-between}
+    #header .gnb{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);display:flex;gap:40px}
+    #header .gnb a{font-family:var(--en);font-size:14px;font-weight:600;letter-spacing:-.02em;color:#fff;padding:8px 0;position:relative;transition:color var(--t)}
+    #header .gnb a:after{content:"";position:absolute;left:0;right:0;bottom:2px;height:2px;background:var(--red);transform:scaleX(0);transform-origin:left;transition:transform var(--t)}
+    #header .gnb a:hover:after,#header .gnb a.active:after{transform:scaleX(1)}
+    #header .right{display:flex;align-items:center;gap:18px}
+    #header .cta{font-family:var(--ko);font-size:13px;font-weight:700;letter-spacing:-.01em;padding:12px 20px;border:1px solid rgba(255,255,255,.6);color:#fff;display:inline-flex;align-items:center;gap:8px;transition:background var(--t),color var(--t),border-color var(--t)}
+    #header .cta b{font-family:var(--en);font-size:10px;letter-spacing:.2em;color:var(--red);font-weight:700}
+    #header .cta:hover{background:#fff;color:var(--black);border-color:#fff}
+    #header .logo{color:#fff}#header .logo .sub{color:rgba(255,255,255,.6)}
+    #header.on{background:rgba(255,255,255,.96);box-shadow:0 1px 0 var(--line);height:76px;backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px)}
+    #header.on .logo{color:var(--black)}#header.on .logo .sub{color:var(--muted)}
+    #header.on .gnb a{color:var(--black)}
+    #header.on .cta{border-color:var(--black);color:var(--black)}
+    #header.on .cta:hover{background:var(--black);color:#fff}
+    .menuToggle{display:none;position:relative;z-index:1001;width:24px;height:16px;flex-direction:column;justify-content:space-between}
+    .menuToggle span{display:block;width:100%;height:2px;background:#fff;transition:transform var(--t),opacity var(--t),background var(--t)}
+    #header.on .menuToggle span,.menuToggle.on span{background:var(--black)}
+    .menuToggle.on span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+    .menuToggle.on span:nth-child(2){opacity:0}
+    .menuToggle.on span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+    .m_gnb{position:fixed;inset:0;background:#fff;z-index:1000;display:flex;flex-direction:column;justify-content:center;padding:0 32px;opacity:0;visibility:hidden;transition:opacity var(--t),visibility var(--t)}
+    .m_gnb.on{opacity:1;visibility:visible}
+    .m_gnb li{border-bottom:1px solid var(--line)}
+    .m_gnb li a{display:flex;align-items:center;gap:18px;padding:22px 0;font-size:26px;font-weight:700;color:var(--black)}
+    .m_gnb li a .num{font-family:var(--en);font-size:11px;letter-spacing:.2em;color:var(--red);font-weight:600}
+    .m_gnb li a .en{font-size:11px;letter-spacing:.2em;color:var(--muted);font-weight:600;margin-left:auto}
+    .m_gnb .foot{margin-top:40px;display:flex;flex-direction:column;gap:12px}
+
+    /* Hero + 입력 */
+    #hero{background:var(--black);color:#fff;padding:calc(var(--header-h) + 90px) 0 90px;position:relative;overflow:hidden}
+    #hero:before{content:"";position:absolute;inset:0;background:radial-gradient(60% 80% at 80% 20%,rgba(230,48,39,.22),transparent 60%);pointer-events:none}
+    #hero .inner{position:relative}
+    #hero h1{font-family:var(--en);font-weight:800;font-size:clamp(46px,7.2vw,104px);line-height:.95;letter-spacing:-.04em;margin-top:28px}
+    #hero h1 .ko{display:block;font-family:var(--ko);font-weight:700;font-size:clamp(22px,3vw,40px);letter-spacing:-.02em;line-height:1.3;margin-top:22px}
+    #hero p.lead{margin-top:28px;font-size:16px;line-height:1.9;color:rgba(255,255,255,.7);max-width:620px}
+    #hero form{margin-top:44px;display:flex;max-width:760px;border:1px solid rgba(255,255,255,.35);background:rgba(255,255,255,.04);backdrop-filter:blur(4px)}
+    #hero form:focus-within{border-color:#fff}
+    #hero input{flex:1;min-width:0;background:transparent;border:0;outline:0;padding:20px 22px;font-size:17px;color:#fff;font-family:var(--en)}
+    #hero input::placeholder{color:rgba(255,255,255,.4);font-family:var(--ko)}
+    #hero form .btn{border:0;border-left:1px solid rgba(255,255,255,.35);background:var(--red);color:#fff;padding:0 30px;white-space:nowrap}
+    #hero form .btn:hover{background:var(--red-dark)}
+    #hero form .btn[disabled]{opacity:.6;cursor:progress}
+    #hero .hint{margin-top:14px;font-size:12px;color:rgba(255,255,255,.45)}
+    #hero .hint b{color:rgba(255,255,255,.7);font-weight:600}
+    #hero .axes{margin-top:56px;display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.14)}
+    #hero .axes div{background:var(--black);padding:22px 22px 24px}
+    #hero .axes b{font-family:var(--en);font-size:26px;font-weight:800;letter-spacing:-.03em;color:var(--red);display:block}
+    #hero .axes strong{display:block;margin-top:8px;font-size:15px;font-weight:700}
+    #hero .axes span{display:block;margin-top:6px;font-size:12px;line-height:1.6;color:rgba(255,255,255,.55)}
+
+    /* 결과 */
+    #result{display:none;padding:90px 0 60px}
+    #result.show{display:block}
+    #result .msg{padding:26px 28px;border:1px solid var(--red);color:var(--red-dark);background:#fff6f5;font-size:15px}
+    #result .msg.loading{border-color:var(--line);background:var(--cream);color:var(--text);display:flex;align-items:center;gap:16px}
+    .spin{width:20px;height:20px;border:2px solid var(--line);border-top-color:var(--red);border-radius:50%;animation:spin .8s linear infinite;flex:none}
+    @keyframes spin{to{transform:rotate(360deg)}}
+    .rhead{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:24px;border-bottom:1px solid var(--black);padding-bottom:28px}
+    .rhead h2{font-family:var(--en);font-size:clamp(30px,4vw,54px);font-weight:400;letter-spacing:-.02em;line-height:1.15;margin-top:22px}
+    .rhead h2 strong{font-weight:800}
+    .rhead .site{font-size:14px;color:var(--muted);margin-top:12px;word-break:break-all}
+    .rhead .site b{color:var(--text);font-weight:600}
+    .rhead .meta{font-family:var(--en);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);text-align:right;line-height:2}
+    .scores{display:grid;grid-template-columns:1.4fr repeat(4,1fr);gap:1px;background:var(--line);border:1px solid var(--line);margin-top:40px}
+    .scores>div{background:#fff;padding:32px 28px}
+    .scores .tot{background:var(--black);color:#fff}
+    .scores .lab{font-family:var(--en);font-size:11px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--muted)}
+    .scores .tot .lab{color:rgba(255,255,255,.55)}
+    .scores .name{margin-top:6px;font-size:14px;font-weight:700}
+    .scores .num{font-family:var(--en);font-size:clamp(40px,4.5vw,64px);font-weight:800;letter-spacing:-.04em;line-height:1;margin-top:18px}
+    .scores .num small{font-size:16px;font-weight:600;letter-spacing:0;color:var(--muted);margin-left:2px}
+    .scores .tot .num small{color:rgba(255,255,255,.5)}
+    .scores .bar{height:3px;background:var(--soft);margin-top:18px;position:relative;overflow:hidden}
+    .scores .bar i{position:absolute;left:0;top:0;bottom:0;background:var(--red);width:0;transition:width 1s cubic-bezier(.16,1,.3,1)}
+    .scores .tot .bar{background:rgba(255,255,255,.15)}
+    .scores .grade{margin-top:14px;font-size:12px;color:var(--muted)}
+    .scores .tot .grade{color:rgba(255,255,255,.7)}
+    .summary{margin-top:28px;display:flex;flex-wrap:wrap;gap:10px 28px;font-size:13px;color:var(--muted)}
+    .summary b{font-family:var(--en);font-weight:700;color:var(--text);margin-right:4px}
+    .summary .p b{color:var(--green)}.summary .w b{color:var(--amber)}.summary .f b{color:var(--red)}
+
+    .tabs{display:flex;gap:0;border-bottom:1px solid var(--black);margin-top:64px;overflow-x:auto;scrollbar-width:none}
+    .tabs::-webkit-scrollbar{display:none}
+    .tabs button{padding:16px 22px;font-family:var(--en);font-size:12px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);white-space:nowrap;position:relative}
+    .tabs button span{font-family:var(--ko);letter-spacing:-.01em;text-transform:none;margin-left:8px;font-weight:600}
+    .tabs button:after{content:"";position:absolute;left:0;right:0;bottom:-1px;height:2px;background:var(--red);transform:scaleX(0);transition:transform var(--t)}
+    .tabs button.on{color:var(--text)}
+    .tabs button.on:after{transform:scaleX(1)}
+    .panel{display:none}
+    .panel.on{display:block}
+    .panel .desc{padding:26px 0 8px;font-size:14px;color:var(--muted);line-height:1.8;max-width:760px}
+    .items{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--line);border:1px solid var(--line);margin-top:22px}
+    .item{background:#fff;padding:22px 24px;display:grid;grid-template-columns:28px 1fr;gap:14px;align-items:start}
+    .item .st{width:22px;height:22px;border-radius:50%;display:flex;align-items:center;justify-content:center;margin-top:2px;color:#fff;font-family:var(--en);font-size:11px;font-weight:800}
+    .item.pass .st{background:var(--green)}
+    .item.warn .st{background:var(--amber)}
+    .item.fail .st{background:var(--red)}
+    .item .lb{font-size:15px;font-weight:700;display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+    .item .lb em{font-style:normal;font-family:var(--en);font-size:9px;font-weight:700;letter-spacing:.18em;padding:3px 7px;border:1px solid var(--black);text-transform:uppercase}
+    .item .dt{margin-top:6px;font-size:13px;line-height:1.7;color:var(--muted);word-break:break-all}
+    .item.fail .dt,.item.warn .dt{color:#3a3a3a}
+
+    /* 개선 제안 + CTA */
+    #fix{background:var(--cream);padding:90px 0}
+    #fix h2{font-family:var(--en);font-size:clamp(30px,4vw,54px);font-weight:400;letter-spacing:-.02em;margin-top:22px;line-height:1.15}
+    #fix h2 strong{font-weight:800}
+    #fix ol{margin-top:40px;counter-reset:n;display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border:1px solid var(--line)}
+    #fix li{background:#fff;padding:28px 26px;counter-increment:n}
+    #fix li:before{content:"0" counter(n);font-family:var(--en);font-size:11px;font-weight:700;letter-spacing:.2em;color:var(--red)}
+    #fix li b{display:block;margin-top:12px;font-size:16px;font-weight:700}
+    #fix li span{display:block;margin-top:8px;font-size:13px;line-height:1.75;color:var(--muted)}
+    #fix .empty{margin-top:40px;padding:36px;border:1px solid var(--line);background:#fff;font-size:15px}
+    #fix .cta{margin-top:56px;display:grid;grid-template-columns:1.2fr 1fr;gap:40px;align-items:center;background:var(--black);color:#fff;padding:52px 56px}
+    #fix .cta h3{font-size:clamp(22px,2.6vw,32px);font-weight:700;line-height:1.35;letter-spacing:-.02em}
+    #fix .cta p{margin-top:16px;font-size:14px;line-height:1.85;color:rgba(255,255,255,.65)}
+    #fix .cta .acts{display:flex;flex-direction:column;gap:10px}
+    #fix .cta .btn{width:100%}
+    #fix .cta .btn.kakao{background:var(--kakao);border-color:var(--kakao);color:var(--kakao-ink)}
+    #fix .cta .btn.kakao:hover{background:#f5db00}
+
+    /* 설명 */
+    #about{padding:100px 0}
+    #about h2{font-family:var(--en);font-size:clamp(30px,4vw,54px);font-weight:400;letter-spacing:-.02em;margin-top:22px;line-height:1.15}
+    #about h2 strong{font-weight:800}
+    #about .grid{margin-top:48px;display:grid;grid-template-columns:repeat(4,1fr);gap:40px}
+    #about .grid b{font-family:var(--en);font-size:22px;font-weight:800;letter-spacing:-.03em;color:var(--red)}
+    #about .grid h3{margin-top:12px;font-size:17px;font-weight:700}
+    #about .grid p{margin-top:12px;font-size:14px;line-height:1.85;color:var(--muted)}
+    #about .note{margin-top:56px;padding-top:28px;border-top:1px solid var(--line);font-size:13px;line-height:1.85;color:var(--muted);max-width:820px}
+    #about .faq{margin-top:56px;border-top:1px solid var(--black)}
+    #about details{border-bottom:1px solid var(--line)}
+    #about summary{cursor:pointer;list-style:none;padding:22px 0;font-size:17px;font-weight:700;display:flex;gap:16px;align-items:center}
+    #about summary::-webkit-details-marker{display:none}
+    #about summary .q{font-family:var(--en);font-size:12px;font-weight:700;letter-spacing:.14em;color:var(--red)}
+    #about details p{padding:0 0 24px 44px;font-size:14px;line-height:1.85;color:var(--muted)}
+
+    /* Floating + Footer */
+    #quick{position:fixed;right:24px;bottom:28px;z-index:900;display:flex;flex-direction:column;gap:6px}
+    #quick a{width:76px;height:76px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;font-size:11px;font-weight:600;letter-spacing:-.01em;box-shadow:0 10px 30px rgba(0,0,0,.15);transition:transform var(--t)}
+    #quick a:hover{transform:translateY(-3px)}
+    #quick svg{width:20px;height:20px}
+    #quick .tel{background:#fff;color:var(--black);border:1px solid var(--black)}
+    #quick .kakao{background:var(--black);color:#fff;border:1px solid var(--black)}
+    #quick .inq{background:var(--red);color:#fff;border:1px solid var(--red)}
+    #footer{background:var(--black);color:#fff;padding:80px 0 0}
+    #footer .top{display:grid;grid-template-columns:1.3fr .7fr 1fr;gap:50px;padding-bottom:60px}
+    #footer .brand p{margin-top:28px;font-size:14px;line-height:1.85;color:rgba(255,255,255,.6);max-width:360px}
+    #footer h4{font-family:var(--en);font-size:10px;font-weight:600;letter-spacing:.24em;text-transform:uppercase;color:rgba(255,255,255,.45);margin-bottom:22px}
+    #footer .sitemap li{margin-bottom:12px}
+    #footer .sitemap a{font-family:var(--en);font-size:15px;font-weight:600;letter-spacing:-.01em;transition:color var(--t)}
+    #footer .sitemap a:hover{color:var(--red)}
+    #footer .info{display:grid;grid-template-columns:56px 1fr;row-gap:12px;font-size:14px}
+    #footer .info dt{color:rgba(255,255,255,.45)}
+    #footer .info dd{color:#fff}
+    #footer .bottom{border-top:1px solid rgba(255,255,255,.12);padding:22px 0;display:flex;justify-content:space-between;align-items:center;font-family:var(--en);font-size:11px;letter-spacing:.06em;color:rgba(255,255,255,.45)}
+    #footer .bottom .made{display:flex;align-items:center;gap:8px}
+    #footer .bottom .made i{width:6px;height:6px;border-radius:50%;background:var(--red)}
+
+    @media (max-width:1024px){
+      #header .gnb{display:none}
+      #header .cta{display:none}
+      .menuToggle{display:flex}
+      .scores{grid-template-columns:repeat(2,1fr)}
+      .scores .tot{grid-column:1/-1}
+      #about .grid{grid-template-columns:repeat(2,1fr)}
+      #fix ol{grid-template-columns:1fr}
+      #fix .cta{grid-template-columns:1fr;padding:40px 32px}
+      #footer .top{grid-template-columns:1fr 1fr}
+      #footer .brand{grid-column:1/-1}
+    }
+    @media (max-width:768px){
+      :root{--header-h:72px}
+      .inner{max-width:calc(100% - 40px)}
+      #hero{padding:calc(var(--header-h) + 56px) 0 64px}
+      #hero form{flex-direction:column}
+      #hero input{padding:18px 20px;font-size:16px}
+      #hero form .btn{border-left:0;border-top:1px solid rgba(255,255,255,.35);padding:18px}
+      #hero .axes{grid-template-columns:1fr 1fr;margin-top:40px}
+      #result{padding:64px 0 40px}
+      .rhead .meta{text-align:left}
+      .scores>div{padding:24px 20px}
+      .items{grid-template-columns:1fr}
+      .tabs button{padding:14px 14px}
+      #fix,#about{padding:70px 0}
+      #about .grid{grid-template-columns:1fr;gap:32px}
+      #about details p{padding-left:0}
+      #quick{right:14px;bottom:14px}
+      #quick a{width:60px;height:60px;font-size:10px;gap:4px}
+      #quick svg{width:18px;height:18px}
+      #footer{padding-top:60px}
+      #footer .top{grid-template-columns:1fr;gap:36px;padding-bottom:40px}
+      #footer .bottom{flex-direction:column;align-items:flex-start;gap:8px;padding-bottom:110px}
+    }
+    @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+  </style>
+</head>
+<body>
+<div id="wrap">
+
+  <div id="header">
+    <div class="inner">
+      <a class="logo" href="/" aria-label="홍스랩 홈"><span class="wm">HONGS<i></i>LAB</span><span class="sub">Web · App Studio</span></a>
+      <nav class="gnb" aria-label="주 메뉴">
+        <a href="/#works">WORKS</a>
+        <a href="/#pricing">PRICING</a>
+        <a href="/seo-checker" class="active">SEO CHECK</a>
+        <a href="/#faq">FAQ</a>
+        <a href="/#contact">CONTACT</a>
+      </nav>
+      <div class="right">
+        <a class="cta" href="/#contact"><b>FREE</b> 무료 상담 신청</a>
+        <button type="button" class="menuToggle" id="menuToggle" aria-label="모바일 메뉴 열기"><span></span><span></span><span></span></button>
+      </div>
+    </div>
+  </div>
+  <div class="m_gnb" id="mGnb">
+    <ul>
+      <li><a href="/#works"><span class="num">01</span>제작사례<span class="en">WORKS</span></a></li>
+      <li><a href="/#pricing"><span class="num">02</span>제작 요금<span class="en">PRICING</span></a></li>
+      <li><a href="/seo-checker"><span class="num">03</span>SEO 체커<span class="en">SEO CHECK</span></a></li>
+      <li><a href="/#faq"><span class="num">04</span>자주 묻는 질문<span class="en">FAQ</span></a></li>
+      <li><a href="/#contact"><span class="num">05</span>상담하기<span class="en">CONTACT</span></a></li>
+    </ul>
+    <div class="foot">
+      <a class="btn fill" href="/#contact"><span class="ko">무료 상담 신청</span><span class="ar">→</span></a>
+    </div>
+  </div>
+
+  <main>
+    <section id="hero">
+      <div class="inner">
+        <span class="eyebrow light">Free SEO · AEO · GEO Checker</span>
+        <h1>SEO CHECK<span class="ko">내 홈페이지, 네이버·구글·AI 검색에 잘 보이고 있을까요?</span></h1>
+        <p class="lead">주소만 넣으면 공개된 HTML을 기준으로 <b>네이버 SEO · 구글 SEO · AEO · GEO</b> 4개 축 60여 개 항목을 바로 점검합니다. 가입이나 설치 없이 무료입니다.</p>
+        <form id="form" action="/api/seo-check" method="get">
+          <label class="sr" for="url">점검할 홈페이지 주소</label>
+          <input id="url" name="url" type="text" inputmode="url" autocomplete="url" spellcheck="false" placeholder="예: hongslab.kr 또는 https://내홈페이지.com" required />
+          <button type="submit" class="btn" id="submit"><span class="ko">무료 점검하기</span><span class="ar">→</span></button>
+        </form>
+        <p class="hint"><b>http(s)</b>를 생략하면 https로 시도합니다 · 같은 주소는 10분간 이전 결과를 보여줍니다 · 1분에 5회까지</p>
+        <div class="axes" aria-label="점검 축">
+          <div><b>N</b><strong>네이버 SEO</strong><span>서치어드바이저 등록, OG 태그, Yeti 허용, 한글 본문 등</span></div>
+          <div><b>G</b><strong>구글 SEO</strong><span>HTTPS, 색인 허용, 제목 구조, 사이트맵, 응답 속도 등</span></div>
+          <div><b>A</b><strong>AEO 답변 엔진</strong><span>구조화 데이터, FAQ 스키마, 질문형 콘텐츠, 연락처 등</span></div>
+          <div><b>E</b><strong>GEO 생성형 AI</strong><span>AI 크롤러 허용, llms.txt, 서버 렌더링 본문, 인용 신호 등</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="result" aria-live="polite">
+      <div class="inner" id="resultInner"></div>
+    </section>
+
+    <section id="fix" hidden>
+      <div class="inner">
+        <span class="eyebrow">Next Steps</span>
+        <h2>지금 바로 고치면<br><strong>점수가 가장 많이 오르는 항목</strong></h2>
+        <div id="fixList"></div>
+        <div class="cta">
+          <div>
+            <h3>결과를 어떻게 고쳐야 할지 막막하다면,<br>홍스랩이 무료로 살펴봐 드립니다.</h3>
+            <p>점검 결과 화면을 캡처해서 보내주시면 현재 홈페이지에서 고칠 수 있는 것과, 새로 만들어야 하는 것을 나눠서 알려드립니다. 홍스랩이 제작하는 홈페이지는 위 4개 축이 기본으로 반영됩니다.</p>
+          </div>
+          <div class="acts">
+            <a class="btn kakao" href="http://pf.kakao.com/_KxojrX" target="_blank" rel="noopener"><span class="ko">카카오톡으로 결과 보내기</span><span class="ar">→</span></a>
+            <a class="btn light" href="/#contact"><span class="ko">무료 상담 신청</span><span class="ar">→</span></a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="about">
+      <div class="inner">
+        <span class="eyebrow">What We Check</span>
+        <h2>검색 노출을 결정하는<br><strong>4개 축</strong>을 한 번에 봅니다</h2>
+        <div class="grid">
+          <div><b>N</b><h3>네이버 SEO</h3><p>국내 검색의 절반 이상은 여전히 네이버입니다. 서치어드바이저 소유확인, 사이트맵 제출, OG 태그, 네이버 검색로봇(Yeti) 허용 여부, 이미지가 아닌 실제 한글 본문이 있는지를 봅니다.</p></div>
+          <div><b>G</b><h3>구글 SEO</h3><p>HTTPS, 색인 차단(noindex) 여부, title·description 길이, H1·H2 구조, canonical, 사이트맵, 모바일 설정, 서버 응답 속도, 자바스크립트 없이도 내용이 보이는지를 확인합니다.</p></div>
+          <div><b>A</b><h3>AEO 답변 엔진</h3><p>"근처 ○○ 어디가 좋아?" 같은 질문에 검색엔진이 바로 답을 뽑아 쓰려면 업체 정보 스키마(JSON-LD), FAQ 스키마, 질문형 소제목, 전화·주소·영업시간이 기계가 읽을 수 있는 형태로 있어야 합니다.</p></div>
+          <div><b>E</b><h3>GEO 생성형 AI</h3><p>ChatGPT·Perplexity·Gemini가 내 사이트를 읽고 인용하려면 AI 크롤러를 막지 않아야 하고, llms.txt, 서버에서 그려진 본문, 공식 채널 연결(sameAs), 구체적인 수치와 날짜 정보가 필요합니다.</p></div>
+        </div>
+        <div class="faq">
+          <details><summary><span class="q">Q.</span>SEO 체커는 무엇을 점검하나요?</summary><p>입력한 홈페이지의 공개 HTML과 robots.txt, sitemap.xml, llms.txt를 읽어 네이버 SEO, 구글 SEO, AEO, GEO 4개 축 60여 개 항목을 확인하고 축별 점수와 종합 점수를 계산합니다. 로그인이 필요한 페이지나 자바스크립트로만 그려지는 내용은 점검하지 못합니다.</p></details>
+          <details><summary><span class="q">Q.</span>AEO와 GEO는 무엇인가요?</summary><p>AEO(Answer Engine Optimization)는 음성 검색이나 검색 결과의 바로 답변에 내 정보가 뽑히도록 구조화 데이터와 질문-답변 형식을 갖추는 것이고, GEO(Generative Engine Optimization)는 ChatGPT, Perplexity, Gemini 같은 생성형 AI가 답변할 때 내 사이트를 읽고 인용하도록 AI 크롤러 허용, llms.txt, 서버 렌더링 본문을 갖추는 것입니다.</p></details>
+          <details><summary><span class="q">Q.</span>점검 결과 점수가 낮으면 어떻게 하나요?</summary><p>결과 화면의 항목별 설명을 보고 직접 고칠 수 있고, 홍스랩에 무료 상담을 신청하면 현재 홈페이지에 맞는 개선 방법이나 검색 최적화가 반영된 새 홈페이지 제작을 안내해 드립니다.</p></details>
+        </div>
+        <p class="note">점수는 공개된 HTML과 robots.txt·sitemap.xml·llms.txt 파일만으로 계산한 참고 지표이며, 실제 검색 순위는 콘텐츠 품질·외부 링크·운영 기간 등 여기서 확인할 수 없는 요소에도 영향을 받습니다. 점검 요청은 입력한 주소의 첫 페이지만 1회 읽으며, 결과는 저장하지 않습니다.</p>
+      </div>
+    </section>
+  </main>
+
+  <div id="quick">
+    <a class="tel" href="tel:01086039867"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.8 19.8 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>전화하기</a>
+    <a class="kakao" href="http://pf.kakao.com/_KxojrX" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 3C6.48 3 2 6.58 2 11c0 2.55 1.5 4.83 3.84 6.3-.12.86-.46 2.24-1.34 3.7 0 0 2.02-.34 4.1-1.7A11.6 11.6 0 0 0 12 19c5.52 0 10-3.58 10-8s-4.48-8-10-8z"/></svg>카톡문의</a>
+    <a class="inq" href="/#contact"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16v12H7l-3 3z"/><path d="M8 9h8M8 12h5"/></svg>빠른문의</a>
+  </div>
+
+  <footer id="footer">
+    <div class="inner">
+      <div class="top">
+        <div class="brand">
+          <div class="logo white"><span class="wm">HONGS<i></i>LAB</span><span class="sub">Web · App Studio</span></div>
+          <p>고객을 부르는 홈페이지를 만드는 맞춤형 웹·앱 제작 스튜디오. 지역 업체 홈페이지부터 웹앱까지, 사업에 꼭 맞게 제작합니다.</p>
+        </div>
+        <div>
+          <h4>Sitemap</h4>
+          <ul class="sitemap">
+            <li><a href="/">HOME</a></li>
+            <li><a href="/#works">WORKS</a></li>
+            <li><a href="/#pricing">PRICING</a></li>
+            <li><a href="/seo-checker">SEO CHECK</a></li>
+            <li><a href="/#faq">FAQ</a></li>
+            <li><a href="/#contact">CONTACT</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Contact</h4>
+          <dl class="info">
+            <dt>대표</dt><dd>홍순경</dd>
+            <dt>전화</dt><dd><a href="tel:01086039867">010 · 8603 · 9867</a></dd>
+            <dt>메일</dt><dd><a href="mailto:hongslab1@naver.com">hongslab1@naver.com</a></dd>
+            <dt>사업자</dt><dd>176-43-01356</dd>
+            <dt>상담</dt><dd>카카오톡 채널 · 확인 후 순차 답변</dd>
+          </dl>
+        </div>
+      </div>
+      <div class="bottom">
+        <div>© 2026 HONGS LAB. All rights reserved.</div>
+        <div class="made"><i></i>DESIGNED BY HONGS LAB</div>
+      </div>
+    </div>
+  </footer>
+</div>
+
+<script>
+(function(){
+  const header=document.getElementById('header');
+  const onScroll=()=>header.classList.toggle('on',window.scrollY>40);
+  window.addEventListener('scroll',onScroll,{passive:true});onScroll();
+  const menuToggle=document.getElementById('menuToggle'),mGnb=document.getElementById('mGnb');
+  const setMenu=open=>{menuToggle.classList.toggle('on',open);mGnb.classList.toggle('on',open);document.body.style.overflow=open?'hidden':''};
+  menuToggle.addEventListener('click',()=>setMenu(!mGnb.classList.contains('on')));
+  mGnb.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>setMenu(false)));
+
+  const AXES={naver:['N','네이버 SEO','네이버 검색 결과와 서치어드바이저 수집 기준에 맞춰 봅니다.'],google:['G','구글 SEO','구글 검색 색인·순위에 영향을 주는 기술 요소를 봅니다.'],aeo:['A','AEO 답변 엔진','검색엔진·음성 비서가 바로 답을 뽑아 쓸 수 있는 구조인지 봅니다.'],geo:['E','GEO 생성형 AI','ChatGPT·Perplexity·Gemini가 읽고 인용할 수 있는지 봅니다.']};
+  const form=document.getElementById('form'),input=document.getElementById('url'),submit=document.getElementById('submit');
+  const result=document.getElementById('result'),box=document.getElementById('resultInner');
+  const fix=document.getElementById('fix'),fixList=document.getElementById('fixList');
+  const esc=s=>String(s==null?'':s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+  const grade=n=>n>=90?'매우 좋음':n>=75?'좋음':n>=60?'보통':n>=40?'개선 필요':'시급';
+
+  function render(d){
+    const s=d.scores;
+    const axisCard=k=>`<div><div class="lab">${AXES[k][0]} · ${k.toUpperCase()}</div><div class="name">${AXES[k][1]}</div><div class="num" data-to="${s[k]}">0<small>/100</small></div><div class="bar"><i data-w="${s[k]}"></i></div><div class="grade">${grade(s[k])}</div></div>`;
+    box.innerHTML=`
+      <div class="rhead">
+        <div>
+          <span class="eyebrow">Result</span>
+          <h2>종합 <strong>${s.total}점</strong> · ${grade(s.total)}</h2>
+          <p class="site"><b>${esc(d.title||'(제목 없음)')}</b><br>${esc(d.url)}</p>
+        </div>
+        <div class="meta">HTTP ${d.status} · ${d.responseMs}ms<br>${new Date(d.checkedAt).toLocaleString('ko-KR')}</div>
+      </div>
+      <div class="scores">
+        <div class="tot"><div class="lab">Total Score</div><div class="name">종합 점수</div><div class="num" data-to="${s.total}">0<small>/100</small></div><div class="bar"><i data-w="${s.total}"></i></div><div class="grade">4개 축 평균 · ${grade(s.total)}</div></div>
+        ${['naver','google','aeo','geo'].map(axisCard).join('')}
+      </div>
+      <div class="summary"><span>총 <b>${d.counts.total}</b>항목</span><span class="p"><b>${d.counts.pass}</b>통과</span><span class="w"><b>${d.counts.warn}</b>개선 권장</span><span class="f"><b>${d.counts.fail}</b>미흡</span></div>
+      <div class="tabs" role="tablist">${['naver','google','aeo','geo'].map((k,i)=>`<button type="button" role="tab" class="${i?'':'on'}" data-tab="${k}">${AXES[k][0]} ${k}<span>${AXES[k][1]} ${s[k]}</span></button>`).join('')}</div>
+      ${['naver','google','aeo','geo'].map((k,i)=>{
+        const list=d.checks.filter(c=>c.axis===k);
+        const order={fail:0,warn:1,pass:2};
+        list.sort((a,b)=>order[a.status]-order[b.status]||(b.important?1:0)-(a.important?1:0));
+        return `<div class="panel ${i?'':'on'}" data-panel="${k}"><p class="desc">${AXES[k][2]} ${list.length}개 항목 중 통과 ${list.filter(c=>c.status==='pass').length}개.</p><div class="items">${list.map(c=>`<div class="item ${c.status}"><span class="st">${c.status==='pass'?'✓':'!'}</span><div><div class="lb">${esc(c.label)}${c.important?'<em>Core</em>':''}</div><div class="dt">${esc(c.detail)}</div></div></div>`).join('')}</div></div>`;
+      }).join('')}`;
+    box.querySelectorAll('.tabs button').forEach(b=>b.addEventListener('click',()=>{
+      box.querySelectorAll('.tabs button').forEach(x=>x.classList.toggle('on',x===b));
+      box.querySelectorAll('.panel').forEach(p=>p.classList.toggle('on',p.dataset.panel===b.dataset.tab));
+    }));
+    requestAnimationFrame(()=>{
+      box.querySelectorAll('.bar i').forEach(i=>i.style.width=i.dataset.w+'%');
+      box.querySelectorAll('.num[data-to]').forEach(el=>{
+        const to=+el.dataset.to,t0=performance.now();
+        const tick=t=>{const p=Math.min(1,(t-t0)/900),v=Math.round(to*(1-Math.pow(1-p,3)));el.firstChild.nodeValue=v;if(p<1)requestAnimationFrame(tick)};
+        requestAnimationFrame(tick);
+      });
+    });
+    // 개선 제안: 실패 항목 중 핵심 우선, 최대 6개
+    const todo=d.checks.filter(c=>c.status!=='pass').sort((a,b)=>(b.important?2:0)+(b.status==='fail'?1:0)-((a.important?2:0)+(a.status==='fail'?1:0))).slice(0,6);
+    fixList.innerHTML=todo.length?`<ol>${todo.map(c=>`<li><b>${esc(c.label)} <span class="en" style="font-size:10px;letter-spacing:.14em;color:var(--red)">${c.axis.toUpperCase()}</span></b><span>${esc(c.detail)}</span></li>`).join('')}</ol>`:'<div class="empty">미흡하거나 개선이 필요한 항목이 없습니다. 검색 노출 기본기가 잘 갖춰진 사이트입니다.</div>';
+    fix.hidden=false;
+  }
+
+  async function run(url){
+    result.classList.add('show');fix.hidden=true;
+    box.innerHTML='<div class="msg loading"><span class="spin"></span><span><b>'+esc(url)+'</b> 점검 중입니다… 사이트 응답에 따라 10초 정도 걸릴 수 있습니다.</span></div>';
+    submit.disabled=true;
+    result.scrollIntoView({behavior:'smooth',block:'start'});
+    try{
+      const r=await fetch('/api/seo-check?url='+encodeURIComponent(url));
+      const d=await r.json();
+      if(!r.ok||d.error){box.innerHTML='<div class="msg">'+esc(d.error||'점검에 실패했습니다.')+'</div>';return}
+      render(d);
+      try{history.replaceState(null,'','/seo-checker?url='+encodeURIComponent(url))}catch(e){}
+    }catch(e){
+      box.innerHTML='<div class="msg">네트워크 오류로 점검하지 못했습니다. 잠시 후 다시 시도해 주세요.</div>';
+    }finally{submit.disabled=false}
+  }
+  form.addEventListener('submit',e=>{e.preventDefault();const v=input.value.trim();if(v)run(v)});
+  const q=new URLSearchParams(location.search).get('url');
+  if(q){input.value=q;run(q)}
+})();
+</script>
+</body>
+</html>

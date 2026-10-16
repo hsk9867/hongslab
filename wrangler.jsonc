@@ -1,7 +1,19 @@
 {
   "name": "hongslab",
+  "main": "worker.js",
   "compatibility_date": "2025-01-01",
   "assets": {
-    "directory": "./"
+    "directory": "./",
+    "binding": "ASSETS"
+  },
+  "unsafe": {
+    "bindings": [
+      {
+        "name": "SEO_LIMIT",
+        "type": "ratelimit",
+        "namespace_id": "1001",
+        "simple": { "limit": 5, "period": 60 }
+      }
+    ]
   }
 }
