@@ -259,16 +259,8 @@
     #why .cards{display:grid;grid-template-columns:repeat(5,1fr);gap:14px;margin-top:64px;text-align:center}
     #why .card{background:#fff;color:var(--black);display:flex;flex-direction:column;overflow:hidden;transition:transform var(--t),box-shadow var(--t)}
     #why .card:hover{transform:translateY(-6px);box-shadow:0 30px 60px rgba(0,0,0,.35)}
-    #why .vis{position:relative;aspect-ratio:1/1;display:flex;align-items:center;justify-content:center;color:#fff;background:#111;overflow:hidden}
-    #why .vis:before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 1px 1px,rgba(255,255,255,.12) 1px,transparent 1.5px) 0 0/18px 18px}
-    #why .vis:after{content:"";position:absolute;inset:0;background:radial-gradient(70% 70% at 30% 25%,rgba(230,48,39,.55),transparent 65%),linear-gradient(160deg,#1c1c1c,#050505)}
-    #why .vis-seo:after{background:radial-gradient(70% 70% at 70% 30%,rgba(230,48,39,.5),transparent 65%),linear-gradient(200deg,#1c1c1c,#050505)}
-    #why .vis-care:after{background:radial-gradient(70% 70% at 30% 75%,rgba(230,48,39,.5),transparent 65%),linear-gradient(140deg,#1c1c1c,#050505)}
-    #why .vis-func:after{background:radial-gradient(70% 70% at 75% 75%,rgba(230,48,39,.5),transparent 65%),linear-gradient(220deg,#1c1c1c,#050505)}
-    #why .vis-quality:after{background:radial-gradient(70% 70% at 50% 20%,rgba(230,48,39,.55),transparent 65%),linear-gradient(180deg,#1c1c1c,#050505)}
-    #why .vis svg{position:relative;z-index:1;width:38%;height:38%;filter:drop-shadow(0 10px 20px rgba(0,0,0,.5))}
-    #why .vis .no{position:absolute;z-index:1;top:14px;left:16px;font-family:var(--en);font-size:11px;font-weight:700;letter-spacing:.2em;color:rgba(255,255,255,.6)}
-    #why .body{padding:28px 20px 30px;display:flex;flex-direction:column;gap:12px;flex:1}
+    #why .body{padding:34px 26px 36px;display:flex;flex-direction:column;gap:12px;flex:1;text-align:left;border-top:3px solid var(--red)}
+    #why .body .no{font-family:var(--en);font-size:11px;font-weight:700;letter-spacing:.2em;color:var(--red);margin-bottom:6px}
     #why h3{font-size:20px;font-weight:700;letter-spacing:-.02em}
     #why .body p{font-size:13.5px;line-height:1.8;color:#444;word-break:keep-all}
 
@@ -462,7 +454,7 @@
     @media (max-width:768px){
       #why{padding:90px 0 80px}
       #why .cards{grid-template-columns:1fr 1fr;gap:10px;margin-top:40px}
-      #why .body{padding:20px 14px 22px;gap:8px}
+      #why .body{padding:22px 18px 24px;gap:8px}
       #why h3{font-size:17px}
       #why .body p{font-size:12.5px;line-height:1.7}
       #why .desc{font-size:14px;text-align:left}
@@ -583,24 +575,19 @@
         <p class="desc reveal">홍스랩은 업종과 고객의 특성을 먼저 이해하고, 사업의 핵심 메시지가 고객에게 정확히 전달되도록 구조와 동선을 설계합니다. 기획부터 디자인, 개발, 검색·AI 노출, 오픈 이후 운영까지 전 과정을 직접 진행하며, 고객과의 긴밀한 소통을 바탕으로 방향과 목적이 분명한 홈페이지를 완성합니다.</p>
         <div class="cards">
           <article class="card reveal" style="transition-delay:0.0s">
-            <div class="vis vis-tech"><span class="no">01</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M8 3H5a2 2 0 0 0-2 2v3M16 3h3a2 2 0 0 1 2 2v3M8 21H5a2 2 0 0 1-2-2v-3M16 21h3a2 2 0 0 0 2-2v-3"/><path d="M9 9l-2 3 2 3M15 9l2 3-2 3M13 8l-2 8"/></svg></div>
-            <div class="body"><h3>기술력</h3><p>최신 웹 기술과 안정적인 개발 환경으로, 확장과 유지관리에 강한 홈페이지를 만듭니다.</p></div>
+            <div class="body"><span class="no">01</span><h3>기술력</h3><p>최신 웹 기술과 안정적인 개발 환경으로, 확장과 유지관리에 강한 홈페이지를 만듭니다.</p></div>
           </article>
           <article class="card reveal" style="transition-delay:0.1s">
-            <div class="vis vis-seo"><span class="no">02</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/><path d="M8 13l2-2 2 2 3-4"/></svg></div>
-            <div class="body"><h3>검색·AI 노출</h3><p>네이버·구글 검색과 AI 답변에 잘 노출되도록 구조, 속도, 콘텐츠를 최적화해 자연 유입을 돕습니다.</p></div>
+            <div class="body"><span class="no">02</span><h3>검색·AI 노출</h3><p>네이버·구글 검색과 AI 답변에 잘 노출되도록 구조, 속도, 콘텐츠를 최적화해 자연 유입을 돕습니다.</p></div>
           </article>
           <article class="card reveal" style="transition-delay:0.2s">
-            <div class="vis vis-care"><span class="no">03</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a4 4 0 0 0-5.4 5.4L3 18v3h3l6.3-6.3a4 4 0 0 0 5.4-5.4l-2.4 2.4-2.1-.6-.6-2.1z"/></svg></div>
-            <div class="body"><h3>유지보수</h3><p>제작 이후에도 수정과 업데이트 등 지속적인 운영을 위해 안정적인 사이트 관리를 돕습니다.</p></div>
+            <div class="body"><span class="no">03</span><h3>유지보수</h3><p>제작 이후에도 수정과 업데이트 등 지속적인 운영을 위해 안정적인 사이트 관리를 돕습니다.</p></div>
           </article>
           <article class="card reveal" style="transition-delay:0.3s">
-            <div class="vis vis-func"><span class="no">04</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="1"/><path d="M3 9h18M8 4v5M8 14h3M8 17h6"/></svg></div>
-            <div class="body"><h3>기능성</h3><p>문의폼, 예약, 게시판, 관리자 페이지 등 목적에 맞는 기능을 맞춤으로 구현합니다.</p></div>
+            <div class="body"><span class="no">04</span><h3>기능성</h3><p>문의폼, 예약, 게시판, 관리자 페이지 등 목적에 맞는 기능을 맞춤으로 구현합니다.</p></div>
           </article>
           <article class="card reveal" style="transition-delay:0.4s">
-            <div class="vis vis-quality"><span class="no">05</span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l2.6 5.3 5.9.9-4.3 4.1 1 5.8L12 16.4 6.8 19.1l1-5.8L3.5 9.2l5.9-.9z"/></svg></div>
-            <div class="body"><h3>고품질</h3><p>디자인 완성도, 사용자 경험, 속도까지 모두 고려한 완성도 높은 웹사이트를 제공합니다.</p></div>
+            <div class="body"><span class="no">05</span><h3>고품질</h3><p>디자인 완성도, 사용자 경험, 속도까지 모두 고려한 완성도 높은 웹사이트를 제공합니다.</p></div>
           </article>
         </div>
       </div>
