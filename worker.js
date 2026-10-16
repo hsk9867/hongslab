@@ -215,6 +215,8 @@ const BUSINESS_TYPES = /^(Organization|Corporation|LocalBusiness|ProfessionalSer
 
 async function analyze(target) {
   const { res, ms } = await get(target.href);
+  // 530/52x 는 Cloudflare 가 대상 사이트에 연결하지 못했을 때 돌려주는 상태 — 분석할 HTML 이 아님
+  if (res.status >= 500) throw new Error(`대상 사이트 응답 HTTP ${res.status}`);
   const finalUrl = new URL(res.url || target.href);
   const ctype = res.headers.get('content-type') || '';
   const html = await readText(res);
