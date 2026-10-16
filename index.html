@@ -880,6 +880,24 @@ else{
   start();
 })();
 
+/* ===== 강점 카드 자동 슬라이드 (모바일 가로 스크롤일 때만) ===== */
+(()=>{
+  const box=document.querySelector('#why .cards');if(!box||reduced)return;
+  let timer=null,hold=null,visible=false;
+  const scrollable=()=>box.scrollWidth-box.clientWidth>8;
+  const next=()=>{
+    if(!visible||!scrollable())return;
+    const card=box.querySelector('.card');if(!card)return;
+    const step=card.getBoundingClientRect().width+10,max=box.scrollWidth-box.clientWidth;
+    if(box.scrollLeft>=max-4)box.scrollTo({left:0,behavior:'smooth'});else box.scrollBy({left:step,behavior:'smooth'});
+  };
+  const start=()=>{clearInterval(timer);timer=setInterval(next,3200)};
+  const pause=()=>{clearInterval(timer);clearTimeout(hold);hold=setTimeout(start,6000)};
+  ['touchstart','pointerdown','wheel'].forEach(ev=>box.addEventListener(ev,pause,{passive:true}));
+  new IntersectionObserver(en=>{visible=en[0].isIntersecting;if(visible)start();else clearInterval(timer)},{threshold:.3}).observe(box);
+  document.addEventListener('visibilitychange',()=>{if(document.hidden)clearInterval(timer);else if(visible)start()});
+})();
+
 /* ===== 스크롤 리빌 + 카운터 ===== */
 const runCount=el=>{
   const to=parseFloat(el.dataset.to),dec=parseInt(el.dataset.dec||'0'),start=performance.now(),dur=1400;
