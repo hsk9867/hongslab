@@ -1,5 +1,5 @@
 // 홍스랩 Worker: /api/seo-check 는 여기서, 나머지(관리자·방문 통계·콘텐츠 덮어쓰기·정적 자산)는 cms.js 가 처리한다.
-import { handleCms } from './cms.js';
+import { handleCms, logSeoCheck } from './cms.js';
 
 const UA = 'Mozilla/5.0 (compatible; HongslabSEOChecker/1.0; +https://hongslab.kr/seo-checker)';
 const MAX_HTML = 3 * 1024 * 1024;
@@ -40,7 +40,10 @@ async function handleCheck(request, env, ctx) {
   const cache = caches.default;
   const cacheKey = new Request('https://hongslab.kr/api/seo-check?u=' + encodeURIComponent(target.href));
   const cached = await cache.match(cacheKey);
-  if (cached) return cached;
+  if (cached) {
+    ctx.waitUntil(cached.clone().json().then((r) => logSeoCheck(request, env, { url: target.href, host: target.hostname, scores: r && r.scores, status: 'cached' })).catch(() => {}));
+    return cached;
+  }
 
   if (env.SEO_LIMIT) {
     const ip = request.headers.get('cf-connecting-ip') || 'unknown';
@@ -52,9 +55,11 @@ async function handleCheck(request, env, ctx) {
   try {
     result = await analyze(target);
   } catch (e) {
+    ctx.waitUntil(logSeoCheck(request, env, { url: target.href, host: target.hostname, status: 'error', err: String(e && e.message || e) }).catch(() => {}));
     return json({ error: '사이트에 접속하지 못했습니다. 주소를 확인하거나 잠시 후 다시 시도해 주세요.', detail: String(e && e.message || e) }, 502);
   }
   const res = json(result, 200, { 'cache-control': `public, max-age=${CACHE_TTL}` });
+  ctx.waitUntil(logSeoCheck(request, env, { url: target.href, host: target.hostname, scores: result.scores, status: 'ok' }).catch(() => {}));
   ctx.waitUntil(cache.put(cacheKey, res.clone()));
   return res;
 }

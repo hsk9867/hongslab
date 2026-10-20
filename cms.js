@@ -360,6 +360,65 @@ async function handleExport(env, url) {
 const KEY_RE = /^[a-z0-9][a-z0-9_.:-]{0,79}$/i;
 const MAX_VALUE = 60000;
 
+// ---------- SEO 체커 점검 기록 ----------
+
+// worker.js 의 /api/seo-check 가 점검할 때마다 호출. 봇·자체 점검 도구는 기록하지 않는다.
+export async function logSeoCheck(request, env, { url, host, scores, status, err }) {
+  if (!env.DB) return;
+  const ua = request.headers.get('user-agent') || '';
+  if (!ua || BOT_RE.test(ua)) return;
+  const ip = request.headers.get('cf-connecting-ip') || '0';
+  const { device, browser } = parseUA(ua);
+  const cf = request.cf || {};
+  const ts = Math.floor(Date.now() / 1000);
+  const { day } = kst(ts);
+  const cv = getCookie(request, VID_COOKIE);
+  const vid = VID_RE.test(cv || '') ? cv : (await sha256hex(day + '|' + ip + '|' + ua)).slice(0, 16);
+  const s = scores && typeof scores === 'object' ? scores : {};
+  const n = (v) => (Number.isFinite(Number(v)) && v !== null && v !== undefined ? Math.round(Number(v)) : null);
+  await env.DB.prepare(
+    'INSERT INTO seo_checks (ts, day, url, host, total, naver, google, aeo, geo, status, err, device, browser, country, city, vid) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)'
+  ).bind(
+    ts, day, String(url).slice(0, 500), String(host || '').toLowerCase().replace(/^www\./, '').slice(0, 200),
+    n(s.total), n(s.naver), n(s.google), n(s.aeo), n(s.geo),
+    status === 'error' ? 'error' : status === 'cached' ? 'cached' : 'ok',
+    err ? String(err).slice(0, 200) : null,
+    device, browser, cf.country || null, cf.city ? String(cf.city).slice(0, 60) : null, vid
+  ).run();
+}
+
+function parseRange(url) {
+  const todayKst = kst(Math.floor(Date.now() / 1000)).day;
+  let from = url.searchParams.get('from'), to = url.searchParams.get('to');
+  if (!validDay(to)) to = todayKst;
+  if (!validDay(from)) from = shiftDay(to, -6);
+  if (from > to) [from, to] = [to, from];
+  let days = Math.round((Date.parse(to) - Date.parse(from)) / 86400000) + 1;
+  if (days > 400) { from = shiftDay(to, -399); days = 400; }
+  return { from, to, days, prevFrom: shiftDay(from, -days), prevTo: shiftDay(from, -1), today: todayKst };
+}
+
+async function handleSeoStats(env, url) {
+  const rg = parseRange(url);
+  const { from, to, prevFrom: pFrom, prevTo: pTo } = rg;
+  const D = env.DB;
+  const q = (sql, ...args) => D.prepare(sql).bind(...args);
+  const TOT = `SELECT COUNT(*) n, COUNT(DISTINCT host) hosts, COUNT(DISTINCT vid) users, SUM(status='error') errors, ROUND(AVG(CASE WHEN status<>'error' THEN total END)) avg_total FROM seo_checks WHERE day BETWEEN ? AND ?`;
+  const rows = await D.batch([
+    q(TOT, from, to),
+    q(TOT, pFrom, pTo),
+    q(`SELECT day, COUNT(*) n, COUNT(DISTINCT host) hosts, SUM(status='error') errors FROM seo_checks WHERE day BETWEEN ? AND ? GROUP BY day ORDER BY day`, from, to),
+    q(`SELECT host, COUNT(*) n, COUNT(DISTINCT vid) users, MAX(ts) last, SUM(status='error') errors,
+         (SELECT total FROM seo_checks s2 WHERE s2.host = s.host AND s2.status <> 'error' ORDER BY s2.ts DESC LIMIT 1) total,
+         (SELECT url FROM seo_checks s3 WHERE s3.host = s.host ORDER BY s3.ts DESC LIMIT 1) url
+       FROM seo_checks s WHERE day BETWEEN ? AND ? GROUP BY host ORDER BY n DESC, last DESC LIMIT 60`, from, to),
+    q(`SELECT id, ts, url, host, total, naver, google, aeo, geo, status, err, device, browser, country, city FROM seo_checks WHERE day BETWEEN ? AND ? ORDER BY ts DESC LIMIT 400`, from, to),
+    q(`SELECT COUNT(*) n, COUNT(DISTINCT host) hosts, MIN(ts) first FROM seo_checks`),
+  ]);
+  const r = rows.map((x) => x.results || []);
+  return json({ range: rg, totals: r[0][0], prev: r[1][0], daily: r[2], hosts: r[3], recent: r[4], all: r[5][0] });
+}
+
 async function handleAdminApi(request, env, ctx, url) {
   const p = url.pathname.slice('/api/admin/'.length);
   const method = request.method;
@@ -420,6 +479,7 @@ async function handleAdminApi(request, env, ctx, url) {
   }
   if (p === 'stats' && method === 'GET') return handleStats(env, url);
   if (p === 'export' && method === 'GET') return handleExport(env, url);
+  if (p === 'seo' && method === 'GET') return handleSeoStats(env, url);
   return json({ error: 'not found' }, 404);
 }
 

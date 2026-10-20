@@ -258,6 +258,11 @@ table.t .bar{display:block;height:6px;border-radius:0 3px 3px 0;background:var(-
 .loading{color:var(--text-3);font-size:13px;padding:24px 0;text-align:center}
 .note{background:var(--surface-2);border:1px solid var(--line);border-radius:10px;padding:12px 14px;font-size:13px;color:var(--text-2);line-height:1.6}
 .note b{color:var(--text)}
+.sc{display:inline-block;min-width:34px;text-align:center;font-weight:700;font-variant-numeric:tabular-nums;padding:2px 7px;border-radius:7px;font-size:12.5px}
+.sc.g{background:var(--good-soft);color:var(--good)}.sc.m{background:#fff4e0;color:#b45309}.sc.b{background:var(--bad-soft);color:var(--bad)}.sc.n{color:var(--text-3)}
+.seoq{height:34px;border:1px solid var(--line-2);border-radius:9px;padding:0 10px;background:var(--surface);font-size:13px;min-width:220px}
+.t td.u a{color:var(--text);text-decoration:none;border-bottom:1px dashed var(--line-2)}.t td.u a:hover{color:var(--blue);border-color:var(--blue)}
+.t td.u small{display:block;color:var(--text-3);font-size:11px;margin-top:1px;max-width:360px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
 </style>
 </head>
 <body>
@@ -278,6 +283,7 @@ table.t .bar{display:block;height:6px;border-radius:0 3px 3px 0;background:var(-
     <div class="brand"><span class="wm">HONGS<i></i>LAB</span><small>관리자</small></div>
     <nav class="menu" id="menu">
       <button data-view="dash" class="on"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19V10M10 19V5M16 19v-7M22 19H2"/></svg>대시보드</button>
+      <button data-view="seo"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5M8 11h6M11 8v6"/></svg>SEO 점검 기록</button>
       <button data-view="content"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg>홈페이지 문구</button>
       <button data-view="portfolio"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 10h18M9 20V10"/></svg>포트폴리오</button>
       <button data-view="faq"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M9.5 9.5a2.5 2.5 0 1 1 3.5 2.3c-.7.3-1 .8-1 1.5M12 17h.01"/></svg>자주 묻는 질문</button>
@@ -305,6 +311,22 @@ table.t .bar{display:block;height:6px;border-radius:0 3px 3px 0;background:var(-
         </div>
       </div>
       <div id="dashBody"><div class="loading">불러오는 중…</div></div>
+    </section>
+
+    <!-- ===== SEO 점검 기록 ===== -->
+    <section class="view" id="v-seo">
+      <div class="vhead">
+        <div><h1>SEO 점검 기록</h1><p id="seoRangeText">무료 SEO 체커에서 점검한 홈페이지 목록</p></div>
+        <div class="rangebar">
+          <div class="seg" id="seoSeg">
+            <button data-days="1">오늘</button><button data-days="7" class="on">7일</button><button data-days="30">30일</button><button data-days="90">90일</button><button data-days="365">1년</button>
+          </div>
+          <input type="date" id="seoFromD"><span class="muted">~</span><input type="date" id="seoToD">
+          <button class="btn sm" id="seoApply">적용</button>
+          <button class="btn sm ghost" id="seoRefresh" title="새로고침">↻</button>
+        </div>
+      </div>
+      <div id="seoBody"><div class="loading">불러오는 중…</div></div>
     </section>
 
     <!-- ===== 홈페이지 문구 ===== -->
@@ -406,7 +428,7 @@ async function boot() {
   try { me = await api('me'); } catch { showLogin(); return; }
   showApp();
   const hash = location.hash.replace('#', '');
-  switchView(['dash', 'content', 'portfolio', 'faq', 'settings'].includes(hash) ? hash : 'dash');
+  switchView(['dash', 'seo', 'content', 'portfolio', 'faq', 'settings'].includes(hash) ? hash : 'dash');
 }
 /* 뷰 전환 */
 const loaded = {};
@@ -415,7 +437,7 @@ function switchView(v) {
   $$('.view').forEach((s) => s.classList.toggle('on', s.id === 'v-' + v));
   location.hash = v;
   $('#savebar').classList.toggle('show', v === 'content' && dirtyCount() > 0);
-  if (!loaded[v]) { loaded[v] = true; ({ dash: loadDash, content: loadContent, portfolio: loadPortfolio, faq: loadFaq, settings: loadSettingsView })[v](); }
+  if (!loaded[v]) { loaded[v] = true; ({ dash: loadDash, seo: loadSeo, content: loadContent, portfolio: loadPortfolio, faq: loadFaq, settings: loadSettingsView })[v](); }
 }
 $('#menu').addEventListener('click', (e) => { const b = e.target.closest('button'); if (b) switchView(b.dataset.view); });
 
@@ -523,6 +545,74 @@ function renderDash(d) {
     const what = r.type === 'event' ? `<b style="color:var(--red)">${esc(EVENT_NAMES[r.name] || r.name)}</b> <small>${esc(pageName(r.path))}</small>` : `${esc(pageName(r.path))} <small>← ${esc(r.source)}${r.ref_host ? ' · ' + esc(r.ref_host) : ''}</small>`;
     return `<div class="row"><span class="when">${esc(when)}</span><span class="what">${what}</span><span class="meta">${esc(r.device)} · ${esc(r.browser)}${r.city ? ' · ' + esc(r.city) : r.country ? ' · ' + esc(r.country) : ''}</span></div>`;
   }).join('')}</div>` : '<div class="empty">아직 방문 기록이 없습니다. 홈페이지가 배포되면 여기에 쌓입니다.</div>';
+}
+
+/* ===================== SEO 점검 기록 ===================== */
+let seoRange = { days: 7, from: kstToday(-6), to: kstToday() };
+let seoData = null, seoQ = '';
+$('#seoSeg').addEventListener('click', (e) => {
+  const b = e.target.closest('button'); if (!b) return;
+  const d = Number(b.dataset.days);
+  seoRange = { days: d, from: kstToday(-(d - 1)), to: kstToday() };
+  $$('#seoSeg button').forEach((x) => x.classList.toggle('on', x === b));
+  loadSeo();
+});
+$('#seoApply').addEventListener('click', () => {
+  const f = $('#seoFromD').value, t = $('#seoToD').value;
+  if (!f || !t) return toast('시작일과 종료일을 모두 선택해 주세요.', true);
+  seoRange = { days: 0, from: f < t ? f : t, to: f < t ? t : f };
+  $$('#seoSeg button').forEach((x) => x.classList.remove('on'));
+  loadSeo();
+});
+$('#seoRefresh').addEventListener('click', loadSeo);
+
+async function loadSeo() {
+  const body = $('#seoBody');
+  body.innerHTML = '<div class="loading">불러오는 중…</div>';
+  let d;
+  try { d = await api(`seo?from=${seoRange.from}&to=${seoRange.to}`); }
+  catch (e) { body.innerHTML = `<div class="card"><div class="cb"><div class="empty">점검 기록을 불러오지 못했습니다: ${esc(e.message)}${/no such table/i.test(e.message) ? '<br>D1 마이그레이션(0002_seo_checks)이 아직 적용되지 않았습니다. <code>npx wrangler d1 migrations apply hongslab-db --remote</code> 를 실행해 주세요.' : ''}</div></div></div>`; return; }
+  $('#seoFromD').value = d.range.from; $('#seoToD').value = d.range.to;
+  const label = d.range.from === d.range.to ? `${d.range.from} (오늘)` : `${d.range.from} ~ ${d.range.to} · ${d.range.days}일`;
+  $('#seoRangeText').textContent = `${label} · 이전 같은 기간과 비교 · 누적 ${fmt(d.all.n)}회 / ${fmt(d.all.hosts)}개 사이트`;
+  seoData = d;
+  renderSeo(d);
+}
+const scoreCell = (v) => v === null || v === undefined ? '<span class="sc n">-</span>' : `<span class="sc ${v >= 70 ? 'g' : v >= 40 ? 'm' : 'b'}">${v}</span>`;
+const seoWhen = (ts, full) => new Date(ts * 1000).toLocaleString('ko-KR', { timeZone: 'Asia/Seoul', ...(full ? { year: '2-digit' } : {}), month: 'numeric', day: 'numeric', hour: '2-digit', minute: '2-digit', hour12: false });
+const STATUS_NAMES = { ok: '완료', cached: '완료 (캐시)', error: '실패' };
+function renderSeo(d) {
+  const t = d.totals, p = d.prev;
+  $('#seoBody').innerHTML = `
+  <div class="kpis">
+    <div class="card kpi"><div class="l">점검 횟수</div><div class="v">${fmt(t.n)}</div><div class="d">${delta(t.n, p.n)}</div></div>
+    <div class="card kpi"><div class="l">점검한 사이트</div><div class="v">${fmt(t.hosts)}</div><div class="d">${delta(t.hosts, p.hosts)}</div></div>
+    <div class="card kpi"><div class="l">점검한 사람</div><div class="v">${fmt(t.users)}</div><div class="d">${delta(t.users, p.users)}</div></div>
+    <div class="card kpi"><div class="l">평균 종합 점수</div><div class="v">${t.avg_total === null || t.avg_total === undefined ? '-' : fmt(t.avg_total)}</div><div class="d"><span>실패 ${fmt(t.errors || 0)}회</span></div></div>
+  </div>
+  <div class="grid c2" style="grid-template-columns:minmax(0,1fr) minmax(0,1.5fr)">
+    <div class="card"><div class="ch"><h3>일별 점검 수</h3><small>점검 · 사이트</small></div><div class="cb" id="seoDailyBox"></div></div>
+    <div class="card"><div class="ch"><h3>많이 점검한 사이트</h3><small>최근 점수 · 마지막 점검</small></div><div class="cb" id="seoHostBox"></div></div>
+  </div>
+  <div class="grid" style="margin-top:14px">
+    <div class="card"><div class="ch"><h3>점검 기록</h3><div class="acts" style="display:flex;gap:8px;align-items:center"><small id="seoCount"></small><input class="seoq" id="seoQ" type="search" placeholder="사이트 주소로 찾기" value="${esc(seoQ)}"></div></div><div class="cb" id="seoListBox"></div></div>
+  </div>`;
+  $('#seoDailyBox').innerHTML = tableHtml([{ h: '날짜', k: 'day' }, { h: '점검', k: 'n', r: 1 }, { h: '사이트', k: 'hosts', r: 1 }], [...d.daily].reverse(), { bar: 'n', barOn: 'day' });
+  $('#seoHostBox').innerHTML = d.hosts.length ? `<table class="t"><thead><tr><th>사이트</th><th class="r">점검</th><th class="r">사람</th><th class="r">최근 점수</th><th>마지막 점검</th></tr></thead><tbody>${d.hosts.map((h) => `<tr><td class="u"><a href="/seo-checker?url=${encodeURIComponent(h.url || h.host)}" target="_blank" rel="noopener" title="SEO 체커에서 다시 점검">${esc(h.host)}</a></td><td class="r">${fmt(h.n)}</td><td class="r">${fmt(h.users)}</td><td class="r">${scoreCell(h.total)}</td><td>${esc(seoWhen(h.last))}</td></tr>`).join('')}</tbody></table>` : '<div class="empty">이 기간에 점검한 사이트가 없습니다.</div>';
+  renderSeoList();
+  $('#seoQ').addEventListener('input', (e) => { seoQ = e.target.value.trim().toLowerCase(); renderSeoList(); });
+}
+function renderSeoList() {
+  const d = seoData; if (!d) return;
+  const rows = seoQ ? d.recent.filter((r) => (r.url + ' ' + r.host).toLowerCase().includes(seoQ)) : d.recent;
+  $('#seoCount').textContent = `${fmt(rows.length)}건${d.recent.length >= 400 ? ' (최근 400건까지)' : ''}`;
+  $('#seoListBox').innerHTML = rows.length ? `<table class="t"><thead><tr><th>시각</th><th>점검한 홈페이지</th><th class="r">종합</th><th class="r">네이버</th><th class="r">구글</th><th class="r">AEO</th><th class="r">GEO</th><th>기기 · 지역</th><th>상태</th></tr></thead><tbody>${rows.map((r) => `<tr>
+    <td style="white-space:nowrap">${esc(seoWhen(r.ts, true))}</td>
+    <td class="u"><a href="/seo-checker?url=${encodeURIComponent(r.url)}" target="_blank" rel="noopener" title="SEO 체커에서 다시 점검">${esc(r.host)}</a><small title="${esc(r.url)}">${esc(r.url)}</small></td>
+    <td class="r">${scoreCell(r.total)}</td><td class="r">${scoreCell(r.naver)}</td><td class="r">${scoreCell(r.google)}</td><td class="r">${scoreCell(r.aeo)}</td><td class="r">${scoreCell(r.geo)}</td>
+    <td style="white-space:nowrap">${esc(r.device || '-')}${r.browser ? ' · ' + esc(r.browser) : ''}${r.city ? ' · ' + esc(r.city) : r.country ? ' · ' + esc(r.country) : ''}</td>
+    <td>${r.status === 'error' ? `<span class="tag red" title="${esc(r.err || '')}">실패</span>` : `<span class="tag${r.status === 'cached' ? '' : ' blue'}" title="${r.status === 'cached' ? '10분 안에 같은 주소를 다시 점검해 캐시된 결과를 보여줌' : ''}">${esc(STATUS_NAMES[r.status] || r.status)}</span>`}</td>
+  </tr>`).join('')}</tbody></table>` : `<div class="empty">${seoQ ? '검색 결과가 없습니다.' : '이 기간에 점검 기록이 없습니다. 누군가 무료 SEO 체커에서 주소를 점검하면 여기에 쌓입니다.'}</div>`;
 }
 
 /* ---- 추이 차트 (SVG) : 방문자 강조, 페이지뷰는 회색 맥락 ---- */
