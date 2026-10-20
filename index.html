@@ -352,6 +352,8 @@
     #footer .info dt{color:rgba(255,255,255,.45)}
     #footer .info dd{color:#fff}
     #footer .bottom{border-top:1px solid rgba(255,255,255,.12);padding:22px 0;display:flex;justify-content:space-between;align-items:center;font-family:var(--en);font-size:11px;letter-spacing:.06em;color:rgba(255,255,255,.45)}
+    #footer .bottom .legal a{color:inherit;margin-left:14px;text-decoration:underline;text-underline-offset:3px;text-decoration-color:rgba(255,255,255,.3)}
+    #footer .bottom .legal a:hover{color:#fff}
     #footer .bottom .made{display:flex;align-items:center;gap:8px}
     #footer .bottom .made i{width:6px;height:6px;border-radius:50%;background:var(--red)}
 
@@ -707,7 +709,7 @@
         </div>
       </div>
       <div class="bottom">
-        <div data-cms="footer.copy">© 2026 홍스랩. 모든 권리 보유.</div>
+        <div class="legal"><span data-cms="footer.copy">© 2026 홍스랩. 모든 권리 보유.</span><a href="/privacy">개인정보처리방침</a></div>
         <div class="made"><i></i>홍스랩 제작</div>
       </div>
     </div>
@@ -738,7 +740,7 @@
           </div>
           <div class="tm-group"><label class="tm-label" for="budget">예산 <span class="req">*</span></label><select class="tm-select" id="budget"><option value="">선택해 주세요</option><option>30만원 이하</option><option>30~60만원</option><option>60~100만원</option><option>100~300만원</option><option>300만원 이상</option><option>상담 후 결정</option></select></div>
           <div class="tm-group"><label class="tm-label" for="message">문의 내용</label><textarea class="tm-textarea" id="message" maxlength="1000" placeholder="업종, 필요한 페이지 또는 기능, 원하시는 공개 시점, 참고 사이트 등을 적어 주세요."></textarea></div>
-          <div class="tm-group"><label class="tm-check"><input type="checkbox" id="privacy"> 개인정보 수집 및 상담 목적의 이용에 동의합니다. <span class="req" style="color:var(--red)">*</span></label></div>
+          <div class="tm-group"><label class="tm-check"><input type="checkbox" id="privacy"> 개인정보 수집 및 상담 목적의 이용에 동의합니다. <a href="/privacy" target="_blank" rel="noopener" style="color:inherit;text-decoration:underline;text-underline-offset:2px">(내용 보기)</a> <span class="req" style="color:var(--red)">*</span></label></div>
           <div class="tm-actions">
             <button type="button" class="btn_kakao" id="kakaoSend">카카오톡으로 보내기</button>
             <button type="button" class="ghost" id="copyOnly">내용만 복사</button>

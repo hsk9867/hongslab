@@ -195,6 +195,8 @@
     #footer .info dt{color:rgba(255,255,255,.45)}
     #footer .info dd{color:#fff}
     #footer .bottom{border-top:1px solid rgba(255,255,255,.12);padding:22px 0;display:flex;justify-content:space-between;align-items:center;font-family:var(--en);font-size:11px;letter-spacing:.06em;color:rgba(255,255,255,.45)}
+    #footer .bottom .legal a{color:inherit;margin-left:14px;text-decoration:underline;text-underline-offset:3px;text-decoration-color:rgba(255,255,255,.3)}
+    #footer .bottom .legal a:hover{color:#fff}
     #footer .bottom .made{display:flex;align-items:center;gap:8px}
     #footer .bottom .made i{width:6px;height:6px;border-radius:50%;background:var(--red)}
 
@@ -362,7 +364,7 @@
         </div>
       </div>
       <div class="bottom">
-        <div data-cms="footer.copy">© 2026 홍스랩. 모든 권리 보유.</div>
+        <div class="legal"><span data-cms="footer.copy">© 2026 홍스랩. 모든 권리 보유.</span><a href="/privacy">개인정보처리방침</a></div>
         <div class="made"><i></i>홍스랩 제작</div>
       </div>
     </div>

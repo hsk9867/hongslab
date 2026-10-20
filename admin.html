@@ -342,7 +342,7 @@ table.t .bar{display:block;height:6px;border-radius:0 3px 3px 0;background:var(-
         <div class="card"><div class="ch"><h3>상태</h3></div><div class="cb"><dl class="kv" id="statusKv"></dl></div></div>
         <div class="card"><div class="ch"><h3>방문 기록 내보내기</h3><small>CSV · 엑셀에서 열 수 있음</small></div><div class="cb">
           <div class="rangebar"><input type="date" id="exFrom"><span class="muted">~</span><input type="date" id="exTo"><a class="btn sm" id="exportBtn" href="#" download>CSV 다운로드</a></div>
-          <p class="muted" style="margin-top:10px;font-size:12.5px">개인정보는 저장하지 않습니다. 방문자는 하루 단위의 익명 해시로만 구분됩니다.</p>
+          <p class="muted" style="margin-top:10px;font-size:12.5px">개인정보는 저장하지 않습니다. 방문자는 브라우저에 저장되는 무작위 익명 ID(쿠키 hl_vid, 최대 400일)로 구분하며, 쿠키가 차단된 경우에만 당일 한정 해시를 씁니다. "신규"는 기간 안에 처음 집계된 방문자, "재방문"은 그 전에도 방문 기록이 있는 방문자입니다. 아이폰 사파리는 쿠키를 7일 정도만 유지해 재방문이 신규로 잡힐 수 있습니다.</p>
         </div></div>
         <div class="card"><div class="ch"><h3>비밀번호</h3></div><div class="cb">
           <p style="font-size:13.5px;color:var(--text-2);line-height:1.7">비밀번호는 Cloudflare 의 시크릿 <code class="mono">ADMIN_PASSWORD</code> 에 저장됩니다.<br>변경: Cloudflare 대시보드 → Workers &amp; Pages → <b>hongslab</b> → Settings → Variables and Secrets 에서 값을 바꾸면 모든 기기에서 다시 로그인해야 합니다.</p>
@@ -477,7 +477,7 @@ function renderDash(d) {
   const html = `
   <div class="kpis">
     <div class="card kpi"><div class="l">방문</div><div class="v">${fmt(t.visits)}</div><div class="d">${delta(t.visits, p.visits)}</div></div>
-    <div class="card kpi"><div class="l">순방문자</div><div class="v">${fmt(t.uv)}</div><div class="d">${delta(t.uv, p.uv)}</div></div>
+    <div class="card kpi"><div class="l">순방문자</div><div class="v">${fmt(t.uv)}</div><div class="d">${delta(t.uv, p.uv)}<span>· 신규 ${fmt(t.newUsers || 0)} · 재방문 ${fmt(Math.max(0, t.uv - (t.newUsers || 0)))}</span></div></div>
     <div class="card kpi"><div class="l">페이지뷰</div><div class="v">${fmt(t.pv)}</div><div class="d">${delta(t.pv, p.pv)}</div></div>
     <div class="card kpi"><div class="l">연락 액션 <span class="muted" style="font-weight:500">(전화·카톡·문의)</span></div><div class="v">${fmt(t.events)}</div><div class="d">${delta(t.events, p.events)}<span>· 방문 대비 ${conv}%</span></div></div>
   </div>

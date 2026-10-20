@@ -225,6 +225,8 @@
     #footer .info dt{color:rgba(255,255,255,.45)}
     #footer .info dd{color:#fff}
     #footer .bottom{border-top:1px solid rgba(255,255,255,.12);padding:22px 0;display:flex;justify-content:space-between;align-items:center;font-family:var(--en);font-size:11px;letter-spacing:.06em;color:rgba(255,255,255,.45)}
+    #footer .bottom .legal a{color:inherit;margin-left:14px;text-decoration:underline;text-underline-offset:3px;text-decoration-color:rgba(255,255,255,.3)}
+    #footer .bottom .legal a:hover{color:#fff}
     #footer .bottom .made{display:flex;align-items:center;gap:8px}
     #footer .bottom .made i{width:6px;height:6px;border-radius:50%;background:var(--red)}
 
@@ -355,7 +357,7 @@
             <div class="tm-group"><label class="tm-label" for="message">문의 내용</label><textarea class="tm-textarea" id="message" name="message" maxlength="1500" placeholder="업종, 필요한 페이지나 기능, 원하시는 공개 시점, 참고 사이트 등을 적어 주세요."></textarea></div>
           </div>
           <div class="tm-group">
-            <label class="tm-check"><input type="checkbox" id="privacy"> 개인정보 수집 및 이용에 동의합니다. <span class="req" style="color:var(--red)">*</span></label>
+            <label class="tm-check"><input type="checkbox" id="privacy"> 개인정보 수집 및 이용에 동의합니다. <a href="/privacy" target="_blank" rel="noopener" style="color:inherit;text-decoration:underline;text-underline-offset:2px">(내용 보기)</a> <span class="req" style="color:var(--red)">*</span></label>
             <p class="privacy-note" data-cms="inq.privacy">홍스랩은 입력하신 정보를 상담과 견적 안내 목적으로만 사용하며, 상담 종료 후 요청 시 즉시 삭제합니다.</p>
           </div>
           <div class="tm-actions">
@@ -431,7 +433,7 @@
         </div>
       </div>
       <div class="bottom">
-        <div data-cms="footer.copy">© 2026 홍스랩. 모든 권리 보유.</div>
+        <div class="legal"><span data-cms="footer.copy">© 2026 홍스랩. 모든 권리 보유.</span><a href="/privacy">개인정보처리방침</a></div>
         <div class="made"><i></i>홍스랩 제작</div>
       </div>
     </div>

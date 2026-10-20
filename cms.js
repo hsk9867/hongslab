@@ -4,6 +4,9 @@
 
 const SELF_HOSTS = new Set(['hongslab.kr', 'www.hongslab.kr', 'hongslab.hsk9867.workers.dev', 'localhost', '127.0.0.1']);
 const COOKIE = 'hl_admin';
+const VID_COOKIE = 'hl_vid';            // 방문자 구분용 익명 ID (무작위 16자리, 개인정보와 무관)
+const VID_RE = /^[a-f0-9]{16}$/;
+const VID_DAYS = 400;                   // 브라우저가 허용하는 최대 쿠키 수명
 const SESSION_DAYS = 30;
 const SETTINGS_TTL = 30 * 1000;
 const KST_OFFSET = 9 * 3600;
@@ -127,7 +130,7 @@ function faqLdJson(groups) {
   return JSON.stringify(ld).replace(/</g, '\\u003c');
 }
 
-export function transformHtml(res, s, { path, track }) {
+export function transformHtml(res, s, { path, track, setVid, secure }) {
   const rw = new HTMLRewriter();
   if (s.size) {
     rw.on('[data-cms]', {
@@ -162,6 +165,7 @@ export function transformHtml(res, s, { path, track }) {
   h.delete('etag');
   h.delete('content-length');
   h.set('cache-control', 'no-cache');
+  if (setVid) h.append('set-cookie', `${VID_COOKIE}=${setVid}; Path=/; Max-Age=${VID_DAYS * 86400}; HttpOnly; SameSite=Lax${secure ? '; Secure' : ''}`);
   return new Response(out.body, { status: out.status, headers: h });
 }
 
@@ -268,7 +272,9 @@ async function handleTrack(request, env, ctx, url) {
   const city = cf.city ? String(cf.city).slice(0, 60) : null;
   const ts = Math.floor(Date.now() / 1000);
   const { day, hour } = kst(ts);
-  const vid = (await sha256hex(day + '|' + ip + '|' + ua)).slice(0, 16);
+  // 브라우저에 저장된 익명 ID(쿠키)가 있으면 그것으로, 없으면(쿠키 차단 등) 당일 한정 해시로 구분
+  const cv = getCookie(request, VID_COOKIE);
+  const vid = VID_RE.test(cv || '') ? cv : (await sha256hex(day + '|' + ip + '|' + ua)).slice(0, 16);
   const screen = typeof b.s === 'string' ? b.s.slice(0, 20) : null;
   const lang = typeof b.l === 'string' ? b.l.slice(0, 10) : null;
 
@@ -319,14 +325,16 @@ async function handleStats(env, url) {
     q(`SELECT name, COUNT(*) c, COUNT(DISTINCT vid) u FROM hits WHERE type='event' AND day BETWEEN ? AND ? GROUP BY name ORDER BY c DESC`, from, to),
     q(`SELECT COUNT(DISTINCT vid) n FROM hits WHERE ts > ?`, now - 1800),
     q(`SELECT ts, type, name, path, source, ref_host, device, browser, country, city FROM hits ORDER BY ts DESC LIMIT 40`),
+    q(`SELECT COUNT(*) n FROM (SELECT vid, MIN(day) d0 FROM hits WHERE type='view' GROUP BY vid) WHERE d0 BETWEEN ? AND ?`, from, to),
+    q(`SELECT COUNT(*) n FROM (SELECT vid, MIN(day) d0 FROM hits WHERE type='view' GROUP BY vid) WHERE d0 BETWEEN ? AND ?`, pFrom, pTo),
   ]);
   const r = rows.map((x) => x.results || []);
   const dims = {};
   for (const row of r[11]) (dims[row.dim] = dims[row.dim] || []).push({ k: row.k || '알 수 없음', uv: row.uv, pv: row.pv });
   return json({
     range: { from, to, days, prevFrom: pFrom, prevTo: pTo, today: todayKst },
-    totals: { ...r[0][0], events: r[2][0].c, eventUsers: r[2][0].u },
-    prev: { ...r[1][0], events: r[3][0].c, eventUsers: r[3][0].u },
+    totals: { ...r[0][0], events: r[2][0].c, eventUsers: r[2][0].u, newUsers: r[15][0].n },
+    prev: { ...r[1][0], events: r[3][0].c, eventUsers: r[3][0].u, newUsers: r[16][0].n },
     daily: r[4], hourly: r[5], sources: r[6], referrers: r[7], campaigns: r[8], pages: r[9], landing: r[10],
     dims, events: r[12], live: r[13][0].n, recent: r[14],
   });
@@ -461,7 +469,11 @@ export async function handleCms(request, env, ctx, url) {
   const ct = res.headers.get('content-type') || '';
   if (res.status === 200 && ct.includes('text/html')) {
     const s = raw ? new Map() : await loadSettings(env);
-    return transformHtml(res, s, { path: p === '/' ? '/' : p.replace(/\/$/, ''), track: !admin });
+    let setVid = null;
+    if (!admin && !VID_RE.test(getCookie(request, VID_COOKIE) || '')) {
+      setVid = [...crypto.getRandomValues(new Uint8Array(8))].map((b) => b.toString(16).padStart(2, '0')).join('');
+    }
+    return transformHtml(res, s, { path: p === '/' ? '/' : p.replace(/\/$/, ''), track: !admin, setVid, secure: url.protocol === 'https:' });
   }
   return res;
 }
