@@ -1,4 +1,5 @@
-// 홍스랩 Worker: 정적 자산은 ASSETS가 처리하고, /api/seo-check 만 여기서 처리한다.
+// 홍스랩 Worker: /api/seo-check 는 여기서, 나머지(관리자·방문 통계·콘텐츠 덮어쓰기·정적 자산)는 cms.js 가 처리한다.
+import { handleCms } from './cms.js';
 
 const UA = 'Mozilla/5.0 (compatible; HongslabSEOChecker/1.0; +https://hongslab.kr/seo-checker)';
 const MAX_HTML = 3 * 1024 * 1024;
@@ -16,7 +17,8 @@ export default {
   async fetch(request, env, ctx) {
     const url = new URL(request.url);
     if (url.pathname === '/api/seo-check') return handleCheck(request, env, ctx);
-    return env.ASSETS.fetch(request);
+    // 관리자·방문 통계·콘텐츠 덮어쓰기·정적 자산 전달 — cms.js
+    return handleCms(request, env, ctx, url);
   },
 };
 

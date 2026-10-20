@@ -1,5 +1,10 @@
 .git
 .wrangler
+node_modules
 wrangler.jsonc
 .assetsignore
 worker.js
+cms.js
+migrations
+*.backup-*.html
+README.md
