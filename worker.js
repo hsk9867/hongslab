@@ -35,6 +35,8 @@ async function handleCheck(request, env, ctx) {
   const input = (new URL(request.url).searchParams.get('url') || '').trim();
   const target = normalizeTarget(input);
   if (!target) return json({ error: '올바른 사이트 주소를 입력해 주세요. 예: hongslab.kr' }, 400);
+  // http 로 입력해도 먼저 https 로 점검한다 (대부분 https 로 자동 이동되므로). https 가 안 되는 사이트만 analyze 안에서 http 로 다시 시도.
+  target.protocol = 'https:';
 
   // 같은 주소는 10분간 캐시된 결과를 돌려준다 (요청 제한에도 걸리지 않음)
   const cache = caches.default;
@@ -230,9 +232,21 @@ const BUSINESS_TYPES = /^(Organization|Corporation|LocalBusiness|ProfessionalSer
 // ---------- 분석 ----------
 
 async function analyze(target) {
-  const { res, ms } = await get(target.href);
-  // 530/52x 는 Cloudflare 가 대상 사이트에 연결하지 못했을 때 돌려주는 상태 — 분석할 HTML 이 아님
-  if (res.status >= 500) throw new Error(`대상 사이트 응답 HTTP ${res.status}`);
+  let fetched;
+  try {
+    fetched = await get(target.href);
+    // 530/52x 는 Cloudflare 가 대상 사이트에 연결하지 못했을 때 돌려주는 상태 — 분석할 HTML 이 아님
+    if (fetched.res.status >= 500) throw new Error(`대상 사이트 응답 HTTP ${fetched.res.status}`);
+  } catch (e) {
+    // https 가 안 되는 사이트는 http 로 한 번 더 시도 (그 경우 HTTPS 항목은 실제대로 감점된다)
+    if (target.protocol !== 'https:') throw e;
+    const alt = new URL(target.href);
+    alt.protocol = 'http:';
+    try { fetched = await get(alt.href); } catch { throw e; }
+    if (fetched.res.status >= 500) throw e;
+    target = alt;
+  }
+  const { res, ms } = fetched;
   const finalUrl = new URL(res.url || target.href);
   const ctype = res.headers.get('content-type') || '';
   const html = await readText(res);
