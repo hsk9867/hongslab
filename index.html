@@ -654,7 +654,7 @@
       .has-secflow #content>section:not(#hero):not(#works){background:transparent}
       /* 화면 진입 효과: 섹션이 화면 가운데로 들어올 때마다 내용이 떠오른다 */
       .page-snap #content>section:not(#hero)>.inner,.page-snap #care .marquee{opacity:0;transform:translateY(48px) scale(.985);transition:opacity .9s ease,transform 1s cubic-bezier(.16,1,.3,1)}
-      .page-snap #content>section.is-on>.inner,.page-snap #care.is-on .marquee{opacity:1;transform:none}
+      .page-snap #content>section.is-on:not(#hero)>.inner,.page-snap #care.is-on .marquee{opacity:1;transform:none}
       .page-snap #content>section.is-measuring>.inner,.page-snap #care.is-measuring .marquee{transform:none!important;transition:none!important}
     }
     @media (prefers-reduced-motion:reduce){#care .row{animation:none}.page-snap #content>section>.inner{opacity:1!important;transform:none!important}}
@@ -1473,13 +1473,16 @@ document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
   /* 화면 가운데에 걸린 섹션만 .is-on (진입 효과가 매번 다시 재생) */
   const active=()=>{
     const vh=innerHeight;
-    secs.forEach(s=>{const r=s.getBoundingClientRect();s.classList.toggle('is-on',on&&r.top<vh*.55&&r.bottom>vh*.45)});
+    let hit=false;
+    secs.forEach(s=>{const r=s.getBoundingClientRect();const v=on&&r.top<vh*.55&&r.bottom>vh*.45;if(v)hit=true;s.classList.toggle('is-on',v)});
+    /* 맨 아래(푸터)처럼 가운데에 걸린 섹션이 없으면 가장 많이 보이는 섹션을 켠다 */
+    if(on&&!hit){let best=null,area=0;secs.forEach(s=>{const r=s.getBoundingClientRect(),a=Math.min(r.bottom,vh)-Math.max(r.top,0);if(a>area){area=a;best=s}});if(best)best.classList.add('is-on')}
   };
   /* 배경 전환: 다음 섹션 윗변이 화면 85% 지점에 오면 섞이기 시작해 20% 지점에서 다음 색이 된다 */
   const setupFlow=()=>{
     html.classList.remove('has-secflow');body.style.backgroundColor='';
     const base='rgb(255, 255, 255)';let prev=null;segs=[];
-    [...secs,footer].forEach((s,i)=>{
+    secs.forEach((s,i)=>{
       let c=getComputedStyle(s).backgroundColor;if(c==='rgba(0, 0, 0, 0)'||c==='transparent')c=base;
       const v=rgb(c);
       if(i===0)first=v;else if(v.join()!==prev.join())segs.push({el:s,from:prev,to:v});
