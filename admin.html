@@ -399,7 +399,7 @@ async function api(path, opts = {}) {
   if (!r.ok) throw new Error(data.error || ('오류 ' + r.status));
   return data;
 }
-const PAGES = ['/', '/portfolio', '/seo-checker', '/faq', '/inquiry'];
+const PAGES = ['/', '/portfolio', '/process', '/seo-checker', '/faq', '/inquiry'];
 const rawCache = {};
 async function rawPage(p) {
   if (!rawCache[p]) rawCache[p] = fetch(p, { credentials: 'same-origin', headers: { 'x-cms-raw': '1' }, cache: 'no-store' }).then((r) => r.text());
@@ -489,7 +489,7 @@ function tableHtml(cols, rows, opts = {}) {
   }).join('')}</tr>`).join('')}</tbody></table>`;
 }
 const EVENT_NAMES = { tel: '전화 걸기', kakao: '카카오톡 열기', mail: '이메일', inquiry_open: '상담 팝업 열기', inquiry_send: '문의 보내기(카톡)', inquiry_mail: '문의 보내기(메일)', seo_check: 'SEO 점검 실행', inquiry_page: '견적 문의 페이지 이동' };
-const PAGE_NAMES = { '/': '메인', '/portfolio': '포트폴리오', '/seo-checker': 'SEO 점검', '/faq': '자주 묻는 질문', '/inquiry': '견적 문의' };
+const PAGE_NAMES = { '/': '메인', '/portfolio': '포트폴리오', '/process': '제작 과정', '/seo-checker': 'SEO 점검', '/faq': '자주 묻는 질문', '/inquiry': '견적 문의' };
 const pageName = (p) => PAGE_NAMES[p] ? `${PAGE_NAMES[p]} (${p})` : p;
 
 function renderDash(d) {
@@ -688,23 +688,22 @@ const GROUPS = [
   ['nav', '메뉴 · 상단 버튼', ''],
   ['hero', '메인 · 첫 화면 슬라이드', '세 개의 메시지가 번갈아 나옵니다.'],
   ['why', '메인 · 소개 섹션', ''],
-  ['works', '메인 · 포트폴리오 섹션', '사례 목록 자체는 "포트폴리오" 메뉴에서 편집합니다.'],
   ['contact', '메인 · 상담 섹션', ''],
   ['modal', '무료 상담 팝업', ''],
   ['quick', '화면 하단 버튼', ''],
   ['footer', '푸터', ''],
   ['home', '메인 · 검색/공유 문구', '검색 결과와 카카오톡·SNS 공유 미리보기에 쓰이는 제목과 설명입니다.'],
   ['pf', '포트폴리오 페이지', ''],
+  ['process', '제작 과정 페이지', '메인의 제작 순서 섹션(process.*)과 키를 함께 씁니다.'],
   ['seo', 'SEO 점검 페이지', ''],
   ['faq', '자주 묻는 질문 페이지', '질문 목록은 "자주 묻는 질문" 메뉴에서 편집합니다.'],
   ['inq', '견적 문의 페이지', ''],
 ];
 const LABELS = {
   'site.phone': '전화번호 (화면 표시)', 'site.email': '이메일', 'site.kakao': '카카오톡 채널 주소 (URL)', 'site.tagline': '로고 아래 문구', 'site.ceo': '대표자', 'site.bizno': '사업자등록번호', 'site.name': '상호',
-  'nav.portfolio': '메뉴 1', 'nav.seo': '메뉴 2', 'nav.faq': '메뉴 3', 'nav.contact': '메뉴 4', 'nav.cta': '상단 빨간 버튼', 'nav.mbtn': '모바일 메뉴 하단 버튼',
+  'nav.portfolio': '메뉴 1', 'nav.process': '메뉴 (제작 과정)', 'nav.seo': '메뉴 2', 'nav.faq': '메뉴 3', 'nav.contact': '메뉴 4', 'nav.cta': '상단 빨간 버튼', 'nav.mbtn': '모바일 메뉴 하단 버튼',
   'hero.corner': '왼쪽 위 작은 문구', 'hero.btn2': '흰색 버튼 (세 슬라이드 공통)',
   'why.title': '제목', 'why.desc': '설명', 'why.seo.title': '제작 기준 제목', 'why.seo.desc': '제작 기준 설명', 'why.act.text': 'SEO 점검 유도 문구', 'why.act.btn': 'SEO 점검 버튼',
-  'works.title': '제목', 'works.desc': '설명', 'works.btn': '버튼',
   'contact.title': '제목', 'contact.desc': '설명', 'contact.btn': '버튼', 'contact.kakao.title': '카카오톡 항목 제목', 'contact.kakao.sub': '카카오톡 항목 설명', 'contact.tel.title': '전화 항목 제목', 'contact.mail.title': '이메일 항목 제목',
   'modal.title': '팝업 제목', 'modal.foot.title': '왼쪽 하단 제목', 'modal.foot.text': '왼쪽 하단 설명',
   'quick.tel': '전화 버튼', 'quick.kakao': '카톡 버튼', 'quick.inq': '문의 버튼',
