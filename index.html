@@ -328,7 +328,6 @@
     .in .fx .w i,.fx.in .w i{transform:none}
     .fx .hl{background:linear-gradient(var(--red),var(--red)) no-repeat 0 92%/0 .1em;transition:background-size .9s cubic-bezier(.16,1,.3,1) .5s}
     .in .fx .hl,.fx.in .hl{background-size:100% .1em}
-    #why .fx .hl{background:none}
     .rise{opacity:0;transform:translateY(28px);transition:opacity 1s ease,transform 1s cubic-bezier(.16,1,.3,1)}
     .rise.in{opacity:1;transform:none}
 
@@ -487,7 +486,6 @@
     .sec-head{margin-bottom:56px}
     .sec-head h2{margin-top:26px;font-size:clamp(30px,3.8vw,52px);font-weight:800;line-height:1.15;letter-spacing:-.035em}
     .sec-head h2 .hl{color:var(--red)}
-    .sec-head .fx .hl,.sec-head.fx .hl,#care .fx .hl{background:none}
     .sec-head p{margin-top:20px;font-size:15px;line-height:1.85;color:var(--muted);max-width:720px}
     .sec-head.row{display:flex;align-items:flex-end;justify-content:space-between;gap:40px}
     .sec-head.row p{margin-top:0;max-width:440px}
@@ -659,6 +657,40 @@
     }
     @media (prefers-reduced-motion:reduce){#care .row{animation:none}.page-snap #content>section>.inner{opacity:1!important;transform:none!important}}
 
+    /* ===== 문구별 타이포그래피 효과 ===== */
+    .t-track{opacity:0;letter-spacing:.5em;transition:opacity .7s ease,letter-spacing 1s cubic-bezier(.16,1,.3,1)}
+    .t-track.in{opacity:1;letter-spacing:.18em}
+    .eyebrow.t-track:before{width:0;transition:width .9s cubic-bezier(.16,1,.3,1) .2s}
+    .eyebrow.t-track.in:before{width:40px}
+    .t-blur{opacity:0;filter:blur(10px);transform:translateY(10px);transition:opacity .8s ease .15s,filter .9s ease .15s,transform .9s cubic-bezier(.16,1,.3,1) .15s}
+    .t-blur.in{opacity:1;filter:blur(0);transform:none}
+    .t-stagger>*{opacity:0;transform:translateY(18px);transition:opacity .7s ease,transform .8s cubic-bezier(.16,1,.3,1);transition-delay:calc(var(--i,0)*.08s + .2s)}
+    .t-stagger.in>*{opacity:1;transform:none}
+    .t-pop{opacity:0;transform:scale(.55);transition:opacity .5s ease .3s,transform .9s cubic-bezier(.34,1.56,.64,1) .3s}
+    .t-pop.in{opacity:1;transform:none}
+    #process .note span,#seo .check h4 i{display:inline-block}
+    .t-letters span{display:inline-block;opacity:0;transform:translateY(.7em) rotate(8deg);transition:opacity .4s ease,transform .7s cubic-bezier(.16,1,.3,1);transition-delay:calc(var(--i,0)*.07s + .25s)}
+    .t-letters.in span{opacity:1;transform:none}
+    .t-mark .hl{background-image:linear-gradient(rgba(230,48,39,.16),rgba(230,48,39,.16))!important;background-repeat:no-repeat!important;background-position:0 72%!important;background-size:0 .42em!important;transition:background-size .9s cubic-bezier(.16,1,.3,1) .6s!important}
+    .t-mark.in .hl{background-size:100% .42em!important}
+    #why .t-mark .hl,#seo .t-mark .hl,#works .t-mark .hl{background-image:linear-gradient(rgba(255,255,255,.16),rgba(255,255,255,.16))!important}
+    /* 호버 카드도 등장 효과(opacity·transform)가 부드럽게 보이도록 transition 통합 */
+    #hled article,#process .ch,#benefit .group{transition:transform .6s cubic-bezier(.16,1,.3,1),opacity .7s ease,box-shadow .5s ease,border-color var(--t)}
+    #why .card{transition:transform .6s cubic-bezier(.16,1,.3,1),opacity .7s ease,box-shadow .5s ease}
+    #seo .steps>div{transition:background var(--t),opacity .7s ease,transform .8s cubic-bezier(.16,1,.3,1)}
+    #contact .list a{transition:background var(--t),opacity .7s ease,transform .8s cubic-bezier(.16,1,.3,1)}
+    /* 히어로: 슬라이드가 바뀔 때마다 아이브로우 자간 → 제목 단어 롤업 → 설명 블러 인 → 버튼 순으로 재생 */
+    #hero .fx .hl{background:none}
+    #hero .slide .eyebrow{opacity:0;letter-spacing:.5em;transition:opacity .6s ease,letter-spacing 1s cubic-bezier(.16,1,.3,1)}
+    .hero-ready #hero .slide.on .eyebrow{opacity:1;letter-spacing:.18em;transition-delay:.25s}
+    #hero .fx .w i{transform:translateY(110%)}
+    .hero-ready #hero .slide.on .fx .w i{transform:none}
+    #hero .slide .sub{opacity:0;filter:blur(10px);transform:translateY(10px);transition:opacity .7s ease,filter .8s ease,transform .8s cubic-bezier(.16,1,.3,1)}
+    .hero-ready #hero .slide.on .sub{opacity:1;filter:blur(0);transform:none;transition-delay:.55s}
+    #hero .slide .acts{opacity:0;transform:translateY(14px);transition:opacity .6s ease,transform .8s cubic-bezier(.16,1,.3,1)}
+    .hero-ready #hero .slide.on .acts{opacity:1;transform:none;transition-delay:.75s}
+    @media (prefers-reduced-motion:reduce){.t-track,.t-blur,.t-stagger>*,.t-pop,.t-letters span,#hero .slide .eyebrow,#hero .slide .sub,#hero .slide .acts{opacity:1!important;transform:none!important;filter:none!important;letter-spacing:inherit!important}.t-mark .hl{background-size:100% .42em!important}}
+
     /* ===== Reveal ===== */
     .reveal{opacity:0;transform:translateY(30px);transition:opacity .9s ease,transform .9s cubic-bezier(.16,1,.3,1)}
     .reveal.in{opacity:1;transform:none}
@@ -829,7 +861,7 @@
         <div class="slides" id="heroSlides">
           <div class="slide on" data-i="0">
             <span class="eyebrow rise" style="transition-delay:.1s" data-cms="hero.1.eyebrow">맞춤형 웹·앱 제작</span>
-            <h1 class="h rise" style="transition-delay:.25s"><span class="sr">홍스랩 홈페이지·앱 제작 스튜디오 — </span><span data-cms="hero.1.title" data-cms-fmt="rich">기업의 가치를<br><span class="hl">더하는</span> 홈페이지</span></h1>
+            <h1 class="h"><span class="sr">홍스랩 홈페이지·앱 제작 스튜디오 — </span><span data-cms="hero.1.title" data-cms-fmt="rich">기업의 가치를<br><span class="hl">더하는</span> 홈페이지</span></h1>
             <p class="sub rise" style="transition-delay:.4s" data-cms="hero.1.sub" data-cms-fmt="rich">업종과 고객을 먼저 이해하고, 보기 좋은 화면을 넘어 전화와 문의로 이어지는 구조를 설계합니다. 지역 업체 홈페이지부터 웹앱까지, 홍스랩이 직접 만듭니다.</p>
             <div class="acts rise" style="transition-delay:.55s"><a class="btn red" href="/portfolio"><span class="ko" data-cms="hero.1.btn">제작사례 보기</span><span class="ar">→</span></a><button type="button" class="btn light js-open-inquiry"><span class="ko" data-cms="hero.btn2">무료 상담 신청</span><span class="ar">→</span></button></div>
           </div>
@@ -855,16 +887,16 @@
       <div class="inner">
         <div class="sec-head row">
           <div>
-            <div class="eyebrow reveal">일하는 방식 · 01</div>
-            <h2 class="reveal" id="hled-title" data-cms="hled.title" data-cms-fmt="rich">작은 부분까지 신경 써야,<br><span class="hl">가치가 제대로</span> 전달됩니다</h2>
+            <div class="eyebrow t-track">일하는 방식 · 01</div>
+            <h2 class="reveal t-mark" id="hled-title" data-cms="hled.title" data-cms-fmt="rich">작은 부분까지 신경 써야,<br><span class="hl">가치가 제대로</span> 전달됩니다</h2>
           </div>
-          <p class="reveal" data-cms="hled.desc" data-cms-fmt="rich">같은 도구를 써도 결과가 다른 이유는 사람의 손이 얼마나 들어갔느냐에 있습니다. 홍스랩은 기술 위에 직접 확인하는 수고로움을 더합니다.</p>
+          <p class="t-blur" data-cms="hled.desc" data-cms-fmt="rich">같은 도구를 써도 결과가 다른 이유는 사람의 손이 얼마나 들어갔느냐에 있습니다. 홍스랩은 기술 위에 직접 확인하는 수고로움을 더합니다.</p>
         </div>
         <div class="cols">
           <article class="reveal">
-            <span class="lab" data-cms="hled.a.lab">홍스랩이 직접 하는 일</span>
+            <span class="lab t-track" data-cms="hled.a.lab">홍스랩이 직접 하는 일</span>
             <h3 data-cms="hled.a.title">처음부터 끝까지, 직접 챙깁니다</h3>
-            <ul>
+            <ul class="t-stagger">
               <li><b data-cms="hled.a1.t">업종 이해</b><span data-cms="hled.a1.d">고객사의 업종과 손님을 먼저 공부하고 화면 구성을 설계합니다</span></li>
               <li><b data-cms="hled.a2.t">맞춤 디자인</b><span data-cms="hled.a2.d">템플릿이 아닌, 사업에 맞는 화면을 새로 그립니다</span></li>
               <li><b data-cms="hled.a3.t">꼼꼼한 검수</b><span data-cms="hled.a3.d">공개 전 PC·모바일의 모든 화면을 직접 확인합니다</span></li>
@@ -873,9 +905,9 @@
             </ul>
           </article>
           <article class="reveal" style="transition-delay:.12s">
-            <span class="lab" data-cms="hled.b.lab">완성 후 고객이 쓰는 것</span>
+            <span class="lab t-track" data-cms="hled.b.lab">완성 후 고객이 쓰는 것</span>
             <h3 data-cms="hled.b.title">운영은 쉽게, 연락은 바로</h3>
-            <ul>
+            <ul class="t-stagger">
               <li><b data-cms="hled.b1.t">전화 · 카톡 연결</b><span data-cms="hled.b1.d">버튼 한 번으로 전화와 카카오톡 채널 상담이 바로 열립니다</span></li>
               <li><b data-cms="hled.b2.t">지도 · 길찾기</b><span data-cms="hled.b2.d">네이버·카카오 지도로 매장 위치와 길찾기를 연결합니다</span></li>
               <li><b data-cms="hled.b3.t">검색 · AI 노출</b><span data-cms="hled.b3.d">네이버·구글과 ChatGPT 같은 AI가 읽기 쉬운 구조로 만듭니다</span></li>
@@ -884,31 +916,31 @@
             </ul>
           </article>
         </div>
-        <p class="quote reveal" data-cms="hled.quote" data-cms-fmt="rich">도구는 누구나 쓸 수 있습니다. 차이를 만드는 건, <span class="hl">끝까지 확인하는 사람</span>입니다.</p>
+        <p class="quote reveal t-mark" data-cms="hled.quote" data-cms-fmt="rich">도구는 누구나 쓸 수 있습니다. 차이를 만드는 건, <span class="hl">끝까지 확인하는 사람</span>입니다.</p>
       </div>
     </section>
 
     <!-- ===== Why ===== -->
     <section id="why">
       <div class="inner">
-        <div class="eyebrow light reveal">선택하는 이유 · 02</div>
-        <h2 class="reveal" style="margin-top:26px" data-cms="why.title" data-cms-fmt="rich">믿고 맡길 수 있는 제작 파트너,<br><span class="hl">홍스랩</span></h2>
-        <p class="desc reveal" data-cms="why.desc" data-cms-fmt="rich">업종과 고객을 먼저 이해하고, 전화와 문의로 이어지는 구조를 설계합니다. <br>기획부터 디자인·개발·검색·AI 노출·운영까지, 전 과정을 홍스랩이 직접 진행합니다.</p>
+        <div class="eyebrow light t-track">선택하는 이유 · 02</div>
+        <h2 class="reveal t-mark" style="margin-top:26px" data-cms="why.title" data-cms-fmt="rich">믿고 맡길 수 있는 제작 파트너,<br><span class="hl">홍스랩</span></h2>
+        <p class="desc t-blur" data-cms="why.desc" data-cms-fmt="rich">업종과 고객을 먼저 이해하고, 전화와 문의로 이어지는 구조를 설계합니다. <br>기획부터 디자인·개발·검색·AI 노출·운영까지, 전 과정을 홍스랩이 직접 진행합니다.</p>
         <p class="swipe-hint" aria-hidden="true">옆으로 넘겨서 보세요 →</p>
-        <div class="cards">
-          <article class="card reveal" style="transition-delay:0.0s">
+        <div class="cards t-stagger">
+          <article class="card">
             <div class="body"><span class="no">01</span><h3 data-cms="why.c1.title">기술력</h3><p data-cms="why.c1.text">최신 웹 기술과 안정적인 개발 환경으로, 확장과 유지관리에 강한 홈페이지를 만듭니다.</p></div>
           </article>
-          <article class="card reveal" style="transition-delay:0.1s">
+          <article class="card">
             <div class="body"><span class="no">02</span><h3 data-cms="why.c2.title">검색·AI 노출</h3><p data-cms="why.c2.text">네이버·구글 검색과 AI 답변에 잘 노출되도록 구조, 속도, 콘텐츠를 최적화해 자연 유입을 돕습니다.</p></div>
           </article>
-          <article class="card reveal" style="transition-delay:0.2s">
+          <article class="card">
             <div class="body"><span class="no">03</span><h3 data-cms="why.c3.title">유지보수</h3><p data-cms="why.c3.text">제작 이후에도 수정과 업데이트 등 지속적인 운영을 위해 안정적인 사이트 관리를 돕습니다.</p></div>
           </article>
-          <article class="card reveal" style="transition-delay:0.3s">
+          <article class="card">
             <div class="body"><span class="no">04</span><h3 data-cms="why.c4.title">기능성</h3><p data-cms="why.c4.text">문의폼, 예약, 게시판, 관리자 페이지 등 목적에 맞는 기능을 맞춤으로 구현합니다.</p></div>
           </article>
-          <article class="card reveal" style="transition-delay:0.4s">
+          <article class="card">
             <div class="body"><span class="no">05</span><h3 data-cms="why.c5.title">고품질</h3><p data-cms="why.c5.text">디자인 완성도, 사용자 경험, 속도까지 모두 고려한 완성도 높은 웹사이트를 제공합니다.</p></div>
           </article>
         </div>
@@ -920,15 +952,15 @@
       <div class="inner">
         <div class="sec-head row">
           <div>
-            <div class="eyebrow reveal">기본 포함 · 03</div>
-            <h2 class="reveal" id="benefit-title" data-cms="benefit.title" data-cms-fmt="rich">홈페이지 제작 시<br><span class="hl">12가지</span> 기본 포함</h2>
+            <div class="eyebrow t-track">기본 포함 · 03</div>
+            <h2 class="reveal t-mark" id="benefit-title" data-cms="benefit.title" data-cms-fmt="rich">홈페이지 제작 시<br><span class="hl">12가지</span> 기본 포함</h2>
           </div>
-          <p class="reveal" data-cms="benefit.desc">개수보다 내용을 보세요. 아래 항목은 별도 비용 없이 제작에 기본으로 들어가며, 부가세 외 숨은 비용은 없습니다.</p>
+          <p class="t-blur" data-cms="benefit.desc">개수보다 내용을 보세요. 아래 항목은 별도 비용 없이 제작에 기본으로 들어가며, 부가세 외 숨은 비용은 없습니다.</p>
         </div>
         <div class="groups">
           <div class="group reveal">
             <h3><span data-cms="benefit.g1">기획 · 디자인</span><small>DESIGN</small></h3>
-            <ul>
+            <ul class="t-stagger">
               <li><i>01</i><span><span data-cms="benefit.1.t">업종 맞춤 구성 설계</span><small data-cms="benefit.1.d">업종과 손님을 분석해 페이지 구성을 제안</small></span></li>
               <li><i>02</i><span><span data-cms="benefit.2.t">PC · 모바일 반응형</span><small data-cms="benefit.2.d">모든 상품이 PC와 휴대폰 화면에 맞춰 제작</small></span></li>
               <li><i>03</i><span><span data-cms="benefit.3.t">맞춤 디자인</span><small data-cms="benefit.3.d">템플릿이 아닌 사업에 맞는 새 디자인</small></span></li>
@@ -937,7 +969,7 @@
           </div>
           <div class="group reveal" style="transition-delay:.1s">
             <h3><span data-cms="benefit.g2">검색 · AI 노출</span><small>SEO · AEO · GEO</small></h3>
-            <ul>
+            <ul class="t-stagger">
               <li><i>05</i><span><span data-cms="benefit.5.t">검색 기본 설정</span><small data-cms="benefit.5.d">제목·설명·사이트맵·robots 정리</small></span></li>
               <li><i>06</i><span><span data-cms="benefit.6.t">카카오톡 · SNS 공유 미리보기</span><small data-cms="benefit.6.d">링크를 보낼 때 제목과 이미지가 보이는 OG 설정</small></span></li>
               <li><i>07</i><span><span data-cms="benefit.7.t">구조화 데이터(JSON-LD)</span><small data-cms="benefit.7.d">업체 정보·FAQ를 검색엔진이 읽는 형식으로</small></span></li>
@@ -946,7 +978,7 @@
           </div>
           <div class="group reveal" style="transition-delay:.2s">
             <h3><span data-cms="benefit.g3">연결 · 운영</span><small>OPERATION</small></h3>
-            <ul>
+            <ul class="t-stagger">
               <li><i>09</i><span><span data-cms="benefit.9.t">전화 · 카카오톡 채널 연결</span><small data-cms="benefit.9.d">플로팅 버튼과 상담 버튼 기본 포함</small></span></li>
               <li><i>10</i><span><span data-cms="benefit.10.t">지도 · 길찾기 연결</span><small data-cms="benefit.10.d">네이버·카카오 지도 바로가기</small></span></li>
               <li><i>11</i><span><span data-cms="benefit.11.t">배포 후 1개월 무제한 수정</span><small data-cms="benefit.11.d">합의한 구성 안에서의 수정은 횟수 제한 없음</small></span></li>
@@ -956,7 +988,7 @@
         </div>
         <div class="cost reveal">
           <div>
-            <span class="lab">RUNNING COST</span>
+            <span class="lab t-track">RUNNING COST</span>
             <h3 data-cms="benefit.cost.title" data-cms-fmt="rich">홈페이지 비용은 제작비만이 아니라 <em>운영비까지</em> 보셔야 합니다.</h3>
             <p data-cms="benefit.cost.desc" data-cms-fmt="rich">홍스랩은 제작비(부가세 별도) 외에 숨은 비용을 받지 않습니다. 도메인·호스팅 등 외부 서비스 비용은 실비로 별도이며, 부담이 적은 구성을 상담에서 함께 안내합니다. 전체 디자인 변경과 기능 추가만 별도 견적입니다.</p>
           </div>
@@ -971,7 +1003,7 @@
       <div class="inner">
         <div class="head">
           <div>
-            <div class="eyebrow light reveal">포트폴리오 · 04</div>
+            <div class="eyebrow light t-track">포트폴리오 · 04</div>
             <h2 class="reveal" data-cms="works.title">포트폴리오</h2>
           </div>
           <div class="arrows"><button type="button" class="prev" aria-label="이전">←</button><button type="button" class="next" aria-label="다음">→</button></div>
@@ -979,7 +1011,7 @@
         <div class="track" id="portfolioTrack"></div>
         <div class="progress" aria-hidden="true"><i id="worksProgress"></i></div>
         <div class="foot reveal">
-          <p data-cms="works.desc">지역 업체 홈페이지부터 웹앱까지, 실제로 운영 중인 프로젝트들입니다.</p>
+          <p class="t-blur" data-cms="works.desc">지역 업체 홈페이지부터 웹앱까지, 실제로 운영 중인 프로젝트들입니다.</p>
           <a class="btn light" href="/portfolio"><span class="ko" data-cms="works.btn">포트폴리오 전체 보기</span><span class="ar">→</span></a>
         </div>
       </div>
@@ -991,41 +1023,41 @@
       <div class="inner">
         <div class="sec-head row">
           <div>
-            <div class="eyebrow reveal">제작 과정 · 05</div>
-            <h2 class="reveal" id="process-title" data-cms="process.title" data-cms-fmt="rich">상담부터 공개까지,<br>세 가지 <span class="hl">약속</span></h2>
+            <div class="eyebrow t-track">제작 과정 · 05</div>
+            <h2 class="reveal t-mark" id="process-title" data-cms="process.title" data-cms-fmt="rich">상담부터 공개까지,<br>세 가지 <span class="hl">약속</span></h2>
           </div>
-          <p class="reveal" data-cms="process.desc">전문가 설계, 디테일한 확인, 편안한 소통. 홍스랩이 모든 제작에서 지키는 세 가지와 실제 진행 순서입니다.</p>
+          <p class="t-blur" data-cms="process.desc">전문가 설계, 디테일한 확인, 편안한 소통. 홍스랩이 모든 제작에서 지키는 세 가지와 실제 진행 순서입니다.</p>
         </div>
         <div class="chapters">
           <article class="ch reveal">
-            <span class="no">CHAPTER 01</span>
+            <span class="no t-track">CHAPTER 01</span>
             <h3 data-cms="process.c1.title">전문가 설계</h3>
             <p data-cms="process.c1.desc">업종과 손님을 먼저 공부하고, 전화와 문의로 이어지는 동선을 설계합니다.</p>
-            <div class="steps">
-              <div class="step"><i>1</i><div><b data-cms="process.s1.t">무료 상담</b><small data-cms="process.s1.d">업종·필요한 페이지·공개 시점을 카카오톡, 전화, 이메일로 확인합니다.</small></div></div>
-              <div class="step"><i>2</i><div><b data-cms="process.s2.t">범위 · 견적 확정</b><small data-cms="process.s2.d">작업 범위를 정리하고 최종 견적과 일정을 먼저 안내합니다.</small></div></div>
+            <div class="steps t-stagger">
+              <div class="step"><i class="t-pop">1</i><div><b data-cms="process.s1.t">무료 상담</b><small data-cms="process.s1.d">업종·필요한 페이지·공개 시점을 카카오톡, 전화, 이메일로 확인합니다.</small></div></div>
+              <div class="step"><i class="t-pop">2</i><div><b data-cms="process.s2.t">범위 · 견적 확정</b><small data-cms="process.s2.d">작업 범위를 정리하고 최종 견적과 일정을 먼저 안내합니다.</small></div></div>
             </div>
           </article>
           <article class="ch reveal" style="transition-delay:.1s">
-            <span class="no">CHAPTER 02</span>
+            <span class="no t-track">CHAPTER 02</span>
             <h3 data-cms="process.c2.title">디테일한 확인</h3>
             <p data-cms="process.c2.desc">고객이 발견하기 전에 먼저 찾습니다. 화면 구석구석을 직접 검수합니다.</p>
-            <div class="steps">
-              <div class="step"><i>3</i><div><b data-cms="process.s3.t">자료 접수 · 제작 착수</b><small data-cms="process.s3.d">글·사진·로고와 착수금이 접수된 날부터 제작 기간을 계산합니다.</small></div></div>
-              <div class="step"><i>4</i><div><b data-cms="process.s4.t">제작 · 미리보기</b><small data-cms="process.s4.d">실속형 3~5, 기본형 5~10, 확장형 10~15영업일에 미리보기를 드립니다.</small></div></div>
+            <div class="steps t-stagger">
+              <div class="step"><i class="t-pop">3</i><div><b data-cms="process.s3.t">자료 접수 · 제작 착수</b><small data-cms="process.s3.d">글·사진·로고와 착수금이 접수된 날부터 제작 기간을 계산합니다.</small></div></div>
+              <div class="step"><i class="t-pop">4</i><div><b data-cms="process.s4.t">제작 · 미리보기</b><small data-cms="process.s4.d">실속형 3~5, 기본형 5~10, 확장형 10~15영업일에 미리보기를 드립니다.</small></div></div>
             </div>
           </article>
           <article class="ch reveal" style="transition-delay:.2s">
-            <span class="no">CHAPTER 03</span>
+            <span class="no t-track">CHAPTER 03</span>
             <h3 data-cms="process.c3.title">편안한 소통</h3>
             <p data-cms="process.c3.desc">진행 상황은 카카오톡으로 함께 보고, 궁금한 점은 담당자가 직접 답합니다.</p>
-            <div class="steps">
-              <div class="step"><i>5</i><div><b data-cms="process.s5.t">검수 · 수정</b><small data-cms="process.s5.d">PC·모바일 검수 후 공개하고, 배포 후 1개월은 수정이 무제한입니다.</small></div></div>
-              <div class="step"><i>6</i><div><b data-cms="process.s6.t">공개 · 검색 등록</b><small data-cms="process.s6.d">도메인을 연결하고 네이버·구글 검색 등록을 지원합니다(기본형 이상).</small></div></div>
+            <div class="steps t-stagger">
+              <div class="step"><i class="t-pop">5</i><div><b data-cms="process.s5.t">검수 · 수정</b><small data-cms="process.s5.d">PC·모바일 검수 후 공개하고, 배포 후 1개월은 수정이 무제한입니다.</small></div></div>
+              <div class="step"><i class="t-pop">6</i><div><b data-cms="process.s6.t">공개 · 검색 등록</b><small data-cms="process.s6.d">도메인을 연결하고 네이버·구글 검색 등록을 지원합니다(기본형 이상).</small></div></div>
             </div>
           </article>
         </div>
-        <div class="note reveal"><span data-cms="process.n1">모든 금액은 부가세 별도</span><span data-cms="process.n2">제작 기간은 자료·착수금 접수일부터 계산</span><span data-cms="process.n3">전체 디자인 변경·기능 추가는 별도 견적</span><span data-cms="process.n4">매일 07:00~22:00 상담</span></div>
+        <div class="note t-stagger"><span data-cms="process.n1">모든 금액은 부가세 별도</span><span data-cms="process.n2">제작 기간은 자료·착수금 접수일부터 계산</span><span data-cms="process.n3">전체 디자인 변경·기능 추가는 별도 견적</span><span data-cms="process.n4">매일 07:00~22:00 상담</span></div>
       </div>
     </section>
 
@@ -1034,20 +1066,20 @@
       <div class="inner">
         <div class="sec-head row">
           <div>
-            <div class="eyebrow light reveal">검색 · AI 노출 · 06</div>
-            <h2 class="reveal" id="seo-title" data-cms="why.seo.title" data-cms-fmt="rich">홈페이지의 <span class="hl">제작 기준</span>이 달라졌습니다.</h2>
+            <div class="eyebrow light t-track">검색 · AI 노출 · 06</div>
+            <h2 class="reveal t-mark" id="seo-title" data-cms="why.seo.title" data-cms-fmt="rich">홈페이지의 <span class="hl">제작 기준</span>이 달라졌습니다.</h2>
           </div>
-          <p class="reveal" data-cms="why.seo.desc" data-cms-fmt="rich">홍스랩은 기획·디자인·개발뿐 아니라 SEO·AEO·GEO를 고려한 구조와 <br>AI 검색 환경까지 고려하여 설계합니다.</p>
+          <p class="t-blur" data-cms="why.seo.desc" data-cms-fmt="rich">홍스랩은 기획·디자인·개발뿐 아니라 SEO·AEO·GEO를 고려한 구조와 <br>AI 검색 환경까지 고려하여 설계합니다.</p>
         </div>
-        <div class="steps reveal">
-          <div><span class="tag"><i>01</i><b>SEO</b></span><strong data-cms="why.term.SEO.name">검색엔진 최적화</strong><em data-cms="seo.SEO.sub">검색 결과에 노출되게</em><p data-cms="why.term.SEO.text">네이버·구글 검색 결과에 내 홈페이지가 잘 나오도록 제목, 설명, 구조, 사이트맵을 정리합니다.</p></div>
-          <div><span class="tag"><i>02</i><b>AEO</b></span><strong data-cms="why.term.AEO.name">답변엔진 최적화</strong><em data-cms="seo.AEO.sub">AI 답변에 인용되게</em><p data-cms="why.term.AEO.text">"근처 ○○ 어디가 좋아?" 같은 질문에 검색엔진이 내 정보를 바로 답으로 보여주도록 업체 정보와 FAQ를 기계가 읽는 형식으로 넣습니다.</p></div>
-          <div><span class="tag"><i>03</i><b>GEO</b></span><strong data-cms="why.term.GEO.name">생성형 AI 최적화</strong><em data-cms="seo.GEO.sub">AI가 먼저 추천하게</em><p data-cms="why.term.GEO.text">ChatGPT·Perplexity 같은 AI가 답변할 때 내 홈페이지를 읽고 인용하도록 AI 크롤러 허용, llms.txt, 본문 구조를 갖춥니다.</p></div>
+        <div class="steps t-stagger">
+          <div><span class="tag"><i>01</i><b class="t-letters">SEO</b></span><strong data-cms="why.term.SEO.name">검색엔진 최적화</strong><em data-cms="seo.SEO.sub">검색 결과에 노출되게</em><p data-cms="why.term.SEO.text">네이버·구글 검색 결과에 내 홈페이지가 잘 나오도록 제목, 설명, 구조, 사이트맵을 정리합니다.</p></div>
+          <div><span class="tag"><i>02</i><b class="t-letters">AEO</b></span><strong data-cms="why.term.AEO.name">답변엔진 최적화</strong><em data-cms="seo.AEO.sub">AI 답변에 인용되게</em><p data-cms="why.term.AEO.text">"근처 ○○ 어디가 좋아?" 같은 질문에 검색엔진이 내 정보를 바로 답으로 보여주도록 업체 정보와 FAQ를 기계가 읽는 형식으로 넣습니다.</p></div>
+          <div><span class="tag"><i>03</i><b class="t-letters">GEO</b></span><strong data-cms="why.term.GEO.name">생성형 AI 최적화</strong><em data-cms="seo.GEO.sub">AI가 먼저 추천하게</em><p data-cms="why.term.GEO.text">ChatGPT·Perplexity 같은 AI가 답변할 때 내 홈페이지를 읽고 인용하도록 AI 크롤러 허용, llms.txt, 본문 구조를 갖춥니다.</p></div>
         </div>
-        <div class="check reveal">
-          <div><span class="lab">CHECK POINT</span><h3 data-cms="seo.check.title" data-cms-fmt="rich">SEO·AEO·GEO의 기술과 구조는<br>제작 단계에서 이미 정해집니다.</h3><p data-cms="seo.check.desc">처음 만들 때 갖추면, 나중에 고치는 것보다 훨씬 적은 비용으로 같은 결과를 냅니다.</p></div>
-          <div><h4><i class="on">홍스랩 기본 제공</i><span data-cms="seo.check.a.title">구조 · 코드 · 데이터</span></h4><ul><li>시맨틱 구조</li><li>메타 · OG</li><li>사이트맵 · robots</li><li>JSON-LD</li><li>AI 크롤러 허용</li><li>llms.txt</li><li>속도 · https</li></ul><p data-cms="seo.check.a.desc">위 항목은 기본 사양으로 제작하고, 무료 점검기에서 점수로 확인할 수 있습니다.</p></div>
-          <div><h4><i>고객 주도 영역</i><span data-cms="seo.check.b.title">콘텐츠 · 홍보 · 평판</span></h4><ul><li>글 · 사진 업데이트</li><li>블로그 · SNS</li><li>리뷰 · 플레이스 관리</li><li>광고</li></ul><p data-cms="seo.check.b.desc">홈페이지 제작과 검색 마케팅은 다른 영역입니다. 검색 설정은 순위를 보장하지 않으며, 콘텐츠는 고객이 직접 또는 마케팅 업체와 운영합니다.</p></div>
+        <div class="check t-stagger">
+          <div><span class="lab t-track">CHECK POINT</span><h3 data-cms="seo.check.title" data-cms-fmt="rich">SEO·AEO·GEO의 기술과 구조는<br>제작 단계에서 이미 정해집니다.</h3><p data-cms="seo.check.desc">처음 만들 때 갖추면, 나중에 고치는 것보다 훨씬 적은 비용으로 같은 결과를 냅니다.</p></div>
+          <div><h4><i class="on t-pop">홍스랩 기본 제공</i><span data-cms="seo.check.a.title">구조 · 코드 · 데이터</span></h4><ul><li>시맨틱 구조</li><li>메타 · OG</li><li>사이트맵 · robots</li><li>JSON-LD</li><li>AI 크롤러 허용</li><li>llms.txt</li><li>속도 · https</li></ul><p data-cms="seo.check.a.desc">위 항목은 기본 사양으로 제작하고, 무료 점검기에서 점수로 확인할 수 있습니다.</p></div>
+          <div><h4><i class="t-pop">고객 주도 영역</i><span data-cms="seo.check.b.title">콘텐츠 · 홍보 · 평판</span></h4><ul><li>글 · 사진 업데이트</li><li>블로그 · SNS</li><li>리뷰 · 플레이스 관리</li><li>광고</li></ul><p data-cms="seo.check.b.desc">홈페이지 제작과 검색 마케팅은 다른 영역입니다. 검색 설정은 순위를 보장하지 않으며, 콘텐츠는 고객이 직접 또는 마케팅 업체와 운영합니다.</p></div>
         </div>
         <div class="act reveal">
           <p data-cms="why.act.text" data-cms-fmt="rich">지금 내 홈페이지는 어느 정도일까요?<br>주소만 넣으면 4개 축 60여 개 항목을 무료로 점검해 드립니다.</p>
@@ -1062,15 +1094,15 @@
       <div class="inner">
         <div class="grid">
           <div class="l">
-            <div class="eyebrow reveal">오픈 후 관리 · 07</div>
-            <h2 class="reveal" id="care-title" data-cms="care.title" data-cms-fmt="rich">공개한 뒤에도,<br><span class="hl">홍스랩이 함께</span>합니다</h2>
-            <p class="reveal" data-cms="care.desc">제작 이후의 수정과 업데이트도 카카오톡으로 요청하시면 확인 후 순차 처리합니다. 위에 흐르는 이름들은 지금 실제로 운영 중인 홍스랩 제작 사이트입니다.</p>
+            <div class="eyebrow t-track">오픈 후 관리 · 07</div>
+            <h2 class="reveal t-mark" id="care-title" data-cms="care.title" data-cms-fmt="rich">공개한 뒤에도,<br><span class="hl">홍스랩이 함께</span>합니다</h2>
+            <p class="t-blur" data-cms="care.desc">제작 이후의 수정과 업데이트도 카카오톡으로 요청하시면 확인 후 순차 처리합니다. 위에 흐르는 이름들은 지금 실제로 운영 중인 홍스랩 제작 사이트입니다.</p>
             <a class="btn reveal" href="/portfolio"><span class="ko" data-cms="care.btn">운영 중인 사이트 보기</span><span class="ar">→</span></a>
           </div>
-          <div class="stats reveal">
-            <div><b><span class="count" data-to="19" id="siteCount">0</span><sub>개</sub></b><strong data-cms="care.s1.t">운영 중인 사이트</strong><small data-cms="care.s1.d">홈페이지부터 웹앱·플랫폼까지</small></div>
-            <div><b>1<sub>개월</sub></b><strong data-cms="care.s2.t">배포 후 무제한 수정</strong><small data-cms="care.s2.d">합의한 구성 안에서 횟수 제한 없음</small></div>
-            <div><b>07<sub>~22시</sub></b><strong data-cms="care.s3.t">매일 상담</strong><small data-cms="care.s3.d">카카오톡 채널 · 전화 · 이메일</small></div>
+          <div class="stats t-stagger">
+            <div><b class="t-pop"><span class="count" data-to="19" id="siteCount">0</span><sub>개</sub></b><strong data-cms="care.s1.t">운영 중인 사이트</strong><small data-cms="care.s1.d">홈페이지부터 웹앱·플랫폼까지</small></div>
+            <div><b class="t-pop">1<sub>개월</sub></b><strong data-cms="care.s2.t">배포 후 무제한 수정</strong><small data-cms="care.s2.d">합의한 구성 안에서 횟수 제한 없음</small></div>
+            <div><b class="t-pop">07<sub>~22시</sub></b><strong data-cms="care.s3.t">매일 상담</strong><small data-cms="care.s3.d">카카오톡 채널 · 전화 · 이메일</small></div>
           </div>
         </div>
       </div>
@@ -1081,12 +1113,12 @@
       <div class="inner">
         <div class="grid">
           <div class="l">
-            <div class="eyebrow reveal">자주 묻는 질문 · 08</div>
-            <h2 class="reveal" id="faq-title" data-cms="faq.home.title" data-cms-fmt="rich">제작 전에<br>가장 많이 <span class="hl">묻는 질문</span></h2>
-            <p class="reveal" data-cms="faq.home.desc">기간·비용·수정·검색 노출처럼 계약 전에 꼭 확인하는 질문들입니다. 더 자세한 내용은 전체 질문 페이지에서 볼 수 있습니다.</p>
+            <div class="eyebrow t-track">자주 묻는 질문 · 08</div>
+            <h2 class="reveal t-mark" id="faq-title" data-cms="faq.home.title" data-cms-fmt="rich">제작 전에<br>가장 많이 <span class="hl">묻는 질문</span></h2>
+            <p class="t-blur" data-cms="faq.home.desc">기간·비용·수정·검색 노출처럼 계약 전에 꼭 확인하는 질문들입니다. 더 자세한 내용은 전체 질문 페이지에서 볼 수 있습니다.</p>
             <a class="btn reveal" href="/faq"><span class="ko" data-cms="faq.home.btn">자주 묻는 질문 전체 보기</span><span class="ar">→</span></a>
           </div>
-          <div class="r">
+          <div class="r t-stagger">
             <details open><summary><span class="q">질문 01</span><h3>홈페이지 제작 기간은 얼마나 걸리나요?</h3><span class="pm"></span></summary><p class="a">실속형은 3~5영업일, 기본형은 5~10영업일, 확장형은 10~15영업일이 예상 기간입니다. 제작 기간은 홈페이지에 들어갈 자료와 착수금이 모두 접수된 이후부터 계산하며, 상담에서 일정과 범위를 먼저 확정합니다.</p></details>
             <details><summary><span class="q">질문 02</span><h3>홈페이지 제작 비용은 얼마인가요?</h3><span class="pm"></span></summary><p class="a">작업 범위(페이지 수, 필요한 기능, 디자인 범위)에 따라 달라집니다. 무료 상담에서 범위를 확인한 뒤 예상 견적을 먼저 안내해 드리며, 모든 금액은 부가세 별도입니다.</p></details>
             <details><summary><span class="q">질문 03</span><h3>제작비 외에 추가 비용이 있나요?</h3><span class="pm"></span></summary><p class="a">부가세 외에 숨은 비용은 없습니다. 다만 도메인·호스팅 등 외부 서비스 비용은 별도이며, 문의폼 등 외부 유료 서비스를 사용하면 이용료가 따로 발생할 수 있습니다.</p></details>
@@ -1103,13 +1135,13 @@
       <div class="inner">
         <div class="grid">
           <div class="l">
-            <div class="eyebrow reveal">상담하기 · 09</div>
+            <div class="eyebrow t-track">상담하기 · 09</div>
             <h2 class="reveal" style="margin-top:28px" data-cms="contact.title">무료 상담</h2>
             <span class="redline"></span>
-            <p class="reveal" data-cms="contact.desc" data-cms-fmt="rich">업종, 필요한 페이지, 원하시는 공개 시점만 알려주세요.<br>사업에 맞는 상품과 예상 견적을 먼저 안내해 드립니다.<br>상담은 무료이며, 카카오톡 채널로 가장 빠르게 확인합니다.</p>
+            <p class="t-blur" data-cms="contact.desc" data-cms-fmt="rich">업종, 필요한 페이지, 원하시는 공개 시점만 알려주세요.<br>사업에 맞는 상품과 예상 견적을 먼저 안내해 드립니다.<br>상담은 무료이며, 카카오톡 채널로 가장 빠르게 확인합니다.</p>
             <div class="reveal"><button type="button" class="btn fill js-open-inquiry"><span class="ko" data-cms="contact.btn">무료 상담 신청서 작성</span><span class="ar">→</span></button></div>
           </div>
-          <div class="list reveal">
+          <div class="list t-stagger">
             <a href="http://pf.kakao.com/_KxojrX" target="_blank" rel="noopener"><span class="ic kakao"><svg viewBox="0 0 24 24" fill="#391B1B"><path d="M12 3C6.48 3 2 6.58 2 11c0 2.55 1.5 4.83 3.84 6.3-.12.86-.46 2.24-1.34 3.7 0 0 2.02-.34 4.1-1.7A11.6 11.6 0 0 0 12 19c5.52 0 10-3.58 10-8s-4.48-8-10-8z"/></svg></span><span><b data-cms="contact.kakao.title">카카오톡 채널 상담</b><small data-cms="contact.kakao.sub">가장 빠르게 확인합니다 · 기록이 남아 편합니다</small></span><span class="ar">→</span></a>
             <a href="tel:01086039867"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.8 19.8 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg></span><span><b data-cms="contact.tel.title">전화 상담</b><small data-cms="site.phone">010 · 8603 · 9867</small></span><span class="ar">→</span></a>
             <a href="mailto:hongslab1@naver.com"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="5" width="18" height="14"/><path d="M3 7l9 6 9-6"/></svg></span><span><b data-cms="contact.mail.title">이메일 상담</b><small data-cms="site.email">hongslab1@naver.com</small></span><span class="ar">→</span></a>
@@ -1273,7 +1305,7 @@ mGnb.querySelectorAll('a,button').forEach(a=>a.addEventListener('click',()=>setM
 /* ===== 오프닝 로더 → 히어로 등장 ===== */
 const loader=document.getElementById('loader');
 const reduced=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-const showHero=()=>document.querySelectorAll('#hero .rise').forEach(el=>el.classList.add('in'));
+const showHero=()=>{document.querySelectorAll('#hero .rise').forEach(el=>el.classList.add('in'));document.documentElement.classList.add('hero-ready')};
 let seen=false;try{seen=sessionStorage.getItem('hl-intro')==='1'}catch(e){}
 if(reduced||seen){loader.classList.add('gone');document.body.classList.remove('loading');setTimeout(showHero,120)}
 else{
@@ -1334,7 +1366,7 @@ else{
 (()=>{
   const slides=[...document.querySelectorAll('#heroSlides .slide')],dots=[...document.querySelectorAll('#heroDots button')];
   if(!slides.length)return;
-  const DUR=4000;let cur=0,timer=null;
+  const DUR=5200;let cur=0,timer=null;
   document.documentElement.style.setProperty('--hero-dur',DUR+'ms');
   const go=i=>{cur=(i+slides.length)%slides.length;slides.forEach((s,k)=>s.classList.toggle('on',k===cur));dots.forEach((d,k)=>{d.classList.toggle('on',k===cur);d.setAttribute('aria-selected',k===cur)})};
   const start=()=>{if(reduced)return;clearInterval(timer);timer=setInterval(()=>go(cur+1),DUR)};
@@ -1365,15 +1397,15 @@ else{
 document.querySelectorAll('#header .gnb a').forEach(a=>{if(a.querySelector('.t'))return;const t=a.textContent.trim();a.textContent='';const s=document.createElement('span');s.className='t';const i=document.createElement('i');i.dataset.t=t;i.textContent=t;s.appendChild(i);a.appendChild(s)});
 
 /* ===== 제목 단어 분리 (타이포 효과) ===== */
-document.querySelectorAll('#why h2,#works h2,#contact h2,#hled h2,#benefit h2,#process h2,#seo h2,#care h2').forEach(h=>{
-  h.classList.add('fx');let k=0;
+document.querySelectorAll('#why h2,#works h2,#contact h2,#hled h2,#benefit h2,#process h2,#seo h2,#care h2,#faq h2,#hled .quote,#benefit .cost h3,#seo .check h3,#seo .act p,#heroSlides .h').forEach(h=>{
+  h.classList.add('fx');let k=0;const base=h.closest('#hero')?.3:0;
   const walk=n=>{[...n.childNodes].forEach(c=>{
     if(c.nodeType===3){
       const frag=document.createDocumentFragment();
       c.textContent.split(/(\s+)/).forEach(t=>{
         if(!t)return;
         if(/^\s+$/.test(t)){frag.appendChild(document.createTextNode(t));return}
-        const w=document.createElement('span');w.className='w';const i=document.createElement('i');i.textContent=t;i.style.transitionDelay=(k++*.08)+'s';w.appendChild(i);frag.appendChild(w);
+        const w=document.createElement('span');w.className='w';const i=document.createElement('i');i.textContent=t;i.style.transitionDelay=(base+k++*.08).toFixed(2)+'s';w.appendChild(i);frag.appendChild(w);
       });
       n.replaceChild(frag,c);
     }else if(c.nodeType===1&&c.tagName!=='BR')walk(c);
@@ -1387,8 +1419,14 @@ const runCount=el=>{
   const tick=t=>{const p=Math.min(1,(t-start)/dur),e=1-Math.pow(1-p,3);el.textContent=(to*e).toFixed(dec);if(p<1)requestAnimationFrame(tick)};
   requestAnimationFrame(tick);
 };
-const io=new IntersectionObserver(entries=>{entries.forEach(en=>{if(en.isIntersecting){en.target.classList.add('in');en.target.querySelectorAll('.count').forEach(runCount);io.unobserve(en.target)}})},{threshold:.15});
-document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+const FX_SEL='.reveal,.t-track,.t-blur,.t-stagger,.t-pop,.t-letters,.t-mark';
+document.querySelectorAll('.t-stagger').forEach(box=>[...box.children].forEach((c,i)=>c.style.setProperty('--i',i)));
+document.querySelectorAll('.t-letters').forEach(el=>{const t=el.textContent;el.textContent='';[...t].forEach((ch,i)=>{const sp=document.createElement('span');sp.textContent=ch;sp.style.setProperty('--i',i);el.appendChild(sp)})});
+const playIn=el=>{el.classList.add('in');el.querySelectorAll('.count').forEach(runCount)};
+const io=new IntersectionObserver(entries=>{entries.forEach(en=>{if(en.isIntersecting){if(!document.body.classList.contains('page-snap'))playIn(en.target);io.unobserve(en.target)}})},{threshold:.15});
+document.querySelectorAll(FX_SEL).forEach(el=>io.observe(el));
+/* 스냅 모드: 섹션이 화면에 들어올 때 안의 문구 효과를 모두 재생하고, 나가면 되돌려 다음 방문 때 다시 재생 */
+const playSection=(sec,on)=>{sec.querySelectorAll(FX_SEL).forEach(el=>{if(on)playIn(el);else el.classList.remove('in')})};
 
 /* ===== 섹션 스냅 스크롤 (website.co.kr page-snap 방식 자체 구현) =====
    데스크톱(≥1101px, 마우스/트랙패드)에서만: 한 섹션 = 한 화면, 휠·방향키 한 번 = 한 화면 이동,
@@ -1474,9 +1512,9 @@ document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
   const active=()=>{
     const vh=innerHeight;
     let hit=false;
-    secs.forEach(s=>{const r=s.getBoundingClientRect();const v=on&&r.top<vh*.55&&r.bottom>vh*.45;if(v)hit=true;s.classList.toggle('is-on',v)});
+    secs.forEach(s=>{const r=s.getBoundingClientRect();const v=on&&r.top<vh*.55&&r.bottom>vh*.45;if(v)hit=true;if(s.classList.contains('is-on')!==v){s.classList.toggle('is-on',v);playSection(s,v)}});
     /* 맨 아래(푸터)처럼 가운데에 걸린 섹션이 없으면 가장 많이 보이는 섹션을 켠다 */
-    if(on&&!hit){let best=null,area=0;secs.forEach(s=>{const r=s.getBoundingClientRect(),a=Math.min(r.bottom,vh)-Math.max(r.top,0);if(a>area){area=a;best=s}});if(best)best.classList.add('is-on')}
+    if(on&&!hit){let best=null,area=0;secs.forEach(s=>{const r=s.getBoundingClientRect(),a=Math.min(r.bottom,vh)-Math.max(r.top,0);if(a>area){area=a;best=s}});if(best&&!best.classList.contains('is-on')){best.classList.add('is-on');playSection(best,true)}}
   };
   /* 배경 전환: 다음 섹션 윗변이 화면 85% 지점에 오면 섞이기 시작해 20% 지점에서 다음 색이 된다 */
   const setupFlow=()=>{
@@ -1507,7 +1545,7 @@ document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
     const want=mq.matches;
     if(want!==on){
       on=want;body.classList.toggle('page-snap',on);
-      if(on){fit();setupFlow()}else{html.classList.remove('has-secflow');body.style.backgroundColor='';lastCss='';fit();secs.forEach(s=>s.classList.remove('is-on'))}
+      if(on){fit();setupFlow()}else{html.classList.remove('has-secflow');body.style.backgroundColor='';lastCss='';fit();secs.forEach(s=>{s.classList.remove('is-on');playSection(s,true)})}
     }else if(on)fit();
     paint();
   };
