@@ -483,6 +483,182 @@
     .tm-copybox textarea{width:100%;min-height:120px;border:1px solid var(--line);padding:12px;font-size:13px}
     .tm-copybox .btn_kakao{background:var(--kakao);color:var(--kakao-ink);font-weight:700;font-size:14px;padding:14px;text-align:center}
 
+    /* ===== 공통 섹션 헤드 (website.co.kr sec-head 구성 번안) ===== */
+    .sec-head{margin-bottom:56px}
+    .sec-head h2{margin-top:26px;font-size:clamp(30px,3.8vw,52px);font-weight:800;line-height:1.15;letter-spacing:-.035em}
+    .sec-head h2 .hl{color:var(--red)}
+    .sec-head .fx .hl,.sec-head.fx .hl,#care .fx .hl{background:none}
+    .sec-head p{margin-top:20px;font-size:15px;line-height:1.85;color:var(--muted);max-width:720px}
+    .sec-head.row{display:flex;align-items:flex-end;justify-content:space-between;gap:40px}
+    .sec-head.row p{margin-top:0;max-width:440px}
+
+    /* ===== Hled (보이지 않는 수고로움, white) ===== */
+    #hled{background:#fff;padding:140px 0}
+    #hled .cols{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+    #hled article{border:1px solid var(--line);padding:40px 38px 42px;background:#fff;transition:transform var(--t),box-shadow var(--t),border-color var(--t)}
+    #hled article:hover{transform:translateY(-6px);box-shadow:0 30px 60px rgba(0,0,0,.08);border-color:var(--black)}
+    #hled .lab{font-family:var(--en);font-size:11px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--red)}
+    #hled h3{margin-top:12px;font-size:24px;font-weight:800;letter-spacing:-.03em;line-height:1.3}
+    #hled ul{margin-top:26px;border-top:1px solid var(--black)}
+    #hled li{display:grid;grid-template-columns:118px 1fr;gap:18px;padding:15px 0;border-bottom:1px solid var(--line);font-size:14.5px;line-height:1.7;color:#444}
+    #hled li b{font-size:15px;color:var(--black);font-weight:700}
+    #hled .quote{margin-top:44px;text-align:center;font-size:clamp(17px,1.6vw,22px);font-weight:700;letter-spacing:-.02em;line-height:1.5}
+    #hled .quote .hl{color:var(--red)}
+
+    /* ===== Benefit (기본 포함, soft) ===== */
+    #benefit{background:var(--soft);padding:140px 0}
+    #benefit .groups{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+    #benefit .group{background:#fff;padding:30px 30px 24px;border-top:3px solid var(--black);transition:transform var(--t),box-shadow var(--t)}
+    #benefit .group:hover{transform:translateY(-6px);box-shadow:0 30px 60px rgba(0,0,0,.08)}
+    #benefit .group:nth-child(2){border-top-color:var(--red)}
+    #benefit h3{font-size:17px;font-weight:800;letter-spacing:-.02em;display:flex;align-items:center;justify-content:space-between}
+    #benefit h3 small{font-family:var(--en);font-size:10px;letter-spacing:.2em;color:var(--muted);font-weight:600}
+    #benefit ul{margin-top:14px}
+    #benefit li{display:flex;align-items:baseline;gap:14px;padding:12px 0;border-bottom:1px solid var(--line);font-size:14.5px;font-weight:700;letter-spacing:-.01em}
+    #benefit li:last-child{border-bottom:0}
+    #benefit li i{font-family:var(--en);font-style:normal;font-size:11px;font-weight:700;letter-spacing:.1em;color:var(--red);flex-shrink:0;width:22px}
+    #benefit li span{flex:1}
+    #benefit li small{display:block;font-weight:400;font-size:12.5px;color:var(--muted);margin-top:2px;line-height:1.6}
+    #benefit .cost{margin-top:24px;background:var(--black);color:#fff;padding:34px 38px;display:grid;grid-template-columns:1fr auto;gap:30px;align-items:center}
+    #benefit .cost .lab{font-family:var(--en);font-size:11px;font-weight:700;letter-spacing:.2em;color:var(--red)}
+    #benefit .cost h3{display:block;margin-top:10px;font-size:clamp(20px,2vw,26px);font-weight:800;letter-spacing:-.03em;color:#fff;line-height:1.35}
+    #benefit .cost h3 em{font-style:normal;color:var(--red)}
+    #benefit .cost p{margin-top:12px;font-size:14px;line-height:1.8;color:rgba(255,255,255,.7);max-width:640px}
+    #benefit .cost .formula{display:flex;gap:10px;align-items:center;font-family:var(--en);font-weight:700;font-size:14px;letter-spacing:-.01em;flex-wrap:wrap;justify-content:flex-end}
+    #benefit .cost .formula span{border:1px solid rgba(255,255,255,.3);padding:12px 16px;font-family:var(--ko);white-space:nowrap}
+    #benefit .cost .formula span.x{border-color:var(--red);color:var(--red)}
+    #benefit .cost .formula b{color:rgba(255,255,255,.5)}
+
+    /* ===== Process (제작 과정, white) ===== */
+    #process{background:#fff;padding:140px 0;border-top:1px solid var(--line)}
+    #process .chapters{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+    #process .ch{position:relative;padding:34px 30px 30px;border:1px solid var(--line);background:#fff;transition:transform var(--t),box-shadow var(--t),border-color var(--t)}
+    #process .ch:hover{transform:translateY(-6px);box-shadow:0 30px 60px rgba(0,0,0,.08);border-color:var(--black)}
+    #process .ch .no{font-family:var(--en);font-size:11px;font-weight:700;letter-spacing:.2em;color:var(--red)}
+    #process .ch h3{margin-top:10px;font-size:22px;font-weight:800;letter-spacing:-.03em}
+    #process .ch>p{margin-top:10px;font-size:14px;line-height:1.75;color:var(--muted);min-height:3.5em}
+    #process .steps{margin-top:22px;display:flex;flex-direction:column;gap:10px}
+    #process .step{display:grid;grid-template-columns:34px 1fr;gap:14px;align-items:start;padding:14px 16px;background:var(--soft)}
+    #process .step i{font-family:var(--en);font-style:normal;font-size:12px;font-weight:800;color:var(--black);width:34px;height:34px;border:1px solid var(--black);display:flex;align-items:center;justify-content:center;background:#fff}
+    #process .step b{display:block;font-size:15px;font-weight:700;letter-spacing:-.02em}
+    #process .step small{display:block;margin-top:4px;font-size:12.5px;line-height:1.65;color:var(--muted)}
+    #process .note{margin-top:28px;display:flex;flex-wrap:wrap;gap:10px 28px;font-size:13px;color:var(--muted)}
+    #process .note span:before{content:"";display:inline-block;width:6px;height:6px;background:var(--red);margin-right:10px;vertical-align:middle}
+
+    /* ===== SEO · AEO · GEO (black) ===== */
+    #seo{background:var(--black);color:#fff;padding:140px 0;position:relative;overflow:hidden}
+    #seo:before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 1px 1px,rgba(255,255,255,.07) 1px,transparent 1.5px) 0 0/28px 28px;pointer-events:none}
+    #seo .inner{position:relative}
+    #seo .sec-head h2{color:#fff}
+    #seo .sec-head p{color:rgba(255,255,255,.72)}
+    #seo .steps{display:grid;grid-template-columns:repeat(3,1fr);border:1px solid rgba(255,255,255,.18)}
+    #seo .steps>div{padding:30px 30px 32px;border-right:1px solid rgba(255,255,255,.18);transition:background var(--t)}
+    #seo .steps>div:last-child{border-right:0}
+    #seo .steps>div:hover{background:rgba(255,255,255,.05)}
+    #seo .steps .tag{display:flex;align-items:baseline;gap:12px}
+    #seo .steps .tag i{font-family:var(--en);font-style:normal;font-size:11px;font-weight:700;letter-spacing:.2em;color:rgba(255,255,255,.45)}
+    #seo .steps .tag b{font-family:var(--en);font-size:30px;font-weight:800;letter-spacing:-.02em;color:var(--red)}
+    #seo .steps strong{display:block;margin-top:8px;font-size:18px;font-weight:700}
+    #seo .steps em{display:block;font-style:normal;font-size:13px;font-weight:600;color:rgba(255,255,255,.6);margin-top:3px}
+    #seo .steps p{margin-top:12px;font-size:13.5px;line-height:1.75;color:rgba(255,255,255,.65)}
+    #seo .check{margin-top:16px;display:grid;grid-template-columns:1.1fr 1fr 1fr;gap:1px;background:rgba(255,255,255,.18);border:1px solid rgba(255,255,255,.18)}
+    #seo .check>div{background:var(--black);padding:26px 30px}
+    #seo .check .lab{font-family:var(--en);font-size:11px;font-weight:700;letter-spacing:.2em;color:var(--red)}
+    #seo .check h3{margin-top:10px;font-size:20px;font-weight:800;letter-spacing:-.03em;line-height:1.35}
+    #seo .check h4{font-size:15px;font-weight:700;display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+    #seo .check h4 i{font-style:normal;font-size:10px;font-weight:700;letter-spacing:.1em;padding:3px 8px;border:1px solid rgba(255,255,255,.4);color:rgba(255,255,255,.8)}
+    #seo .check h4 i.on{background:var(--red);border-color:var(--red);color:#fff}
+    #seo .check ul{margin-top:12px;display:flex;flex-wrap:wrap;gap:6px}
+    #seo .check li{font-size:12.5px;padding:6px 10px;background:rgba(255,255,255,.07);color:rgba(255,255,255,.85)}
+    #seo .check p{margin-top:12px;font-size:12.5px;line-height:1.7;color:rgba(255,255,255,.55)}
+    #seo .act{margin-top:16px;display:flex;align-items:center;justify-content:space-between;gap:30px;padding:26px 36px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.18)}
+    #seo .act p{font-size:clamp(16px,1.5vw,20px);font-weight:700;line-height:1.55;letter-spacing:-.02em}
+    #seo .act .btn{flex-shrink:0}
+
+    /* ===== Care (함께한 고객 · 오픈 후, cream) ===== */
+    #care{background:var(--cream);padding:120px 0 130px;overflow:hidden}
+    #care .marquee{display:flex;flex-direction:column;gap:12px;margin:0 0 70px}
+    #care .row{display:flex;gap:12px;width:max-content;animation:mq 70s linear infinite}
+    #care .row.rev{animation-direction:reverse}
+    #care .marquee:hover .row{animation-play-state:paused}
+    #care .row span{display:inline-flex;align-items:center;gap:12px;padding:14px 22px;border:1px solid var(--line);background:#fff;font-size:14px;font-weight:700;letter-spacing:-.02em;white-space:nowrap}
+    #care .row span small{font-family:var(--en);font-size:10px;font-weight:600;letter-spacing:.14em;color:var(--red);text-transform:uppercase}
+    @keyframes mq{to{transform:translateX(-50%)}}
+    #care .grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:70px;align-items:center}
+    #care .l h2{margin-top:26px;font-size:clamp(30px,3.8vw,52px);font-weight:800;line-height:1.15;letter-spacing:-.035em}
+    #care .l h2 .hl{color:var(--red)}
+    #care .l p{margin-top:20px;font-size:15px;line-height:1.85;color:var(--muted)}
+    #care .l .btn{margin-top:30px}
+    #care .stats{display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid var(--black);border-left:1px solid var(--black)}
+    #care .stats>div{padding:28px 22px 30px;border-right:1px solid var(--black);border-bottom:1px solid var(--black);background:#fff}
+    #care .stats b{display:block;font-family:var(--en);font-size:clamp(34px,3.4vw,52px);font-weight:800;letter-spacing:-.04em;line-height:1}
+    #care .stats b sub{font-family:var(--ko);font-size:14px;font-weight:700;vertical-align:baseline;margin-left:4px;letter-spacing:-.02em}
+    #care .stats strong{display:block;margin-top:12px;font-size:15px;font-weight:700}
+    #care .stats small{display:block;margin-top:4px;font-size:12.5px;line-height:1.6;color:var(--muted)}
+
+    @media (max-width:1024px){
+      #hled .cols,#benefit .groups,#process .chapters,#seo .steps,#seo .check{grid-template-columns:1fr}
+      #seo .steps>div{border-right:0;border-bottom:1px solid rgba(255,255,255,.18)}
+      #seo .steps>div:last-child{border-bottom:0}
+      #care .grid{grid-template-columns:1fr;gap:40px}
+      .sec-head.row{flex-direction:column;align-items:flex-start;gap:18px}
+      #process .ch>p{min-height:0}
+    }
+    @media (max-width:768px){
+      #hled,#benefit,#process,#seo{padding:80px 0}
+      #care{padding:70px 0 80px}
+      .sec-head{margin-bottom:34px}
+      .sec-head h2{font-size:28px;line-height:1.25}
+      .sec-head p{font-size:14px;line-height:1.75}
+      .sec-head p br{display:none}
+      #hled article{padding:26px 20px}
+      #hled h3{font-size:20px}
+      #hled li{grid-template-columns:92px 1fr;gap:12px;font-size:13.5px;line-height:1.6}
+      #hled .quote{font-size:16px;margin-top:30px}
+      #benefit .group{padding:24px 20px 18px}
+      #benefit .cost{grid-template-columns:1fr;padding:26px 22px;gap:20px}
+      #benefit .cost .formula{font-size:12px;justify-content:flex-start}
+      #benefit .cost .formula span{padding:9px 11px}
+      #process .ch{padding:24px 20px}
+      #process .note{gap:8px 20px;font-size:12px}
+      #seo .steps>div{padding:22px 20px}
+      #seo .check>div{padding:22px 20px}
+      #seo .act{flex-direction:column;align-items:flex-start;padding:24px 20px}
+      #care .stats{grid-template-columns:1fr 1fr}
+      #care .stats>div:first-child{grid-column:1/-1}
+      #care .stats>div{padding:20px 16px 22px}
+      #care .row span{padding:10px 14px;font-size:13px}
+      #care .marquee{margin-bottom:44px;gap:10px}
+      #care .l h2{font-size:28px;line-height:1.25}
+      #care .l p{font-size:14px;line-height:1.75}
+    }
+
+    /* ===== 섹션 스냅 스크롤 (website.co.kr page-snap 방식 번안: 한 섹션 = 한 화면, 휠 한 번 = 한 화면 이동, 배경색이 스크롤에 따라 바뀜) ===== */
+    @media (min-width:1101px){
+      .page-snap #content>section:not(#hero){box-sizing:border-box;display:flex;flex-direction:column;justify-content:center;min-height:100vh;min-height:100svh;padding-top:calc(var(--header-h) + 2.5svh);padding-bottom:3.5svh}
+      .page-snap #hero{height:100vh;height:100svh;min-height:0}
+      .page-snap .sec-head{margin-bottom:3.6svh}
+      .page-snap .sec-head h2,.page-snap #care .l h2{margin-top:1.8svh;font-size:clamp(30px,5svh,52px)}
+      .page-snap .sec-head p{margin-top:1.6svh}
+      .page-snap #why .mark{margin-bottom:3svh}
+      .page-snap #why .desc{margin-top:2.4svh}
+      .page-snap #why .cards{margin-top:4.5svh}
+      .page-snap #hled .quote{margin-top:4svh}
+      .page-snap #works .head{margin-bottom:4svh}
+      .page-snap #works .foot{margin-top:3.5svh}
+      .page-snap #faq .l{position:static}
+      .page-snap #care .marquee{margin-bottom:4.5svh}
+      .page-snap #benefit .cost,.page-snap #seo .check,.page-snap #seo .act{margin-top:1.6svh}
+      .page-snap #process .note{margin-top:2.4svh}
+      /* 배경 전환: 섹션 배경을 비우고 body 배경색을 JS가 스크롤 위치에 맞춰 섞는다 (이미지 배경인 hero·works 제외) */
+      .has-secflow #content>section:not(#hero):not(#works){background:transparent}
+      /* 화면 진입 효과: 섹션이 화면 가운데로 들어올 때마다 내용이 떠오른다 */
+      .page-snap #content>section:not(#hero)>.inner,.page-snap #care .marquee{opacity:0;transform:translateY(48px) scale(.985);transition:opacity .9s ease,transform 1s cubic-bezier(.16,1,.3,1)}
+      .page-snap #content>section.is-on>.inner,.page-snap #care.is-on .marquee{opacity:1;transform:none}
+      .page-snap #content>section.is-measuring>.inner,.page-snap #care.is-measuring .marquee{transform:none!important;transition:none!important}
+    }
+    @media (prefers-reduced-motion:reduce){#care .row{animation:none}.page-snap #content>section>.inner{opacity:1!important;transform:none!important}}
+
     /* ===== Reveal ===== */
     .reveal{opacity:0;transform:translateY(30px);transition:opacity .9s ease,transform .9s cubic-bezier(.16,1,.3,1)}
     .reveal.in{opacity:1;transform:none}
@@ -674,11 +850,49 @@
       <div class="bottom"><div class="inner"><div class="dots" id="heroDots" role="tablist" aria-label="메인 메시지"><button type="button" class="on" aria-label="1번 메시지">01<i></i></button><button type="button" aria-label="2번 메시지">02<i></i></button><button type="button" aria-label="3번 메시지">03<i></i></button></div><div class="scroll">아래로</div></div></div>
     </section>
 
+    <!-- ===== Hled (보이지 않는 수고로움) ===== -->
+    <section id="hled" aria-labelledby="hled-title">
+      <div class="inner">
+        <div class="sec-head row">
+          <div>
+            <div class="eyebrow reveal">일하는 방식 · 01</div>
+            <h2 class="reveal" id="hled-title" data-cms="hled.title" data-cms-fmt="rich">고객이 감동하는 건,<br><span class="hl">보이지 않는 수고로움</span>입니다</h2>
+          </div>
+          <p class="reveal" data-cms="hled.desc" data-cms-fmt="rich">같은 도구를 써도 결과가 다른 이유는 사람의 손이 얼마나 들어갔느냐에 있습니다. 홍스랩은 기술 위에 직접 확인하는 수고로움을 더합니다.</p>
+        </div>
+        <div class="cols">
+          <article class="reveal">
+            <span class="lab" data-cms="hled.a.lab">홍스랩이 직접 하는 일</span>
+            <h3 data-cms="hled.a.title">처음부터 끝까지, 직접 챙깁니다</h3>
+            <ul>
+              <li><b data-cms="hled.a1.t">업종 이해</b><span data-cms="hled.a1.d">고객사의 업종과 손님을 먼저 공부하고 화면 구성을 설계합니다</span></li>
+              <li><b data-cms="hled.a2.t">맞춤 디자인</b><span data-cms="hled.a2.d">템플릿이 아닌, 사업에 맞는 화면을 새로 그립니다</span></li>
+              <li><b data-cms="hled.a3.t">꼼꼼한 검수</b><span data-cms="hled.a3.d">공개 전 PC·모바일의 모든 화면을 직접 확인합니다</span></li>
+              <li><b data-cms="hled.a4.t">편안한 소통</b><span data-cms="hled.a4.d">진행 상황을 카카오톡으로 공유하고, 궁금한 점은 바로 답합니다</span></li>
+              <li><b data-cms="hled.a5.t">오픈 후 관리</b><span data-cms="hled.a5.d">배포 후 1개월 무제한 수정, 이후의 수정·업데이트도 함께 돕습니다</span></li>
+            </ul>
+          </article>
+          <article class="reveal" style="transition-delay:.12s">
+            <span class="lab" data-cms="hled.b.lab">완성 후 고객이 쓰는 것</span>
+            <h3 data-cms="hled.b.title">운영은 쉽게, 연락은 바로</h3>
+            <ul>
+              <li><b data-cms="hled.b1.t">전화 · 카톡 연결</b><span data-cms="hled.b1.d">버튼 한 번으로 전화와 카카오톡 채널 상담이 바로 열립니다</span></li>
+              <li><b data-cms="hled.b2.t">지도 · 길찾기</b><span data-cms="hled.b2.d">네이버·카카오 지도로 매장 위치와 길찾기를 연결합니다</span></li>
+              <li><b data-cms="hled.b3.t">검색 · AI 노출</b><span data-cms="hled.b3.d">네이버·구글과 ChatGPT 같은 AI가 읽기 쉬운 구조로 만듭니다</span></li>
+              <li><b data-cms="hled.b4.t">무료 SEO 점검</b><span data-cms="hled.b4.d">주소만 넣으면 4개 축 60여 항목을 언제든 다시 점검할 수 있습니다</span></li>
+              <li><b data-cms="hled.b5.t">관리자 페이지</b><span data-cms="hled.b5.d">필요하면 문구 수정과 방문자 통계를 직접 보는 관리자 화면도 함께 만듭니다</span></li>
+            </ul>
+          </article>
+        </div>
+        <p class="quote reveal" data-cms="hled.quote" data-cms-fmt="rich">도구는 누구나 쓸 수 있습니다. 차이를 만드는 건, <span class="hl">끝까지 확인하는 사람</span>입니다.</p>
+      </div>
+    </section>
+
     <!-- ===== Why ===== -->
     <section id="why">
       <div class="inner">
-        <span class="mark"></span>
-        <h2 class="reveal" data-cms="why.title" data-cms-fmt="rich">믿고 맡길 수 있는 제작 파트너,<br><span class="hl">홍스랩</span></h2>
+        <div class="eyebrow light reveal">선택하는 이유 · 02</div>
+        <h2 class="reveal" style="margin-top:26px" data-cms="why.title" data-cms-fmt="rich">믿고 맡길 수 있는 제작 파트너,<br><span class="hl">홍스랩</span></h2>
         <p class="desc reveal" data-cms="why.desc" data-cms-fmt="rich">업종과 고객을 먼저 이해하고, 전화와 문의로 이어지는 구조를 설계합니다. <br>기획부터 디자인·개발·검색·AI 노출·운영까지, 전 과정을 홍스랩이 직접 진행합니다.</p>
         <p class="swipe-hint" aria-hidden="true">옆으로 넘겨서 보세요 →</p>
         <div class="cards">
@@ -698,33 +912,66 @@
             <div class="body"><span class="no">05</span><h3 data-cms="why.c5.title">고품질</h3><p data-cms="why.c5.text">디자인 완성도, 사용자 경험, 속도까지 모두 고려한 완성도 높은 웹사이트를 제공합니다.</p></div>
           </article>
         </div>
-        <div class="seohead reveal">
-          <span class="mark"></span>
-          <h2 data-cms="why.seo.title" data-cms-fmt="rich">홈페이지의 <span class="hl">제작 기준</span>이 달라졌습니다.</h2>
-          <p data-cms="why.seo.desc" data-cms-fmt="rich">홍스랩은 기획·디자인·개발뿐 아니라 SEO·AEO·GEO를 고려한 구조와 <br>AI 검색 환경까지 고려하여 설계합니다.</p>
+      </div>
+    </section>
+
+    <!-- ===== Benefit (제작 시 기본 포함) ===== -->
+    <section id="benefit" aria-labelledby="benefit-title">
+      <div class="inner">
+        <div class="sec-head row">
+          <div>
+            <div class="eyebrow reveal">기본 포함 · 03</div>
+            <h2 class="reveal" id="benefit-title" data-cms="benefit.title" data-cms-fmt="rich">홈페이지 제작 시<br><span class="hl">12가지</span> 기본 포함</h2>
+          </div>
+          <p class="reveal" data-cms="benefit.desc">개수보다 내용을 보세요. 아래 항목은 별도 비용 없이 제작에 기본으로 들어가며, 부가세 외 숨은 비용은 없습니다.</p>
         </div>
-        <div class="seo reveal">
-          <div class="terms">
-            <div><b>SEO</b><strong data-cms="why.term.SEO.name">검색엔진 최적화</strong><p data-cms="why.term.SEO.text">네이버·구글 검색 결과에 내 홈페이지가 잘 나오도록 제목, 설명, 구조, 사이트맵을 정리합니다.</p></div>
-            <div><b>AEO</b><strong data-cms="why.term.AEO.name">답변엔진 최적화</strong><p data-cms="why.term.AEO.text">"근처 ○○ 어디가 좋아?" 같은 질문에 검색엔진이 내 정보를 바로 답으로 보여주도록 업체 정보와 FAQ를 기계가 읽는 형식으로 넣습니다.</p></div>
-            <div><b>GEO</b><strong data-cms="why.term.GEO.name">생성형 AI 최적화</strong><p data-cms="why.term.GEO.text">ChatGPT·Perplexity 같은 AI가 답변할 때 내 홈페이지를 읽고 인용하도록 AI 크롤러 허용, llms.txt, 본문 구조를 갖춥니다.</p></div>
+        <div class="groups">
+          <div class="group reveal">
+            <h3><span data-cms="benefit.g1">기획 · 디자인</span><small>DESIGN</small></h3>
+            <ul>
+              <li><i>01</i><span><span data-cms="benefit.1.t">업종 맞춤 구성 설계</span><small data-cms="benefit.1.d">업종과 손님을 분석해 페이지 구성을 제안</small></span></li>
+              <li><i>02</i><span><span data-cms="benefit.2.t">PC · 모바일 반응형</span><small data-cms="benefit.2.d">모든 상품이 PC와 휴대폰 화면에 맞춰 제작</small></span></li>
+              <li><i>03</i><span><span data-cms="benefit.3.t">맞춤 디자인</span><small data-cms="benefit.3.d">템플릿이 아닌 사업에 맞는 새 디자인</small></span></li>
+              <li><i>04</i><span><span data-cms="benefit.4.t">공개 전 전체 화면 검수</span><small data-cms="benefit.4.d">PC·모바일 화면을 직접 확인한 뒤 공개</small></span></li>
+            </ul>
           </div>
-          <div class="act">
-            <p data-cms="why.act.text" data-cms-fmt="rich">지금 내 홈페이지는 어느 정도일까요?<br>주소만 넣으면 4개 축 60여 개 항목을 무료로 점검해 드립니다.</p>
-            <a class="btn red" href="/seo-checker"><span class="ko" data-cms="why.act.btn">무료 SEO 점검하기</span><span class="ar">→</span></a>
+          <div class="group reveal" style="transition-delay:.1s">
+            <h3><span data-cms="benefit.g2">검색 · AI 노출</span><small>SEO · AEO · GEO</small></h3>
+            <ul>
+              <li><i>05</i><span><span data-cms="benefit.5.t">검색 기본 설정</span><small data-cms="benefit.5.d">제목·설명·사이트맵·robots 정리</small></span></li>
+              <li><i>06</i><span><span data-cms="benefit.6.t">카카오톡 · SNS 공유 미리보기</span><small data-cms="benefit.6.d">링크를 보낼 때 제목과 이미지가 보이는 OG 설정</small></span></li>
+              <li><i>07</i><span><span data-cms="benefit.7.t">구조화 데이터(JSON-LD)</span><small data-cms="benefit.7.d">업체 정보·FAQ를 검색엔진이 읽는 형식으로</small></span></li>
+              <li><i>08</i><span><span data-cms="benefit.8.t">AI 크롤러 대응 · llms.txt</span><small data-cms="benefit.8.d">ChatGPT 같은 AI가 홈페이지를 읽고 인용하도록</small></span></li>
+            </ul>
           </div>
+          <div class="group reveal" style="transition-delay:.2s">
+            <h3><span data-cms="benefit.g3">연결 · 운영</span><small>OPERATION</small></h3>
+            <ul>
+              <li><i>09</i><span><span data-cms="benefit.9.t">전화 · 카카오톡 채널 연결</span><small data-cms="benefit.9.d">플로팅 버튼과 상담 버튼 기본 포함</small></span></li>
+              <li><i>10</i><span><span data-cms="benefit.10.t">지도 · 길찾기 연결</span><small data-cms="benefit.10.d">네이버·카카오 지도 바로가기</small></span></li>
+              <li><i>11</i><span><span data-cms="benefit.11.t">배포 후 1개월 무제한 수정</span><small data-cms="benefit.11.d">합의한 구성 안에서의 수정은 횟수 제한 없음</small></span></li>
+              <li><i>12</i><span><span data-cms="benefit.12.t">무료 SEO 점검기</span><small data-cms="benefit.12.d">공개 후에도 언제든 4개 축 점수 확인</small></span></li>
+            </ul>
+          </div>
+        </div>
+        <div class="cost reveal">
+          <div>
+            <span class="lab">RUNNING COST</span>
+            <h3 data-cms="benefit.cost.title" data-cms-fmt="rich">홈페이지 비용은 제작비만이 아니라 <em>운영비까지</em> 보셔야 합니다.</h3>
+            <p data-cms="benefit.cost.desc" data-cms-fmt="rich">홍스랩은 제작비(부가세 별도) 외에 숨은 비용을 받지 않습니다. 도메인·호스팅 등 외부 서비스 비용은 실비로 별도이며, 부담이 적은 구성을 상담에서 함께 안내합니다. 전체 디자인 변경과 기능 추가만 별도 견적입니다.</p>
+          </div>
+          <div class="formula" aria-label="홈페이지 총 소유비용 = 제작비 + 운영비 × n년"><span>제작비</span><b>+</b><span>운영비</span><b>×</b><span class="x">n년</span><b>=</b><span>총 소유비용</span></div>
         </div>
       </div>
     </section>
 
-    <!-- ===== Focus ===== -->
     <!-- ===== Works ===== -->
     <section id="works">
       <div class="bgimg"></div><div class="shade"></div>
       <div class="inner">
         <div class="head">
           <div>
-            <div class="eyebrow light reveal">포트폴리오 · 02</div>
+            <div class="eyebrow light reveal">포트폴리오 · 04</div>
             <h2 class="reveal" data-cms="works.title">포트폴리오</h2>
           </div>
           <div class="arrows"><button type="button" class="prev" aria-label="이전">←</button><button type="button" class="next" aria-label="다음">→</button></div>
@@ -739,13 +986,102 @@
     </section>
     <div class="ex-modal" id="exModal"><button type="button" class="ex-modal-close" id="exModalClose" aria-label="닫기">✕</button><div class="ex-modal-inner"><img id="exModalImg" src="" alt=""><a id="exModalVisit" class="btn" href="#" target="_blank" rel="noopener"><span class="ko">사이트 방문</span><span class="ar">→</span></a></div></div>
 
-    <!-- ===== Pricing ===== -->
+    <!-- ===== Process (제작 과정) ===== -->
+    <section id="process" aria-labelledby="process-title">
+      <div class="inner">
+        <div class="sec-head row">
+          <div>
+            <div class="eyebrow reveal">제작 과정 · 05</div>
+            <h2 class="reveal" id="process-title" data-cms="process.title" data-cms-fmt="rich">상담부터 공개까지,<br>세 가지 <span class="hl">약속</span></h2>
+          </div>
+          <p class="reveal" data-cms="process.desc">전문가 설계, 디테일한 확인, 편안한 소통. 홍스랩이 모든 제작에서 지키는 세 가지와 실제 진행 순서입니다.</p>
+        </div>
+        <div class="chapters">
+          <article class="ch reveal">
+            <span class="no">CHAPTER 01</span>
+            <h3 data-cms="process.c1.title">전문가 설계</h3>
+            <p data-cms="process.c1.desc">업종과 손님을 먼저 공부하고, 전화와 문의로 이어지는 동선을 설계합니다.</p>
+            <div class="steps">
+              <div class="step"><i>1</i><div><b data-cms="process.s1.t">무료 상담</b><small data-cms="process.s1.d">업종·필요한 페이지·공개 시점을 카카오톡, 전화, 이메일로 확인합니다.</small></div></div>
+              <div class="step"><i>2</i><div><b data-cms="process.s2.t">범위 · 견적 확정</b><small data-cms="process.s2.d">작업 범위를 정리하고 최종 견적과 일정을 먼저 안내합니다.</small></div></div>
+            </div>
+          </article>
+          <article class="ch reveal" style="transition-delay:.1s">
+            <span class="no">CHAPTER 02</span>
+            <h3 data-cms="process.c2.title">디테일한 확인</h3>
+            <p data-cms="process.c2.desc">고객이 발견하기 전에 먼저 찾습니다. 화면 구석구석을 직접 검수합니다.</p>
+            <div class="steps">
+              <div class="step"><i>3</i><div><b data-cms="process.s3.t">자료 접수 · 제작 착수</b><small data-cms="process.s3.d">글·사진·로고와 착수금이 접수된 날부터 제작 기간을 계산합니다.</small></div></div>
+              <div class="step"><i>4</i><div><b data-cms="process.s4.t">제작 · 미리보기</b><small data-cms="process.s4.d">실속형 3~5, 기본형 5~10, 확장형 10~15영업일에 미리보기를 드립니다.</small></div></div>
+            </div>
+          </article>
+          <article class="ch reveal" style="transition-delay:.2s">
+            <span class="no">CHAPTER 03</span>
+            <h3 data-cms="process.c3.title">편안한 소통</h3>
+            <p data-cms="process.c3.desc">진행 상황은 카카오톡으로 함께 보고, 궁금한 점은 담당자가 직접 답합니다.</p>
+            <div class="steps">
+              <div class="step"><i>5</i><div><b data-cms="process.s5.t">검수 · 수정</b><small data-cms="process.s5.d">PC·모바일 검수 후 공개하고, 배포 후 1개월은 수정이 무제한입니다.</small></div></div>
+              <div class="step"><i>6</i><div><b data-cms="process.s6.t">공개 · 검색 등록</b><small data-cms="process.s6.d">도메인을 연결하고 네이버·구글 검색 등록을 지원합니다(기본형 이상).</small></div></div>
+            </div>
+          </article>
+        </div>
+        <div class="note reveal"><span data-cms="process.n1">모든 금액은 부가세 별도</span><span data-cms="process.n2">제작 기간은 자료·착수금 접수일부터 계산</span><span data-cms="process.n3">전체 디자인 변경·기능 추가는 별도 견적</span><span data-cms="process.n4">매일 07:00~22:00 상담</span></div>
+      </div>
+    </section>
+
+    <!-- ===== SEO · AEO · GEO ===== -->
+    <section id="seo" aria-labelledby="seo-title">
+      <div class="inner">
+        <div class="sec-head row">
+          <div>
+            <div class="eyebrow light reveal">검색 · AI 노출 · 06</div>
+            <h2 class="reveal" id="seo-title" data-cms="why.seo.title" data-cms-fmt="rich">홈페이지의 <span class="hl">제작 기준</span>이 달라졌습니다.</h2>
+          </div>
+          <p class="reveal" data-cms="why.seo.desc" data-cms-fmt="rich">홍스랩은 기획·디자인·개발뿐 아니라 SEO·AEO·GEO를 고려한 구조와 <br>AI 검색 환경까지 고려하여 설계합니다.</p>
+        </div>
+        <div class="steps reveal">
+          <div><span class="tag"><i>01</i><b>SEO</b></span><strong data-cms="why.term.SEO.name">검색엔진 최적화</strong><em data-cms="seo.SEO.sub">검색 결과에 노출되게</em><p data-cms="why.term.SEO.text">네이버·구글 검색 결과에 내 홈페이지가 잘 나오도록 제목, 설명, 구조, 사이트맵을 정리합니다.</p></div>
+          <div><span class="tag"><i>02</i><b>AEO</b></span><strong data-cms="why.term.AEO.name">답변엔진 최적화</strong><em data-cms="seo.AEO.sub">AI 답변에 인용되게</em><p data-cms="why.term.AEO.text">"근처 ○○ 어디가 좋아?" 같은 질문에 검색엔진이 내 정보를 바로 답으로 보여주도록 업체 정보와 FAQ를 기계가 읽는 형식으로 넣습니다.</p></div>
+          <div><span class="tag"><i>03</i><b>GEO</b></span><strong data-cms="why.term.GEO.name">생성형 AI 최적화</strong><em data-cms="seo.GEO.sub">AI가 먼저 추천하게</em><p data-cms="why.term.GEO.text">ChatGPT·Perplexity 같은 AI가 답변할 때 내 홈페이지를 읽고 인용하도록 AI 크롤러 허용, llms.txt, 본문 구조를 갖춥니다.</p></div>
+        </div>
+        <div class="check reveal">
+          <div><span class="lab">CHECK POINT</span><h3 data-cms="seo.check.title" data-cms-fmt="rich">SEO·AEO·GEO의 기술과 구조는<br>제작 단계에서 이미 정해집니다.</h3><p data-cms="seo.check.desc">처음 만들 때 갖추면, 나중에 고치는 것보다 훨씬 적은 비용으로 같은 결과를 냅니다.</p></div>
+          <div><h4><i class="on">홍스랩 기본 제공</i><span data-cms="seo.check.a.title">구조 · 코드 · 데이터</span></h4><ul><li>시맨틱 구조</li><li>메타 · OG</li><li>사이트맵 · robots</li><li>JSON-LD</li><li>AI 크롤러 허용</li><li>llms.txt</li><li>속도 · https</li></ul><p data-cms="seo.check.a.desc">위 항목은 기본 사양으로 제작하고, 무료 점검기에서 점수로 확인할 수 있습니다.</p></div>
+          <div><h4><i>고객 주도 영역</i><span data-cms="seo.check.b.title">콘텐츠 · 홍보 · 평판</span></h4><ul><li>글 · 사진 업데이트</li><li>블로그 · SNS</li><li>리뷰 · 플레이스 관리</li><li>광고</li></ul><p data-cms="seo.check.b.desc">홈페이지 제작과 검색 마케팅은 다른 영역입니다. 검색 설정은 순위를 보장하지 않으며, 콘텐츠는 고객이 직접 또는 마케팅 업체와 운영합니다.</p></div>
+        </div>
+        <div class="act reveal">
+          <p data-cms="why.act.text" data-cms-fmt="rich">지금 내 홈페이지는 어느 정도일까요?<br>주소만 넣으면 4개 축 60여 개 항목을 무료로 점검해 드립니다.</p>
+          <a class="btn red" href="/seo-checker"><span class="ko" data-cms="why.act.btn">무료 SEO 점검하기</span><span class="ar">→</span></a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== Care (함께한 고객 · 오픈 후) ===== -->
+    <section id="care" aria-labelledby="care-title">
+      <div class="marquee" id="clientMarquee" aria-hidden="true"></div>
+      <div class="inner">
+        <div class="grid">
+          <div class="l">
+            <div class="eyebrow reveal">오픈 후 관리 · 07</div>
+            <h2 class="reveal" id="care-title" data-cms="care.title" data-cms-fmt="rich">공개한 뒤에도,<br><span class="hl">홍스랩이 함께</span>합니다</h2>
+            <p class="reveal" data-cms="care.desc">제작 이후의 수정과 업데이트도 카카오톡으로 요청하시면 확인 후 순차 처리합니다. 위에 흐르는 이름들은 지금 실제로 운영 중인 홍스랩 제작 사이트입니다.</p>
+            <a class="btn reveal" href="/portfolio"><span class="ko" data-cms="care.btn">운영 중인 사이트 보기</span><span class="ar">→</span></a>
+          </div>
+          <div class="stats reveal">
+            <div><b><span class="count" data-to="19" id="siteCount">0</span><sub>개</sub></b><strong data-cms="care.s1.t">운영 중인 사이트</strong><small data-cms="care.s1.d">홈페이지부터 웹앱·플랫폼까지</small></div>
+            <div><b>1<sub>개월</sub></b><strong data-cms="care.s2.t">배포 후 무제한 수정</strong><small data-cms="care.s2.d">합의한 구성 안에서 횟수 제한 없음</small></div>
+            <div><b>07<sub>~22시</sub></b><strong data-cms="care.s3.t">매일 상담</strong><small data-cms="care.s3.d">카카오톡 채널 · 전화 · 이메일</small></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <!-- ===== FAQ ===== -->
     <section id="faq" aria-labelledby="faq-title">
       <div class="inner">
         <div class="grid">
           <div class="l">
-            <div class="eyebrow reveal">자주 묻는 질문 · 03</div>
+            <div class="eyebrow reveal">자주 묻는 질문 · 08</div>
             <h2 class="reveal" id="faq-title" data-cms="faq.home.title" data-cms-fmt="rich">제작 전에<br>가장 많이 <span class="hl">묻는 질문</span></h2>
             <p class="reveal" data-cms="faq.home.desc">기간·비용·수정·검색 노출처럼 계약 전에 꼭 확인하는 질문들입니다. 더 자세한 내용은 전체 질문 페이지에서 볼 수 있습니다.</p>
             <a class="btn reveal" href="/faq"><span class="ko" data-cms="faq.home.btn">자주 묻는 질문 전체 보기</span><span class="ar">→</span></a>
@@ -767,7 +1103,7 @@
       <div class="inner">
         <div class="grid">
           <div class="l">
-            <div class="eyebrow reveal">상담하기 · 04</div>
+            <div class="eyebrow reveal">상담하기 · 09</div>
             <h2 class="reveal" style="margin-top:28px" data-cms="contact.title">무료 상담</h2>
             <span class="redline"></span>
             <p class="reveal" data-cms="contact.desc" data-cms-fmt="rich">업종, 필요한 페이지, 원하시는 공개 시점만 알려주세요.<br>사업에 맞는 상품과 예상 견적을 먼저 안내해 드립니다.<br>상담은 무료이며, 카카오톡 채널로 가장 빠르게 확인합니다.</p>
@@ -874,7 +1210,7 @@ const KAKAO=document.getElementById('kakaoOpen').href;
 /* ===== 포트폴리오 슬라이더 ===== */
 const track=document.getElementById('portfolioTrack');
 track.innerHTML=PORTFOLIO.map(p=>`<button type="button" class="card ex-preview" data-url="${p[0]}" aria-label="${p[1]} 크게 보기"><img loading="lazy" src="${shot(p[0],900)}" data-full="${shot(p[0],1600)}" alt="${p[1]} 미리보기"><span class="meta"><span class="cat">${p[2]}</span><span class="name">${p[1]}</span></span></button>`).join('');
-const slideStep=()=>{const it=track.querySelector('.card');return it?it.getBoundingClientRect().width+16:400};
+const slideStep=()=>{const it=track.querySelector('.card');return it?it.offsetWidth+16:400};
 document.querySelector('#works .prev').addEventListener('click',()=>{track.scrollBy({left:-slideStep(),behavior:'smooth'});worksPause(5000)});
 document.querySelector('#works .next').addEventListener('click',()=>{track.scrollBy({left:slideStep(),behavior:'smooth'});worksPause(5000)});
 
@@ -902,6 +1238,16 @@ if(!window.matchMedia('(prefers-reduced-motion: reduce)').matches){
   track.addEventListener('touchstart',()=>worksPause(8000),{passive:true});
   worksStart=performance.now();requestAnimationFrame(worksTick);
 }
+
+/* ===== 함께한 고객 마퀴 (PORTFOLIO 이름 재사용) + 운영 중인 사이트 수 ===== */
+(()=>{
+  const box=document.getElementById('clientMarquee');if(!box)return;
+  const items=PORTFOLIO.map(p=>`<span>${p[1].replace(/ (홈페이지|웹앱|쇼핑몰)$/,'')}<small>${p[2]}</small></span>`);
+  const half=Math.ceil(items.length/2);
+  const row=(arr,rev)=>`<div class="row${rev?' rev':''}">${arr.join('')}${arr.join('')}</div>`;
+  box.innerHTML=row(items.slice(0,half),false)+row(items.slice(half),true);
+  const sc=document.getElementById('siteCount');if(sc)sc.dataset.to=PORTFOLIO.length;
+})();
 
 /* ===== 이미지 모달 ===== */
 const exModal=document.getElementById('exModal'),exModalImg=document.getElementById('exModalImg'),exModalVisit=document.getElementById('exModalVisit');
@@ -1005,7 +1351,7 @@ else{
   const next=()=>{
     if(!visible||!scrollable())return;
     const card=box.querySelector('.card');if(!card)return;
-    const step=card.getBoundingClientRect().width+10,max=box.scrollWidth-box.clientWidth;
+    const step=card.offsetWidth+10,max=box.scrollWidth-box.clientWidth;
     if(box.scrollLeft>=max-4)box.scrollTo({left:0,behavior:'smooth'});else box.scrollBy({left:step,behavior:'smooth'});
   };
   const start=()=>{clearInterval(timer);timer=setInterval(next,3200)};
@@ -1019,7 +1365,7 @@ else{
 document.querySelectorAll('#header .gnb a').forEach(a=>{if(a.querySelector('.t'))return;const t=a.textContent.trim();a.textContent='';const s=document.createElement('span');s.className='t';const i=document.createElement('i');i.dataset.t=t;i.textContent=t;s.appendChild(i);a.appendChild(s)});
 
 /* ===== 제목 단어 분리 (타이포 효과) ===== */
-document.querySelectorAll('#why h2,#works h2,#contact h2').forEach(h=>{
+document.querySelectorAll('#why h2,#works h2,#contact h2,#hled h2,#benefit h2,#process h2,#seo h2,#care h2').forEach(h=>{
   h.classList.add('fx');let k=0;
   const walk=n=>{[...n.childNodes].forEach(c=>{
     if(c.nodeType===3){
@@ -1043,6 +1389,133 @@ const runCount=el=>{
 };
 const io=new IntersectionObserver(entries=>{entries.forEach(en=>{if(en.isIntersecting){en.target.classList.add('in');en.target.querySelectorAll('.count').forEach(runCount);io.unobserve(en.target)}})},{threshold:.15});
 document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+
+/* ===== 섹션 스냅 스크롤 (website.co.kr page-snap 방식 자체 구현) =====
+   데스크톱(≥1101px, 마우스/트랙패드)에서만: 한 섹션 = 한 화면, 휠·방향키 한 번 = 한 화면 이동,
+   이동 중 입력 잠금, 섹션이 화면보다 크면 안에서 페이지 단위로 이동, 배경색은 스크롤에 맞춰 섞임.
+   모바일·터치·reduced-motion 에서는 평소처럼 자유 스크롤. */
+(()=>{
+  const secs=[...document.querySelectorAll('#content>section')],footer=document.getElementById('footer');
+  if(reduced||secs.length<2||!footer)return;
+  const html=document.documentElement,body=document.body;
+  const mq=matchMedia('(min-width:1101px) and (pointer:fine)');
+  let on=false,moving=false,raf=0,segs=[],first=[255,255,255],lastCss='',ticking=false;
+  const maxY=()=>Math.max(0,html.scrollHeight-innerHeight);
+  const clamp=(v,a,b)=>Math.min(b,Math.max(a,v));
+  const ease=t=>t<.5?4*t*t*t:1-Math.pow(-2*t+2,3)/2;
+  const rgb=c=>{const m=c.match(/[\d.]+/g)||[255,255,255];return [+m[0],+m[1],+m[2]]};
+
+  /* 멈출 위치 목록: 각 섹션 맨 위 + (화면보다 큰 섹션은) 0.85화면씩 + 맨 아래(푸터) */
+  const stops=()=>{
+    const vh=innerHeight,max=maxY(),y=scrollY,list=[];
+    const add=v=>{v=clamp(Math.round(v),0,max);if(!list.length||v>list[list.length-1]+vh*.25)list.push(v)};
+    secs.forEach(s=>{
+      const top=s.getBoundingClientRect().top+y,h=s.offsetHeight;
+      add(top);
+      const last=top+h-vh;
+      if(last>top+vh*.3){for(let p=top+vh*.85;p<last-vh*.3;p+=vh*.85)add(p);add(last)}
+    });
+    if(max>list[list.length-1]+40)list.push(max);
+    return list;
+  };
+  const scrollTo=(to,cb)=>{
+    cancelAnimationFrame(raf);
+    const from=scrollY,d=to-from;
+    if(Math.abs(d)<2){cb&&cb();return}
+    const dur=Math.min(1400,800+Math.abs(d)/innerHeight*250),t0=performance.now();
+    const step=t=>{const p=Math.min(1,(t-t0)/dur);window.scrollTo({top:from+d*ease(p),behavior:'instant'});if(p<1)raf=requestAnimationFrame(step);else cb&&cb()};
+    raf=requestAnimationFrame(step);
+  };
+  const go=dir=>{
+    const list=stops(),y=scrollY;let target=null;
+    if(dir>0){for(const v of list)if(v>y+4){target=v;break}}
+    else{for(let i=list.length-1;i>=0;i--)if(list[i]<y-4){target=list[i];break}}
+    if(target===null)return;
+    moving=true;html.classList.add('snap-moving');
+    scrollTo(target,()=>setTimeout(()=>{moving=false;html.classList.remove('snap-moving')},220));
+  };
+  const locked=e=>body.style.overflow==='hidden'||!!(e.target.closest&&e.target.closest('.ex-modal,.tm-overlay,.m_gnb'));
+
+  /* 트랙패드 관성은 한 번의 동작으로만 친다: 잠깐 멈췄거나 갑자기 커진 입력만 새 동작 */
+  let lastWheel=0,lastAbs=0;
+  addEventListener('wheel',e=>{
+    if(!on||e.ctrlKey||Math.abs(e.deltaX)>Math.abs(e.deltaY)||locked(e))return;
+    const abs=Math.abs(e.deltaY),dir=e.deltaY>0?1:-1;
+    const fresh=e.timeStamp-lastWheel>200||abs>lastAbs*1.6+8;
+    lastWheel=e.timeStamp;lastAbs=abs;
+    e.preventDefault();
+    if(fresh&&!moving&&abs>1)go(dir);
+  },{capture:true,passive:false});
+  const keyDir={ArrowDown:1,PageDown:1,' ':1,ArrowUp:-1,PageUp:-1};
+  addEventListener('keydown',e=>{
+    if(!on)return;const dir=keyDir[e.key];
+    if(!dir||e.altKey||e.ctrlKey||e.metaKey||locked(e))return;
+    if(e.target.closest('input,textarea,select,[contenteditable]')||(e.key===' '&&e.target.closest('button,a')))return;
+    e.preventDefault();if(moving)return;
+    go(e.key===' '&&e.shiftKey?-1:dir);
+  });
+  const hint=document.querySelector('#hero .scroll');
+  if(hint){hint.style.cursor='pointer';hint.addEventListener('click',()=>{if(on&&!moving)go(1);else secs[1].scrollIntoView({behavior:'smooth'})})}
+
+  /* 한 화면 맞춤: 내용이 화면보다 크면 .inner 를 축소(zoom) */
+  const fit=()=>{
+    const vh=innerHeight;
+    secs.forEach(s=>{
+      if(s.id==='hero')return;
+      const inner=s.querySelector(':scope>.inner');if(!inner)return;
+      if(!on){inner.style.zoom='';return}
+      s.classList.add('is-measuring');inner.style.zoom='1';
+      const over=s.scrollHeight-vh,ih=inner.offsetHeight;
+      inner.style.zoom=over>2&&ih>0?Math.max(.7,(ih-over)/ih).toFixed(3):'';
+      s.classList.remove('is-measuring');
+    });
+  };
+  /* 화면 가운데에 걸린 섹션만 .is-on (진입 효과가 매번 다시 재생) */
+  const active=()=>{
+    const vh=innerHeight;
+    secs.forEach(s=>{const r=s.getBoundingClientRect();s.classList.toggle('is-on',on&&r.top<vh*.55&&r.bottom>vh*.45)});
+  };
+  /* 배경 전환: 다음 섹션 윗변이 화면 85% 지점에 오면 섞이기 시작해 20% 지점에서 다음 색이 된다 */
+  const setupFlow=()=>{
+    html.classList.remove('has-secflow');body.style.backgroundColor='';
+    const base='rgb(255, 255, 255)';let prev=null;segs=[];
+    [...secs,footer].forEach((s,i)=>{
+      let c=getComputedStyle(s).backgroundColor;if(c==='rgba(0, 0, 0, 0)'||c==='transparent')c=base;
+      const v=rgb(c);
+      if(i===0)first=v;else if(v.join()!==prev.join())segs.push({el:s,from:prev,to:v});
+      prev=v;
+    });
+    html.classList.add('has-secflow');
+  };
+  const paint=()=>{
+    ticking=false;if(!on)return;
+    const vh=innerHeight;let c=first;
+    for(const g of segs){
+      const top=g.el.getBoundingClientRect().top;
+      let p=(vh*.85-top)/(vh*.65);if(p<=0)break;p=Math.min(p,1);
+      c=[g.from[0]+(g.to[0]-g.from[0])*p,g.from[1]+(g.to[1]-g.from[1])*p,g.from[2]+(g.to[2]-g.from[2])*p];
+    }
+    const css='rgb('+Math.round(c[0])+', '+Math.round(c[1])+', '+Math.round(c[2])+')';
+    if(css!==lastCss){body.style.backgroundColor=css;lastCss=css}
+    active();
+  };
+  const onScroll=()=>{if(ticking)return;ticking=true;requestAnimationFrame(paint)};
+  const update=()=>{
+    const want=mq.matches;
+    if(want!==on){
+      on=want;body.classList.toggle('page-snap',on);
+      if(on){fit();setupFlow()}else{html.classList.remove('has-secflow');body.style.backgroundColor='';lastCss='';fit();secs.forEach(s=>s.classList.remove('is-on'))}
+    }else if(on)fit();
+    paint();
+  };
+  addEventListener('scroll',onScroll,{passive:true});
+  addEventListener('resize',update);
+  mq.addEventListener?mq.addEventListener('change',update):mq.addListener(update);
+  addEventListener('load',update);
+  document.addEventListener('toggle',()=>{if(on)fit()},true);
+  if(document.fonts&&document.fonts.ready)document.fonts.ready.then(update);
+  update();
+})();
 
 /* ===== 상담 모달 ===== */
 const inquiryModal=document.getElementById('inquiryModal');
