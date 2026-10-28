@@ -71,7 +71,16 @@
         ],
         "sameAs": [
           "https://pf.kakao.com/_KxojrX"
-        ]
+        ],
+        "hasOfferCatalog": {
+          "@type": "OfferCatalog",
+          "name": "홍스랩 홈페이지 제작 상품",
+          "itemListElement": [
+            {"@type": "Offer", "name": "실속형 홈페이지 제작 (1페이지)", "price": "350000", "priceCurrency": "KRW", "description": "한 페이지 안에 소개·서비스·오시는 길을 담는 구성. 자료 접수 후 3~5영업일. 부가세 별도.", "itemOffered": {"@type": "Service", "name": "실속형 홈페이지 제작", "serviceType": "홈페이지 제작"}},
+            {"@type": "Offer", "name": "기본형 홈페이지 제작 (5페이지 이하)", "price": "700000", "priceCurrency": "KRW", "description": "여러 페이지로 나뉜 구성, 업종 맞춤 디자인, 네이버·구글 검색도구 등록 지원. 자료 접수 후 5~10영업일. 부가세 별도.", "itemOffered": {"@type": "Service", "name": "기본형 홈페이지 제작", "serviceType": "홈페이지 제작"}},
+            {"@type": "Offer", "name": "확장형 홈페이지 제작 (5페이지 이상)", "price": "1000000", "priceCurrency": "KRW", "description": "페이지가 많거나 예약·게시판·관리자 화면 같은 기능이 있는 구성, 페이지별 검색 설정. 자료 접수 후 10~15영업일. 부가세 별도.", "itemOffered": {"@type": "Service", "name": "확장형 홈페이지 제작", "serviceType": "홈페이지 제작"}}
+          ]
+        }
       },
       {
         "@type": "FAQPage",
@@ -92,7 +101,7 @@
             "name": "홈페이지 제작 비용은 얼마인가요?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "작업 범위(페이지 수, 필요한 기능, 디자인 범위)에 따라 달라집니다. 무료 상담에서 범위를 확인한 뒤 예상 견적을 먼저 안내해 드리며, 모든 금액은 부가세 별도입니다."
+              "text": "실속형(1페이지) 35만원, 기본형(5페이지 이하) 70만원, 확장형(5페이지 이상·기능 포함) 100만원이며, 모든 금액은 부가세 별도입니다. 세 상품 모두 기본 포함 12가지와 배포 후 1개월 무제한 수정이 들어가고, 예약·게시판 같은 기능 추가와 전체 디자인 변경만 별도 견적입니다."
             }
           },
           {
@@ -180,6 +189,9 @@
     .btn:before{content:"";position:absolute;inset:0;background:var(--black);transform:translateX(-101%);transition:transform .5s cubic-bezier(.16,1,.3,1);z-index:-1}
     .btn:hover:before{transform:none}
     .btn:hover{color:#fff;transform:translateY(-2px);box-shadow:0 12px 24px rgba(0,0,0,.14)}
+    .btn:after{content:"";position:absolute;top:-20%;left:-80%;width:45%;height:140%;background:linear-gradient(115deg,transparent,rgba(255,255,255,.45),transparent);transform:skewX(-22deg);transition:left .7s cubic-bezier(.16,1,.3,1);pointer-events:none;z-index:1}
+    .btn:hover:after{left:140%}
+    .btn>*{position:relative;z-index:2}
     .btn.fill{background:var(--black);color:#fff}
     .btn.fill:before{background:var(--red)}
     .btn.fill:hover{border-color:var(--red)}
@@ -246,43 +258,7 @@
     body.loading{overflow:hidden}
 
     /* ===== Why (신뢰 · 5가지 강점) ===== */
-    #why{background:var(--ink);color:#fff;padding:140px 0 130px;text-align:center;position:relative;overflow:hidden}
-    #why:before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 1px 1px,rgba(255,255,255,.07) 1px,transparent 1.5px) 0 0/28px 28px;pointer-events:none}
-    #why .inner{position:relative}
-    #why .mark{display:block;width:40px;height:1px;background:var(--red);margin:0 auto 44px}
-    #why h2{font-size:clamp(28px,4.2vw,60px);font-weight:700;line-height:1.2;letter-spacing:-.03em;color:#fff}
-    #why h2 .hl{color:var(--red);font-weight:800}
-    #why .desc{max-width:960px;margin:30px auto 0;font-size:15px;line-height:1.95;color:rgba(255,255,255,.72)}
-    #why .cards{display:grid;grid-template-columns:repeat(5,1fr);gap:14px;margin-top:64px;text-align:center}
-    #why .card{background:#fff;color:var(--black);display:flex;flex-direction:column;overflow:hidden;transition:transform var(--t),box-shadow var(--t)}
-    #why .card:hover{transform:translateY(-6px);box-shadow:0 30px 60px rgba(0,0,0,.35)}
-    #why .swipe-hint{display:none;margin-top:28px;font-size:12px;color:rgba(255,255,255,.45);letter-spacing:.04em}
-    #why .body{padding:34px 26px 36px;display:flex;flex-direction:column;gap:12px;flex:1;text-align:left;border-top:3px solid var(--red)}
-    #why .body .no{font-family:var(--en);font-size:11px;font-weight:700;letter-spacing:.2em;color:var(--red);margin-bottom:6px}
-    #why h3{font-size:20px;font-weight:700;letter-spacing:-.02em;position:relative;align-self:flex-start;padding-bottom:6px}
-    #why h3:after{content:"";position:absolute;left:0;bottom:0;height:2px;width:0;background:var(--red);transition:width .5s cubic-bezier(.16,1,.3,1)}
-    #why .card:hover h3:after{width:100%}
-    #why .card:hover .body .no{letter-spacing:.34em;color:var(--black)}
-    #why .body .no{transition:letter-spacing .5s cubic-bezier(.16,1,.3,1),color var(--t)}
-    #why .card:hover{transform:translateY(-8px);box-shadow:0 30px 60px rgba(0,0,0,.4)}
-    #why .terms>div{transition:background var(--t)}
-    #why .terms>div:hover{background:rgba(255,255,255,.05)}
-    #why .terms b{transition:transform var(--t);display:inline-block}
-    #why .terms>div:hover b{transform:translateX(4px)}
-    #why .body p{font-size:13.5px;line-height:1.8;color:#444;word-break:keep-all}
 
-    #why .seohead{margin-top:110px}
-    #why .seohead h2{font-size:clamp(26px,3.4vw,46px)}
-    #why .seohead p{max-width:760px;margin:22px auto 0;font-size:15px;line-height:1.9;color:rgba(255,255,255,.72)}
-    #why .seo{margin-top:40px;border:1px solid rgba(255,255,255,.18);display:grid;grid-template-columns:1fr 300px;text-align:left}
-    #why .terms{display:grid;grid-template-columns:repeat(3,1fr)}
-    #why .terms>div{padding:30px 26px 32px;border-right:1px solid rgba(255,255,255,.18)}
-    #why .terms b{display:block;font-family:var(--en);font-size:22px;font-weight:800;letter-spacing:-.02em;color:var(--red)}
-    #why .terms strong{display:block;margin-top:6px;font-size:15px;font-weight:700;color:#fff}
-    #why .terms p{margin-top:12px;font-size:13px;line-height:1.75;color:rgba(255,255,255,.65)}
-    #why .act{padding:30px 28px;display:flex;flex-direction:column;justify-content:center;gap:18px;background:rgba(255,255,255,.04)}
-    #why .act p{font-size:14px;line-height:1.75;color:rgba(255,255,255,.8)}
-    #why .act .btn{width:100%}
 
     /* ===== Hero (Particle Drift 배경 + 메시지 슬라이더) ===== */
     #hero{position:relative;height:100vh;height:100dvh;min-height:680px;background:var(--black);color:#fff;overflow:hidden}
@@ -458,10 +434,10 @@
 
     /* ===== Hled (보이지 않는 수고로움, white) ===== */
     #hled{background:var(--cream);padding:140px 0}
-    #hled .cols{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+    #hled .cols{display:grid;grid-template-columns:1fr 1fr;gap:24px;perspective:1400px}
     #hled article{position:relative;overflow:hidden;padding:40px 38px 42px;background:#fff;border-top:3px solid var(--black);transition:transform var(--t),box-shadow var(--t)}
     #hled article:nth-child(2){border-top-color:var(--red)}
-    #hled article:hover{transform:translateY(-6px);box-shadow:0 30px 60px rgba(0,0,0,.08)}
+    #hled article:hover{transform:translateY(-6px) rotateX(var(--rx,0)) rotateY(var(--ry,0));box-shadow:0 30px 60px rgba(0,0,0,.08)}
     #hled article .idx{position:absolute;right:22px;top:8px;font-family:var(--en);font-style:normal;font-size:96px;font-weight:800;line-height:1;letter-spacing:-.06em;color:rgba(0,0,0,.045);pointer-events:none}
     #hled .lab{font-family:var(--en);font-size:11px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--red)}
     #hled h3{margin-top:12px;font-size:24px;font-weight:800;letter-spacing:-.03em;line-height:1.3}
@@ -472,45 +448,131 @@
     #hled .quote{margin-top:44px;text-align:left;padding-left:22px;border-left:3px solid var(--red);font-size:clamp(17px,1.6vw,22px);font-weight:700;letter-spacing:-.02em;line-height:1.5}
     #hled .quote .hl{color:var(--red)}
 
-    /* ===== Benefit (기본 포함, soft) ===== */
+    /* ===== Value (고객과의 약속 · 성공 · 비전: 세 개의 원이 선으로 이어진 구성) ===== */
+    #value{background:#fff;padding:140px 0 120px}
+    .sec-head.center{text-align:center}
+    .sec-head.center h2,.sec-head.center p{margin-left:auto;margin-right:auto}
+    .sec-head.center p{max-width:620px}
+    #value .orbit{position:relative;display:grid;grid-template-columns:repeat(3,1fr);align-items:start}
+    #value .orbit .line{position:absolute;left:16.66%;right:16.66%;top:calc(34px + 130px);height:1px;background:#cfcfcf;transform-origin:center}
+    #value .node{position:relative;display:flex;flex-direction:column;align-items:center;text-align:center}
+    #value .node .top{display:block;height:34px;font-family:var(--en);font-size:11px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--black);position:relative}
+    #value .core .top:after{content:"";position:absolute;left:50%;bottom:-6px;width:10px;height:10px;margin-left:-5px;border-radius:50%;background:var(--red)}
+    #value .ring{position:relative;width:260px;height:260px;border-radius:50%;padding:22px;background:#fff;transition:transform .6s cubic-bezier(.16,1,.3,1)}
+    #value .ring:before{content:"";position:absolute;inset:0;border-radius:50%;border:1px dashed #bdbdbd;animation:spin 48s linear infinite}
+    #value .node:hover .ring:before{border-color:var(--red);animation-duration:12s}
+    #value .core .ring:after{content:"";position:absolute;inset:22px;border-radius:50%;border:2px solid var(--red);opacity:0;animation:pulse 2.8s ease-out infinite;pointer-events:none}
+    @keyframes spin{to{transform:rotate(360deg)}}
+    @keyframes pulse{0%{transform:scale(1);opacity:.7}100%{transform:scale(1.45);opacity:0}}
+    #value .node:hover .ring{transform:scale(1.04)}
+    #value .ball{width:100%;height:100%;border-radius:50%;background:#a3a3a3;color:#fff;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;transition:background var(--t)}
+    #value .ball b{font-size:34px;font-weight:500;letter-spacing:.12em;line-height:1}
+    #value .ball small{font-family:var(--en);font-size:10px;font-weight:600;letter-spacing:.28em;opacity:.85}
+    #value .core .ball{background:var(--red);box-shadow:0 24px 50px rgba(230,48,39,.28)}
+    #value .node:hover .ball{background:var(--black)}
+    #value .core:hover .ball{background:var(--red-dark)}
+    #value .txt{margin-top:30px;width:300px;max-width:100%}
+    #value .node:first-child .txt{text-align:right}
+    #value .node:last-child .txt{text-align:left}
+    #value .txt h3{font-size:18px;font-weight:800;letter-spacing:-.02em}
+    #value .txt p{margin-top:8px;font-size:14px;line-height:1.8;color:var(--muted)}
+    #value .wins{position:relative;margin-top:0;padding-top:44px;display:flex;flex-direction:column;align-items:center}
+    #value .wins:before{content:"";position:absolute;left:50%;top:0;width:1px;height:34px;background:#d9d9d9}
+    #value .two{font-size:30px;font-weight:300;letter-spacing:-.02em;line-height:1;color:var(--black)}
+    #value .two em{font-style:normal;font-weight:800;color:var(--red)}
+    #value .plus{position:relative;width:26px;height:26px;margin:16px 0}
+    #value .plus:before,#value .plus:after{content:"";position:absolute;background:#bdbdbd}
+    #value .plus:before{left:0;top:12px;width:26px;height:2px}
+    #value .plus:after{left:12px;top:0;width:2px;height:26px}
+    #value .chips{display:flex;gap:10px}
+    #value .chips span{display:inline-block;padding:11px 22px;border-radius:999px;font-size:14px;font-weight:700;letter-spacing:-.01em;color:#fff;background:var(--red)}
+    #value .chips .c2{background:var(--black)}
+    #value .wins p{margin-top:18px;font-size:14px;line-height:1.8;color:var(--muted)}
+
+    /* ===== Benefit (제작 시 기본 포함: 왼쪽 제목 · 오른쪽 체크 목록) ===== */
     #benefit{background:#fff;padding:140px 0}
-    #benefit .groups{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
-    #benefit .group{background:var(--soft);padding:30px 30px 24px;transition:transform var(--t),background var(--t)}
-    #benefit .group:hover{transform:translateY(-6px);background:var(--cream)}
-    #benefit h3{font-size:17px;font-weight:800;letter-spacing:-.02em;display:flex;align-items:center;justify-content:space-between}
-    #benefit h3 small{font-family:var(--en);font-size:10px;letter-spacing:.16em;color:var(--red);font-weight:700;border:1px solid var(--red);padding:3px 8px}
-    #benefit ul{margin-top:14px}
-    #benefit li{display:flex;align-items:baseline;gap:14px;padding:12px 0;border-bottom:1px solid rgba(0,0,0,.08);font-size:14.5px;font-weight:700;letter-spacing:-.01em}
-    #benefit li:last-child{border-bottom:0}
-    #benefit li i{font-family:var(--en);font-style:normal;font-size:11px;font-weight:700;letter-spacing:.06em;color:var(--black);flex-shrink:0;width:22px;opacity:.45}
-    #benefit li span{flex:1}
+    #benefit .split{display:grid;grid-template-columns:380px 1fr;gap:70px;align-items:start}
+    #benefit .head h2{margin-top:26px;font-size:clamp(30px,3.4vw,46px);font-weight:800;line-height:1.15;letter-spacing:-.035em}
+    #benefit .head h2 .hl{color:var(--red)}
+    #benefit .head p{margin-top:20px;font-size:15px;line-height:1.85;color:var(--muted)}
+    #benefit .big{margin-top:34px;display:flex;align-items:center;gap:16px;padding-top:26px;border-top:1px solid var(--black)}
+    #benefit .big b{font-family:var(--en);font-size:96px;font-weight:800;line-height:.9;letter-spacing:-.06em;color:var(--red)}
+    #benefit .big span{font-size:14px;font-weight:700;line-height:1.4;letter-spacing:-.02em}
+    #benefit .list{display:flex;flex-direction:column;gap:30px}
+    #benefit .group h3{display:flex;align-items:center;gap:14px;font-size:15px;font-weight:800;letter-spacing:-.02em;padding-bottom:12px;border-bottom:1px solid var(--black)}
+    #benefit .group h3 small{font-family:var(--en);font-size:10px;letter-spacing:.16em;color:var(--red);font-weight:700}
+    #benefit .group h3:after{content:"";flex:1;height:1px;background:transparent}
+    #benefit ul{display:grid;grid-template-columns:1fr 1fr;gap:0 28px}
+    #benefit li{display:flex;align-items:flex-start;gap:12px;padding:13px 0;border-bottom:1px solid var(--line);font-size:14.5px;font-weight:700;letter-spacing:-.01em;line-height:1.4}
+    #benefit li i{flex-shrink:0;width:18px;height:18px;margin-top:2px;background:var(--black);position:relative}
+    #benefit li i:after{content:"";position:absolute;left:6px;top:2px;width:4px;height:9px;border:solid #fff;border-width:0 2px 2px 0;transform:rotate(45deg)}
+    #benefit li:hover i{background:var(--red)}
+    #benefit li>span{flex:1}
     #benefit li small{display:block;font-weight:400;font-size:12.5px;color:var(--muted);margin-top:2px;line-height:1.6}
-    #benefit .cost{margin-top:24px;background:var(--black);color:#fff;padding:34px 38px;display:grid;grid-template-columns:1.25fr 1fr;gap:40px;align-items:center;border-left:6px solid var(--red)}
+    #benefit .cost{margin-top:40px;background:var(--black);color:#fff;padding:34px 38px;display:grid;grid-template-columns:1.25fr 1fr;gap:40px;align-items:center;border-left:6px solid var(--red)}
     #benefit .cost .lab{font-family:var(--en);font-size:11px;font-weight:700;letter-spacing:.2em;color:var(--red)}
     #benefit .cost h3{display:block;margin-top:10px;font-size:clamp(20px,2vw,26px);font-weight:800;letter-spacing:-.03em;color:#fff;line-height:1.35}
     #benefit .cost h3 em{font-style:normal;color:var(--red)}
     #benefit .cost p{margin-top:12px;font-size:14px;line-height:1.8;color:rgba(255,255,255,.7);max-width:640px}
     #benefit .cost .terms{display:flex;flex-direction:column;gap:8px}
     #benefit .cost .terms li{display:grid;grid-template-columns:92px 1fr;gap:14px;align-items:center;padding:12px 16px;border:1px solid rgba(255,255,255,.22);font-size:13.5px;color:rgba(255,255,255,.85)}
-    #benefit .cost .terms li i{font-style:normal;font-weight:800;font-size:13px;letter-spacing:-.02em;color:#fff}
+    #benefit .cost .terms li i{font-style:normal;font-weight:800;font-size:13px;letter-spacing:-.02em;color:#fff;width:auto;height:auto;margin:0;background:none}
+    #benefit .cost .terms li i:after{display:none}
     #benefit .cost .terms li.x{border-color:var(--red);background:rgba(230,48,39,.14)}
     #benefit .cost .terms li.x i{color:var(--red)}
 
-    /* ===== Process (제작 과정, white) ===== */
+    /* ===== Price (요금 안내: 어두운 배경 위 세 상품) ===== */
+    #price{background:var(--ink);color:#fff;padding:140px 0;position:relative;overflow:hidden}
+    #price:before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 1px 1px,rgba(255,255,255,.07) 1px,transparent 1.5px) 0 0/28px 28px;pointer-events:none}
+    #price .inner{position:relative;z-index:1}
+    #price:after,#seo:after{content:"";position:absolute;width:56vw;height:56vw;border-radius:50%;background:radial-gradient(circle,rgba(230,48,39,.26),transparent 62%);top:-22vw;right:-18vw;filter:blur(30px);animation:drift 16s ease-in-out infinite alternate;pointer-events:none}
+    #seo:after{top:auto;bottom:-26vw;right:auto;left:-20vw;animation-duration:20s}
+    @keyframes drift{0%{transform:translate(0,0) scale(1)}100%{transform:translate(-14vw,10vw) scale(1.18)}}
+    #price .sec-head h2{color:#fff}
+    #price .sec-head p{color:rgba(255,255,255,.72)}
+    #price .plans{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;align-items:stretch;perspective:1400px}
+    #price .plan{position:relative;display:flex;flex-direction:column;padding:36px 32px 32px;background:#fff;color:var(--black);border-top:3px solid var(--black);transition:transform .6s cubic-bezier(.16,1,.3,1),opacity .7s ease,box-shadow .5s ease}
+    #price .plan:hover{transform:translateY(-8px) rotateX(var(--rx,0)) rotateY(var(--ry,0));box-shadow:0 30px 60px rgba(0,0,0,.4)}
+    #price .plan.pick{border-top-color:var(--red)}
+    #price .plan .tag{position:absolute;right:0;top:-3px;padding:7px 14px;background:var(--red);color:#fff;font-size:11px;font-weight:700;letter-spacing:.06em}
+    #price .nm{display:flex;align-items:baseline;gap:10px}
+    #price .nm b{font-size:24px;font-weight:800;letter-spacing:-.03em}
+    #price .nm small{font-family:var(--en);font-size:10px;font-weight:700;letter-spacing:.2em;color:var(--red)}
+    #price .for{margin-top:10px;font-size:13.5px;line-height:1.7;color:var(--muted);min-height:3.4em}
+    #price .amt{margin-top:22px;padding:22px 0 20px;border-top:1px solid var(--black);border-bottom:1px solid var(--line);display:flex;align-items:baseline;gap:4px;flex-wrap:wrap}
+    #price .amt em{font-family:var(--en);font-style:normal;font-size:58px;font-weight:800;line-height:1;letter-spacing:-.05em}
+    #price .plan.pick .amt em{color:var(--red)}
+    #price .amt sub{font-size:18px;font-weight:700;vertical-align:baseline;letter-spacing:-.02em}
+    #price .amt small{width:100%;margin-top:6px;font-size:12px;color:var(--muted)}
+    #price .plan ul{margin-top:18px;flex:1}
+    #price .plan li{position:relative;padding:7px 0 7px 18px;font-size:14px;line-height:1.6;color:#333}
+    #price .plan li:before{content:"";position:absolute;left:0;top:14px;width:7px;height:7px;background:var(--red)}
+    #price .plan .btn{margin-top:26px;width:100%}
+    #price .plan .btn.light{border-color:var(--black);color:var(--black)}
+    #price .plan .btn.light:before{background:var(--black)}
+    #price .plan .btn.light:hover{color:#fff;border-color:var(--black)}
+    #price .note{margin-top:28px;display:flex;flex-wrap:wrap;gap:10px 28px;font-size:13px;color:rgba(255,255,255,.65)}
+    #price .note span{display:inline-block}
+    #price .note span:before{content:"";display:inline-block;width:6px;height:6px;background:var(--red);margin-right:10px;vertical-align:middle}
+
+    /* ===== Process (제작 과정: 가운데 제목 · 가로 타임라인) ===== */
     #process{background:var(--soft);padding:140px 0}
-    #process .chapters{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
-    #process .ch{position:relative;padding:34px 30px 30px;background:#fff;transition:transform var(--t),box-shadow var(--t)}
-    #process .ch:hover{transform:translateY(-6px);box-shadow:0 30px 60px rgba(0,0,0,.08)}
-    #process .ch .no{font-family:var(--en);font-size:11px;font-weight:700;letter-spacing:.2em;color:var(--muted)}
-    #process .ch h3{margin-top:10px;font-size:22px;font-weight:800;letter-spacing:-.03em}
-    #process .ch>p{margin-top:10px;font-size:14px;line-height:1.75;color:var(--muted);min-height:3.5em}
-    #process .steps{margin-top:22px;display:flex;flex-direction:column;gap:10px}
-    #process .step{display:grid;grid-template-columns:34px 1fr;gap:14px;align-items:start;padding:14px 0 14px;border-top:1px solid var(--line)}
-    #process .step i{font-family:var(--en);font-style:normal;font-size:12px;font-weight:800;color:#fff;width:34px;height:34px;display:flex;align-items:center;justify-content:center;background:var(--black)}
-    #process .ch:nth-child(2) .step i{background:var(--red)}
-    #process .step b{display:block;font-size:15px;font-weight:700;letter-spacing:-.02em}
-    #process .step small{display:block;margin-top:4px;font-size:12.5px;line-height:1.65;color:var(--muted)}
-    #process .note{margin-top:28px;display:flex;flex-wrap:wrap;gap:10px 28px;font-size:13px;color:var(--muted)}
+    #process .phases{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-bottom:34px}
+    #process .phases>div{position:relative;padding:18px 22px 20px;background:#fff;border-left:3px solid var(--black)}
+    #process .phases>div:nth-child(2){border-left-color:var(--red)}
+    #process .phases i{display:block;font-family:var(--en);font-style:normal;font-size:11px;font-weight:700;letter-spacing:.2em;color:var(--muted)}
+    #process .phases b{display:block;margin-top:6px;font-size:19px;font-weight:800;letter-spacing:-.03em}
+    #process .phases small{display:block;margin-top:6px;font-size:13px;line-height:1.7;color:var(--muted)}
+    #process .timeline{position:relative}
+    #process .timeline ol{display:grid;grid-template-columns:repeat(6,1fr);gap:18px;padding-top:4px}
+    #process .timeline .line{position:absolute;left:0;right:0;top:21px;height:2px;background:linear-gradient(90deg,var(--black),var(--red));transform-origin:left center}
+    #process .timeline li{position:relative;padding:60px 6px 0 0}
+    #process .timeline li i{position:absolute;left:0;top:4px;width:36px;height:36px;border-radius:50%;background:var(--black);color:#fff;font-family:var(--en);font-style:normal;font-size:13px;font-weight:800;display:flex;align-items:center;justify-content:center;box-shadow:0 0 0 6px var(--soft)}
+    #process .timeline li:nth-child(3) i,#process .timeline li:nth-child(4) i{background:var(--red)}
+    #process .timeline li.last i{background:var(--red);box-shadow:0 0 0 6px var(--soft),0 0 0 7px var(--red)}
+    #process .timeline b{display:block;font-size:15.5px;font-weight:800;letter-spacing:-.02em;line-height:1.35}
+    #process .timeline small{display:block;margin-top:8px;font-size:12.5px;line-height:1.65;color:var(--muted)}
+    #process .note{margin-top:40px;padding-top:22px;border-top:1px solid var(--line);display:flex;flex-wrap:wrap;gap:10px 28px;font-size:13px;color:var(--muted)}
     #process .note .more{margin-left:auto;font-weight:700;color:var(--black);text-decoration:underline;text-underline-offset:4px;text-decoration-color:var(--red)}
     #process .note .more:hover{color:var(--red)}
     #process .note span:before{content:"";display:inline-block;width:6px;height:6px;background:var(--red);margin-right:10px;vertical-align:middle}
@@ -518,7 +580,7 @@
     /* ===== SEO · AEO · GEO (black) ===== */
     #seo{background:var(--black);color:#fff;padding:140px 0;position:relative;overflow:hidden}
     #seo:before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 1px 1px,rgba(255,255,255,.07) 1px,transparent 1.5px) 0 0/28px 28px;pointer-events:none}
-    #seo .inner{position:relative}
+    #seo .inner{position:relative;z-index:1}
     #seo .sec-head h2{color:#fff}
     #seo .sec-head p{color:rgba(255,255,255,.72)}
     #seo .steps{display:grid;grid-template-columns:repeat(3,1fr);border:1px solid rgba(255,255,255,.18)}
@@ -567,15 +629,31 @@
     #care .stats small{display:block;margin-top:4px;font-size:12.5px;line-height:1.6;color:var(--muted)}
 
     @media (max-width:1024px){
-      #hled .cols,#benefit .groups,#process .chapters,#seo .steps,#seo .check{grid-template-columns:1fr}
+      #hled .cols,#benefit .split,#price .plans,#process .phases,#seo .steps,#seo .check{grid-template-columns:1fr}
+      #benefit .split{gap:36px}
+      #benefit .big{display:none}
+      #value .orbit{grid-template-columns:1fr;gap:40px}
+      #value .orbit .line{display:none}
+      #value .node .top{height:auto;margin-bottom:14px}
+      #value .node .top:empty{display:none}
+      #value .core .top:after{display:none}
+      #value .node:first-child .txt,#value .node:last-child .txt{text-align:center;margin:30px 0 0}
+      #process .timeline ol{grid-template-columns:1fr;gap:0}
+      #process .timeline .line{left:17px;right:auto;top:0;bottom:0;width:2px;height:auto;transform-origin:center top;background:linear-gradient(180deg,var(--black),var(--red))}
+      #process .timeline .line.t-grow{transform:scaleY(0)}
+      #process .timeline .line.t-grow.in{transform:none}
+      #process .timeline li{padding:0 0 26px 58px}
+      #process .timeline li i{top:0}
       #seo .steps>div{border-right:0;border-bottom:1px solid rgba(255,255,255,.18)}
       #seo .steps>div:last-child{border-bottom:0}
       #care .grid{grid-template-columns:1fr;gap:40px}
       .sec-head.row{flex-direction:column;align-items:flex-start;gap:18px}
-      #process .ch>p{min-height:0}
     }
     @media (max-width:768px){
-      #hled,#benefit,#process,#seo{padding:80px 0}
+      #hled,#benefit,#price,#process,#seo{padding:80px 0}
+      #value{padding:80px 0 70px}
+      .sec-head.center{text-align:left}
+      .sec-head.center h2,.sec-head.center p{margin-left:0}
       #care{padding:70px 0 80px}
       .sec-head{margin-bottom:34px}
       .sec-head h2{font-size:28px;line-height:1.25}
@@ -585,11 +663,21 @@
       #hled h3{font-size:20px}
       #hled li{grid-template-columns:92px 1fr;gap:12px;font-size:13.5px;line-height:1.6}
       #hled .quote{font-size:16px;margin-top:30px;padding-left:16px}
-      #benefit .group{padding:24px 20px 18px}
+      #benefit ul{grid-template-columns:1fr}
+      #benefit .head h2{font-size:28px;line-height:1.25}
+      #benefit .head p{font-size:14px;line-height:1.75}
       #benefit .cost{grid-template-columns:1fr;padding:26px 22px;gap:20px}
       #benefit .cost .terms li{grid-template-columns:76px 1fr;padding:10px 12px;font-size:12.5px}
       #hled article .idx{font-size:64px;right:14px;top:4px}
-      #process .ch{padding:24px 20px}
+      #process .phases>div{padding:16px 18px}
+      #process .phases b{font-size:17px}
+      #price .plan{padding:28px 22px 24px}
+      #price .amt em{font-size:48px}
+      #price .note{gap:8px 20px;font-size:12px}
+      #value .ring{width:220px;height:220px;padding:18px}
+      #value .ball b{font-size:28px}
+      #value .two{font-size:26px}
+      #value .chips span{padding:9px 16px;font-size:13px}
       #process .note{gap:8px 20px;font-size:12px}
       #seo .steps>div{padding:22px 20px}
       #seo .check>div{padding:22px 20px}
@@ -610,14 +698,15 @@
       .page-snap .sec-head{margin-bottom:3.6svh}
       .page-snap .sec-head h2,.page-snap #care .l h2{margin-top:1.8svh;font-size:clamp(30px,5svh,52px)}
       .page-snap .sec-head p{margin-top:1.6svh}
-      .page-snap #why .mark{margin-bottom:3svh}
-      .page-snap #why .desc{margin-top:2.4svh}
-      .page-snap #why .cards{margin-top:4.5svh}
       .page-snap #hled .quote{margin-top:4svh}
+      .page-snap #value .txt{margin-top:2.6svh}
+      .page-snap #benefit .cost{margin-top:3svh}
+      .page-snap #price .note{margin-top:2.4svh}
+      .page-snap #process .phases{margin-bottom:3svh}
       .page-snap #faq .l{position:static}
       .page-snap #care .marquee{margin-bottom:4.5svh}
-      .page-snap #benefit .cost,.page-snap #seo .check,.page-snap #seo .act{margin-top:1.6svh}
-      .page-snap #process .note{margin-top:2.4svh}
+      .page-snap #seo .check,.page-snap #seo .act{margin-top:1.6svh}
+      .page-snap #process .note{margin-top:3svh}
       /* 배경 전환: 섹션 배경을 비우고 body 배경색을 JS가 스크롤 위치에 맞춰 섞는다 (이미지 배경인 hero·works 제외) */
       .has-secflow #content>section:not(#hero){background:transparent}
       /* 화면 진입 효과: 섹션이 화면 가운데로 들어올 때마다 내용이 떠오른다 */
@@ -638,15 +727,14 @@
     .t-stagger.in>*{opacity:1;transform:none}
     .t-pop{opacity:0;transform:scale(.55);transition:opacity .5s ease .3s,transform .9s cubic-bezier(.34,1.56,.64,1) .3s}
     .t-pop.in{opacity:1;transform:none}
-    #process .note span,#seo .check h4 i{display:inline-block}
+    #process .note span,#price .note span,#seo .check h4 i{display:inline-block}
     .t-letters span{display:inline-block;opacity:0;transform:translateY(.7em) rotate(8deg);transition:opacity .4s ease,transform .7s cubic-bezier(.16,1,.3,1);transition-delay:calc(var(--i,0)*.07s + .25s)}
     .t-letters.in span{opacity:1;transform:none}
     /* 강조어: 굵은 빨간 밑줄 바가 왼쪽에서 오른쪽으로 그어진다 */
     .t-mark .hl{position:relative;display:inline-block;padding:0 .04em .06em;background-image:linear-gradient(var(--red),var(--red))!important;background-repeat:no-repeat!important;background-position:0 100%!important;background-size:0 .16em!important;transition:background-size .8s cubic-bezier(.16,1,.3,1) .45s!important}
     .t-mark.in .hl{background-size:100% .16em!important}
     /* 호버 카드도 등장 효과(opacity·transform)가 부드럽게 보이도록 transition 통합 */
-    #hled article,#process .ch,#benefit .group{transition:transform .6s cubic-bezier(.16,1,.3,1),opacity .7s ease,box-shadow .5s ease,border-color var(--t)}
-    #why .card{transition:transform .6s cubic-bezier(.16,1,.3,1),opacity .7s ease,box-shadow .5s ease}
+    #hled article,#process .phases>div{transition:transform .6s cubic-bezier(.16,1,.3,1),opacity .7s ease,box-shadow .5s ease,border-color var(--t)}
     #seo .steps>div{transition:background var(--t),opacity .7s ease,transform .8s cubic-bezier(.16,1,.3,1)}
     #contact .list a{transition:background var(--t),opacity .7s ease,transform .8s cubic-bezier(.16,1,.3,1)}
     /* 히어로: 슬라이드가 바뀔 때마다 아이브로우 자간 → 제목 단어 롤업 → 설명 블러 인 → 버튼 순으로 재생 */
@@ -661,6 +749,28 @@
     .hero-ready #hero .slide.on .acts{opacity:1;transform:none;transition-delay:.75s}
     @media (prefers-reduced-motion:reduce){.t-track,.t-blur,.t-stagger>*,.t-pop,.t-letters span,#hero .slide .eyebrow,#hero .slide .sub,#hero .slide .acts{opacity:1!important;transform:none!important;filter:none!important;letter-spacing:inherit!important}.t-mark .hl{background-size:100% .16em!important}}
 
+    /* ===== 전문성 효과: 진행바 · 커서 링 · 스포트라이트 · 선 그리기 ===== */
+    #progress{position:fixed;left:0;top:0;right:0;height:3px;z-index:1001;pointer-events:none}
+    #progress i{display:block;height:100%;background:var(--red);transform-origin:left;transform:scaleX(0)}
+    #cursor{display:none}
+    @media (pointer:fine){
+      #cursor{display:block;position:fixed;left:0;top:0;z-index:1002;pointer-events:none;opacity:0;transition:opacity .3s}
+      html.cur-on #cursor{opacity:1}
+      #cursor i{position:absolute;left:0;top:0;border-radius:50%;transform:translate(-50%,-50%)}
+      #cursor .dot{width:6px;height:6px;background:var(--red);transition:transform .25s,opacity .25s}
+      #cursor .ring{width:36px;height:36px;border:1px solid rgba(230,48,39,.7);transition:width .35s cubic-bezier(.16,1,.3,1),height .35s cubic-bezier(.16,1,.3,1),background .35s,border-color .35s}
+      #cursor.big .ring{width:64px;height:64px;background:rgba(230,48,39,.1);border-color:rgba(230,48,39,.9)}
+      #cursor.big .dot{transform:translate(-50%,-50%) scale(.5)}
+      #cursor.hide .ring,#cursor.hide .dot{opacity:0}
+    }
+    .spot{position:relative}
+    .spot:after{content:"";position:absolute;inset:0;background:radial-gradient(380px circle at var(--mx,50%) var(--my,50%),rgba(230,48,39,.13),transparent 60%);opacity:0;transition:opacity .45s;pointer-events:none}
+    .spot:hover:after{opacity:1}
+    .spot>*{position:relative;z-index:1}
+    .t-grow{transform:scaleX(0);transition:transform 1.3s cubic-bezier(.16,1,.3,1) .35s}
+    .t-grow.in{transform:none}
+    @media (prefers-reduced-motion:reduce){#value .ring:before,#value .core .ring:after,#price:after,#seo:after{animation:none}.t-grow{transform:none!important}#cursor{display:none!important}}
+
     /* ===== Reveal ===== */
     .reveal{opacity:0;transform:translateY(30px);transition:opacity .9s ease,transform .9s cubic-bezier(.16,1,.3,1)}
     .reveal.in{opacity:1;transform:none}
@@ -669,10 +779,6 @@
     @media (max-width:1480px){#hero .side{display:none}}
     @media (max-width:1340px){#hero .side{display:none}}
     @media (max-width:1024px){
-      #why .cards{grid-template-columns:repeat(3,1fr)}
-      #why .seo{grid-template-columns:1fr}
-      #why .act{border-top:1px solid rgba(255,255,255,.18)}
-      #why .cards .card:nth-child(4),#why .cards .card:nth-child(5){grid-column:span 1}
       #header .gnb{display:none}
       #header .cta{display:none}
       .menuToggle{display:flex}
@@ -681,16 +787,6 @@
       #footer .brand{grid-column:1/-1}
     }
     @media (max-width:768px){
-      #why{padding:90px 0 80px}
-      #why .cards{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;gap:10px;margin:28px -20px 0;padding:0 20px 8px;scrollbar-width:none;-webkit-overflow-scrolling:touch}
-      #why .cards::-webkit-scrollbar{display:none}
-      #why .card{flex:0 0 72vw;max-width:320px;scroll-snap-align:start}
-      #why .swipe-hint{display:block}
-      #why .body{padding:22px 18px 24px;gap:8px}
-      #why h3{font-size:17px}
-      #why .body p{font-size:12.5px;line-height:1.7}
-      #why .desc{font-size:14px}
-      #why .desc br{display:none}
       :root{--header-h:72px}
       .inner{max-width:calc(100% - 40px)}
       #hero .side{display:none}
@@ -731,30 +827,6 @@
       .btn .ko{font-size:14px}
       #hero .h{font-size:clamp(32px,9vw,44px);line-height:1.15;letter-spacing:-.03em}
       #hero .sub{font-size:14px;line-height:1.75;margin-top:20px;color:rgba(255,255,255,.8)}
-      #why{padding:80px 0 70px}
-      #why .mark{margin-bottom:28px}
-      #why h2{font-size:26px;line-height:1.3;letter-spacing:-.02em}
-      #why .desc{font-size:14px;line-height:1.75;margin-top:18px}
-      #why .cards{overflow-y:hidden;overscroll-behavior-x:contain;align-items:stretch;touch-action:pan-x pan-y}
-      #why .card{flex:0 0 74vw;max-width:300px}
-      #why .body{padding:22px 20px 24px;gap:8px}
-      #why .body .no{font-size:10px;margin-bottom:2px}
-      #why h3{font-size:17px;line-height:1.35}
-      #why .body p{font-size:13px;line-height:1.7}
-      #why .swipe-hint{margin-top:20px;font-size:11px}
-      #why .seohead{margin-top:70px}
-      #why .seohead .mark{margin-bottom:24px}
-      #why .seohead h2{font-size:24px;line-height:1.3}
-      #why .seohead p{font-size:14px;line-height:1.75;margin-top:14px}
-      #why .seohead p br{display:none}
-      #why .seo{margin-top:24px}
-      #why .terms{grid-template-columns:1fr}
-      #why .terms>div{border-right:0;border-bottom:1px solid rgba(255,255,255,.18);padding:22px 20px}
-      #why .terms b{font-size:18px}
-      #why .terms strong{font-size:14px}
-      #why .terms p{font-size:13px;line-height:1.7}
-      #why .act{padding:22px 20px 24px;gap:14px;border-top:0}
-      #why .act p{font-size:13px}
       #contact{padding:80px 0}
       #contact .grid{grid-template-columns:1fr;gap:40px}
       #contact h2{font-size:30px;line-height:1.2}
@@ -842,6 +914,39 @@
       <div class="bottom"><div class="inner"><div class="dots" id="heroDots" role="tablist" aria-label="메인 메시지"><button type="button" class="on" aria-label="1번 메시지">01<i></i></button><button type="button" aria-label="2번 메시지">02<i></i></button><button type="button" aria-label="3번 메시지">03<i></i></button></div><div class="scroll">아래로</div></div></div>
     </section>
 
+    <!-- ===== Value (고객과의 약속 · 성공 · 비전) ===== -->
+    <section id="value" aria-labelledby="value-title">
+      <div class="inner">
+        <div class="sec-head center">
+          <div class="eyebrow t-track">홍스랩의 기준</div>
+          <h2 class="reveal t-mark" id="value-title" data-cms="value.title" data-cms-fmt="rich">홍스랩은 언제나 <span class="hl">고객의 목표와 성장</span>을<br>먼저 생각합니다</h2>
+        </div>
+        <div class="orbit">
+          <i class="line t-grow" aria-hidden="true"></i>
+          <div class="node reveal">
+            <span class="top" aria-hidden="true"></span>
+            <div class="ring"><div class="ball"><b data-cms="value.a.ball">약속</b><small>PROMISE</small></div></div>
+            <div class="txt"><h3 data-cms="value.a.t">고객과의 약속</h3><p data-cms="value.a.d">정한 견적과 일정을 지키고, 공개한 뒤에도 끝까지 책임지는 것. 믿고 맡길 수 있는 홈페이지는 여기서 시작합니다.</p></div>
+          </div>
+          <div class="node core reveal" style="transition-delay:.1s">
+            <span class="top t-track" data-cms="value.core">핵심 가치</span>
+            <div class="ring"><div class="ball"><b data-cms="value.b.ball">성공</b><small>SUCCESS</small></div></div>
+            <div class="wins">
+              <strong class="two t-pop" data-cms="value.two" data-cms-fmt="rich">두 가지 <em>성공</em></strong>
+              <span class="plus" aria-hidden="true"></span>
+              <div class="chips t-stagger"><span class="c1" data-cms="value.w1">고객의 목표 달성</span><span class="c2" data-cms="value.w2">홍스랩의 성장</span></div>
+              <p data-cms="value.w.d" data-cms-fmt="rich">고객의 홈페이지가 제 역할을 할 때<br>홍스랩도 함께 성장합니다.</p>
+            </div>
+          </div>
+          <div class="node reveal" style="transition-delay:.2s">
+            <span class="top" aria-hidden="true"></span>
+            <div class="ring"><div class="ball"><b data-cms="value.c.ball">비전</b><small>VISION</small></div></div>
+            <div class="txt"><h3 data-cms="value.c.t">앞으로의 가치</h3><p data-cms="value.c.d">검색과 AI가 바뀌는 흐름에 맞춰, 고객의 입장에서 지금 필요한 홈페이지의 방향을 제안합니다.</p></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <!-- ===== Hled (보이지 않는 수고로움) ===== -->
     <section id="hled" aria-labelledby="hled-title">
       <div class="inner">
@@ -880,70 +985,44 @@
       </div>
     </section>
 
-    <!-- ===== Why ===== -->
-    <section id="why">
-      <div class="inner">
-        <div class="eyebrow light t-track">홍스랩을 고르는 이유</div>
-        <h2 class="reveal t-mark" style="margin-top:26px" data-cms="why.title" data-cms-fmt="rich">믿고 맡길 수 있는 제작 파트너,<br><span class="hl">홍스랩</span></h2>
-        <p class="desc t-blur" data-cms="why.desc" data-cms-fmt="rich">업종과 고객을 먼저 이해하고, 전화와 문의로 이어지는 구조를 설계합니다. <br>기획부터 디자인·개발·검색·AI 노출·운영까지, 전 과정을 홍스랩이 직접 진행합니다.</p>
-        <p class="swipe-hint" aria-hidden="true">옆으로 넘겨서 보세요 →</p>
-        <div class="cards t-stagger">
-          <article class="card">
-            <div class="body"><span class="no">01</span><h3 data-cms="why.c1.title">기술력</h3><p data-cms="why.c1.text">최신 웹 기술과 안정적인 개발 환경으로, 확장과 유지관리에 강한 홈페이지를 만듭니다.</p></div>
-          </article>
-          <article class="card">
-            <div class="body"><span class="no">02</span><h3 data-cms="why.c2.title">검색·AI 노출</h3><p data-cms="why.c2.text">네이버·구글 검색과 AI 답변에 잘 노출되도록 구조, 속도, 콘텐츠를 최적화해 자연 유입을 돕습니다.</p></div>
-          </article>
-          <article class="card">
-            <div class="body"><span class="no">03</span><h3 data-cms="why.c3.title">유지보수</h3><p data-cms="why.c3.text">제작 이후에도 수정과 업데이트 등 지속적인 운영을 위해 안정적인 사이트 관리를 돕습니다.</p></div>
-          </article>
-          <article class="card">
-            <div class="body"><span class="no">04</span><h3 data-cms="why.c4.title">기능성</h3><p data-cms="why.c4.text">문의폼, 예약, 게시판, 관리자 페이지 등 목적에 맞는 기능을 맞춤으로 구현합니다.</p></div>
-          </article>
-          <article class="card">
-            <div class="body"><span class="no">05</span><h3 data-cms="why.c5.title">고품질</h3><p data-cms="why.c5.text">디자인 완성도, 사용자 경험, 속도까지 모두 고려한 완성도 높은 웹사이트를 제공합니다.</p></div>
-          </article>
-        </div>
-      </div>
-    </section>
-
     <!-- ===== Benefit (제작 시 기본 포함) ===== -->
     <section id="benefit" aria-labelledby="benefit-title">
       <div class="inner">
-        <div class="sec-head row">
-          <div>
+        <div class="split">
+          <div class="head">
             <div class="eyebrow t-track">모든 상품에 기본 포함</div>
             <h2 class="reveal t-mark" id="benefit-title" data-cms="benefit.title" data-cms-fmt="rich">견적서에 옵션으로 붙지 않는,<br><span class="hl">처음부터 들어 있는</span> 12가지</h2>
+            <p class="t-blur" data-cms="benefit.desc">홍스랩의 모든 상품에 아래 항목이 기본으로 들어갑니다. 따로 추가하거나 비용을 더 내야 하는 옵션이 아닙니다.</p>
+            <div class="big t-pop" aria-hidden="true"><b class="count" data-to="12">12</b><span>가지<br>기본 포함</span></div>
           </div>
-          <p class="t-blur" data-cms="benefit.desc">홍스랩의 모든 상품에 아래 항목이 기본으로 들어갑니다. 따로 추가하거나 비용을 더 내야 하는 옵션이 아닙니다.</p>
-        </div>
-        <div class="groups">
-          <div class="group reveal">
-            <h3><span data-cms="benefit.g1">기획 · 디자인</span><small>DESIGN</small></h3>
-            <ul class="t-stagger">
-              <li><i>01</i><span><span data-cms="benefit.1.t">업종 맞춤 구성 설계</span><small data-cms="benefit.1.d">업종과 손님을 분석해 페이지 구성을 제안</small></span></li>
-              <li><i>02</i><span><span data-cms="benefit.2.t">PC · 모바일 반응형</span><small data-cms="benefit.2.d">모든 상품이 PC와 휴대폰 화면에 맞춰 제작</small></span></li>
-              <li><i>03</i><span><span data-cms="benefit.3.t">맞춤 디자인</span><small data-cms="benefit.3.d">템플릿이 아닌 사업에 맞는 새 디자인</small></span></li>
-              <li><i>04</i><span><span data-cms="benefit.4.t">공개 전 전체 화면 검수</span><small data-cms="benefit.4.d">PC·모바일 화면을 직접 확인한 뒤 공개</small></span></li>
-            </ul>
-          </div>
-          <div class="group reveal" style="transition-delay:.1s">
-            <h3><span data-cms="benefit.g2">검색 · AI 노출</span><small>SEO · AEO · GEO</small></h3>
-            <ul class="t-stagger">
-              <li><i>05</i><span><span data-cms="benefit.5.t">검색 기본 설정</span><small data-cms="benefit.5.d">제목·설명·사이트맵·robots 정리</small></span></li>
-              <li><i>06</i><span><span data-cms="benefit.6.t">카카오톡 · SNS 공유 미리보기</span><small data-cms="benefit.6.d">링크를 보낼 때 제목과 이미지가 보이는 OG 설정</small></span></li>
-              <li><i>07</i><span><span data-cms="benefit.7.t">구조화 데이터(JSON-LD)</span><small data-cms="benefit.7.d">업체 정보·FAQ를 검색엔진이 읽는 형식으로</small></span></li>
-              <li><i>08</i><span><span data-cms="benefit.8.t">AI 크롤러 대응 · llms.txt</span><small data-cms="benefit.8.d">ChatGPT 같은 AI가 홈페이지를 읽고 인용하도록</small></span></li>
-            </ul>
-          </div>
-          <div class="group reveal" style="transition-delay:.2s">
-            <h3><span data-cms="benefit.g3">연결 · 운영</span><small>OPERATION</small></h3>
-            <ul class="t-stagger">
-              <li><i>09</i><span><span data-cms="benefit.9.t">전화 · 카카오톡 채널 연결</span><small data-cms="benefit.9.d">플로팅 버튼과 상담 버튼 기본 포함</small></span></li>
-              <li><i>10</i><span><span data-cms="benefit.10.t">지도 · 길찾기 연결</span><small data-cms="benefit.10.d">네이버·카카오 지도 바로가기</small></span></li>
-              <li><i>11</i><span><span data-cms="benefit.11.t">배포 후 1개월 무제한 수정</span><small data-cms="benefit.11.d">합의한 구성 안에서의 수정은 횟수 제한 없음</small></span></li>
-              <li><i>12</i><span><span data-cms="benefit.12.t">무료 SEO 점검기</span><small data-cms="benefit.12.d">공개 후에도 언제든 4개 축 점수 확인</small></span></li>
-            </ul>
+          <div class="list">
+            <div class="group reveal">
+              <h3><span data-cms="benefit.g1">기획 · 디자인</span><small>DESIGN</small></h3>
+              <ul class="t-stagger">
+                <li><i aria-hidden="true"></i><span><span data-cms="benefit.1.t">업종 맞춤 구성 설계</span><small data-cms="benefit.1.d">업종과 손님을 분석해 페이지 구성을 제안</small></span></li>
+                <li><i aria-hidden="true"></i><span><span data-cms="benefit.2.t">PC · 모바일 반응형</span><small data-cms="benefit.2.d">모든 상품이 PC와 휴대폰 화면에 맞춰 제작</small></span></li>
+                <li><i aria-hidden="true"></i><span><span data-cms="benefit.3.t">맞춤 디자인</span><small data-cms="benefit.3.d">템플릿이 아닌 사업에 맞는 새 디자인</small></span></li>
+                <li><i aria-hidden="true"></i><span><span data-cms="benefit.4.t">공개 전 전체 화면 검수</span><small data-cms="benefit.4.d">PC·모바일 화면을 직접 확인한 뒤 공개</small></span></li>
+              </ul>
+            </div>
+            <div class="group reveal" style="transition-delay:.1s">
+              <h3><span data-cms="benefit.g2">검색 · AI 노출</span><small>SEO · AEO · GEO</small></h3>
+              <ul class="t-stagger">
+                <li><i aria-hidden="true"></i><span><span data-cms="benefit.5.t">검색 기본 설정</span><small data-cms="benefit.5.d">제목·설명·사이트맵·robots 정리</small></span></li>
+                <li><i aria-hidden="true"></i><span><span data-cms="benefit.6.t">카카오톡 · SNS 공유 미리보기</span><small data-cms="benefit.6.d">링크를 보낼 때 제목과 이미지가 보이는 OG 설정</small></span></li>
+                <li><i aria-hidden="true"></i><span><span data-cms="benefit.7.t">구조화 데이터(JSON-LD)</span><small data-cms="benefit.7.d">업체 정보·FAQ를 검색엔진이 읽는 형식으로</small></span></li>
+                <li><i aria-hidden="true"></i><span><span data-cms="benefit.8.t">AI 크롤러 대응 · llms.txt</span><small data-cms="benefit.8.d">ChatGPT 같은 AI가 홈페이지를 읽고 인용하도록</small></span></li>
+              </ul>
+            </div>
+            <div class="group reveal" style="transition-delay:.2s">
+              <h3><span data-cms="benefit.g3">연결 · 운영</span><small>OPERATION</small></h3>
+              <ul class="t-stagger">
+                <li><i aria-hidden="true"></i><span><span data-cms="benefit.9.t">전화 · 카카오톡 채널 연결</span><small data-cms="benefit.9.d">플로팅 버튼과 상담 버튼 기본 포함</small></span></li>
+                <li><i aria-hidden="true"></i><span><span data-cms="benefit.10.t">지도 · 길찾기 연결</span><small data-cms="benefit.10.d">네이버·카카오 지도 바로가기</small></span></li>
+                <li><i aria-hidden="true"></i><span><span data-cms="benefit.11.t">배포 후 1개월 무제한 수정</span><small data-cms="benefit.11.d">합의한 구성 안에서의 수정은 횟수 제한 없음</small></span></li>
+                <li><i aria-hidden="true"></i><span><span data-cms="benefit.12.t">무료 SEO 점검기</span><small data-cms="benefit.12.d">공개 후에도 언제든 4개 축 점수 확인</small></span></li>
+              </ul>
+            </div>
           </div>
         </div>
         <div class="cost reveal">
@@ -957,44 +1036,84 @@
       </div>
     </section>
 
-    <!-- ===== Process (제작 과정) ===== -->
-    <section id="process" aria-labelledby="process-title">
+    <!-- ===== Price (요금 안내) ===== -->
+    <section id="price" aria-labelledby="price-title">
       <div class="inner">
         <div class="sec-head row">
           <div>
-            <div class="eyebrow t-track">제작 순서</div>
-            <h2 class="reveal t-mark" id="process-title" data-cms="process.title" data-cms-fmt="rich">처음 맡기는 분도 알 수 있게,<br><span class="hl">여섯 단계</span>로 진행합니다</h2>
+            <div class="eyebrow light t-track">요금 안내</div>
+            <h2 class="reveal t-mark" id="price-title" data-cms="price.title" data-cms-fmt="rich">페이지 수에 따라<br><span class="hl">세 가지 상품</span>으로 나눴습니다</h2>
           </div>
+          <p class="t-blur" data-cms="price.desc">세 상품 모두 기본 포함 12가지와 배포 후 1개월 무제한 수정이 똑같이 들어갑니다. 어떤 상품이 맞는지는 무료 상담에서 업종과 필요한 페이지를 듣고 함께 정합니다.</p>
+        </div>
+        <div class="plans t-stagger">
+          <article class="plan">
+            <div class="nm"><b data-cms="price.p1.n">실속형</b><small>LITE</small></div>
+            <p class="for" data-cms="price.p1.for">한 페이지 안에 소개·서비스·오시는 길을 담는 구성</p>
+            <div class="amt"><em class="count" data-cms="price.p1.amt" data-to="35">35</em><sub>만원</sub><small>부가세 별도</small></div>
+            <ul>
+              <li data-cms="price.p1.1">1페이지 구성</li>
+              <li data-cms="price.p1.2">자료 접수 후 3~5영업일</li>
+              <li data-cms="price.p1.3">전화 · 카카오톡 · 지도 연결</li>
+              <li data-cms="price.p1.4">검색 기본 설정</li>
+            </ul>
+            <a class="btn" href="/inquiry"><span class="ko" data-cms="price.btn">이 상품으로 문의</span><span class="ar">→</span></a>
+          </article>
+          <article class="plan pick">
+            <span class="tag" data-cms="price.p2.tag">가장 많이 선택</span>
+            <div class="nm"><b data-cms="price.p2.n">기본형</b><small>STANDARD</small></div>
+            <p class="for" data-cms="price.p2.for">회사 소개·서비스·오시는 길 등 여러 페이지로 나뉜 구성</p>
+            <div class="amt"><em class="count" data-cms="price.p2.amt" data-to="70">70</em><sub>만원</sub><small>부가세 별도</small></div>
+            <ul>
+              <li data-cms="price.p2.1">5페이지 이하 구성</li>
+              <li data-cms="price.p2.2">자료 접수 후 5~10영업일</li>
+              <li data-cms="price.p2.3">업종 맞춤 디자인</li>
+              <li data-cms="price.p2.4">네이버 · 구글 검색도구 등록 지원</li>
+              <li data-cms="price.p2.5">카카오톡 · SNS 공유 미리보기, 구조화 데이터</li>
+            </ul>
+            <a class="btn red" href="/inquiry"><span class="ko" data-cms="price.btn2">이 상품으로 문의</span><span class="ar">→</span></a>
+          </article>
+          <article class="plan">
+            <div class="nm"><b data-cms="price.p3.n">확장형</b><small>EXTENDED</small></div>
+            <p class="for" data-cms="price.p3.for">페이지가 많거나 예약 · 게시판 · 관리자 화면 같은 기능이 있는 구성</p>
+            <div class="amt"><em class="count" data-cms="price.p3.amt" data-to="100">100</em><sub>만원</sub><small>부가세 별도</small></div>
+            <ul>
+              <li data-cms="price.p3.1">5페이지 이상 구성</li>
+              <li data-cms="price.p3.2">자료 접수 후 10~15영업일</li>
+              <li data-cms="price.p3.3">페이지별 검색 설정</li>
+              <li data-cms="price.p3.4">예약 · 게시판 · 관리자 화면 등 기능 구성</li>
+              <li data-cms="price.p3.5">웹앱 · 플랫폼은 기능 범위에 따라 상담 후 안내</li>
+            </ul>
+            <a class="btn light" href="/inquiry"><span class="ko" data-cms="price.btn3">이 상품으로 문의</span><span class="ar">→</span></a>
+          </article>
+        </div>
+        <div class="note t-stagger"><span data-cms="price.n1">모든 금액은 부가세 별도</span><span data-cms="price.n2">도메인 · 호스팅 등 외부 비용은 실비</span><span data-cms="price.n3">전체 디자인 변경 · 기능 추가는 별도 견적</span><span data-cms="price.n4">착수금 접수 후 제작 시작</span></div>
+      </div>
+    </section>
+
+    <!-- ===== Process (제작 과정) ===== -->
+    <section id="process" aria-labelledby="process-title">
+      <div class="inner">
+        <div class="sec-head center">
+          <div class="eyebrow t-track">제작 순서</div>
+          <h2 class="reveal t-mark" id="process-title" data-cms="process.title" data-cms-fmt="rich">처음 맡기는 분도 알 수 있게,<br><span class="hl">여섯 단계</span>로 진행합니다</h2>
           <p class="t-blur" data-cms="process.desc">지금 어느 단계인지, 다음에 무엇이 오는지 카카오톡으로 그때그때 공유합니다. 확정한 견적과 일정은 중간에 바뀌지 않습니다.</p>
         </div>
-        <div class="chapters">
-          <article class="ch reveal">
-            <span class="no t-track">STEP 1 – 2</span>
-            <h3 data-cms="process.c1.title">시작하기</h3>
-            <p data-cms="process.c1.desc">상담으로 범위와 일정을 정하고, 견적을 먼저 확정합니다.</p>
-            <div class="steps t-stagger">
-              <div class="step"><i class="t-pop">1</i><div><b data-cms="process.s1.t">무료 상담</b><small data-cms="process.s1.d">업종·필요한 페이지·공개 시점을 카카오톡, 전화, 이메일로 확인합니다.</small></div></div>
-              <div class="step"><i class="t-pop">2</i><div><b data-cms="process.s2.t">범위 · 견적 확정</b><small data-cms="process.s2.d">작업 범위를 정리하고 최종 견적과 일정을 먼저 안내합니다.</small></div></div>
-            </div>
-          </article>
-          <article class="ch reveal" style="transition-delay:.1s">
-            <span class="no t-track">STEP 3 – 4</span>
-            <h3 data-cms="process.c2.title">만들기</h3>
-            <p data-cms="process.c2.desc">자료가 접수된 날부터 제작 기간을 세고, 미리보기로 중간 점검을 합니다.</p>
-            <div class="steps t-stagger">
-              <div class="step"><i class="t-pop">3</i><div><b data-cms="process.s3.t">자료 접수 · 제작 착수</b><small data-cms="process.s3.d">글·사진·로고와 착수금이 접수된 날부터 제작 기간을 계산합니다.</small></div></div>
-              <div class="step"><i class="t-pop">4</i><div><b data-cms="process.s4.t">제작 · 미리보기</b><small data-cms="process.s4.d">실속형 3~5, 기본형 5~10, 확장형 10~15영업일에 미리보기를 드립니다.</small></div></div>
-            </div>
-          </article>
-          <article class="ch reveal" style="transition-delay:.2s">
-            <span class="no t-track">STEP 5 – 6</span>
-            <h3 data-cms="process.c3.title">공개하기</h3>
-            <p data-cms="process.c3.desc">PC·모바일을 모두 검수한 뒤 공개하고, 한 달 동안 수정이 무제한입니다.</p>
-            <div class="steps t-stagger">
-              <div class="step"><i class="t-pop">5</i><div><b data-cms="process.s5.t">검수 · 수정</b><small data-cms="process.s5.d">PC·모바일 검수 후 공개하고, 배포 후 1개월은 수정이 무제한입니다.</small></div></div>
-              <div class="step"><i class="t-pop">6</i><div><b data-cms="process.s6.t">공개 · 검색 등록</b><small data-cms="process.s6.d">도메인을 연결하고 네이버·구글 검색 등록을 지원합니다(기본형 이상).</small></div></div>
-            </div>
-          </article>
+        <div class="phases t-stagger">
+          <div><i class="t-track">STEP 1 – 2</i><b data-cms="process.c1.title">시작하기</b><small data-cms="process.c1.desc">상담으로 범위와 일정을 정하고, 견적을 먼저 확정합니다.</small></div>
+          <div><i class="t-track">STEP 3 – 4</i><b data-cms="process.c2.title">만들기</b><small data-cms="process.c2.desc">자료가 접수된 날부터 제작 기간을 세고, 미리보기로 중간 점검을 합니다.</small></div>
+          <div><i class="t-track">STEP 5 – 6</i><b data-cms="process.c3.title">공개하기</b><small data-cms="process.c3.desc">PC·모바일을 모두 검수한 뒤 공개하고, 한 달 동안 수정이 무제한입니다.</small></div>
+        </div>
+        <div class="timeline">
+          <i class="line t-grow" aria-hidden="true"></i>
+          <ol class="t-stagger">
+          <li><i class="t-pop">1</i><b data-cms="process.s1.t">무료 상담</b><small data-cms="process.s1.d">업종·필요한 페이지·공개 시점을 카카오톡, 전화, 이메일로 확인합니다.</small></li>
+          <li><i class="t-pop">2</i><b data-cms="process.s2.t">범위 · 견적 확정</b><small data-cms="process.s2.d">작업 범위를 정리하고 최종 견적과 일정을 먼저 안내합니다.</small></li>
+          <li><i class="t-pop">3</i><b data-cms="process.s3.t">자료 접수 · 제작 착수</b><small data-cms="process.s3.d">글·사진·로고와 착수금이 접수된 날부터 제작 기간을 계산합니다.</small></li>
+          <li><i class="t-pop">4</i><b data-cms="process.s4.t">제작 · 미리보기</b><small data-cms="process.s4.d">실속형 3~5, 기본형 5~10, 확장형 10~15영업일에 미리보기를 드립니다.</small></li>
+          <li><i class="t-pop">5</i><b data-cms="process.s5.t">검수 · 수정</b><small data-cms="process.s5.d">PC·모바일 검수 후 공개하고, 배포 후 1개월은 수정이 무제한입니다.</small></li>
+          <li class="last"><i class="t-pop">6</i><b data-cms="process.s6.t">공개 · 검색 등록</b><small data-cms="process.s6.d">도메인을 연결하고 네이버·구글 검색 등록을 지원합니다(기본형 이상).</small></li>
+          </ol>
         </div>
         <div class="note t-stagger"><span data-cms="process.n1">모든 금액은 부가세 별도</span><span data-cms="process.n2">제작 기간은 자료·착수금 접수일부터 계산</span><span data-cms="process.n3">전체 디자인 변경·기능 추가는 별도 견적</span><span data-cms="process.n4">매일 07:00~22:00 상담</span><a class="more" href="/process" data-cms="process.more">단계별 자세한 안내 →</a></div>
       </div>
@@ -1059,7 +1178,7 @@
           </div>
           <div class="r t-stagger">
             <details open><summary><span class="q">질문 01</span><h3>홈페이지 제작 기간은 얼마나 걸리나요?</h3><span class="pm"></span></summary><p class="a">실속형은 3~5영업일, 기본형은 5~10영업일, 확장형은 10~15영업일이 예상 기간입니다. 제작 기간은 홈페이지에 들어갈 자료와 착수금이 모두 접수된 이후부터 계산하며, 상담에서 일정과 범위를 먼저 확정합니다.</p></details>
-            <details><summary><span class="q">질문 02</span><h3>홈페이지 제작 비용은 얼마인가요?</h3><span class="pm"></span></summary><p class="a">작업 범위(페이지 수, 필요한 기능, 디자인 범위)에 따라 달라집니다. 무료 상담에서 범위를 확인한 뒤 예상 견적을 먼저 안내해 드리며, 모든 금액은 부가세 별도입니다.</p></details>
+            <details><summary><span class="q">질문 02</span><h3>홈페이지 제작 비용은 얼마인가요?</h3><span class="pm"></span></summary><p class="a">실속형(1페이지) 35만원, 기본형(5페이지 이하) 70만원, 확장형(5페이지 이상·기능 포함) 100만원이며, 모든 금액은 부가세 별도입니다. 세 상품 모두 기본 포함 12가지와 배포 후 1개월 무제한 수정이 들어가고, 예약·게시판 같은 기능 추가와 전체 디자인 변경만 별도 견적입니다.</p></details>
             <details><summary><span class="q">질문 03</span><h3>제작비 외에 추가 비용이 있나요?</h3><span class="pm"></span></summary><p class="a">부가세 외에 숨은 비용은 없습니다. 다만 도메인·호스팅 등 외부 서비스 비용은 별도이며, 문의폼 등 외부 유료 서비스를 사용하면 이용료가 따로 발생할 수 있습니다.</p></details>
             <details><summary><span class="q">질문 04</span><h3>수정은 몇 번까지 가능한가요?</h3><span class="pm"></span></summary><p class="a">모든 상품에서 배포 후 1개월간 수정이 무제한입니다. 수정은 처음 합의한 구성 안에서의 변경이며, 전체 디자인 변경이나 기능 추가는 별도로 견적을 드립니다.</p></details>
             <details><summary><span class="q">질문 05</span><h3>네이버·구글 검색에 나오게 할 수 있나요?</h3><span class="pm"></span></summary><p class="a">실속형은 검색 기본 설정, 기본형은 검색도구 등록 지원, 확장형은 페이지별 검색 설정이 포함됩니다. 다만 검색 설정은 검색 순위를 보장하지는 않습니다.</p></details>
@@ -1091,6 +1210,8 @@
   </div>
 
   <!-- ===== Floating ===== -->
+  <div id="progress" aria-hidden="true"><i></i></div>
+  <div id="cursor" aria-hidden="true"><i class="dot"></i><i class="ring"></i></div>
   <div id="quick">
     <a class="tel" href="tel:01086039867"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.8 19.8 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg><span data-cms="quick.tel">전화하기</span></a>
     <a class="kakao" href="http://pf.kakao.com/_KxojrX" target="_blank" rel="noopener" data-cms="site.kakao" data-cms-attr="href"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 3C6.48 3 2 6.58 2 11c0 2.55 1.5 4.83 3.84 6.3-.12.86-.46 2.24-1.34 3.7 0 0 2.02-.34 4.1-1.7A11.6 11.6 0 0 0 12 19c5.52 0 10-3.58 10-8s-4.48-8-10-8z"/></svg><span data-cms="quick.kakao">카톡문의</span></a>
@@ -1276,29 +1397,39 @@ else{
   start();
 })();
 
-/* ===== 강점 카드 자동 슬라이드 (모바일 가로 스크롤일 때만) ===== */
+/* ===== 전문성 효과: 스크롤 진행바 · 커서 링 · 자석 버튼 · 카드 스포트라이트·틸트 ===== */
 (()=>{
-  const box=document.querySelector('#why .cards');if(!box||reduced)return;
-  let timer=null,hold=null,visible=false;
-  const scrollable=()=>box.scrollWidth-box.clientWidth>8;
-  const next=()=>{
-    if(!visible||!scrollable())return;
-    const card=box.querySelector('.card');if(!card)return;
-    const step=card.offsetWidth+10,max=box.scrollWidth-box.clientWidth;
-    if(box.scrollLeft>=max-4)box.scrollTo({left:0,behavior:'smooth'});else box.scrollBy({left:step,behavior:'smooth'});
-  };
-  const start=()=>{clearInterval(timer);timer=setInterval(next,3200)};
-  const pause=()=>{clearInterval(timer);clearTimeout(hold);hold=setTimeout(start,6000)};
-  ['touchstart','pointerdown','wheel'].forEach(ev=>box.addEventListener(ev,pause,{passive:true}));
-  new IntersectionObserver(en=>{visible=en[0].isIntersecting;if(visible)start();else clearInterval(timer)},{threshold:.3}).observe(box);
-  document.addEventListener('visibilitychange',()=>{if(document.hidden)clearInterval(timer);else if(visible)start()});
+  const bar=document.querySelector('#progress i');
+  const prog=()=>{const h=document.documentElement,max=h.scrollHeight-innerHeight;bar.style.transform='scaleX('+(max>0?Math.min(1,scrollY/max):0).toFixed(4)+')'};
+  addEventListener('scroll',prog,{passive:true});addEventListener('resize',prog);prog();
+  if(reduced||!matchMedia('(pointer:fine)').matches)return;
+  /* 커서 링: 포인터를 부드럽게 따라오고, 링크·버튼 위에서 커진다 */
+  const cur=document.getElementById('cursor'),html=document.documentElement;
+  let mx=innerWidth/2,my=innerHeight/2,rx=mx,ry=my,raf=null;
+  const dot=cur.querySelector('.dot'),ring=cur.querySelector('.ring');
+  const loop=()=>{rx+=(mx-rx)*.18;ry+=(my-ry)*.18;ring.style.left=rx+'px';ring.style.top=ry+'px';if(Math.abs(mx-rx)>.2||Math.abs(my-ry)>.2)raf=requestAnimationFrame(loop);else raf=null};
+  addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;dot.style.left=mx+'px';dot.style.top=my+'px';html.classList.add('cur-on');if(!raf)raf=requestAnimationFrame(loop);const t=e.target.closest('a,button,summary,label,input,select,textarea,#value .ball,#price .plan');cur.classList.toggle('big',!!t&&!t.matches('input,select,textarea'));cur.classList.toggle('hide',!!t&&t.matches('input,select,textarea'))},{passive:true});
+  document.addEventListener('mouseleave',()=>html.classList.remove('cur-on'));
+  document.addEventListener('mouseenter',()=>html.classList.add('cur-on'));
+  /* 자석 버튼: 포인터 쪽으로 살짝 끌려온다 */
+  document.querySelectorAll('.btn,#header .cta').forEach(b=>{
+    b.addEventListener('mousemove',e=>{const r=b.getBoundingClientRect();const x=(e.clientX-r.left-r.width/2)*.22,y=(e.clientY-r.top-r.height/2)*.28;b.style.transform='translate('+x.toFixed(1)+'px,'+(y-2).toFixed(1)+'px)'});
+    b.addEventListener('mouseleave',()=>{b.style.transform=''});
+  });
+  /* 카드 스포트라이트 + 3D 기울임 */
+  document.querySelectorAll('#hled article,#price .plan,#process .phases>div,#care .stats>div,#faq details').forEach(c=>c.classList.add('spot'));
+  document.querySelectorAll('.spot').forEach(c=>{
+    const tilt=c.matches('#hled article,#price .plan');
+    c.addEventListener('mousemove',e=>{const r=c.getBoundingClientRect(),px=(e.clientX-r.left)/r.width,py=(e.clientY-r.top)/r.height;c.style.setProperty('--mx',(px*100).toFixed(1)+'%');c.style.setProperty('--my',(py*100).toFixed(1)+'%');if(tilt){c.style.setProperty('--ry',((px-.5)*6).toFixed(2)+'deg');c.style.setProperty('--rx',((.5-py)*6).toFixed(2)+'deg')}});
+    c.addEventListener('mouseleave',()=>{c.style.removeProperty('--rx');c.style.removeProperty('--ry')});
+  });
 })();
 
 /* ===== 메뉴 글자 롤업 ===== */
 document.querySelectorAll('#header .gnb a').forEach(a=>{if(a.querySelector('.t'))return;const t=a.textContent.trim();a.textContent='';const s=document.createElement('span');s.className='t';const i=document.createElement('i');i.dataset.t=t;i.textContent=t;s.appendChild(i);a.appendChild(s)});
 
 /* ===== 제목 단어 분리 (타이포 효과) ===== */
-document.querySelectorAll('#why h2,#contact h2,#hled h2,#benefit h2,#process h2,#seo h2,#care h2,#faq h2,#hled .quote,#benefit .cost h3,#seo .check h3,#seo .act p,#heroSlides .h').forEach(h=>{
+document.querySelectorAll('#value h2,#price h2,#contact h2,#hled h2,#benefit h2,#process h2,#seo h2,#care h2,#faq h2,#hled .quote,#benefit .cost h3,#seo .check h3,#seo .act p,#heroSlides .h').forEach(h=>{
   h.classList.add('fx');let k=0;const base=h.closest('#hero')?.3:0;
   const walk=n=>{[...n.childNodes].forEach(c=>{
     if(c.nodeType===3){
@@ -1316,11 +1447,12 @@ document.querySelectorAll('#why h2,#contact h2,#hled h2,#benefit h2,#process h2,
 
 /* ===== 스크롤 리빌 + 카운터 ===== */
 const runCount=el=>{
+  if(el.dataset.cms&&!isNaN(parseFloat(el.textContent)))el.dataset.to=parseFloat(el.textContent);
   const to=parseFloat(el.dataset.to),dec=parseInt(el.dataset.dec||'0'),start=performance.now(),dur=1400;
   const tick=t=>{const p=Math.min(1,(t-start)/dur),e=1-Math.pow(1-p,3);el.textContent=(to*e).toFixed(dec);if(p<1)requestAnimationFrame(tick)};
   requestAnimationFrame(tick);
 };
-const FX_SEL='.reveal,.t-track,.t-blur,.t-stagger,.t-pop,.t-letters,.t-mark';
+const FX_SEL='.reveal,.t-track,.t-blur,.t-stagger,.t-pop,.t-letters,.t-mark,.t-grow';
 document.querySelectorAll('.t-stagger').forEach(box=>[...box.children].forEach((c,i)=>c.style.setProperty('--i',i)));
 document.querySelectorAll('.t-letters').forEach(el=>{const t=el.textContent;el.textContent='';[...t].forEach((ch,i)=>{const sp=document.createElement('span');sp.textContent=ch;sp.style.setProperty('--i',i);el.appendChild(sp)})});
 const playIn=el=>{el.classList.add('in');el.querySelectorAll('.count').forEach(runCount)};
