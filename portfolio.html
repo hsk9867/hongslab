@@ -105,6 +105,11 @@
     .m_gnb li a .num{font-family:var(--en);font-size:11px;letter-spacing:.2em;color:var(--red);font-weight:600}
     .m_gnb li a .en{font-size:11px;letter-spacing:.2em;color:var(--muted);font-weight:600;margin-left:auto}
     .m_gnb .foot{margin-top:40px;display:flex;flex-direction:column;gap:12px}
+    .m_gnb .m_back{position:absolute;left:24px;top:26px;display:inline-flex;align-items:center;gap:12px;height:40px;padding:0 16px 0 12px;border:1px solid var(--line);font-size:13px;font-weight:700;letter-spacing:-.01em;color:var(--black);background:#fff;transition:border-color var(--t),background var(--t),color var(--t)}
+    .m_gnb .m_back i{width:16px;height:16px;position:relative}
+    .m_gnb .m_back i:before{content:"";position:absolute;left:3px;top:4px;width:8px;height:8px;border-left:2px solid currentColor;border-bottom:2px solid currentColor;transform:rotate(45deg)}
+    .m_gnb .m_back i:after{content:"";position:absolute;left:3px;top:7px;width:12px;height:2px;background:currentColor}
+    .m_gnb .m_back:hover,.m_gnb .m_back:active{background:var(--black);border-color:var(--black);color:#fff}
 
     /* 제작사례 */
     #band{background:var(--black);color:#fff;padding:calc(var(--header-h) + 80px) 0 70px;position:relative;overflow:hidden}
@@ -276,6 +281,7 @@
     </div>
   </div>
   <div class="m_gnb" id="mGnb">
+    <button type="button" class="m_back" data-menu-close aria-label="메뉴 닫고 돌아가기"><i aria-hidden="true"></i>뒤로가기</button>
     <ul>
       <li><a href="/portfolio"><span class="num">01</span><span data-cms="nav.m1">포트폴리오</span><span class="en" data-cms="nav.m1en">제작사례</span></a></li>
       <li><a href="/process"><span class="num">02</span><span data-cms="nav.mp">제작 과정</span><span class="en" data-cms="nav.mpen">6단계 · 기간</span></a></li>
@@ -367,6 +373,7 @@
   const menuToggle=document.getElementById('menuToggle'),mGnb=document.getElementById('mGnb');
   const setMenu=open=>{menuToggle.classList.toggle('on',open);mGnb.classList.toggle('on',open);document.body.style.overflow=open?'hidden':''};
   menuToggle.addEventListener('click',()=>setMenu(!mGnb.classList.contains('on')));
+document.querySelectorAll('[data-menu-close]').forEach(b=>b.addEventListener('click',()=>setMenu(false)));
   mGnb.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>setMenu(false)));
 })();
 

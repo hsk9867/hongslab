@@ -104,6 +104,11 @@
     .m_gnb li a .num{font-family:var(--en);font-size:11px;letter-spacing:.2em;color:var(--red);font-weight:600}
     .m_gnb li a .en{font-size:11px;letter-spacing:.2em;color:var(--muted);font-weight:600;margin-left:auto}
     .m_gnb .foot{margin-top:40px;display:flex;flex-direction:column;gap:12px}
+    .m_gnb .m_back{position:absolute;left:24px;top:26px;display:inline-flex;align-items:center;gap:12px;height:40px;padding:0 16px 0 12px;border:1px solid var(--line);font-size:13px;font-weight:700;letter-spacing:-.01em;color:var(--black);background:#fff;transition:border-color var(--t),background var(--t),color var(--t)}
+    .m_gnb .m_back i{width:16px;height:16px;position:relative}
+    .m_gnb .m_back i:before{content:"";position:absolute;left:3px;top:4px;width:8px;height:8px;border-left:2px solid currentColor;border-bottom:2px solid currentColor;transform:rotate(45deg)}
+    .m_gnb .m_back i:after{content:"";position:absolute;left:3px;top:7px;width:12px;height:2px;background:currentColor}
+    .m_gnb .m_back:hover,.m_gnb .m_back:active{background:var(--black);border-color:var(--black);color:#fff}
 
     /* 제작 과정 */
     #band{background:var(--black);color:#fff;padding:calc(var(--header-h) + 80px) 0 70px;position:relative;overflow:hidden}
@@ -372,6 +377,7 @@
     </div>
   </div>
   <div class="m_gnb" id="mGnb">
+    <button type="button" class="m_back" data-menu-close aria-label="메뉴 닫고 돌아가기"><i aria-hidden="true"></i>뒤로가기</button>
     <ul>
       <li><a href="/portfolio"><span class="num">01</span><span data-cms="nav.m1">포트폴리오</span><span class="en" data-cms="nav.m1en">제작사례</span></a></li>
       <li><a href="/process"><span class="num">02</span><span data-cms="nav.mp">제작 과정</span><span class="en" data-cms="nav.mpen">6단계 · 기간</span></a></li>
@@ -496,7 +502,7 @@
             <ul><li data-cms="process.t3.1">페이지가 많거나 예약 · 게시판 · 관리자 화면 등 기능이 있는 구성</li><li data-cms="process.t3.2">페이지별 검색 설정</li><li data-cms="process.t3.3">웹앱 · 플랫폼은 기능 범위에 따라 상담 후 일정 안내</li></ul>
           </div>
         </div>
-        <p class="note" data-cms="process.period.note">어떤 상품이 맞는지는 상담에서 업종과 필요한 페이지를 듣고 함께 정합니다. 요금은 실속형 35만원, 기본형 70만원, 확장형 100만원이며, 모든 금액은 부가세 별도입니다.</p>
+        <p class="note" data-cms="process.period.note">어떤 상품이 맞는지는 상담에서 업종과 필요한 페이지를 듣고 함께 정합니다. 요금은 실속형 35만원~, 기본형 70만원~, 확장형 100만원~(시작 가격)이며, 페이지·기능에 따라 추가 비용이 있을 수 있고 모든 금액은 부가세 별도입니다.</p>
       </div>
     </section>
 
@@ -617,6 +623,7 @@
   const menuToggle=document.getElementById('menuToggle'),mGnb=document.getElementById('mGnb');
   const setMenu=open=>{menuToggle.classList.toggle('on',open);mGnb.classList.toggle('on',open);document.body.style.overflow=open?'hidden':''};
   menuToggle.addEventListener('click',()=>setMenu(!mGnb.classList.contains('on')));
+document.querySelectorAll('[data-menu-close]').forEach(b=>b.addEventListener('click',()=>setMenu(false)));
   mGnb.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>setMenu(false)));
 })();
 

@@ -104,6 +104,11 @@
     .m_gnb li a .num{font-family:var(--en);font-size:11px;letter-spacing:.2em;color:var(--red);font-weight:600}
     .m_gnb li a .en{font-size:11px;letter-spacing:.2em;color:var(--muted);font-weight:600;margin-left:auto}
     .m_gnb .foot{margin-top:40px;display:flex;flex-direction:column;gap:12px}
+    .m_gnb .m_back{position:absolute;left:24px;top:26px;display:inline-flex;align-items:center;gap:12px;height:40px;padding:0 16px 0 12px;border:1px solid var(--line);font-size:13px;font-weight:700;letter-spacing:-.01em;color:var(--black);background:#fff;transition:border-color var(--t),background var(--t),color var(--t)}
+    .m_gnb .m_back i{width:16px;height:16px;position:relative}
+    .m_gnb .m_back i:before{content:"";position:absolute;left:3px;top:4px;width:8px;height:8px;border-left:2px solid currentColor;border-bottom:2px solid currentColor;transform:rotate(45deg)}
+    .m_gnb .m_back i:after{content:"";position:absolute;left:3px;top:7px;width:12px;height:2px;background:currentColor}
+    .m_gnb .m_back:hover,.m_gnb .m_back:active{background:var(--black);border-color:var(--black);color:#fff}
 
     /* 견적 문의 */
     #band{background:var(--black);color:#fff;padding:calc(var(--header-h) + 80px) 0 70px;position:relative;overflow:hidden}
@@ -135,6 +140,8 @@
     .budget label:hover{border-color:var(--black)}
     .budget input{position:absolute;opacity:0;pointer-events:none}
     .budget input:checked+label{background:var(--black);border-color:var(--black);color:#fff}
+    .budget label small{display:block;margin-top:3px;font-size:11px;font-weight:500;color:var(--muted)}
+    .budget input:checked+label small{color:rgba(255,255,255,.7)}
     .tm-check{display:flex;gap:10px;align-items:flex-start;font-size:13px;color:#333;cursor:pointer;line-height:1.6}
     .tm-check input{margin-top:3px;accent-color:var(--black)}
     .privacy-note{margin-top:10px;font-size:12px;color:var(--muted);line-height:1.7}
@@ -303,6 +310,7 @@
     </div>
   </div>
   <div class="m_gnb" id="mGnb">
+    <button type="button" class="m_back" data-menu-close aria-label="메뉴 닫고 돌아가기"><i aria-hidden="true"></i>뒤로가기</button>
     <ul>
       <li><a href="/portfolio"><span class="num">01</span><span data-cms="nav.m1">포트폴리오</span><span class="en" data-cms="nav.m1en">제작사례</span></a></li>
       <li><a href="/process"><span class="num">02</span><span data-cms="nav.mp">제작 과정</span><span class="en" data-cms="nav.mpen">6단계 · 기간</span></a></li>
@@ -341,19 +349,19 @@
             <div class="tm-group">
               <span class="tm-label">예산 <span class="req">*</span></span>
               <div class="budget" role="radiogroup" aria-label="예산">
-                <span><input type="radio" name="budget" id="b1" value="30만원 이하"><label for="b1">30만원 이하</label></span>
-                <span><input type="radio" name="budget" id="b2" value="30~60만원"><label for="b2">30~60만원</label></span>
-                <span><input type="radio" name="budget" id="b3" value="60~100만원"><label for="b3">60~100만원</label></span>
-                <span><input type="radio" name="budget" id="b4" value="100~300만원"><label for="b4">100~300만원</label></span>
-                <span><input type="radio" name="budget" id="b5" value="300만원 이상"><label for="b5">300만원 이상</label></span>
-                <span><input type="radio" name="budget" id="b6" value="상담 후 결정"><label for="b6">상담 후 결정</label></span>
+                <span><input type="radio" name="budget" id="b1" value="35만원 내외 (실속형)"><label for="b1">35만원 내외<small>실속형 · 1페이지</small></label></span>
+                <span><input type="radio" name="budget" id="b2" value="70만원 내외 (기본형)"><label for="b2">70만원 내외<small>기본형 · 5페이지 이하</small></label></span>
+                <span><input type="radio" name="budget" id="b3" value="100만원 내외 (확장형)"><label for="b3">100만원 내외<small>확장형 · 5페이지 이상</small></label></span>
+                <span><input type="radio" name="budget" id="b4" value="100~300만원 (기능·웹앱)"><label for="b4">100~300만원<small>기능 · 웹앱</small></label></span>
+                <span><input type="radio" name="budget" id="b5" value="300만원 이상 (플랫폼)"><label for="b5">300만원 이상<small>플랫폼</small></label></span>
+                <span><input type="radio" name="budget" id="b6" value="상담 후 결정"><label for="b6">상담 후 결정<small>범위부터 상의</small></label></span>
               </div>
             </div>
           </div>
           <div class="step">
             <div class="st"><b>2단계</b><h2 data-cms="inq.s2.title">조금 더 자세히 남겨 주세요</h2><p data-cms="inq.s2.desc">적어 주실수록 견적이 정확해집니다 (선택)</p></div>
             <div class="tm-row">
-              <div class="tm-group"><label class="tm-label" for="interest">관심 상품</label><select class="tm-select" id="interest" name="interest"><option value="">상담 후 선택</option><option>실속형 (1페이지)</option><option>기본형 (5페이지 이하)</option><option>확장형 (5페이지 이상)</option><option>앱·웹앱 제작</option><option>기존 홈페이지 개선·SEO</option></select></div>
+              <div class="tm-group"><label class="tm-label" for="interest">관심 상품</label><select class="tm-select" id="interest" name="interest"><option value="">상담 후 선택</option><option>실속형 (1페이지 · 35만원~)</option><option>기본형 (5페이지 이하 · 70만원~)</option><option>확장형 (5페이지 이상 · 기능 · 100만원~)</option><option>앱·웹앱 제작 (상담 후 견적)</option><option>기존 홈페이지 개선·SEO (상담 후 견적)</option></select></div>
               <div class="tm-group"><label class="tm-label" for="site">현재 홈페이지 주소</label><input class="tm-input" id="site" name="site" type="text" inputmode="url" placeholder="있다면 입력 (예: hongslab.kr)"></div>
             </div>
             <div class="tm-group"><label class="tm-label" for="message">문의 내용</label><textarea class="tm-textarea" id="message" name="message" maxlength="1500" placeholder="업종, 필요한 페이지나 기능, 원하시는 공개 시점, 참고 사이트 등을 적어 주세요."></textarea></div>
@@ -453,6 +461,7 @@
   const menuToggle=document.getElementById('menuToggle'),mGnb=document.getElementById('mGnb');
   const setMenu=open=>{menuToggle.classList.toggle('on',open);mGnb.classList.toggle('on',open);document.body.style.overflow=open?'hidden':''};
   menuToggle.addEventListener('click',()=>setMenu(!mGnb.classList.contains('on')));
+document.querySelectorAll('[data-menu-close]').forEach(b=>b.addEventListener('click',()=>setMenu(false)));
   mGnb.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>setMenu(false)));
 })();
 
