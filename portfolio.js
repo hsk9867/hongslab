@@ -1,5 +1,6 @@
 /* 홍스랩 제작사례 목록 — index.html, portfolio.html 이 함께 사용 */
 const PORTFOLIO=[
+ ['https://라이칸짐.com/','라이칸짐 연수점 홈페이지','헬스장·피트니스'],
  ['http://xn--bj0bp80c9gb.com/','정글짐 내수점 홈페이지','헬스장·피트니스'],
  ['http://soksiwon-air.com/','속시원 에어컨 견적 웹앱','웹앱·서비스 업체'],
  ['https://www.woojunggift.com/','우정티켓 홈페이지','서비스 업체'],
@@ -20,4 +21,5 @@ const PORTFOLIO=[
  ['https://gunaminc.kr/','(주)구남종합인력 홈페이지','서비스 업체'],
  ['https://cheheompick.kr/','체험픽 웹앱','웹앱·플랫폼']
 ];
-const shot=(url,w)=>`https://s.wordpress.com/mshots/v1/${encodeURIComponent(url)}?w=${w}`;
+/* 한글 도메인은 mshots 가 거부(403)해서 직접 찍은 /shots/<punycode>.jpg 사용 */
+const shot=(url,w)=>{let h='';try{h=new URL(url).hostname}catch(e){}return /(^|\.)xn--/.test(h)?`/shots/${h}.jpg`:`https://s.wordpress.com/mshots/v1/${encodeURIComponent(url)}?w=${w}`};

@@ -173,7 +173,7 @@ export function portfolioJs(list) {
   const rows = (Array.isArray(list) ? list : [])
     .filter((p) => p && typeof p.url === 'string' && /^https?:\/\//.test(p.url) && p.name)
     .map((p) => ` [${JSON.stringify(p.url)},${JSON.stringify(String(p.name))},${JSON.stringify(String(p.cat || ''))}]`);
-  return `/* 홍스랩 제작사례 목록 — 관리자 페이지에서 편집한 내용 */\nconst PORTFOLIO=[\n${rows.join(',\n')}\n];\nconst shot=(url,w)=>\`https://s.wordpress.com/mshots/v1/\${encodeURIComponent(url)}?w=\${w}\`;\n`;
+  return `/* 홍스랩 제작사례 목록 — 관리자 페이지에서 편집한 내용 */\nconst PORTFOLIO=[\n${rows.join(',\n')}\n];\nconst shot=(url,w)=>{let h='';try{h=new URL(url).hostname}catch(e){}return /(^|\\.)xn--/.test(h)?\`/shots/\${h}.jpg\`:\`https://s.wordpress.com/mshots/v1/\${encodeURIComponent(url)}?w=\${w}\`};\n`;
 }
 
 // ---------- 방문 추적 ----------
