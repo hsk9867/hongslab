@@ -448,26 +448,6 @@
     @keyframes drift{0%{transform:translate(0,0) scale(1)}100%{transform:translate(-14vw,10vw) scale(1.18)}}
 
     /* ===== Process (제작 과정: 가운데 제목 · 가로 타임라인) ===== */
-    #process{background:var(--soft);padding:140px 0}
-    #process .phases{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-bottom:34px}
-    #process .phases>div{position:relative;padding:18px 22px 20px;background:#fff;border-left:3px solid var(--black)}
-    #process .phases>div:nth-child(2){border-left-color:var(--red)}
-    #process .phases i{display:block;font-family:var(--en);font-style:normal;font-size:11px;font-weight:700;letter-spacing:.2em;color:var(--muted)}
-    #process .phases b{display:block;margin-top:6px;font-size:19px;font-weight:800;letter-spacing:-.03em}
-    #process .phases small{display:block;margin-top:6px;font-size:13px;line-height:1.7;color:var(--muted)}
-    #process .timeline{position:relative}
-    #process .timeline ol{display:grid;grid-template-columns:repeat(6,1fr);gap:18px;padding-top:4px}
-    #process .timeline .line{position:absolute;left:0;right:0;top:21px;height:2px;background:linear-gradient(90deg,var(--black),var(--red));transform-origin:left center}
-    #process .timeline li{position:relative;padding:60px 6px 0 0}
-    #process .timeline li i{position:absolute;left:0;top:4px;width:36px;height:36px;border-radius:50%;background:var(--black);color:#fff;font-family:var(--en);font-style:normal;font-size:13px;font-weight:800;display:flex;align-items:center;justify-content:center;box-shadow:0 0 0 6px var(--soft)}
-    #process .timeline li:nth-child(3) i,#process .timeline li:nth-child(4) i{background:var(--red)}
-    #process .timeline li.last i{background:var(--red);box-shadow:0 0 0 6px var(--soft),0 0 0 7px var(--red)}
-    #process .timeline b{display:block;font-size:15.5px;font-weight:800;letter-spacing:-.02em;line-height:1.35}
-    #process .timeline small{display:block;margin-top:8px;font-size:12.5px;line-height:1.65;color:var(--muted)}
-    #process .note{margin-top:40px;padding-top:22px;border-top:1px solid var(--line);display:flex;flex-wrap:wrap;gap:10px 28px;font-size:13px;color:var(--muted)}
-    #process .note .more{margin-left:auto;font-weight:700;color:var(--black);text-decoration:underline;text-underline-offset:4px;text-decoration-color:var(--red)}
-    #process .note .more:hover{color:var(--red)}
-    #process .note span:before{content:"";display:inline-block;width:6px;height:6px;background:var(--red);margin-right:10px;vertical-align:middle}
 
     /* ===== SEO · AEO · GEO (black) ===== */
     #seo{background:var(--black);color:#fff;padding:140px 0;position:relative;overflow:hidden}
@@ -521,7 +501,7 @@
     #care .stats small{display:block;margin-top:4px;font-size:12.5px;line-height:1.6;color:var(--muted)}
 
     @media (max-width:1024px){
-      #hled .cols,#benefit .split,#process .phases,#seo .steps,#seo .check{grid-template-columns:1fr}
+      #hled .cols,#benefit .split,#seo .steps,#seo .check{grid-template-columns:1fr}
       #benefit .split{gap:36px}
       #benefit .big{display:none}
       /* 모바일: 성공 원이 위, 약속·비전 원이 아래 나란히 (글이 겹치지 않도록 원끼리는 가장자리만 닿는다) */
@@ -553,19 +533,13 @@
       #value .chips{flex-wrap:wrap;justify-content:center;gap:8px}
       #value .chips span{padding:8px 14px;font-size:12.5px}
       #value .wins p{margin-top:12px;font-size:13px}
-      #process .timeline ol{grid-template-columns:1fr;gap:0}
-      #process .timeline .line{left:17px;right:auto;top:0;bottom:0;width:2px;height:auto;transform-origin:center top;background:linear-gradient(180deg,var(--black),var(--red))}
-      #process .timeline .line.t-grow{transform:scaleY(0)}
-      #process .timeline .line.t-grow.in{transform:none}
-      #process .timeline li{padding:0 0 26px 58px}
-      #process .timeline li i{top:0}
       #seo .steps>div{border-right:0;border-bottom:1px solid rgba(255,255,255,.18)}
       #seo .steps>div:last-child{border-bottom:0}
       #care .grid{grid-template-columns:1fr;gap:40px}
       .sec-head.row{flex-direction:column;align-items:flex-start;gap:18px}
     }
     @media (max-width:768px){
-      #hled,#benefit,#process,#seo{padding:80px 0}
+      #hled,#benefit,#seo{padding:80px 0}
       #value{padding:80px 0 70px}
       .sec-head.center{text-align:left}
       .sec-head.center h2,.sec-head.center p{margin-left:0}
@@ -584,9 +558,6 @@
       #benefit .cost{grid-template-columns:1fr;padding:26px 22px;gap:20px}
       #benefit .cost .terms li{grid-template-columns:76px 1fr;padding:10px 12px;font-size:12.5px}
       #hled article .idx{font-size:64px;right:14px;top:4px}
-      #process .phases>div{padding:16px 18px}
-      #process .phases b{font-size:17px}
-      #process .note{gap:8px 20px;font-size:12px}
       #seo .steps>div{padding:22px 20px}
       #seo .check>div{padding:22px 20px}
       #seo .act{flex-direction:column;align-items:flex-start;padding:24px 20px}
@@ -609,7 +580,6 @@
       .page-snap #hled .quote{margin-top:4svh}
       .page-snap #value .txt{margin-top:2.6svh}
       .page-snap #benefit .cost{margin-top:3svh}
-      .page-snap #process .phases{margin-bottom:3svh}
       .page-snap #care .marquee{margin-bottom:4.5svh}
       .page-snap #seo .check,.page-snap #seo .act{margin-top:1.6svh}
       /* 검색·AI 노출: 한 화면에 축소 없이 들어가도록 스냅 모드에서 밀도를 높인다 */
@@ -632,7 +602,6 @@
       .page-snap #benefit .cost{padding:22px 30px}
       .page-snap #benefit .cost p{margin-top:8px;font-size:13px;line-height:1.6}
       .page-snap #benefit .cost .terms li{padding:9px 14px;font-size:13px}
-      .page-snap #process .note{margin-top:3svh}
       /* 배경 전환: 섹션 배경을 비우고 body 배경색을 JS가 스크롤 위치에 맞춰 섞는다 (이미지 배경인 hero·works 제외) */
       .has-secflow #content>section:not(#hero){background:transparent}
       /* 화면 진입 효과: 섹션이 화면 가운데로 들어올 때마다 내용이 떠오른다 */
@@ -653,14 +622,13 @@
     .t-stagger.in>*{opacity:1;transform:none}
     .t-pop{opacity:0;transform:scale(.55);transition:opacity .5s ease .3s,transform .9s cubic-bezier(.34,1.56,.64,1) .3s}
     .t-pop.in{opacity:1;transform:none}
-    #process .note span,#seo .check h4 i{display:inline-block}
     .t-letters span{display:inline-block;opacity:0;transform:translateY(.7em) rotate(8deg);transition:opacity .4s ease,transform .7s cubic-bezier(.16,1,.3,1);transition-delay:calc(var(--i,0)*.07s + .25s)}
     .t-letters.in span{opacity:1;transform:none}
     /* 강조어: 굵은 빨간 밑줄 바가 왼쪽에서 오른쪽으로 그어진다 */
     .t-mark .hl{position:relative;display:inline-block;padding:0 .04em .06em;background-image:linear-gradient(var(--red),var(--red))!important;background-repeat:no-repeat!important;background-position:0 100%!important;background-size:0 .16em!important;transition:background-size .8s cubic-bezier(.16,1,.3,1) .45s!important}
     .t-mark.in .hl{background-size:100% .16em!important}
     /* 호버 카드도 등장 효과(opacity·transform)가 부드럽게 보이도록 transition 통합 */
-    #hled article,#process .phases>div{transition:transform .6s cubic-bezier(.16,1,.3,1),opacity .7s ease,box-shadow .5s ease,border-color var(--t)}
+    #hled article{transition:transform .6s cubic-bezier(.16,1,.3,1),opacity .7s ease,box-shadow .5s ease,border-color var(--t)}
     #seo .steps>div{transition:background var(--t),opacity .7s ease,transform .8s cubic-bezier(.16,1,.3,1)}
     #contact .list a{transition:background var(--t),opacity .7s ease,transform .8s cubic-bezier(.16,1,.3,1)}
     /* 히어로: 슬라이드가 바뀔 때마다 아이브로우 자간 → 제목 단어 롤업 → 설명 블러 인 → 버튼 순으로 재생 */
@@ -966,34 +934,6 @@
       </div>
     </section>
 
-    <!-- ===== Process (제작 과정) ===== -->
-    <section id="process" aria-labelledby="process-title">
-      <div class="inner">
-        <div class="sec-head center">
-          <div class="eyebrow t-track">제작 순서</div>
-          <h2 class="reveal t-mark" id="process-title" data-cms="process.title" data-cms-fmt="rich">처음 맡기는 분도 알 수 있게,<br><span class="hl">여섯 단계</span>로 진행합니다</h2>
-          <p class="t-blur" data-cms="process.desc">지금 어느 단계인지 카카오톡으로 그때그때 알려드립니다. 확정한 견적과 일정은 바뀌지 않습니다.</p>
-        </div>
-        <div class="phases t-stagger">
-          <div><i class="t-track">STEP 1 – 2</i><b data-cms="process.c1.title">시작하기</b><small data-cms="process.c1.desc">상담으로 범위와 견적을 먼저 확정합니다.</small></div>
-          <div><i class="t-track">STEP 3 – 4</i><b data-cms="process.c2.title">만들기</b><small data-cms="process.c2.desc">자료 접수 후 제작하고, 미리보기로 중간 점검합니다.</small></div>
-          <div><i class="t-track">STEP 5 – 6</i><b data-cms="process.c3.title">공개하기</b><small data-cms="process.c3.desc">검수 후 공개하고, 1개월간 수정이 무제한입니다.</small></div>
-        </div>
-        <div class="timeline">
-          <i class="line t-grow" aria-hidden="true"></i>
-          <ol class="t-stagger">
-          <li><i class="t-pop">1</i><b data-cms="process.s1.t">무료 상담</b><small data-cms="process.s1.d">업종 · 필요한 페이지 · 공개 시점 확인</small></li>
-          <li><i class="t-pop">2</i><b data-cms="process.s2.t">범위 · 견적 확정</b><small data-cms="process.s2.d">범위를 정리하고 견적 · 일정 확정</small></li>
-          <li><i class="t-pop">3</i><b data-cms="process.s3.t">자료 접수 · 제작 착수</b><small data-cms="process.s3.d">글 · 사진 · 착수금 접수일부터 기간 계산</small></li>
-          <li><i class="t-pop">4</i><b data-cms="process.s4.t">제작 · 미리보기</b><small data-cms="process.s4.d">실속형 3~5 · 기본형 5~10 · 확장형 10~15영업일</small></li>
-          <li><i class="t-pop">5</i><b data-cms="process.s5.t">검수 · 수정</b><small data-cms="process.s5.d">PC · 모바일 검수, 공개 후 1개월 무제한 수정</small></li>
-          <li class="last"><i class="t-pop">6</i><b data-cms="process.s6.t">공개 · 검색 등록</b><small data-cms="process.s6.d">도메인 연결, 네이버 · 구글 검색 등록 지원</small></li>
-          </ol>
-        </div>
-        <div class="note t-stagger"><span data-cms="process.n1">모든 금액은 부가세 별도</span><span data-cms="process.n2">제작 기간은 자료·착수금 접수일부터 계산</span><span data-cms="process.n3">전체 디자인 변경·기능 추가는 별도 견적</span><span data-cms="process.n4">매일 07:00~22:00 상담</span><a class="more" href="/process" data-cms="process.more">단계별 자세한 안내 →</a></div>
-      </div>
-    </section>
-
     <!-- ===== SEO · AEO · GEO ===== -->
     <section id="seo" aria-labelledby="seo-title">
       <div class="inner">
@@ -1267,7 +1207,7 @@ else{
     b.addEventListener('mouseleave',()=>{b.style.transform=''});
   });
   /* 카드 스포트라이트 + 3D 기울임 */
-  document.querySelectorAll('#hled article,#process .phases>div,#care .stats>div').forEach(c=>c.classList.add('spot'));
+  document.querySelectorAll('#hled article,#care .stats>div').forEach(c=>c.classList.add('spot'));
   document.querySelectorAll('.spot').forEach(c=>{
     const tilt=c.matches('#hled article');
     c.addEventListener('mousemove',e=>{const r=c.getBoundingClientRect(),px=(e.clientX-r.left)/r.width,py=(e.clientY-r.top)/r.height;c.style.setProperty('--mx',(px*100).toFixed(1)+'%');c.style.setProperty('--my',(py*100).toFixed(1)+'%');if(tilt){c.style.setProperty('--ry',((px-.5)*6).toFixed(2)+'deg');c.style.setProperty('--rx',((.5-py)*6).toFixed(2)+'deg')}});
@@ -1279,7 +1219,7 @@ else{
 document.querySelectorAll('#header .gnb a').forEach(a=>{if(a.querySelector('.t'))return;const t=a.textContent.trim();a.textContent='';const s=document.createElement('span');s.className='t';const i=document.createElement('i');i.dataset.t=t;i.textContent=t;s.appendChild(i);a.appendChild(s)});
 
 /* ===== 제목 단어 분리 (타이포 효과) ===== */
-document.querySelectorAll('#value h2,#contact h2,#hled h2,#benefit h2,#process h2,#seo h2,#care h2,#hled .quote,#benefit .cost h3,#seo .check h3,#seo .act p,#heroSlides .h').forEach(h=>{
+document.querySelectorAll('#value h2,#contact h2,#hled h2,#benefit h2,#seo h2,#care h2,#hled .quote,#benefit .cost h3,#seo .check h3,#seo .act p,#heroSlides .h').forEach(h=>{
   h.classList.add('fx');let k=0;const base=h.closest('#hero')?.3:0;
   const walk=n=>{[...n.childNodes].forEach(c=>{
     if(c.nodeType===3){
