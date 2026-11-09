@@ -357,8 +357,7 @@
 
     /* ===== 포트폴리오 2줄 슬라이드 (제작 분야 위, white): 윗줄은 왼쪽으로 · 아랫줄은 오른쪽으로 계속 흐르고, 마우스를 올리면 멈춘다 ===== */
     #pfmq{--cw:230px;background:#fff;padding:110px 0;overflow:hidden}
-    #pfmq .sec-head{margin-bottom:32px}
-    #pfmq .sec-head .btn{flex-shrink:0}
+    #pfmq .pf-more{margin-top:34px;text-align:center}
     #pfmq .pf-rows{display:flex;flex-direction:column;gap:14px}
     #pfmq .pf-rows .row{display:flex;width:max-content;animation:mq 80s linear infinite}
     #pfmq .pf-rows .row.rev{animation-direction:reverse}
@@ -373,7 +372,7 @@
     #pfmq .pf-card:hover img{transform:scale(1.05)}
     @media (max-width:768px){
       #pfmq{--cw:190px;padding:64px 0}
-      #pfmq .sec-head{margin-bottom:22px}
+      #pfmq .pf-more{margin-top:24px}
       #pfmq .pf-rows{gap:10px}
       #pfmq .pf-card{margin-right:10px}
       #pfmq .pf-card .tx{padding:9px 11px 10px}
@@ -384,6 +383,7 @@
 
     /* ===== Service (하는 일: 홈페이지 · 쇼핑몰 · 앱 · 업무 시스템 네 칸, soft gray) — 한 화면에 들어가도록 간결하게 ===== */
     #service{background:var(--soft);padding:120px 0}
+    #service .sec-head h2{margin-top:0}
     #service .cards{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--black);border-left:1px solid var(--black)}
     #service .cards li{border-right:1px solid var(--black);border-bottom:1px solid var(--black);background:#fff}
     #service .cards a{position:relative;display:flex;flex-direction:column;height:100%;padding:26px 26px 22px;overflow:hidden;color:var(--black);transition:color .45s ease}
@@ -545,8 +545,8 @@
       .page-snap .sec-head h2,.page-snap #care .l h2{margin-top:1.8svh;font-size:clamp(30px,5svh,52px)}
       .page-snap .sec-head p{margin-top:1.6svh}
       .page-snap #hled .quote{margin-top:4svh}
-      .page-snap #pfmq{--cw:clamp(190px,31svh,360px)}
-      .page-snap #pfmq .sec-head{margin-bottom:3svh}
+      .page-snap #pfmq{--cw:clamp(190px,34svh,380px)}
+      .page-snap #pfmq .pf-more{margin-top:3.6svh}
       .page-snap #pfmq .pf-rows{opacity:0;transform:translateY(48px);transition:opacity .9s ease .15s,transform 1s cubic-bezier(.16,1,.3,1) .15s}
       .page-snap #pfmq.is-on .pf-rows{opacity:1;transform:none}
       .page-snap #service .cards a{min-height:min(330px,38svh)}
@@ -700,26 +700,26 @@
     @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.rise,.reveal{opacity:1;transform:none}#loader{display:none}#hero .particles{display:none}.fx .w i{transform:none!important}.fx .hl{background-size:100% .1em!important}}
     /* ===== 첫 화면 정리(2026-11-09): 부제목 · 버튼 없이 제목만 왼쪽 아래에, 오른쪽 가운데에는 제작 혜택 바로가기 ===== */
     #hero .inner{justify-content:flex-end;padding-bottom:clamp(150px,21vh,230px)}
-    #hero .perk{position:absolute;right:0;top:46%;z-index:3;width:176px;height:176px;margin-top:-88px;border-radius:50%;background:var(--red);color:#fff;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;text-align:center;box-shadow:0 24px 50px rgba(230,48,39,.35);opacity:0;transform:scale(.8);transition:opacity .7s ease,transform .8s cubic-bezier(.34,1.56,.64,1),background var(--t)}
+    #hero .perk{position:absolute;right:0;top:46%;z-index:3;width:136px;height:136px;margin-top:-68px;border-radius:50%;background:var(--red);color:#fff;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;text-align:center;box-shadow:0 24px 50px rgba(230,48,39,.35);opacity:0;transform:scale(.8);transition:opacity .7s ease,transform .8s cubic-bezier(.34,1.56,.64,1),background var(--t)}
     .hero-ready #hero .perk{opacity:1;transform:none;transition-delay:.9s,.9s,0s}
     .hero-ready #hero .perk:hover,.hero-ready #hero .perk:focus-visible{transform:scale(1.07);background:var(--red-dark);transition-delay:0s;outline:0}
-    #hero .perk:before{content:"";position:absolute;inset:-11px;border-radius:50%;border:1px dashed rgba(255,255,255,.5);animation:perkSpin 40s linear infinite}
+    #hero .perk:before{content:"";position:absolute;inset:-9px;border-radius:50%;border:1px dashed rgba(255,255,255,.5);animation:perkSpin 40s linear infinite}
     #hero .perk:after{content:"";position:absolute;inset:0;border-radius:50%;border:2px solid var(--red);animation:perkPulse 2.8s ease-out infinite;pointer-events:none}
     @keyframes perkSpin{to{transform:rotate(360deg)}}
     @keyframes perkPulse{0%{transform:scale(1);opacity:.7}100%{transform:scale(1.42);opacity:0}}
-    #hero .perk small{font-size:12px;font-weight:700;letter-spacing:.1em;opacity:.92}
-    #hero .perk b{font-size:33px;font-weight:800;letter-spacing:-.04em;line-height:1.1}
-    #hero .perk span{font-size:14px;font-weight:700;letter-spacing:-.01em}
-    #hero .perk i{font-family:var(--en);font-style:normal;font-size:16px;line-height:1;margin-top:3px;transition:transform var(--t)}
+    #hero .perk small{font-size:10.5px;font-weight:700;letter-spacing:.08em;opacity:.92}
+    #hero .perk b{font-size:25px;font-weight:800;letter-spacing:-.04em;line-height:1.1}
+    #hero .perk span{font-size:12px;font-weight:700;letter-spacing:-.01em}
+    #hero .perk i{font-family:var(--en);font-style:normal;font-size:14px;line-height:1;margin-top:2px;transition:transform var(--t)}
     #hero .perk:hover i{transform:translateX(5px)}
     @media (max-width:768px){
       #hero .inner{padding-bottom:152px}
-      #hero .perk{top:40%;width:124px;height:124px;margin-top:-62px;gap:1px}
-      #hero .perk:before{inset:-8px}
-      #hero .perk small{font-size:10px}
-      #hero .perk b{font-size:23px}
-      #hero .perk span{font-size:11.5px}
-      #hero .perk i{font-size:13px;margin-top:1px}
+      #hero .perk{top:40%;width:100px;height:100px;margin-top:-50px;gap:0}
+      #hero .perk:before{inset:-7px}
+      #hero .perk small{font-size:9px}
+      #hero .perk b{font-size:19px}
+      #hero .perk span{font-size:10px}
+      #hero .perk i{font-size:11px;margin-top:1px}
     }
     /* 메뉴가 7개(모바일 8개)로 늘어 간격을 조정 */
     #header .gnb{white-space:nowrap} /* 가운데 고정(left:50%) 이라 줄바꿈을 막지 않으면 폭이 절반으로 제한돼 두 줄이 된다 */
@@ -796,18 +796,13 @@
       <div class="bottom"><div class="inner"><div class="dots" id="heroDots" role="tablist" aria-label="메인 메시지"><button type="button" class="on" aria-label="1번 메시지">01<i></i></button><button type="button" aria-label="2번 메시지">02<i></i></button><button type="button" aria-label="3번 메시지">03<i></i></button></div><div class="scroll">아래로</div></div></div>
     </section>
 
-    <!-- ===== 포트폴리오 2줄 슬라이드 (제작 분야 바로 위, 사례는 portfolio.js 의 PORTFOLIO 를 그대로 씀) ===== -->
+    <!-- ===== 포트폴리오 2줄 슬라이드 (제작 분야 바로 위, 제목 없이 썸네일 두 줄 + 아래 가운데 전체 보기 버튼. 사례는 portfolio.js 의 PORTFOLIO) ===== -->
     <section id="pfmq" aria-labelledby="pfmq-title">
-      <div class="inner">
-        <div class="sec-head row">
-          <div>
-            <div class="eyebrow t-track">포트폴리오</div>
-            <h2 class="reveal t-mark" id="pfmq-title" data-cms="pfmq.title" data-cms-fmt="rich">홍스랩이 만든 <span class="hl">홈페이지</span></h2>
-          </div>
-          <a class="btn reveal" href="/portfolio"><span class="ko" data-cms="pfmq.btn">전체 사례 보기</span><span class="ar">→</span></a>
-        </div>
-      </div>
+      <h2 class="sr" id="pfmq-title">포트폴리오</h2>
       <div class="pf-rows" id="pfRows"></div>
+      <div class="inner">
+        <div class="pf-more"><a class="btn" href="/portfolio"><span class="ko" data-cms="pfmq.btn">포트폴리오 전체 보기</span><span class="ar">→</span></a></div>
+      </div>
     </section>
 
     <!-- ===== Service (홍스랩이 하는 일: 홈페이지 · 쇼핑몰 · 앱 · 업무 시스템, 첫 화면 바로 아래) ===== -->
@@ -815,10 +810,8 @@
       <div class="inner">
         <div class="sec-head row">
           <div>
-            <div class="eyebrow t-track">제작 분야</div>
-            <h2 class="reveal t-mark" id="service-title" data-cms="service.title" data-cms-fmt="rich">홍스랩이 <span class="hl">하는 일</span></h2>
+            <h2 class="reveal t-mark" id="service-title" data-cms="service.title" data-cms-fmt="rich">제작 <span class="hl">분야</span></h2>
           </div>
-          <p class="t-blur" data-cms="service.desc" data-cms-fmt="rich">알리는 홈페이지부터 일을 덜어 주는 업무 시스템까지, 필요한 만큼 맞춤으로 만듭니다.</p>
         </div>
         <ul class="cards t-stagger">
           <li><a href="/price" title="홈페이지 요금 보기">
@@ -861,7 +854,6 @@
             <div class="eyebrow t-track">홍스랩이 일하는 방식</div>
             <h2 class="reveal t-mark" id="hled-title" data-cms="hled.title" data-cms-fmt="rich">작은 부분까지 신경 써야,<br><span class="hl">가치가 제대로</span> 전달됩니다</h2>
           </div>
-          <p class="t-blur" data-cms="hled.desc" data-cms-fmt="rich">홈페이지는 손님이 연락하는 날 제 역할을 합니다. 기획부터 공개 후 관리까지 한 사람이 끝까지 챙깁니다.</p>
         </div>
         <div class="cols">
           <article class="reveal"><i class="idx" aria-hidden="true">01</i>
@@ -938,8 +930,7 @@
       <div class="inner">
         <div class="grid">
           <div class="l">
-            <div class="eyebrow t-track">무료 상담</div>
-            <h2 class="reveal" style="margin-top:28px" data-cms="contact.title">무료 상담</h2>
+            <h2 class="reveal" data-cms="contact.title">무료 상담</h2>
             <span class="redline"></span>
             <p class="t-blur" data-cms="contact.desc" data-cms-fmt="rich">업종, 필요한 페이지, 원하시는 공개 시점만 알려주세요.<br>사업에 맞는 상품과 예상 견적을 먼저 안내해 드립니다.<br>상담은 무료이며, 카카오톡 채널로 가장 빠르게 확인합니다.</p>
             <div class="reveal"><button type="button" class="btn fill js-open-inquiry"><span class="ko" data-cms="contact.btn">무료 상담 신청서 작성</span><span class="ar">→</span></button></div>
@@ -1186,7 +1177,7 @@ else{
 document.querySelectorAll('#header .gnb a').forEach(a=>{if(a.querySelector('.t'))return;const t=a.textContent.trim();a.textContent='';const s=document.createElement('span');s.className='t';const i=document.createElement('i');i.dataset.t=t;i.textContent=t;s.appendChild(i);a.appendChild(s)});
 
 /* ===== 제목 단어 분리 (타이포 효과) ===== */
-document.querySelectorAll('#pfmq h2,#service h2,#contact h2,#hled h2,#seo h2,#care h2,#hled .quote,#seo .check h3,#seo .act p,#heroSlides .h').forEach(h=>{
+document.querySelectorAll('#service h2,#contact h2,#hled h2,#seo h2,#care h2,#hled .quote,#seo .check h3,#seo .act p,#heroSlides .h').forEach(h=>{
   h.classList.add('fx');let k=0;const base=h.closest('#hero')?.3:0;
   const walk=n=>{[...n.childNodes].forEach(c=>{
     if(c.nodeType===3){
