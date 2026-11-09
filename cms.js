@@ -169,11 +169,14 @@ export function transformHtml(res, s, { path, track, setVid, secure }) {
   return new Response(out.body, { status: out.status, headers: h });
 }
 
+// mshots 가 거부(403)하는 영문 도메인 — /shots/<host>.jpg 직접 캡처본 사용 (portfolio.js 와 같게 유지)
+const LOCAL_SHOTS = ['teamjjfitness.co.kr'];
+
 export function portfolioJs(list) {
   const rows = (Array.isArray(list) ? list : [])
     .filter((p) => p && typeof p.url === 'string' && /^https?:\/\//.test(p.url) && p.name)
     .map((p) => ` [${JSON.stringify(p.url)},${JSON.stringify(String(p.name))},${JSON.stringify(String(p.cat || ''))}]`);
-  return `/* 홍스랩 제작사례 목록 — 관리자 페이지에서 편집한 내용 */\nconst PORTFOLIO=[\n${rows.join(',\n')}\n];\nconst shot=(url,w)=>{let h='';try{h=new URL(url).hostname}catch(e){}return /(^|\\.)xn--/.test(h)?\`/shots/\${h}.jpg\`:\`https://s.wordpress.com/mshots/v1/\${encodeURIComponent(url)}?w=\${w}\`};\n`;
+  return `/* 홍스랩 제작사례 목록 — 관리자 페이지에서 편집한 내용 */\nconst PORTFOLIO=[\n${rows.join(',\n')}\n];\nconst LOCAL_SHOTS=${JSON.stringify(LOCAL_SHOTS)};\nconst shot=(url,w)=>{let h='';try{h=new URL(url).hostname}catch(e){}return (/(^|\\.)xn--/.test(h)||LOCAL_SHOTS.includes(h))?\`/shots/\${h}.jpg\`:\`https://s.wordpress.com/mshots/v1/\${encodeURIComponent(url)}?w=\${w}\`};\n`;
 }
 
 // ---------- 방문 추적 ----------
