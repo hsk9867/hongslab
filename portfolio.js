@@ -1,5 +1,6 @@
 /* 홍스랩 제작사례 목록 — index.html, portfolio.html 이 함께 사용 */
 const PORTFOLIO=[
+ ['https://hsk9867.github.io/oreumone/','휘트니스 오름 홈페이지','헬스장·피트니스'],
  ['https://척척박사시스템에어컨.com/','척척박사 시스템에어컨 홈페이지','서비스 업체'],
  ['https://teamjjfitness.co.kr/','팀JJ피트니스 홈페이지','헬스장·피트니스'],
  ['https://제주하수구제왕.com/','제주 하수구 제왕 홈페이지','서비스 업체'],
