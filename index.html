@@ -914,7 +914,7 @@
       #hero .perk i{font-size:11px;margin-top:1px}
     }
     /* ===== 화려한 효과(2026-11-09) =====
-       첫 화면: 색 번짐(오로라) · 흐르는 대형 윤곽 글자 · 마우스 시차 · 강조어 광택 / 전체: 커서 빛 · 클릭 물결
+       첫 화면: 색 번짐(오로라) · 마우스 시차 · 강조어 광택 / 전체: 커서 빛 · 클릭 물결
        하는 일 카드: 3D 기울임 · 아이콘 선 그리기 / 포트폴리오: 양끝 흐림 · 사진 광택 / 검색 섹션: 도는 테두리 빛 · 흐르는 점 격자 / 상담 줄: 검정 채움 */
     #hero .aurora{position:absolute;inset:0;overflow:hidden;pointer-events:none;translate:calc(var(--px,0)*-26px) calc(var(--py,0)*-18px)}
     #hero .aurora i{position:absolute;border-radius:50%;will-change:transform}
@@ -924,9 +924,6 @@
     @keyframes au1{to{transform:translate(16vw,12vw) scale(1.2)}}
     @keyframes au2{to{transform:translate(-18vw,-10vw) scale(1.25)}}
     @keyframes au3{to{transform:translate(-14vw,10vh) scale(.8)}}
-    #hero .bigmq{position:absolute;left:0;right:0;top:calc(var(--header-h) + 5vh);overflow:hidden;pointer-events:none;translate:calc(var(--px,0)*36px) 0}
-    #hero .bigmq div{display:flex;width:max-content;animation:mq 70s linear infinite}
-    #hero .bigmq span{flex:none;padding-right:.3em;font-family:var(--en);font-weight:800;font-size:clamp(84px,14vw,230px);line-height:1;letter-spacing:-.04em;color:transparent;-webkit-text-stroke:1px rgba(255,255,255,.085);white-space:nowrap}
     #hero .slides{translate:calc(var(--px,0)*16px) calc(var(--py,0)*10px)}
     #hero .perk{translate:calc(var(--px,0)*-22px) calc(var(--py,0)*-16px)}
     .hero-ready #hero .slide.on .h .hl i{background:linear-gradient(100deg,var(--red) 0%,var(--red) 38%,#ffb9ae 50%,var(--red) 62%,var(--red) 100%) 0 0/260% 100%;-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;animation:sheen 3.4s linear infinite}
@@ -962,7 +959,7 @@
     #contact .list a:hover b,#contact .list a:hover .ar{color:#fff}
     #contact .list a:hover small{color:rgba(255,255,255,.7)}
     #contact .list a:hover .ic:not(.kakao){border-color:#fff;color:#fff}
-    @media (prefers-reduced-motion:reduce){#hero .aurora,#hero .bigmq,#glow{display:none!important}.hero-ready #hero .slide.on .h .hl i{-webkit-text-fill-color:currentColor;background:none}}
+    @media (prefers-reduced-motion:reduce){#hero .aurora,#glow{display:none!important}.hero-ready #hero .slide.on .h .hl i{-webkit-text-fill-color:currentColor;background:none}}
 
     /* 메뉴가 7개(모바일 8개)로 늘어 간격을 조정 */
     #header .gnb{white-space:nowrap} /* 가운데 고정(left:50%) 이라 줄바꿈을 막지 않으면 폭이 절반으로 제한돼 두 줄이 된다 */
@@ -1018,7 +1015,6 @@
       <div class="aurora" aria-hidden="true"><i></i><i></i><i></i></div>
       <canvas class="particles" id="particles" aria-hidden="true"></canvas>
       <div class="shade"></div>
-      <div class="bigmq" aria-hidden="true"><div><span>HOMEPAGE · SHOP · APP · SYSTEM · </span><span>HOMEPAGE · SHOP · APP · SYSTEM · </span></div></div>
       <div class="inner">
         <div class="side" data-cms="site.tagline">웹 · 앱 제작 스튜디오</div>
         <div class="corner" data-cms="hero.corner">홍스랩 · 맞춤형 웹·앱 제작</div>
