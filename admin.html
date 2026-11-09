@@ -688,6 +688,7 @@ const GROUPS = [
   ['nav', '메뉴 · 상단 버튼', ''],
   ['hero', '메인 · 첫 화면 슬라이드', '세 개의 메시지가 번갈아 나옵니다.'],
   ['value', '메인 · 가치 섹션 (약속 · 성공 · 비전)', ''],
+  ['pfmq', '메인 · 포트폴리오 슬라이드', '제작 분야 위에서 두 줄로 흐르는 사례 묶음의 제목과 버튼 글자입니다. 사례 목록 자체는 "포트폴리오" 메뉴에서 편집합니다.'],
   ['service', '메인 · 하는 일 섹션', '홈페이지 · 쇼핑몰 · 앱 · 업무 시스템 네 칸입니다. 칸을 누르면 가는 주소는 제작자가 바꿉니다.'],
   ['why', '메인 · 검색/AI 노출 섹션', ''],
   ['contact', '메인 · 상담 섹션', ''],
@@ -706,7 +707,7 @@ const GROUPS = [
 const LABELS = {
   'site.phone': '전화번호 (화면 표시)', 'site.email': '이메일', 'site.kakao': '카카오톡 채널 주소 (URL)', 'site.tagline': '로고 아래 문구', 'site.ceo': '대표자', 'site.bizno': '사업자등록번호', 'site.name': '상호',
   'nav.portfolio': '메뉴 1', 'nav.process': '메뉴 (제작 과정)', 'nav.price': '메뉴 (가격 안내)', 'nav.perks': '메뉴 (제작 혜택)', 'nav.mperks': '모바일 메뉴 (제작 혜택)', 'nav.mperksen': '모바일 메뉴 (제작 혜택) 부제', 'footer.lperks': '사이트맵 링크 (제작 혜택)', 'nav.seo': '메뉴 2', 'nav.faq': '메뉴 3', 'nav.contact': '메뉴 4', 'nav.cta': '상단 빨간 버튼', 'nav.mbtn': '모바일 메뉴 하단 버튼',
-  'hero.corner': '왼쪽 위 작은 문구', 'hero.btn2': '흰색 버튼 (세 슬라이드 공통)',
+  'hero.corner': '왼쪽 위 작은 문구', 'hero.perk.label': '혜택 버튼 작은 글자', 'hero.perk.amt': '혜택 버튼 금액', 'hero.perk.text': '혜택 버튼 아래 글자', 'hero.btn2': '흰색 버튼 (세 슬라이드 공통)',
   'value.title': '가치 제목', 'value.core': '가운데 원 위 라벨', 'value.two': '두 가지 성공 문구', 'value.w1': '왼쪽 칩', 'value.w2': '오른쪽 칩', 'value.w.d': '칩 아래 설명', 'value.a.t': '약속 제목', 'value.a.d': '약속 설명', 'value.c.t': '비전 제목', 'value.c.d': '비전 설명', 'price.title': '요금 제목', 'price.desc': '요금 설명', 'price.p1.n': '상품 1 이름', 'price.p1.amt': '상품 1 금액(숫자만, 만원)', 'price.p2.n': '상품 2 이름', 'price.p2.amt': '상품 2 금액(숫자만, 만원)', 'price.p2.tag': '상품 2 꼬리표', 'price.p3.n': '상품 3 이름', 'price.p3.amt': '상품 3 금액(숫자만, 만원)', 'why.seo.title': '제작 기준 제목', 'why.seo.desc': '제작 기준 설명', 'why.act.text': 'SEO 점검 유도 문구', 'why.act.btn': 'SEO 점검 버튼',
   'contact.title': '제목', 'contact.desc': '설명', 'contact.btn': '버튼', 'contact.kakao.title': '카카오톡 항목 제목', 'contact.kakao.sub': '카카오톡 항목 설명', 'contact.tel.title': '전화 항목 제목', 'contact.mail.title': '이메일 항목 제목',
   'modal.title': '팝업 제목', 'modal.foot.title': '왼쪽 하단 제목', 'modal.foot.text': '왼쪽 하단 설명',
@@ -736,6 +737,8 @@ function labelFor(key) {
     if ((n = k.match(/^scope\.(\d)\.(t|d)$/))) return `포함 범위 ${n[1]}번 칸 ${n[2] === 't' ? '제목' : '설명'}`;
     if ((n = k.match(/^q(\d)\.(q|a)$/))) return `질문 ${n[1]} ${n[2] === 'q' ? '질문' : '답변'}`;
   }
+  if (key === 'pfmq.title') return '슬라이드 제목';
+  if (key === 'pfmq.btn') return '전체 보기 버튼';
   if (key === 'service.title') return '하는 일 제목';
   if (key === 'service.desc') return '하는 일 설명';
   if ((m = key.match(/^service\.(\d)\.(t|d|go|k(\d))$/))) return `${m[1]}번 칸 ${m[3] ? '꼬리표 ' + m[3] : { t: '이름', d: '설명', go: '아래 버튼 글자' }[m[2]]}`;

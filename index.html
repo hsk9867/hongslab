@@ -355,6 +355,33 @@
     .sec-head.row{display:flex;align-items:flex-end;justify-content:space-between;gap:40px}
     .sec-head.row p{margin-top:0;max-width:440px}
 
+    /* ===== 포트폴리오 2줄 슬라이드 (제작 분야 위, white): 윗줄은 왼쪽으로 · 아랫줄은 오른쪽으로 계속 흐르고, 마우스를 올리면 멈춘다 ===== */
+    #pfmq{--cw:230px;background:#fff;padding:110px 0;overflow:hidden}
+    #pfmq .sec-head{margin-bottom:32px}
+    #pfmq .sec-head .btn{flex-shrink:0}
+    #pfmq .pf-rows{display:flex;flex-direction:column;gap:14px}
+    #pfmq .pf-rows .row{display:flex;width:max-content;animation:mq 80s linear infinite}
+    #pfmq .pf-rows .row.rev{animation-direction:reverse}
+    #pfmq .pf-rows:hover .row,#pfmq .pf-rows:focus-within .row{animation-play-state:paused}
+    #pfmq .pf-card{flex:none;width:var(--cw);margin-right:14px;display:block;border:1px solid var(--line);background:#fff;color:var(--black);transition:border-color var(--t),transform var(--t),box-shadow var(--t)}
+    #pfmq .pf-card .ph{display:block;aspect-ratio:4/3;overflow:hidden;background:var(--soft)}
+    #pfmq .pf-card img{width:100%;height:100%;object-fit:cover;object-position:top;display:block;transition:transform .6s cubic-bezier(.16,1,.3,1)}
+    #pfmq .pf-card .tx{display:flex;align-items:baseline;justify-content:space-between;gap:10px;padding:11px 14px 12px;border-top:1px solid var(--line)}
+    #pfmq .pf-card b{min-width:0;font-size:14px;font-weight:700;letter-spacing:-.02em;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+    #pfmq .pf-card small{flex-shrink:0;font-size:10.5px;font-weight:700;letter-spacing:-.01em;color:var(--red);white-space:nowrap}
+    #pfmq .pf-card:hover,#pfmq .pf-card:focus-visible{border-color:var(--black);transform:translateY(-4px);box-shadow:0 18px 36px rgba(0,0,0,.12);outline:0}
+    #pfmq .pf-card:hover img{transform:scale(1.05)}
+    @media (max-width:768px){
+      #pfmq{--cw:190px;padding:64px 0}
+      #pfmq .sec-head{margin-bottom:22px}
+      #pfmq .pf-rows{gap:10px}
+      #pfmq .pf-card{margin-right:10px}
+      #pfmq .pf-card .tx{padding:9px 11px 10px}
+      #pfmq .pf-card b{font-size:13px}
+      #pfmq .pf-card small{display:none}
+    }
+    @media (prefers-reduced-motion:reduce){#pfmq .pf-rows .row{animation:none}#pfmq .pf-rows{overflow-x:auto}}
+
     /* ===== Service (하는 일: 홈페이지 · 쇼핑몰 · 앱 · 업무 시스템 네 칸, soft gray) — 한 화면에 들어가도록 간결하게 ===== */
     #service{background:var(--soft);padding:120px 0}
     #service .cards{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--black);border-left:1px solid var(--black)}
@@ -518,6 +545,10 @@
       .page-snap .sec-head h2,.page-snap #care .l h2{margin-top:1.8svh;font-size:clamp(30px,5svh,52px)}
       .page-snap .sec-head p{margin-top:1.6svh}
       .page-snap #hled .quote{margin-top:4svh}
+      .page-snap #pfmq{--cw:clamp(190px,31svh,360px)}
+      .page-snap #pfmq .sec-head{margin-bottom:3svh}
+      .page-snap #pfmq .pf-rows{opacity:0;transform:translateY(48px);transition:opacity .9s ease .15s,transform 1s cubic-bezier(.16,1,.3,1) .15s}
+      .page-snap #pfmq.is-on .pf-rows{opacity:1;transform:none}
       .page-snap #service .cards a{min-height:min(330px,38svh)}
       .page-snap #care .marquee{margin-bottom:4.5svh}
       .page-snap #seo .check,.page-snap #seo .act{margin-top:1.6svh}
@@ -667,6 +698,29 @@
       #footer .bottom{font-size:10px}
     }
     @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.rise,.reveal{opacity:1;transform:none}#loader{display:none}#hero .particles{display:none}.fx .w i{transform:none!important}.fx .hl{background-size:100% .1em!important}}
+    /* ===== 첫 화면 정리(2026-11-09): 부제목 · 버튼 없이 제목만 왼쪽 아래에, 오른쪽 가운데에는 제작 혜택 바로가기 ===== */
+    #hero .inner{justify-content:flex-end;padding-bottom:clamp(150px,21vh,230px)}
+    #hero .perk{position:absolute;right:0;top:46%;z-index:3;width:176px;height:176px;margin-top:-88px;border-radius:50%;background:var(--red);color:#fff;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;text-align:center;box-shadow:0 24px 50px rgba(230,48,39,.35);opacity:0;transform:scale(.8);transition:opacity .7s ease,transform .8s cubic-bezier(.34,1.56,.64,1),background var(--t)}
+    .hero-ready #hero .perk{opacity:1;transform:none;transition-delay:.9s,.9s,0s}
+    .hero-ready #hero .perk:hover,.hero-ready #hero .perk:focus-visible{transform:scale(1.07);background:var(--red-dark);transition-delay:0s;outline:0}
+    #hero .perk:before{content:"";position:absolute;inset:-11px;border-radius:50%;border:1px dashed rgba(255,255,255,.5);animation:perkSpin 40s linear infinite}
+    #hero .perk:after{content:"";position:absolute;inset:0;border-radius:50%;border:2px solid var(--red);animation:perkPulse 2.8s ease-out infinite;pointer-events:none}
+    @keyframes perkSpin{to{transform:rotate(360deg)}}
+    @keyframes perkPulse{0%{transform:scale(1);opacity:.7}100%{transform:scale(1.42);opacity:0}}
+    #hero .perk small{font-size:12px;font-weight:700;letter-spacing:.1em;opacity:.92}
+    #hero .perk b{font-size:33px;font-weight:800;letter-spacing:-.04em;line-height:1.1}
+    #hero .perk span{font-size:14px;font-weight:700;letter-spacing:-.01em}
+    #hero .perk i{font-family:var(--en);font-style:normal;font-size:16px;line-height:1;margin-top:3px;transition:transform var(--t)}
+    #hero .perk:hover i{transform:translateX(5px)}
+    @media (max-width:768px){
+      #hero .inner{padding-bottom:152px}
+      #hero .perk{top:40%;width:124px;height:124px;margin-top:-62px;gap:1px}
+      #hero .perk:before{inset:-8px}
+      #hero .perk small{font-size:10px}
+      #hero .perk b{font-size:23px}
+      #hero .perk span{font-size:11.5px}
+      #hero .perk i{font-size:13px;margin-top:1px}
+    }
     /* 메뉴가 7개(모바일 8개)로 늘어 간격을 조정 */
     #header .gnb{white-space:nowrap} /* 가운데 고정(left:50%) 이라 줄바꿈을 막지 않으면 폭이 절반으로 제한돼 두 줄이 된다 */
     @media (max-width:1200px){#header .gnb{gap:22px}#header .gnb a{font-size:13px}}
@@ -723,28 +777,37 @@
       <div class="inner">
         <div class="side" data-cms="site.tagline">웹 · 앱 제작 스튜디오</div>
         <div class="corner" data-cms="hero.corner">홍스랩 · 맞춤형 웹·앱 제작</div>
+        <a class="perk" href="/perks" aria-label="200만원 상당 제작 혜택 보기"><small data-cms="hero.perk.label">제작 혜택</small><b data-cms="hero.perk.amt">200만원</b><span data-cms="hero.perk.text">상당 혜택</span><i aria-hidden="true">→</i></a>
         <div class="slides" id="heroSlides">
           <div class="slide on" data-i="0">
             <span class="eyebrow rise" style="transition-delay:.1s" data-cms="hero.1.eyebrow">맞춤형 웹·앱 제작</span>
             <h1 class="h"><span class="sr">홍스랩 홈페이지·앱 제작 스튜디오 — </span><span data-cms="hero.1.title" data-cms-fmt="rich">기업의 가치를<br><span class="hl">더하는</span> 홈페이지</span></h1>
-            <p class="sub rise" style="transition-delay:.4s" data-cms="hero.1.sub" data-cms-fmt="rich">업종과 고객을 먼저 이해하고, 보기 좋은 화면을 넘어 전화와 문의로 이어지는 구조를 설계합니다. 지역 업체 홈페이지부터 웹앱까지, 홍스랩이 직접 만듭니다.</p>
-            <div class="acts rise" style="transition-delay:.55s"><a class="btn red" href="/portfolio"><span class="ko" data-cms="hero.1.btn">제작사례 보기</span><span class="ar">→</span></a><button type="button" class="btn light js-open-inquiry"><span class="ko" data-cms="hero.btn2">무료 상담 신청</span><span class="ar">→</span></button></div>
           </div>
           <div class="slide" data-i="1">
             <span class="eyebrow" data-cms="hero.2.eyebrow">검색 · AI 노출 최적화</span>
             <p class="h" data-cms="hero.2.title" data-cms-fmt="rich">우리 홈페이지가<br><span class="hl">더 잘 노출</span>되게</p>
-            <p class="sub" data-cms="hero.2.sub" data-cms-fmt="rich">네이버·구글 검색부터 ChatGPT 같은 AI의 답변까지. 찾는 사람 앞에 먼저 보이도록 검색엔진과 AI가 읽기 쉬운 구조로 만들고, 지금 내 홈페이지 상태는 무료로 점검해 드립니다.</p>
-            <div class="acts"><a class="btn red" href="/seo-checker"><span class="ko" data-cms="hero.2.btn">무료 SEO 점검하기</span><span class="ar">→</span></a><button type="button" class="btn light js-open-inquiry"><span class="ko" data-cms="hero.btn2">무료 상담 신청</span><span class="ar">→</span></button></div>
           </div>
           <div class="slide" data-i="2">
             <span class="eyebrow" data-cms="hero.3.eyebrow">성과 중심 설계</span>
             <p class="h" data-cms="hero.3.title" data-cms-fmt="rich">성과를 만드는<br><span class="hl">필연적</span> 설계</p>
-            <p class="sub" data-cms="hero.3.sub" data-cms-fmt="rich">화려한 효과보다 고객이 연락하게 만드는 동선이 먼저입니다. 제작 시 SEO·GEO·AEO 최적화를 무료로 지원합니다.</p>
-            <div class="acts"><a class="btn red" href="/inquiry"><span class="ko" data-cms="hero.3.btn">견적 문의하기</span><span class="ar">→</span></a><button type="button" class="btn light js-open-inquiry"><span class="ko" data-cms="hero.btn2">무료 상담 신청</span><span class="ar">→</span></button></div>
           </div>
         </div>
       </div>
       <div class="bottom"><div class="inner"><div class="dots" id="heroDots" role="tablist" aria-label="메인 메시지"><button type="button" class="on" aria-label="1번 메시지">01<i></i></button><button type="button" aria-label="2번 메시지">02<i></i></button><button type="button" aria-label="3번 메시지">03<i></i></button></div><div class="scroll">아래로</div></div></div>
+    </section>
+
+    <!-- ===== 포트폴리오 2줄 슬라이드 (제작 분야 바로 위, 사례는 portfolio.js 의 PORTFOLIO 를 그대로 씀) ===== -->
+    <section id="pfmq" aria-labelledby="pfmq-title">
+      <div class="inner">
+        <div class="sec-head row">
+          <div>
+            <div class="eyebrow t-track">포트폴리오</div>
+            <h2 class="reveal t-mark" id="pfmq-title" data-cms="pfmq.title" data-cms-fmt="rich">홍스랩이 만든 <span class="hl">홈페이지</span></h2>
+          </div>
+          <a class="btn reveal" href="/portfolio"><span class="ko" data-cms="pfmq.btn">전체 사례 보기</span><span class="ar">→</span></a>
+        </div>
+      </div>
+      <div class="pf-rows" id="pfRows"></div>
     </section>
 
     <!-- ===== Service (홍스랩이 하는 일: 홈페이지 · 쇼핑몰 · 앱 · 업무 시스템, 첫 화면 바로 아래) ===== -->
@@ -993,6 +1056,15 @@ const KAKAO=document.getElementById('kakaoOpen').href;
   box.innerHTML=row(items.slice(0,half),false)+row(items.slice(half),true);
   const sc=document.getElementById('siteCount');if(sc)sc.dataset.to=PORTFOLIO.length;
 })();
+/* ===== 포트폴리오 2줄 슬라이드 (제작 분야 위): PORTFOLIO 를 반으로 나눠 윗줄 · 아랫줄에 넣고, 끊김 없이 돌도록 같은 카드를 한 번 더 붙인다 ===== */
+(()=>{
+  const box=document.getElementById('pfRows');if(!box||!PORTFOLIO.length)return;
+  const pe=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+  const card=(p,dup)=>`<a class="pf-card" href="${pe(p[0])}" target="_blank" rel="noopener"${dup?' tabindex="-1" aria-hidden="true"':''}><span class="ph"><img loading="lazy" decoding="async" src="${pe(shot(p[0],600))}" alt="${dup?'':pe(p[1])+' 미리보기'}"></span><span class="tx"><b>${pe(p[1].replace(/ (홈페이지|웹앱|쇼핑몰)$/,''))}</b><small>${pe(p[2])}</small></span></a>`;
+  const half=Math.ceil(PORTFOLIO.length/2);
+  const row=(arr,rev)=>`<div class="row${rev?' rev':''}" style="animation-duration:${Math.max(30,arr.length*6)}s">${arr.map(p=>card(p,false)).join('')}${arr.map(p=>card(p,true)).join('')}</div>`;
+  box.innerHTML=row(PORTFOLIO.slice(0,half),false)+row(PORTFOLIO.slice(half),true);
+})();
 /* ===== 헤더 스크롤 / 활성 메뉴 / 모바일 메뉴 ===== */
 const header=document.getElementById('header');
 const navLinks=[...document.querySelectorAll('#header .gnb a')];
@@ -1114,7 +1186,7 @@ else{
 document.querySelectorAll('#header .gnb a').forEach(a=>{if(a.querySelector('.t'))return;const t=a.textContent.trim();a.textContent='';const s=document.createElement('span');s.className='t';const i=document.createElement('i');i.dataset.t=t;i.textContent=t;s.appendChild(i);a.appendChild(s)});
 
 /* ===== 제목 단어 분리 (타이포 효과) ===== */
-document.querySelectorAll('#service h2,#contact h2,#hled h2,#seo h2,#care h2,#hled .quote,#seo .check h3,#seo .act p,#heroSlides .h').forEach(h=>{
+document.querySelectorAll('#pfmq h2,#service h2,#contact h2,#hled h2,#seo h2,#care h2,#hled .quote,#seo .check h3,#seo .act p,#heroSlides .h').forEach(h=>{
   h.classList.add('fx');let k=0;const base=h.closest('#hero')?.3:0;
   const walk=n=>{[...n.childNodes].forEach(c=>{
     if(c.nodeType===3){
