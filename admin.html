@@ -688,6 +688,7 @@ const GROUPS = [
   ['nav', '메뉴 · 상단 버튼', ''],
   ['hero', '메인 · 첫 화면 슬라이드', '세 개의 메시지가 번갈아 나옵니다.'],
   ['value', '메인 · 가치 섹션 (약속 · 성공 · 비전)', ''],
+  ['service', '메인 · 하는 일 섹션', '홈페이지 · 쇼핑몰 · 앱 · 업무 시스템 네 칸입니다. 칸을 누르면 가는 주소는 제작자가 바꿉니다.'],
   ['why', '메인 · 검색/AI 노출 섹션', ''],
   ['contact', '메인 · 상담 섹션', ''],
   ['modal', '무료 상담 팝업', ''],
@@ -721,6 +722,9 @@ function labelFor(key) {
   let m;
   if ((m = key.match(/^nav\.m(\d)(en)?$/))) return `모바일 메뉴 ${m[1]}${m[2] ? ' 부제' : ''}`;
   if ((m = key.match(/^hero\.(\d)\.(eyebrow|title|sub|btn)$/))) return `${m[1]}번 슬라이드 ${{ eyebrow: '작은 제목', title: '큰 제목', sub: '설명', btn: '빨간 버튼' }[m[2]]}`;
+  if (key === 'service.title') return '하는 일 제목';
+  if (key === 'service.desc') return '하는 일 설명';
+  if ((m = key.match(/^service\.(\d)\.(t|d|go|k(\d))$/))) return `${m[1]}번 칸 ${m[3] ? '꼬리표 ' + m[3] : { t: '이름', d: '설명', go: '아래 버튼 글자' }[m[2]]}`;
   if ((m = key.match(/^why\.c(\d)\.(title|text)$/))) return `카드 ${m[1]} ${m[2] === 'title' ? '제목' : '내용'}`;
   if ((m = key.match(/^why\.term\.(\w+)\.(name|text)$/))) return `${m[1]} ${m[2] === 'name' ? '이름' : '설명'}`;
   if ((m = key.match(/^modal\.b(\d)\.(title|text)$/))) return `장점 ${m[1]} ${m[2] === 'title' ? '제목' : '설명'}`;

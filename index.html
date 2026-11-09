@@ -65,6 +65,9 @@
           "홈페이지 제작",
           "반응형 웹사이트",
           "웹앱 개발",
+          "쇼핑몰 제작",
+          "모바일 앱 개발",
+          "업무 시스템 개발",
           "랜딩페이지",
           "소상공인 홈페이지",
           "검색엔진 등록"
@@ -352,6 +355,55 @@
     .sec-head.row{display:flex;align-items:flex-end;justify-content:space-between;gap:40px}
     .sec-head.row p{margin-top:0;max-width:440px}
 
+    /* ===== Service (하는 일: 홈페이지 · 쇼핑몰 · 앱 · 업무 시스템 네 칸, soft gray) ===== */
+    #service{background:var(--soft);padding:140px 0}
+    #service .cards{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--black);border-left:1px solid var(--black)}
+    #service .cards li{border-right:1px solid var(--black);border-bottom:1px solid var(--black);background:#fff}
+    #service .cards a{position:relative;display:flex;flex-direction:column;height:100%;min-height:400px;padding:30px 28px 26px;overflow:hidden;color:var(--black);transition:color .45s ease}
+    #service .cards a:before{content:"";position:absolute;inset:0;background:var(--black);transform:translateY(101%);transition:transform .6s cubic-bezier(.16,1,.3,1)}
+    #service .cards a>*{position:relative;z-index:1}
+    #service .no{font-family:var(--en);font-size:12px;font-weight:700;letter-spacing:.2em;color:var(--red)}
+    #service .ic{margin-top:26px;width:58px;height:58px;border:1px solid currentColor;display:flex;align-items:center;justify-content:center;transition:background .45s ease,border-color .45s ease}
+    #service .ic svg{width:26px;height:26px}
+    #service h3{margin-top:26px;font-size:clamp(24px,2.1vw,30px);font-weight:800;letter-spacing:-.035em;line-height:1.2}
+    #service .cards p{margin-top:12px;font-size:14.5px;line-height:1.75;color:var(--muted);transition:color .45s ease}
+    #service .tags{margin:20px 0 28px;display:flex;flex-wrap:wrap;gap:6px}
+    #service .tags span{font-size:12.5px;font-weight:600;letter-spacing:-.01em;padding:6px 10px;background:var(--soft);color:#333;transition:background .45s ease,color .45s ease}
+    #service .go{margin-top:auto;padding-top:18px;border-top:1px solid var(--line);display:flex;align-items:center;justify-content:space-between;font-size:13.5px;font-weight:700;letter-spacing:-.01em;transition:border-color .45s ease}
+    #service .go i{font-family:var(--en);font-style:normal;font-size:18px;transition:transform var(--t),color var(--t)}
+    #service .cards a:hover,#service .cards a:focus-visible{color:#fff;outline:0}
+    #service .cards a:hover:before,#service .cards a:focus-visible:before{transform:none}
+    #service .cards a:hover .ic,#service .cards a:focus-visible .ic{background:var(--red);border-color:var(--red)}
+    #service .cards a:hover p,#service .cards a:focus-visible p{color:rgba(255,255,255,.72)}
+    #service .cards a:hover .tags span,#service .cards a:focus-visible .tags span{background:rgba(255,255,255,.12);color:#fff}
+    #service .cards a:hover .go,#service .cards a:focus-visible .go{border-top-color:rgba(255,255,255,.22)}
+    #service .cards a:hover .go i,#service .cards a:focus-visible .go i{transform:translateX(6px);color:var(--red)}
+    @media (max-width:1024px){
+      #service .cards{grid-template-columns:1fr 1fr}
+      #service .cards a{min-height:0}
+    }
+    @media (max-width:768px){
+      #service{padding:80px 0}
+      #service .cards a{padding:24px 20px 22px}
+      #service .ic{margin-top:18px;width:48px;height:48px}
+      #service .ic svg{width:22px;height:22px}
+      #service h3{margin-top:18px;font-size:22px}
+      #service .cards p{font-size:13.5px;line-height:1.7}
+      #service .tags{margin:16px 0 22px}
+    }
+    @media (max-width:600px){
+      /* 좁은 화면: 한 줄에 한 칸, 아이콘은 왼쪽 · 글은 오른쪽 */
+      #service .cards{grid-template-columns:1fr}
+      #service .cards a{display:grid;grid-template-columns:46px 1fr;column-gap:16px;padding:22px 18px 20px}
+      #service .cards .no{position:absolute;right:18px;top:22px}
+      #service .ic{grid-row:1/span 4;margin-top:2px;width:46px;height:46px}
+      #service h3{margin-top:0;font-size:20px;padding-right:34px}
+      #service h3,#service .cards p,#service .tags,#service .go{grid-column:2}
+      #service .cards p{margin-top:6px}
+      #service .tags{margin:12px 0 14px}
+      #service .go{margin-top:0;padding-top:12px}
+    }
+
     /* ===== Hled (보이지 않는 수고로움, white) ===== */
     #hled{background:var(--cream);padding:140px 0}
     #hled .cols{display:grid;grid-template-columns:1fr 1fr;gap:24px;perspective:1400px}
@@ -578,6 +630,7 @@
       .page-snap .sec-head h2,.page-snap #care .l h2{margin-top:1.8svh;font-size:clamp(30px,5svh,52px)}
       .page-snap .sec-head p{margin-top:1.6svh}
       .page-snap #hled .quote{margin-top:4svh}
+      .page-snap #service .cards a{min-height:min(400px,48svh)}
       .page-snap #value .txt{margin-top:2.6svh}
       .page-snap #benefit .cost{margin-top:3svh}
       .page-snap #care .marquee{margin-bottom:4.5svh}
@@ -841,6 +894,53 @@
             <div class="txt"><h3 data-cms="value.c.t">앞으로의 가치</h3><p data-cms="value.c.d">검색과 AI가 바뀌는 흐름에 맞춰 지금 필요한 홈페이지를 제안합니다.</p></div>
           </div>
         </div>
+      </div>
+    </section>
+
+    <!-- ===== Service (홍스랩이 하는 일: 홈페이지 · 쇼핑몰 · 앱 · 업무 시스템) ===== -->
+    <section id="service" aria-labelledby="service-title">
+      <div class="inner">
+        <div class="sec-head row">
+          <div>
+            <div class="eyebrow t-track">제작 분야</div>
+            <h2 class="reveal t-mark" id="service-title" data-cms="service.title" data-cms-fmt="rich">홍스랩이 <span class="hl">하는 일</span></h2>
+          </div>
+          <p class="t-blur" data-cms="service.desc" data-cms-fmt="rich">알리는 홈페이지부터 일을 덜어 주는 업무 시스템까지. 사업에 필요한 만큼 맞춤으로 만들고, 공개한 뒤에도 이어서 챙깁니다.</p>
+        </div>
+        <ul class="cards t-stagger">
+          <li><a href="/price">
+            <span class="no" aria-hidden="true">01</span>
+            <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="16"/><path d="M3 9h18M6.5 6.6h.01M9 6.6h.01M7 13h6M7 16h10"/></svg></span>
+            <h3 data-cms="service.1.t">홈페이지</h3>
+            <p data-cms="service.1.d">검색에 보이고 전화·문의로 이어지는, 우리 업체의 첫인상을 만듭니다.</p>
+            <span class="tags"><span data-cms="service.1.k1">기업 · 매장 홈페이지</span><span data-cms="service.1.k2">랜딩페이지</span><span data-cms="service.1.k3">예약 · 문의</span></span>
+            <span class="go"><span data-cms="service.1.go">요금 보기</span><i aria-hidden="true">→</i></span>
+          </a></li>
+          <li><a href="/inquiry?plan=쇼핑몰">
+            <span class="no" aria-hidden="true">02</span>
+            <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 8h14l-1 13H6L5 8z"/><path d="M9 8V6.5a3 3 0 0 1 6 0V8M9 12a3 3 0 0 0 6 0"/></svg></span>
+            <h3 data-cms="service.2.t">쇼핑몰</h3>
+            <p data-cms="service.2.d">상품 등록부터 결제, 주문 관리까지 한곳에서 운영하도록 만듭니다.</p>
+            <span class="tags"><span data-cms="service.2.k1">상품 관리</span><span data-cms="service.2.k2">결제 연동</span><span data-cms="service.2.k3">주문 · 배송 관리</span></span>
+            <span class="go"><span data-cms="service.2.go">견적 문의</span><i aria-hidden="true">→</i></span>
+          </a></li>
+          <li><a href="/inquiry?plan=앱">
+            <span class="no" aria-hidden="true">03</span>
+            <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="7" y="2.5" width="10" height="19"/><path d="M7 6h10M7 17.5h10M11.5 19.6h1"/></svg></span>
+            <h3 data-cms="service.3.t">앱</h3>
+            <p data-cms="service.3.d">고객이 휴대폰에서 바로 쓰는 예약 · 회원 · 주문 서비스를 만듭니다.</p>
+            <span class="tags"><span data-cms="service.3.k1">모바일 앱</span><span data-cms="service.3.k2">웹앱</span><span data-cms="service.3.k3">예약 · 회원 · 알림</span></span>
+            <span class="go"><span data-cms="service.3.go">견적 문의</span><i aria-hidden="true">→</i></span>
+          </a></li>
+          <li><a href="/inquiry?plan=업무 시스템">
+            <span class="no" aria-hidden="true">04</span>
+            <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18"/><path d="M3 8.5h18M9 8.5V21M12.5 17v-2.5M15.5 17v-5M18.2 17v-3.5"/></svg></span>
+            <h3 data-cms="service.4.t">업무 시스템</h3>
+            <p data-cms="service.4.d">손으로 반복하던 일을 줄여 주는 우리 회사 전용 관리 프로그램을 만듭니다.</p>
+            <span class="tags"><span data-cms="service.4.k1">고객 · 회원 관리</span><span data-cms="service.4.k2">예약 · 접수</span><span data-cms="service.4.k3">매출 · 통계</span></span>
+            <span class="go"><span data-cms="service.4.go">견적 문의</span><i aria-hidden="true">→</i></span>
+          </a></li>
+        </ul>
       </div>
     </section>
 
@@ -1207,7 +1307,7 @@ else{
     b.addEventListener('mouseleave',()=>{b.style.transform=''});
   });
   /* 카드 스포트라이트 + 3D 기울임 */
-  document.querySelectorAll('#hled article,#care .stats>div').forEach(c=>c.classList.add('spot'));
+  document.querySelectorAll('#hled article,#care .stats>div,#service .cards a').forEach(c=>c.classList.add('spot'));
   document.querySelectorAll('.spot').forEach(c=>{
     const tilt=c.matches('#hled article');
     c.addEventListener('mousemove',e=>{const r=c.getBoundingClientRect(),px=(e.clientX-r.left)/r.width,py=(e.clientY-r.top)/r.height;c.style.setProperty('--mx',(px*100).toFixed(1)+'%');c.style.setProperty('--my',(py*100).toFixed(1)+'%');if(tilt){c.style.setProperty('--ry',((px-.5)*6).toFixed(2)+'deg');c.style.setProperty('--rx',((.5-py)*6).toFixed(2)+'deg')}});
@@ -1219,7 +1319,7 @@ else{
 document.querySelectorAll('#header .gnb a').forEach(a=>{if(a.querySelector('.t'))return;const t=a.textContent.trim();a.textContent='';const s=document.createElement('span');s.className='t';const i=document.createElement('i');i.dataset.t=t;i.textContent=t;s.appendChild(i);a.appendChild(s)});
 
 /* ===== 제목 단어 분리 (타이포 효과) ===== */
-document.querySelectorAll('#value h2,#contact h2,#hled h2,#benefit h2,#seo h2,#care h2,#hled .quote,#benefit .cost h3,#seo .check h3,#seo .act p,#heroSlides .h').forEach(h=>{
+document.querySelectorAll('#value h2,#service h2,#contact h2,#hled h2,#benefit h2,#seo h2,#care h2,#hled .quote,#benefit .cost h3,#seo .check h3,#seo .act p,#heroSlides .h').forEach(h=>{
   h.classList.add('fx');let k=0;const base=h.closest('#hero')?.3:0;
   const walk=n=>{[...n.childNodes].forEach(c=>{
     if(c.nodeType===3){
