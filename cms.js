@@ -126,7 +126,9 @@ function faqGroupsHtml(groups) {
 function faqLdJson(groups) {
   const qs = [];
   for (const g of groups) for (const it of g.items || []) if (it && it.q) qs.push({ '@type': 'Question', name: it.q, acceptedAnswer: { '@type': 'Answer', text: it.a || '' } });
-  const ld = { '@context': 'https://schema.org', '@graph': [{ '@type': 'FAQPage', '@id': 'https://hongslab.kr/faq#faq', url: 'https://hongslab.kr/faq', name: '홍스랩 자주 묻는 질문', mainEntity: qs }] };
+  const ld = { '@context': 'https://schema.org', '@graph': [{ '@type': 'FAQPage', '@id': 'https://hongslab.kr/faq#faq', url: 'https://hongslab.kr/faq', name: '홍스랩 자주 묻는 질문', mainEntity: qs },
+    /* 관리자에서 질문을 고쳐도 경로(BreadcrumbList)가 빠지지 않게 같이 넣는다 */
+    { '@type': 'BreadcrumbList', itemListElement: [{ '@type': 'ListItem', position: 1, name: '홍스랩', item: 'https://hongslab.kr/' }, { '@type': 'ListItem', position: 2, name: '자주 묻는 질문', item: 'https://hongslab.kr/faq' }] }] };
   return JSON.stringify(ld).replace(/</g, '\\u003c');
 }
 
