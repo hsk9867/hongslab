@@ -420,46 +420,6 @@
     #hled .quote{margin-top:44px;text-align:left;padding-left:22px;border-left:3px solid var(--red);font-size:clamp(17px,1.6vw,22px);font-weight:700;letter-spacing:-.02em;line-height:1.5}
     #hled .quote .hl{color:var(--red)}
 
-    /* ===== Value (고객과의 약속 · 성공 · 비전: 세 개의 원이 선으로 이어진 구성) ===== */
-    #value{background:#fff;padding:140px 0 120px}
-    .sec-head.center{text-align:center}
-    .sec-head.center h2,.sec-head.center p{margin-left:auto;margin-right:auto}
-    .sec-head.center p{max-width:620px}
-    #value .orbit{position:relative;display:grid;grid-template-columns:repeat(3,1fr);align-items:start}
-    #value .orbit .line{position:absolute;left:16.66%;right:16.66%;top:calc(34px + 130px);height:1px;background:#cfcfcf;transform-origin:center}
-    #value .node{position:relative;display:flex;flex-direction:column;align-items:center;text-align:center}
-    #value .node .top{display:block;height:34px;font-family:var(--en);font-size:11px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--black);position:relative}
-    #value .core .top:after{content:"";position:absolute;left:50%;bottom:-6px;width:10px;height:10px;margin-left:-5px;border-radius:50%;background:var(--red)}
-    #value .ring{position:relative;width:260px;height:260px;border-radius:50%;padding:22px;background:#fff;transition:transform .6s cubic-bezier(.16,1,.3,1)}
-    #value .ring:before{content:"";position:absolute;inset:0;border-radius:50%;border:1px dashed #bdbdbd;animation:spin 48s linear infinite}
-    #value .node:hover .ring:before{border-color:var(--red);animation-duration:12s}
-    #value .core .ring:after{content:"";position:absolute;inset:22px;border-radius:50%;border:2px solid var(--red);opacity:0;animation:pulse 2.8s ease-out infinite;pointer-events:none}
-    @keyframes spin{to{transform:rotate(360deg)}}
-    @keyframes pulse{0%{transform:scale(1);opacity:.7}100%{transform:scale(1.45);opacity:0}}
-    #value .node:hover .ring{transform:scale(1.04)}
-    #value .ball{width:100%;height:100%;border-radius:50%;background:#a3a3a3;color:#fff;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;transition:background var(--t)}
-    #value .ball b{font-size:34px;font-weight:500;letter-spacing:.12em;line-height:1}
-    #value .ball small{font-family:var(--en);font-size:10px;font-weight:600;letter-spacing:.28em;opacity:.85}
-    #value .core .ball{background:var(--red);box-shadow:0 24px 50px rgba(230,48,39,.28)}
-    #value .node:hover .ball{background:var(--black)}
-    #value .core:hover .ball{background:var(--red-dark)}
-    #value .txt{margin-top:30px;width:300px;max-width:100%}
-    #value .line+.node .txt{text-align:right}
-    #value .node:last-child .txt{text-align:left}
-    #value .txt h3{font-size:18px;font-weight:800;letter-spacing:-.02em}
-    #value .txt p{margin-top:8px;font-size:14px;line-height:1.8;color:var(--muted)}
-    #value .wins{position:relative;margin-top:0;padding-top:44px;display:flex;flex-direction:column;align-items:center}
-    #value .wins:before{content:"";position:absolute;left:50%;top:0;width:1px;height:34px;background:#d9d9d9}
-    #value .two{font-size:30px;font-weight:300;letter-spacing:-.02em;line-height:1;color:var(--black)}
-    #value .two em{font-style:normal;font-weight:800;color:var(--red)}
-    #value .plus{position:relative;width:26px;height:26px;margin:16px 0}
-    #value .plus:before,#value .plus:after{content:"";position:absolute;background:#bdbdbd}
-    #value .plus:before{left:0;top:12px;width:26px;height:2px}
-    #value .plus:after{left:12px;top:0;width:2px;height:26px}
-    #value .chips{display:flex;gap:10px}
-    #value .chips span{display:inline-block;padding:11px 22px;border-radius:999px;font-size:14px;font-weight:700;letter-spacing:-.01em;color:#fff;background:var(--red)}
-    #value .chips .c2{background:var(--black)}
-    #value .wins p{margin-top:18px;font-size:14px;line-height:1.8;color:var(--muted)}
 
     /* ===== Benefit (제작 시 기본 포함: 왼쪽 제목 · 오른쪽 체크 목록) ===== */
     #benefit{background:#fff;padding:140px 0}
@@ -556,35 +516,6 @@
       #hled .cols,#benefit .split,#seo .steps,#seo .check{grid-template-columns:1fr}
       #benefit .split{gap:36px}
       #benefit .big{display:none}
-      /* 모바일: 성공 원이 위, 약속·비전 원이 아래 나란히 (글이 겹치지 않도록 원끼리는 가장자리만 닿는다) */
-      #value .orbit{display:block;position:relative;width:340px;max-width:100%;height:520px;margin:56px auto 0} /* 위 56px 는 "핵심 가치" 라벨 자리(제목과 겹치지 않게) */
-      #value .orbit .line{display:none}
-      #value .node{position:absolute;width:150px;display:block}
-      #value .node.core{left:50%;top:0;margin-left:-75px;z-index:3}
-      #value .line+.node{left:0;top:128px;z-index:1}
-      #value .node:last-child{right:0;top:128px;z-index:2}
-      #value .node .top{position:absolute;left:0;right:0;top:-46px;height:46px;text-align:center;font-size:10px;letter-spacing:.2em}
-      #value .node .top:empty{display:none}
-      #value .core .top:before{content:"";position:absolute;left:50%;top:18px;width:1px;height:22px;background:#cfcfcf}
-      #value .core .top:after{bottom:-4px;width:8px;height:8px;margin-left:-4px}
-      #value .ring{width:150px;height:150px;padding:0;background:transparent}
-      #value .ring:before{display:none}
-      #value .core .ring:after{inset:0}
-      #value .ball{gap:3px;justify-content:center;padding-bottom:26px;opacity:.92}
-      #value .core .ball{opacity:1;box-shadow:0 18px 40px rgba(230,48,39,.3)}
-      #value .ball b{font-size:20px;letter-spacing:.1em}
-      #value .ball small{font-size:8.5px;letter-spacing:.2em}
-      #value .txt{position:absolute;left:10px;right:10px;top:86px;width:auto;margin:0;text-align:center;pointer-events:none}
-      #value .line+.node .txt,#value .node:last-child .txt{text-align:center}
-      #value .txt h3{font-size:12px;font-weight:700;color:#fff;line-height:1.3;white-space:nowrap}
-      #value .txt p{display:none}
-      #value .core .wins{position:absolute;left:50%;top:300px;width:340px;max-width:100vw;margin-left:-170px;padding-top:0}
-      #value .wins:before{display:none}
-      #value .two{font-size:22px}
-      #value .plus{margin:10px 0}
-      #value .chips{flex-wrap:wrap;justify-content:center;gap:8px}
-      #value .chips span{padding:8px 14px;font-size:12.5px}
-      #value .wins p{margin-top:12px;font-size:13px}
       #seo .steps>div{border-right:0;border-bottom:1px solid rgba(255,255,255,.18)}
       #seo .steps>div:last-child{border-bottom:0}
       #care .grid{grid-template-columns:1fr;gap:40px}
@@ -592,9 +523,6 @@
     }
     @media (max-width:768px){
       #hled,#benefit,#seo{padding:80px 0}
-      #value{padding:80px 0 70px}
-      .sec-head.center{text-align:left}
-      .sec-head.center h2,.sec-head.center p{margin-left:0}
       #care{padding:70px 0 80px}
       .sec-head{margin-bottom:34px}
       .sec-head h2{font-size:28px;line-height:1.25}
@@ -630,8 +558,12 @@
       .page-snap .sec-head h2,.page-snap #care .l h2{margin-top:1.8svh;font-size:clamp(30px,5svh,52px)}
       .page-snap .sec-head p{margin-top:1.6svh}
       .page-snap #hled .quote{margin-top:4svh}
-      .page-snap #service .cards a{min-height:min(400px,48svh)}
-      .page-snap #value .txt{margin-top:2.6svh}
+      /* 하는 일: 노트북처럼 낮은 화면(높이 640px 안팎)에서도 한 화면에 들어가도록 여백을 화면 높이에 맞춘다 */
+      .page-snap #service .cards a{min-height:min(400px,48svh);padding:clamp(18px,3.4svh,30px) 28px clamp(16px,3svh,26px)}
+      .page-snap #service .ic{margin-top:clamp(12px,2.6svh,26px);width:clamp(44px,7svh,58px);height:clamp(44px,7svh,58px)}
+      .page-snap #service h3{margin-top:clamp(12px,2.6svh,26px)}
+      .page-snap #service .tags{margin:clamp(10px,2svh,20px) 0 clamp(14px,3svh,28px)}
+      .page-snap #service .go{padding-top:clamp(10px,2svh,18px)}
       .page-snap #benefit .cost{margin-top:3svh}
       .page-snap #care .marquee{margin-bottom:4.5svh}
       .page-snap #seo .check,.page-snap #seo .act{margin-top:1.6svh}
@@ -716,7 +648,7 @@
     .spot>*{position:relative;z-index:1}
     .t-grow{transform:scaleX(0);transition:transform 1.3s cubic-bezier(.16,1,.3,1) .35s}
     .t-grow.in{transform:none}
-    @media (prefers-reduced-motion:reduce){#value .ring:before,#value .core .ring:after,#seo:after{animation:none}.t-grow{transform:none!important}#cursor{display:none!important}}
+    @media (prefers-reduced-motion:reduce){#seo:after{animation:none}.t-grow{transform:none!important}#cursor{display:none!important}}
 
     /* ===== Reveal ===== */
     .reveal{opacity:0;transform:translateY(30px);transition:opacity .9s ease,transform .9s cubic-bezier(.16,1,.3,1)}
@@ -791,6 +723,13 @@
       #footer .bottom{font-size:10px}
     }
     @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.rise,.reveal{opacity:1;transform:none}#loader{display:none}#hero .particles{display:none}.fx .w i{transform:none!important}.fx .hl{background-size:100% .1em!important}}
+    /* 메뉴가 7개(모바일 8개)로 늘어 간격을 조정 */
+    #header .gnb{white-space:nowrap} /* 가운데 고정(left:50%) 이라 줄바꿈을 막지 않으면 폭이 절반으로 제한돼 두 줄이 된다 */
+    @media (max-width:1200px){#header .gnb{gap:22px}#header .gnb a{font-size:13px}}
+    .m_gnb{overflow-y:auto}
+    .m_gnb li a{padding:17px 0;font-size:24px}
+    .m_gnb .foot{margin-top:28px}
+    @media (max-height:800px){.m_gnb{justify-content:flex-start;padding-top:84px;padding-bottom:28px}.m_gnb li a{padding:13px 0;font-size:21px}}
   </style>
 </head>
 <body class="loading">
@@ -805,6 +744,7 @@
         <a href="/portfolio" data-cms="nav.portfolio">포트폴리오</a>
         <a href="/process" data-cms="nav.process">제작 과정</a>
         <a href="/price" data-cms="nav.price">가격 안내</a>
+        <a href="/perks" data-cms="nav.perks">제작 혜택</a>
         <a href="/seo-checker" data-cms="nav.seo">SEO 최적화</a>
         <a href="/faq" data-cms="nav.faq">자주 묻는 질문</a>
         <a href="#contact" data-cms="nav.contact">상담하기</a>
@@ -821,10 +761,11 @@
       <li><a href="/portfolio"><span class="num">01</span><span data-cms="nav.m1">포트폴리오</span><span class="en" data-cms="nav.m1en">제작사례</span></a></li>
       <li><a href="/process"><span class="num">02</span><span data-cms="nav.mp">제작 과정</span><span class="en" data-cms="nav.mpen">6단계 · 기간</span></a></li>
       <li><a href="/price"><span class="num">03</span><span data-cms="nav.mprice">가격 안내</span><span class="en" data-cms="nav.mpriceen">요금표</span></a></li>
-      <li><a href="/seo-checker"><span class="num">04</span><span data-cms="nav.m2">SEO 최적화</span><span class="en" data-cms="nav.m2en">무료 점검</span></a></li>
-      <li><a href="/faq"><span class="num">05</span><span data-cms="nav.m3">자주 묻는 질문</span><span class="en" data-cms="nav.m3en">궁금한 점</span></a></li>
-      <li><a href="#contact"><span class="num">06</span><span data-cms="nav.m4">상담하기</span><span class="en" data-cms="nav.m4en">무료 상담</span></a></li>
-      <li><a href="/inquiry"><span class="num">07</span><span data-cms="nav.m5">견적 문의</span><span class="en" data-cms="nav.m5en">문의서 작성</span></a></li>
+      <li><a href="/perks"><span class="num">04</span><span data-cms="nav.mperks">제작 혜택</span><span class="en" data-cms="nav.mperksen">200만원 상당</span></a></li>
+      <li><a href="/seo-checker"><span class="num">05</span><span data-cms="nav.m2">SEO 최적화</span><span class="en" data-cms="nav.m2en">무료 점검</span></a></li>
+      <li><a href="/faq"><span class="num">06</span><span data-cms="nav.m3">자주 묻는 질문</span><span class="en" data-cms="nav.m3en">궁금한 점</span></a></li>
+      <li><a href="#contact"><span class="num">07</span><span data-cms="nav.m4">상담하기</span><span class="en" data-cms="nav.m4en">무료 상담</span></a></li>
+      <li><a href="/inquiry"><span class="num">08</span><span data-cms="nav.m5">견적 문의</span><span class="en" data-cms="nav.m5en">문의서 작성</span></a></li>
     </ul>
     <div class="foot">
       <a class="btn fill" href="/inquiry"><span class="ko" data-cms="nav.mbtn">견적 문의하기</span><span class="ar">→</span></a>
@@ -864,40 +805,7 @@
       <div class="bottom"><div class="inner"><div class="dots" id="heroDots" role="tablist" aria-label="메인 메시지"><button type="button" class="on" aria-label="1번 메시지">01<i></i></button><button type="button" aria-label="2번 메시지">02<i></i></button><button type="button" aria-label="3번 메시지">03<i></i></button></div><div class="scroll">아래로</div></div></div>
     </section>
 
-    <!-- ===== Value (고객과의 약속 · 성공 · 비전) ===== -->
-    <section id="value" aria-labelledby="value-title">
-      <div class="inner">
-        <div class="sec-head center">
-          <div class="eyebrow t-track">홍스랩의 기준</div>
-          <h2 class="reveal t-mark" id="value-title" data-cms="value.title" data-cms-fmt="rich">홍스랩은 언제나 <span class="hl">고객의 목표와 성장</span>을<br>먼저 생각합니다</h2>
-        </div>
-        <div class="orbit">
-          <i class="line t-grow" aria-hidden="true"></i>
-          <div class="node reveal">
-            <span class="top" aria-hidden="true"></span>
-            <div class="ring"><div class="ball"><b data-cms="value.a.ball">약속</b><small>PROMISE</small></div></div>
-            <div class="txt"><h3 data-cms="value.a.t">고객과의 약속</h3><p data-cms="value.a.d">정한 견적과 일정을 지키고, 공개한 뒤에도 끝까지 책임집니다.</p></div>
-          </div>
-          <div class="node core reveal" style="transition-delay:.1s">
-            <span class="top t-track" data-cms="value.core">핵심 가치</span>
-            <div class="ring"><div class="ball"><b data-cms="value.b.ball">성공</b><small>SUCCESS</small></div></div>
-            <div class="wins">
-              <strong class="two t-pop" data-cms="value.two" data-cms-fmt="rich">두 가지 <em>성공</em></strong>
-              <span class="plus" aria-hidden="true"></span>
-              <div class="chips t-stagger"><span class="c1" data-cms="value.w1">고객의 목표 달성</span><span class="c2" data-cms="value.w2">홍스랩의 성장</span></div>
-              <p data-cms="value.w.d" data-cms-fmt="rich">고객의 홈페이지가 제 역할을 할 때<br>홍스랩도 함께 성장합니다.</p>
-            </div>
-          </div>
-          <div class="node reveal" style="transition-delay:.2s">
-            <span class="top" aria-hidden="true"></span>
-            <div class="ring"><div class="ball"><b data-cms="value.c.ball">비전</b><small>VISION</small></div></div>
-            <div class="txt"><h3 data-cms="value.c.t">앞으로의 가치</h3><p data-cms="value.c.d">검색과 AI가 바뀌는 흐름에 맞춰 지금 필요한 홈페이지를 제안합니다.</p></div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ===== Service (홍스랩이 하는 일: 홈페이지 · 쇼핑몰 · 앱 · 업무 시스템) ===== -->
+    <!-- ===== Service (홍스랩이 하는 일: 홈페이지 · 쇼핑몰 · 앱 · 업무 시스템, 첫 화면 바로 아래) ===== -->
     <section id="service" aria-labelledby="service-title">
       <div class="inner">
         <div class="sec-head row">
@@ -1121,6 +1029,7 @@
             <li><a href="/portfolio" data-cms="footer.l2">포트폴리오</a></li>
             <li><a href="/process" data-cms="footer.lp">제작 과정</a></li>
             <li><a href="/price" data-cms="footer.lprice">가격 안내</a></li>
+            <li><a href="/perks" data-cms="footer.lperks">제작 혜택</a></li>
             <li><a href="/seo-checker" data-cms="footer.l3">SEO 최적화</a></li>
             <li><a href="/faq" data-cms="footer.l4">자주 묻는 질문</a></li>
             <li><a href="/inquiry" data-cms="footer.l5">견적 문의</a></li>
@@ -1298,7 +1207,7 @@ else{
   let mx=innerWidth/2,my=innerHeight/2,rx=mx,ry=my,raf=null;
   const dot=cur.querySelector('.dot'),ring=cur.querySelector('.ring');
   const loop=()=>{rx+=(mx-rx)*.18;ry+=(my-ry)*.18;ring.style.left=rx+'px';ring.style.top=ry+'px';if(Math.abs(mx-rx)>.2||Math.abs(my-ry)>.2)raf=requestAnimationFrame(loop);else raf=null};
-  addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;dot.style.left=mx+'px';dot.style.top=my+'px';html.classList.add('cur-on');if(!raf)raf=requestAnimationFrame(loop);const t=e.target.closest('a,button,summary,label,input,select,textarea,#value .ball');cur.classList.toggle('big',!!t&&!t.matches('input,select,textarea'));cur.classList.toggle('hide',!!t&&t.matches('input,select,textarea'))},{passive:true});
+  addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;dot.style.left=mx+'px';dot.style.top=my+'px';html.classList.add('cur-on');if(!raf)raf=requestAnimationFrame(loop);const t=e.target.closest('a,button,summary,label,input,select,textarea');cur.classList.toggle('big',!!t&&!t.matches('input,select,textarea'));cur.classList.toggle('hide',!!t&&t.matches('input,select,textarea'))},{passive:true});
   document.addEventListener('mouseleave',()=>html.classList.remove('cur-on'));
   document.addEventListener('mouseenter',()=>html.classList.add('cur-on'));
   /* 자석 버튼: 포인터 쪽으로 살짝 끌려온다 */
@@ -1319,7 +1228,7 @@ else{
 document.querySelectorAll('#header .gnb a').forEach(a=>{if(a.querySelector('.t'))return;const t=a.textContent.trim();a.textContent='';const s=document.createElement('span');s.className='t';const i=document.createElement('i');i.dataset.t=t;i.textContent=t;s.appendChild(i);a.appendChild(s)});
 
 /* ===== 제목 단어 분리 (타이포 효과) ===== */
-document.querySelectorAll('#value h2,#service h2,#contact h2,#hled h2,#benefit h2,#seo h2,#care h2,#hled .quote,#benefit .cost h3,#seo .check h3,#seo .act p,#heroSlides .h').forEach(h=>{
+document.querySelectorAll('#service h2,#contact h2,#hled h2,#benefit h2,#seo h2,#care h2,#hled .quote,#benefit .cost h3,#seo .check h3,#seo .act p,#heroSlides .h').forEach(h=>{
   h.classList.add('fx');let k=0;const base=h.closest('#hero')?.3:0;
   const walk=n=>{[...n.childNodes].forEach(c=>{
     if(c.nodeType===3){

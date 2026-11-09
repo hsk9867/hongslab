@@ -399,7 +399,7 @@ async function api(path, opts = {}) {
   if (!r.ok) throw new Error(data.error || ('오류 ' + r.status));
   return data;
 }
-const PAGES = ['/', '/portfolio', '/process', '/price', '/seo-checker', '/faq', '/inquiry'];
+const PAGES = ['/', '/portfolio', '/process', '/price', '/perks', '/seo-checker', '/faq', '/inquiry'];
 const rawCache = {};
 async function rawPage(p) {
   if (!rawCache[p]) rawCache[p] = fetch(p, { credentials: 'same-origin', headers: { 'x-cms-raw': '1' }, cache: 'no-store' }).then((r) => r.text());
@@ -489,7 +489,7 @@ function tableHtml(cols, rows, opts = {}) {
   }).join('')}</tr>`).join('')}</tbody></table>`;
 }
 const EVENT_NAMES = { tel: '전화 걸기', kakao: '카카오톡 열기', mail: '이메일', inquiry_open: '상담 팝업 열기', inquiry_send: '문의 보내기(카톡)', inquiry_mail: '문의 보내기(메일)', seo_check: 'SEO 점검 실행', inquiry_page: '견적 문의 페이지 이동' };
-const PAGE_NAMES = { '/': '메인', '/portfolio': '포트폴리오', '/process': '제작 과정', '/price': '가격 안내', '/seo-checker': 'SEO 점검', '/faq': '자주 묻는 질문', '/inquiry': '견적 문의' };
+const PAGE_NAMES = { '/': '메인', '/portfolio': '포트폴리오', '/process': '제작 과정', '/price': '가격 안내', '/perks': '제작 혜택', '/seo-checker': 'SEO 점검', '/faq': '자주 묻는 질문', '/inquiry': '견적 문의' };
 const pageName = (p) => PAGE_NAMES[p] ? `${PAGE_NAMES[p]} (${p})` : p;
 
 function renderDash(d) {
@@ -698,13 +698,14 @@ const GROUPS = [
   ['pf', '포트폴리오 페이지', ''],
   ['process', '제작 과정 페이지', '메인의 제작 순서 섹션(process.*)과 키를 함께 씁니다.'],
   ['price', '가격 안내 페이지', '요금 · 기본 포함 · 추가 비용 기준 문구입니다.'],
+  ['perks', '제작 혜택 페이지', '혜택 금액(합계 · 항목별)과 문구입니다. 큰 제목 · 검색 설명 · 견적 비교 합계에 금액이 따로 들어 있으니 금액을 바꿀 때는 세 곳을 함께 고쳐 주세요.'],
   ['seo', 'SEO 점검 페이지', ''],
   ['faq', '자주 묻는 질문 페이지', '질문 목록은 "자주 묻는 질문" 메뉴에서 편집합니다.'],
   ['inq', '견적 문의 페이지', ''],
 ];
 const LABELS = {
   'site.phone': '전화번호 (화면 표시)', 'site.email': '이메일', 'site.kakao': '카카오톡 채널 주소 (URL)', 'site.tagline': '로고 아래 문구', 'site.ceo': '대표자', 'site.bizno': '사업자등록번호', 'site.name': '상호',
-  'nav.portfolio': '메뉴 1', 'nav.process': '메뉴 (제작 과정)', 'nav.price': '메뉴 (가격 안내)', 'nav.seo': '메뉴 2', 'nav.faq': '메뉴 3', 'nav.contact': '메뉴 4', 'nav.cta': '상단 빨간 버튼', 'nav.mbtn': '모바일 메뉴 하단 버튼',
+  'nav.portfolio': '메뉴 1', 'nav.process': '메뉴 (제작 과정)', 'nav.price': '메뉴 (가격 안내)', 'nav.perks': '메뉴 (제작 혜택)', 'nav.mperks': '모바일 메뉴 (제작 혜택)', 'nav.mperksen': '모바일 메뉴 (제작 혜택) 부제', 'footer.lperks': '사이트맵 링크 (제작 혜택)', 'nav.seo': '메뉴 2', 'nav.faq': '메뉴 3', 'nav.contact': '메뉴 4', 'nav.cta': '상단 빨간 버튼', 'nav.mbtn': '모바일 메뉴 하단 버튼',
   'hero.corner': '왼쪽 위 작은 문구', 'hero.btn2': '흰색 버튼 (세 슬라이드 공통)',
   'value.title': '가치 제목', 'value.core': '가운데 원 위 라벨', 'value.two': '두 가지 성공 문구', 'value.w1': '왼쪽 칩', 'value.w2': '오른쪽 칩', 'value.w.d': '칩 아래 설명', 'value.a.t': '약속 제목', 'value.a.d': '약속 설명', 'value.c.t': '비전 제목', 'value.c.d': '비전 설명', 'price.title': '요금 제목', 'price.desc': '요금 설명', 'price.p1.n': '상품 1 이름', 'price.p1.amt': '상품 1 금액(숫자만, 만원)', 'price.p2.n': '상품 2 이름', 'price.p2.amt': '상품 2 금액(숫자만, 만원)', 'price.p2.tag': '상품 2 꼬리표', 'price.p3.n': '상품 3 이름', 'price.p3.amt': '상품 3 금액(숫자만, 만원)', 'why.seo.title': '제작 기준 제목', 'why.seo.desc': '제작 기준 설명', 'why.act.text': 'SEO 점검 유도 문구', 'why.act.btn': 'SEO 점검 버튼',
   'contact.title': '제목', 'contact.desc': '설명', 'contact.btn': '버튼', 'contact.kakao.title': '카카오톡 항목 제목', 'contact.kakao.sub': '카카오톡 항목 설명', 'contact.tel.title': '전화 항목 제목', 'contact.mail.title': '이메일 항목 제목',
@@ -722,6 +723,19 @@ function labelFor(key) {
   let m;
   if ((m = key.match(/^nav\.m(\d)(en)?$/))) return `모바일 메뉴 ${m[1]}${m[2] ? ' 부제' : ''}`;
   if ((m = key.match(/^hero\.(\d)\.(eyebrow|title|sub|btn)$/))) return `${m[1]}번 슬라이드 ${{ eyebrow: '작은 제목', title: '큰 제목', sub: '설명', btn: '빨간 버튼' }[m[2]]}`;
+  if ((m = key.match(/^perks\.(.+)$/))) {
+    const k = m[1], P = { 'band.eyebrow': '상단 작은 제목', 'band.title': '상단 큰 제목 (금액 포함)', 'band.desc': '상단 설명', 'bill.title': '견적 비교 제목', 'bill.sum': '견적 비교 합계 라벨', 'bill.btn': '견적 비교 버튼', 'bill.note': '견적 비교 안내문(예시 금액 고지)', total: '혜택 합계 (숫자만, 만원)',
+      'basic.eyebrow': '혜택 목록 작은 제목', 'basic.title': '혜택 목록 큰 제목', 'basic.desc': '혜택 목록 설명', bonus: '추가 안내 (SEO 점검기)', 'bonus.link': '추가 안내 링크 글자',
+      'scope.eyebrow': '포함 범위 작은 제목', 'scope.title': '포함 범위 큰 제목', 'scope.desc': '포함 범위 설명', 'scope.end1': '포함 범위 아래 안내 1', 'scope.end2': '포함 범위 아래 안내 2',
+      'faq.eyebrow': '질문 작은 제목', 'faq.title': '질문 큰 제목', 'cta.title': '하단 유도 제목', 'cta.desc': '하단 유도 설명' };
+    if (P[k]) return P[k];
+    let n;
+    if ((n = k.match(/^k(\d)$/))) return `상단 요약 ${n[1]}`;
+    if ((n = k.match(/^b(\d)\.(t|amt)$/))) return `견적 비교 ${n[1]}번 ${n[2] === 't' ? '항목 이름' : '금액 (숫자만, 만원)'}`;
+    if ((n = k.match(/^i(\d)\.(t|d|s)$/))) return `혜택 ${n[1]} ${{ t: '제목', d: '설명', s: '적용 범위' }[n[2]]}`;
+    if ((n = k.match(/^scope\.(\d)\.(t|d)$/))) return `포함 범위 ${n[1]}번 칸 ${n[2] === 't' ? '제목' : '설명'}`;
+    if ((n = k.match(/^q(\d)\.(q|a)$/))) return `질문 ${n[1]} ${n[2] === 'q' ? '질문' : '답변'}`;
+  }
   if (key === 'service.title') return '하는 일 제목';
   if (key === 'service.desc') return '하는 일 설명';
   if ((m = key.match(/^service\.(\d)\.(t|d|go|k(\d))$/))) return `${m[1]}번 칸 ${m[3] ? '꼬리표 ' + m[3] : { t: '이름', d: '설명', go: '아래 버튼 글자' }[m[2]]}`;
