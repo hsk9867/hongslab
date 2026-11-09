@@ -355,53 +355,53 @@
     .sec-head.row{display:flex;align-items:flex-end;justify-content:space-between;gap:40px}
     .sec-head.row p{margin-top:0;max-width:440px}
 
-    /* ===== Service (하는 일: 홈페이지 · 쇼핑몰 · 앱 · 업무 시스템 네 칸, soft gray) ===== */
-    #service{background:var(--soft);padding:140px 0}
+    /* ===== Service (하는 일: 홈페이지 · 쇼핑몰 · 앱 · 업무 시스템 네 칸, soft gray) — 한 화면에 들어가도록 간결하게 ===== */
+    #service{background:var(--soft);padding:120px 0}
     #service .cards{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--black);border-left:1px solid var(--black)}
     #service .cards li{border-right:1px solid var(--black);border-bottom:1px solid var(--black);background:#fff}
-    #service .cards a{position:relative;display:flex;flex-direction:column;height:100%;min-height:400px;padding:30px 28px 26px;overflow:hidden;color:var(--black);transition:color .45s ease}
+    #service .cards a{position:relative;display:flex;flex-direction:column;height:100%;padding:26px 26px 22px;overflow:hidden;color:var(--black);transition:color .45s ease}
     #service .cards a:before{content:"";position:absolute;inset:0;background:var(--black);transform:translateY(101%);transition:transform .6s cubic-bezier(.16,1,.3,1)}
     #service .cards a>*{position:relative;z-index:1}
+    #service .top{display:flex;align-items:center;justify-content:space-between}
     #service .no{font-family:var(--en);font-size:12px;font-weight:700;letter-spacing:.2em;color:var(--red)}
-    #service .ic{margin-top:26px;width:58px;height:58px;border:1px solid currentColor;display:flex;align-items:center;justify-content:center;transition:background .45s ease,border-color .45s ease}
-    #service .ic svg{width:26px;height:26px}
-    #service h3{margin-top:26px;font-size:clamp(24px,2.1vw,30px);font-weight:800;letter-spacing:-.035em;line-height:1.2}
-    #service .cards p{margin-top:12px;font-size:14.5px;line-height:1.75;color:var(--muted);transition:color .45s ease}
-    #service .tags{margin:20px 0 28px;display:flex;flex-wrap:wrap;gap:6px}
-    #service .tags span{font-size:12.5px;font-weight:600;letter-spacing:-.01em;padding:6px 10px;background:var(--soft);color:#333;transition:background .45s ease,color .45s ease}
-    #service .go{margin-top:auto;padding-top:18px;border-top:1px solid var(--line);display:flex;align-items:center;justify-content:space-between;font-size:13.5px;font-weight:700;letter-spacing:-.01em;transition:border-color .45s ease}
-    #service .go i{font-family:var(--en);font-style:normal;font-size:18px;transition:transform var(--t),color var(--t)}
+    #service .ar{font-family:var(--en);font-style:normal;font-size:18px;line-height:1;transition:transform var(--t),color var(--t)}
+    #service .ic{margin-top:20px;width:52px;height:52px;border:1px solid currentColor;display:flex;align-items:center;justify-content:center;transition:background .45s ease,border-color .45s ease}
+    #service .ic svg{width:24px;height:24px}
+    #service h3{margin-top:20px;font-size:clamp(22px,2vw,28px);font-weight:800;letter-spacing:-.035em;line-height:1.2}
+    #service .cards p{margin-top:8px;font-size:14.5px;line-height:1.65;color:var(--muted);transition:color .45s ease}
+    #service .tags{margin-top:auto;padding-top:14px;display:flex;flex-wrap:wrap;gap:2px 0;font-size:12.5px;font-weight:600;letter-spacing:-.01em;color:#444;transition:color .45s ease}
+    #service .tags:before{content:"";flex:0 0 100%;height:1px;margin-bottom:12px;background:var(--line);transition:background .45s ease}
+    #service .cards p+.tags{margin-top:18px}
+    #service .tags span+span:before{content:"·";margin:0 8px;color:var(--red);font-weight:800}
     #service .cards a:hover,#service .cards a:focus-visible{color:#fff;outline:0}
     #service .cards a:hover:before,#service .cards a:focus-visible:before{transform:none}
     #service .cards a:hover .ic,#service .cards a:focus-visible .ic{background:var(--red);border-color:var(--red)}
     #service .cards a:hover p,#service .cards a:focus-visible p{color:rgba(255,255,255,.72)}
-    #service .cards a:hover .tags span,#service .cards a:focus-visible .tags span{background:rgba(255,255,255,.12);color:#fff}
-    #service .cards a:hover .go,#service .cards a:focus-visible .go{border-top-color:rgba(255,255,255,.22)}
-    #service .cards a:hover .go i,#service .cards a:focus-visible .go i{transform:translateX(6px);color:var(--red)}
+    #service .cards a:hover .tags,#service .cards a:focus-visible .tags{color:rgba(255,255,255,.85)}
+    #service .cards a:hover .tags:before,#service .cards a:focus-visible .tags:before{background:rgba(255,255,255,.22)}
+    #service .cards a:hover .ar,#service .cards a:focus-visible .ar{transform:translateX(6px);color:var(--red)}
     @media (max-width:1024px){
       #service .cards{grid-template-columns:1fr 1fr}
-      #service .cards a{min-height:0}
     }
     @media (max-width:768px){
-      #service{padding:80px 0}
-      #service .cards a{padding:24px 20px 22px}
-      #service .ic{margin-top:18px;width:48px;height:48px}
-      #service .ic svg{width:22px;height:22px}
-      #service h3{margin-top:18px;font-size:22px}
-      #service .cards p{font-size:13.5px;line-height:1.7}
-      #service .tags{margin:16px 0 22px}
+      #service{padding:64px 0}
+      #service .sec-head{margin-bottom:24px}
+      #service .cards a{padding:20px 18px 18px}
+      #service .ic{margin-top:14px;width:44px;height:44px}
+      #service .ic svg{width:21px;height:21px}
+      #service h3{margin-top:14px;font-size:20px}
+      #service .cards p{margin-top:6px;font-size:13px;line-height:1.6}
+      #service .tags{font-size:12px}
     }
     @media (max-width:600px){
-      /* 좁은 화면: 한 줄에 한 칸, 아이콘은 왼쪽 · 글은 오른쪽 */
-      #service .cards{grid-template-columns:1fr}
-      #service .cards a{display:grid;grid-template-columns:46px 1fr;column-gap:16px;padding:22px 18px 20px}
-      #service .cards .no{position:absolute;right:18px;top:22px}
-      #service .ic{grid-row:1/span 4;margin-top:2px;width:46px;height:46px}
-      #service h3{margin-top:0;font-size:20px;padding-right:34px}
-      #service h3,#service .cards p,#service .tags,#service .go{grid-column:2}
-      #service .cards p{margin-top:6px}
-      #service .tags{margin:12px 0 14px}
-      #service .go{margin-top:0;padding-top:12px}
+      /* 휴대폰: 2×2 로 한 화면에. 꼬리표는 숨기고 이름과 한 줄 설명만 */
+      #service{padding:56px 0}
+      #service .cards a{padding:16px 14px 16px}
+      #service .ic{margin-top:12px;width:40px;height:40px}
+      #service .ic svg{width:19px;height:19px}
+      #service h3{margin-top:12px;font-size:18px}
+      #service .cards p{font-size:12.5px;line-height:1.55}
+      #service .tags{display:none}
     }
 
     /* ===== Hled (보이지 않는 수고로움, white) ===== */
@@ -421,39 +421,6 @@
     #hled .quote .hl{color:var(--red)}
 
 
-    /* ===== Benefit (제작 시 기본 포함: 왼쪽 제목 · 오른쪽 체크 목록) ===== */
-    #benefit{background:#fff;padding:140px 0}
-    #benefit .split{display:grid;grid-template-columns:380px 1fr;gap:70px;align-items:start}
-    #benefit .head h2{margin-top:26px;font-size:clamp(30px,3.4vw,46px);font-weight:800;line-height:1.15;letter-spacing:-.035em}
-    #benefit .head h2 .hl{color:var(--red)}
-    #benefit .head p{margin-top:20px;font-size:15px;line-height:1.85;color:var(--muted)}
-    #benefit .big{margin-top:34px;display:flex;align-items:center;gap:16px;padding-top:26px;border-top:1px solid var(--black)}
-    #benefit .big b{font-family:var(--en);font-size:96px;font-weight:800;line-height:.9;letter-spacing:-.06em;color:var(--red)}
-    #benefit .big span{font-size:14px;font-weight:700;line-height:1.4;letter-spacing:-.02em}
-    #benefit .list{display:flex;flex-direction:column;gap:30px}
-    #benefit .group h3{display:flex;align-items:center;gap:14px;font-size:15px;font-weight:800;letter-spacing:-.02em;padding-bottom:12px;border-bottom:1px solid var(--black)}
-    #benefit .group h3 small{font-family:var(--en);font-size:10px;letter-spacing:.16em;color:var(--red);font-weight:700}
-    #benefit .group h3:after{content:"";flex:1;height:1px;background:transparent}
-    #benefit ul{display:grid;grid-template-columns:1fr 1fr;gap:0 28px}
-    #benefit li{display:flex;align-items:flex-start;gap:12px;padding:13px 0;border-bottom:1px solid var(--line);font-size:14.5px;font-weight:700;letter-spacing:-.01em;line-height:1.4}
-    #benefit li i{flex-shrink:0;width:18px;height:18px;margin-top:2px;background:var(--black);position:relative}
-    #benefit li i:after{content:"";position:absolute;left:6px;top:2px;width:4px;height:9px;border:solid #fff;border-width:0 2px 2px 0;transform:rotate(45deg)}
-    #benefit li:hover i{background:var(--red)}
-    #benefit li>span{flex:1}
-    #benefit li small{display:block;font-weight:400;font-size:12.5px;color:var(--muted);margin-top:2px;line-height:1.6}
-    #benefit .cost{margin-top:40px;background:var(--black);color:#fff;padding:34px 38px;display:grid;grid-template-columns:1.25fr 1fr;gap:40px;align-items:center;border-left:6px solid var(--red)}
-    #benefit .cost .lab{font-family:var(--en);font-size:11px;font-weight:700;letter-spacing:.2em;color:var(--red)}
-    #benefit .cost h3{display:block;margin-top:10px;font-size:clamp(20px,2vw,26px);font-weight:800;letter-spacing:-.03em;color:#fff;line-height:1.35}
-    #benefit .cost h3 em{font-style:normal;color:var(--red)}
-    #benefit .cost p{margin-top:12px;font-size:14px;line-height:1.8;color:rgba(255,255,255,.7);max-width:640px}
-    #benefit .cost .terms{display:flex;flex-direction:column;gap:8px}
-    #benefit .cost .terms li{display:grid;grid-template-columns:92px 1fr;gap:14px;align-items:center;padding:12px 16px;border:1px solid rgba(255,255,255,.22);font-size:13.5px;color:rgba(255,255,255,.85)}
-    #benefit .cost .terms li i{font-style:normal;font-weight:800;font-size:13px;letter-spacing:-.02em;color:#fff;width:auto;height:auto;margin:0;background:none}
-    #benefit .cost .terms li i:after{display:none}
-    #benefit .cost .terms li.x{border-color:var(--red);background:rgba(230,48,39,.14)}
-    #benefit .cost .terms li.x i{color:var(--red)}
-    #benefit .cost .more{grid-column:1/-1;justify-self:start;font-size:13.5px;font-weight:700;color:#fff;text-decoration:underline;text-underline-offset:4px;text-decoration-color:var(--red)}
-    #benefit .cost .more:hover{color:var(--red)}
 
     /* 검색·AI 노출 섹션의 붉은 빛 번짐 */
     #seo:after{content:"";position:absolute;width:56vw;height:56vw;border-radius:50%;background:radial-gradient(circle,rgba(230,48,39,.26),transparent 62%);bottom:-26vw;left:-20vw;filter:blur(30px);animation:drift 20s ease-in-out infinite alternate;pointer-events:none}
@@ -513,16 +480,14 @@
     #care .stats small{display:block;margin-top:4px;font-size:12.5px;line-height:1.6;color:var(--muted)}
 
     @media (max-width:1024px){
-      #hled .cols,#benefit .split,#seo .steps,#seo .check{grid-template-columns:1fr}
-      #benefit .split{gap:36px}
-      #benefit .big{display:none}
+      #hled .cols,#seo .steps,#seo .check{grid-template-columns:1fr}
       #seo .steps>div{border-right:0;border-bottom:1px solid rgba(255,255,255,.18)}
       #seo .steps>div:last-child{border-bottom:0}
       #care .grid{grid-template-columns:1fr;gap:40px}
       .sec-head.row{flex-direction:column;align-items:flex-start;gap:18px}
     }
     @media (max-width:768px){
-      #hled,#benefit,#seo{padding:80px 0}
+      #hled,#seo{padding:80px 0}
       #care{padding:70px 0 80px}
       .sec-head{margin-bottom:34px}
       .sec-head h2{font-size:28px;line-height:1.25}
@@ -532,11 +497,6 @@
       #hled h3{font-size:20px}
       #hled li{grid-template-columns:92px 1fr;gap:12px;font-size:13.5px;line-height:1.6}
       #hled .quote{font-size:16px;margin-top:30px;padding-left:16px}
-      #benefit ul{grid-template-columns:1fr}
-      #benefit .head h2{font-size:28px;line-height:1.25}
-      #benefit .head p{font-size:14px;line-height:1.75}
-      #benefit .cost{grid-template-columns:1fr;padding:26px 22px;gap:20px}
-      #benefit .cost .terms li{grid-template-columns:76px 1fr;padding:10px 12px;font-size:12.5px}
       #hled article .idx{font-size:64px;right:14px;top:4px}
       #seo .steps>div{padding:22px 20px}
       #seo .check>div{padding:22px 20px}
@@ -558,13 +518,7 @@
       .page-snap .sec-head h2,.page-snap #care .l h2{margin-top:1.8svh;font-size:clamp(30px,5svh,52px)}
       .page-snap .sec-head p{margin-top:1.6svh}
       .page-snap #hled .quote{margin-top:4svh}
-      /* 하는 일: 노트북처럼 낮은 화면(높이 640px 안팎)에서도 한 화면에 들어가도록 여백을 화면 높이에 맞춘다 */
-      .page-snap #service .cards a{min-height:min(400px,48svh);padding:clamp(18px,3.4svh,30px) 28px clamp(16px,3svh,26px)}
-      .page-snap #service .ic{margin-top:clamp(12px,2.6svh,26px);width:clamp(44px,7svh,58px);height:clamp(44px,7svh,58px)}
-      .page-snap #service h3{margin-top:clamp(12px,2.6svh,26px)}
-      .page-snap #service .tags{margin:clamp(10px,2svh,20px) 0 clamp(14px,3svh,28px)}
-      .page-snap #service .go{padding-top:clamp(10px,2svh,18px)}
-      .page-snap #benefit .cost{margin-top:3svh}
+      .page-snap #service .cards a{min-height:min(330px,38svh)}
       .page-snap #care .marquee{margin-bottom:4.5svh}
       .page-snap #seo .check,.page-snap #seo .act{margin-top:1.6svh}
       /* 검색·AI 노출: 한 화면에 축소 없이 들어가도록 스냅 모드에서 밀도를 높인다 */
@@ -577,16 +531,6 @@
       .page-snap #seo .act{margin-top:12px;padding:14px 26px}
       .page-snap #seo .act p{font-size:16px}
       .page-snap #seo .act .btn{padding:12px 20px}
-      /* 기본 포함: 같은 이유로 여백 축소 */
-      .page-snap #benefit .list{gap:18px}
-      .page-snap #benefit .group h3{padding-bottom:8px}
-      .page-snap #benefit li{padding:8px 0}
-      .page-snap #benefit li small{font-size:12px;margin-top:0}
-      .page-snap #benefit .big{margin-top:20px;padding-top:16px}
-      .page-snap #benefit .big b{font-size:72px}
-      .page-snap #benefit .cost{padding:22px 30px}
-      .page-snap #benefit .cost p{margin-top:8px;font-size:13px;line-height:1.6}
-      .page-snap #benefit .cost .terms li{padding:9px 14px;font-size:13px}
       /* 배경 전환: 섹션 배경을 비우고 body 배경색을 JS가 스크롤 위치에 맞춰 섞는다 (이미지 배경인 hero·works 제외) */
       .has-secflow #content>section:not(#hero){background:transparent}
       /* 화면 진입 효과: 섹션이 화면 가운데로 들어올 때마다 내용이 떠오른다 */
@@ -813,40 +757,36 @@
             <div class="eyebrow t-track">제작 분야</div>
             <h2 class="reveal t-mark" id="service-title" data-cms="service.title" data-cms-fmt="rich">홍스랩이 <span class="hl">하는 일</span></h2>
           </div>
-          <p class="t-blur" data-cms="service.desc" data-cms-fmt="rich">알리는 홈페이지부터 일을 덜어 주는 업무 시스템까지. 사업에 필요한 만큼 맞춤으로 만들고, 공개한 뒤에도 이어서 챙깁니다.</p>
+          <p class="t-blur" data-cms="service.desc" data-cms-fmt="rich">알리는 홈페이지부터 일을 덜어 주는 업무 시스템까지, 필요한 만큼 맞춤으로 만듭니다.</p>
         </div>
         <ul class="cards t-stagger">
-          <li><a href="/price">
-            <span class="no" aria-hidden="true">01</span>
+          <li><a href="/price" title="홈페이지 요금 보기">
+            <span class="top" aria-hidden="true"><span class="no">01</span><i class="ar">→</i></span>
             <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="16"/><path d="M3 9h18M6.5 6.6h.01M9 6.6h.01M7 13h6M7 16h10"/></svg></span>
             <h3 data-cms="service.1.t">홈페이지</h3>
-            <p data-cms="service.1.d">검색에 보이고 전화·문의로 이어지는, 우리 업체의 첫인상을 만듭니다.</p>
-            <span class="tags"><span data-cms="service.1.k1">기업 · 매장 홈페이지</span><span data-cms="service.1.k2">랜딩페이지</span><span data-cms="service.1.k3">예약 · 문의</span></span>
-            <span class="go"><span data-cms="service.1.go">요금 보기</span><i aria-hidden="true">→</i></span>
+            <p data-cms="service.1.d">검색에 보이고 문의로 이어지는 우리 업체의 첫인상</p>
+            <span class="tags"><span data-cms="service.1.k1">기업 · 매장</span><span data-cms="service.1.k2">랜딩페이지</span><span data-cms="service.1.k3">예약 · 문의</span></span>
           </a></li>
-          <li><a href="/inquiry?plan=쇼핑몰">
-            <span class="no" aria-hidden="true">02</span>
+          <li><a href="/inquiry?plan=쇼핑몰" title="쇼핑몰 견적 문의">
+            <span class="top" aria-hidden="true"><span class="no">02</span><i class="ar">→</i></span>
             <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 8h14l-1 13H6L5 8z"/><path d="M9 8V6.5a3 3 0 0 1 6 0V8M9 12a3 3 0 0 0 6 0"/></svg></span>
             <h3 data-cms="service.2.t">쇼핑몰</h3>
-            <p data-cms="service.2.d">상품 등록부터 결제, 주문 관리까지 한곳에서 운영하도록 만듭니다.</p>
-            <span class="tags"><span data-cms="service.2.k1">상품 관리</span><span data-cms="service.2.k2">결제 연동</span><span data-cms="service.2.k3">주문 · 배송 관리</span></span>
-            <span class="go"><span data-cms="service.2.go">견적 문의</span><i aria-hidden="true">→</i></span>
+            <p data-cms="service.2.d">상품 등록부터 결제, 주문 관리까지 한곳에서</p>
+            <span class="tags"><span data-cms="service.2.k1">상품 관리</span><span data-cms="service.2.k2">결제 연동</span><span data-cms="service.2.k3">주문 · 배송</span></span>
           </a></li>
-          <li><a href="/inquiry?plan=앱">
-            <span class="no" aria-hidden="true">03</span>
+          <li><a href="/inquiry?plan=앱" title="앱 견적 문의">
+            <span class="top" aria-hidden="true"><span class="no">03</span><i class="ar">→</i></span>
             <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="7" y="2.5" width="10" height="19"/><path d="M7 6h10M7 17.5h10M11.5 19.6h1"/></svg></span>
             <h3 data-cms="service.3.t">앱</h3>
-            <p data-cms="service.3.d">고객이 휴대폰에서 바로 쓰는 예약 · 회원 · 주문 서비스를 만듭니다.</p>
-            <span class="tags"><span data-cms="service.3.k1">모바일 앱</span><span data-cms="service.3.k2">웹앱</span><span data-cms="service.3.k3">예약 · 회원 · 알림</span></span>
-            <span class="go"><span data-cms="service.3.go">견적 문의</span><i aria-hidden="true">→</i></span>
+            <p data-cms="service.3.d">휴대폰에서 바로 쓰는 예약 · 회원 · 주문 서비스</p>
+            <span class="tags"><span data-cms="service.3.k1">모바일 앱</span><span data-cms="service.3.k2">웹앱</span><span data-cms="service.3.k3">알림</span></span>
           </a></li>
-          <li><a href="/inquiry?plan=업무 시스템">
-            <span class="no" aria-hidden="true">04</span>
+          <li><a href="/inquiry?plan=업무 시스템" title="업무 시스템 견적 문의">
+            <span class="top" aria-hidden="true"><span class="no">04</span><i class="ar">→</i></span>
             <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18"/><path d="M3 8.5h18M9 8.5V21M12.5 17v-2.5M15.5 17v-5M18.2 17v-3.5"/></svg></span>
             <h3 data-cms="service.4.t">업무 시스템</h3>
-            <p data-cms="service.4.d">손으로 반복하던 일을 줄여 주는 우리 회사 전용 관리 프로그램을 만듭니다.</p>
-            <span class="tags"><span data-cms="service.4.k1">고객 · 회원 관리</span><span data-cms="service.4.k2">예약 · 접수</span><span data-cms="service.4.k3">매출 · 통계</span></span>
-            <span class="go"><span data-cms="service.4.go">견적 문의</span><i aria-hidden="true">→</i></span>
+            <p data-cms="service.4.d">반복되는 수작업을 줄여 주는 우리 회사 전용 프로그램</p>
+            <span class="tags"><span data-cms="service.4.k1">고객 관리</span><span data-cms="service.4.k2">예약 · 접수</span><span data-cms="service.4.k3">매출 · 통계</span></span>
           </a></li>
         </ul>
       </div>
@@ -887,58 +827,6 @@
           </article>
         </div>
         <p class="quote reveal t-mark" data-cms="hled.quote" data-cms-fmt="rich">작은 업체일수록 홈페이지가 곧 첫인상입니다. <span class="hl">화면 하나도 대충 넘기지 않습니다.</span></p>
-      </div>
-    </section>
-
-    <!-- ===== Benefit (제작 시 기본 포함) ===== -->
-    <section id="benefit" aria-labelledby="benefit-title">
-      <div class="inner">
-        <div class="split">
-          <div class="head">
-            <div class="eyebrow t-track">모든 상품에 기본 포함</div>
-            <h2 class="reveal t-mark" id="benefit-title" data-cms="benefit.title" data-cms-fmt="rich">견적서에 옵션으로 붙지 않는,<br><span class="hl">처음부터 들어 있는</span> 12가지</h2>
-            <p class="t-blur" data-cms="benefit.desc">어떤 상품을 고르셔도 아래 12가지는 추가 비용 없이 들어갑니다.</p>
-            <div class="big t-pop" aria-hidden="true"><b class="count" data-to="12">12</b><span>가지<br>기본 포함</span></div>
-          </div>
-          <div class="list">
-            <div class="group reveal">
-              <h3><span data-cms="benefit.g1">기획 · 디자인</span><small>DESIGN</small></h3>
-              <ul class="t-stagger">
-                <li><i aria-hidden="true"></i><span><span data-cms="benefit.1.t">업종 맞춤 구성 설계</span></span></li>
-                <li><i aria-hidden="true"></i><span><span data-cms="benefit.2.t">PC · 모바일 반응형</span></span></li>
-                <li><i aria-hidden="true"></i><span><span data-cms="benefit.3.t">맞춤 디자인</span></span></li>
-                <li><i aria-hidden="true"></i><span><span data-cms="benefit.4.t">공개 전 전체 화면 검수</span></span></li>
-              </ul>
-            </div>
-            <div class="group reveal" style="transition-delay:.1s">
-              <h3><span data-cms="benefit.g2">검색 · AI 노출</span><small>SEO · AEO · GEO</small></h3>
-              <ul class="t-stagger">
-                <li><i aria-hidden="true"></i><span><span data-cms="benefit.5.t">검색 기본 설정</span></span></li>
-                <li><i aria-hidden="true"></i><span><span data-cms="benefit.6.t">카카오톡 · SNS 공유 미리보기</span></span></li>
-                <li><i aria-hidden="true"></i><span><span data-cms="benefit.7.t">구조화 데이터(JSON-LD)</span></span></li>
-                <li><i aria-hidden="true"></i><span><span data-cms="benefit.8.t">AI 크롤러 대응 · llms.txt</span></span></li>
-              </ul>
-            </div>
-            <div class="group reveal" style="transition-delay:.2s">
-              <h3><span data-cms="benefit.g3">연결 · 운영</span><small>OPERATION</small></h3>
-              <ul class="t-stagger">
-                <li><i aria-hidden="true"></i><span><span data-cms="benefit.9.t">전화 · 카카오톡 채널 연결</span></span></li>
-                <li><i aria-hidden="true"></i><span><span data-cms="benefit.10.t">지도 · 길찾기 연결</span></span></li>
-                <li><i aria-hidden="true"></i><span><span data-cms="benefit.11.t">배포 후 1개월 무제한 수정</span></span></li>
-                <li><i aria-hidden="true"></i><span><span data-cms="benefit.12.t">무료 SEO 점검기</span></span></li>
-              </ul>
-            </div>
-          </div>
-        </div>
-        <div class="cost reveal">
-          <div>
-            <span class="lab t-track">비용 약속</span>
-            <h3 data-cms="benefit.cost.title" data-cms-fmt="rich">견적은 제작 전에 확정하고, <em>공개한 뒤에 더 받지 않습니다.</em></h3>
-            <p data-cms="benefit.cost.desc" data-cms-fmt="rich">제작비(부가세 별도) 외 숨은 비용이 없습니다. 도메인·호스팅은 실비, 기능 추가와 전체 디자인 변경만 별도 견적입니다.</p>
-          </div>
-          <ul class="terms t-stagger" aria-label="비용 구성"><li><i>제작비</i><span>부가세 별도 · 상담에서 먼저 확정</span></li><li><i>외부 실비</i><span>도메인 · 호스팅 등 실제 금액만</span></li><li class="x"><i>없음</i><span>숨은 비용 · 공개 후 추가 청구</span></li></ul>
-          <a class="more" href="/price">상품별 요금 보기 →</a>
-        </div>
       </div>
     </section>
 
@@ -1228,7 +1116,7 @@ else{
 document.querySelectorAll('#header .gnb a').forEach(a=>{if(a.querySelector('.t'))return;const t=a.textContent.trim();a.textContent='';const s=document.createElement('span');s.className='t';const i=document.createElement('i');i.dataset.t=t;i.textContent=t;s.appendChild(i);a.appendChild(s)});
 
 /* ===== 제목 단어 분리 (타이포 효과) ===== */
-document.querySelectorAll('#service h2,#contact h2,#hled h2,#benefit h2,#seo h2,#care h2,#hled .quote,#benefit .cost h3,#seo .check h3,#seo .act p,#heroSlides .h').forEach(h=>{
+document.querySelectorAll('#service h2,#contact h2,#hled h2,#seo h2,#care h2,#hled .quote,#seo .check h3,#seo .act p,#heroSlides .h').forEach(h=>{
   h.classList.add('fx');let k=0;const base=h.closest('#hero')?.3:0;
   const walk=n=>{[...n.childNodes].forEach(c=>{
     if(c.nodeType===3){
